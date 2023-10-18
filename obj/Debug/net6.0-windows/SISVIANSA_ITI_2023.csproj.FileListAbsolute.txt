@@ -1,0 +1,574 @@
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteComun.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteEmpresa.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteComun.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteEmpresa.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteComun.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteEmpresa.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\ventana3.IngresarVehiculo.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteComun.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteEmpresa.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\ventana3.VisualizarVehiculo.resources
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\source\repos\SISVIANSA_ITI_2023\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteComun.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteEmpresa.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.IngresarVehiculo.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteComun.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteEmpresa.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.VisualizarVehiculo.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuPrincipal.resources
+C:\Users\Usuario\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\Usuario\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\Usuario\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\Usuario\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\Usuario\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.VisualizarCliente.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\DanMa\source\repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\DanMa\source\repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\DanMa\source\repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\DanMa\source\repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\DanMa\source\repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+C:\Users\daniel.nalotto\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\MySqlConnector.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\MySqlConnector.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+D:\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+D:\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+D:\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+D:\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+D:\SISVIANSA\bin\Debug\net6.0-windows\Google.Protobuf.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\MySql.Data.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\MySqlConnector.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Json.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\ZstdSharp.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+D:\SISVIANSA\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+D:\SISVIANSA\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesPersonal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteComun.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarClienteEmpresa.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarComida.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarDieta.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarMenu.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarPedido.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarPersonal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarSucursal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\ventana3.IngresarVehiculo.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IngresarZona.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPersonal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuJefeCocina.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuPrincipal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteComun.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarClienteEmpresa.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarComida.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarDieta.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarMenu.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarPedido.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarPersonal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarSucursal.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ModificarZona.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+D:\SISVIANSA\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+D:\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+D:\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteComun.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarSucursal.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarUsuario.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarZona.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
+C:\Users\DanMa\source\repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.GestionarVehiculo.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteComun.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarPedido.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarSucursal.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarUsuario.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.GestionarVehiculo.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarZona.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarUsuario.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll.config
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuCocina.resources
+C:\Users\daniel.nalotto\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeleccionarSucursal.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll.config
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarPedido.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarUsuario.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuCocina.resources
+C:\Users\DanMa\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeleccionarSucursal.resources
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll.config
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\MySqlConnector.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Usuario\Desktop\sisviansaaa\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteComun.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarPedido.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarSucursal.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarUsuario.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\ventana3.GestionarVehiculo.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarZona.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarUsuario.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuCocina.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeleccionarSucursal.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll.config
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\MySqlConnector.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteComun.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarPedido.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarSucursal.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarUsuario.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.GestionarVehiculo.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarZona.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarUsuario.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuCocina.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeleccionarSucursal.resources
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\lucia\Source\Repos\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.Properties.Resources.resources
+C:\Users\Usuario\Desktop\sisviansaaa\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.AdministrarMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll.config
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\MySqlConnector.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.AdministrarMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteComun.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarPedido.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarSucursal.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarUsuario.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.GestionarVehiculo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarZona.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarUsuario.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuCocina.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeleccionarSucursal.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.Properties.Resources.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master\SISVIANSA-master\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.exe
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll.config
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.deps.json
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.runtimeconfig.json
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\MySqlConnector.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\System.IO.Pipelines.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\ZstdSharp.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.AdministrarMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteComun.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarPedido.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarSucursal.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarUsuario.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.GestionarVehiculo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarZona.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.IniciarSesion.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarCliente.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarComidas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarDietas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarMenus.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarPedidos.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarSucursales.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarUsuario.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\ventana3.ListarVehiculo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarZonas.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAdministrativo.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuAtencionCliente.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuCocina.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuGerente.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuInformatico.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.MenuTransporte.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ProduccionDiaria.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeleccionarSucursal.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.Properties.Resources.resources
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.GenerateResource.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfoInputs.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.AssemblyInfo.cs
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CoreCompileInputs.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.CopyComplete
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
+C:\Users\daniel.nalotto\Downloads\SISVIANSA-master (1)\SISVIANSA-master\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll

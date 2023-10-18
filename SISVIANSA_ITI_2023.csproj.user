@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="GUI\AsignarZonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\DetallesClienteComun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\DetallesClienteEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\DetallesMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\DetallesSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\AdministrarMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarClienteComun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarClienteEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarDieta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarComida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\GestionarZona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\IniciarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarDietas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarComidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarMenus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarZonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MenuAdministrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MenuAtencionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MenuGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MenuInformatico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MenuCocina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\MenuTransporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ProduccionDiaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\ListarSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\DetallesVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\SeleccionarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
