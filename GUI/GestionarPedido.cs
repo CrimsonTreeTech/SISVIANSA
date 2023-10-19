@@ -34,5 +34,10 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             regresarAlMenu();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

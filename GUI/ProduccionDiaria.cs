@@ -97,6 +97,10 @@ namespace SISVIANSA_ITI_2023.GUI
             else
                 MessageBox.Show("Ha ocurrido un error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             */
+            MenuCocina menuCocina = new MenuCocina(rol, idSucursal);
+            menuCocina.Show(Owner);
+            Close();
+
         }
 
         private void ProduccionDiaria_Load(object sender, EventArgs e)
