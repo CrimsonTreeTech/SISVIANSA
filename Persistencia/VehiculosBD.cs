@@ -53,7 +53,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #1: " + ex.Message);
             }
             finally
             {
@@ -83,7 +83,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #2: " + ex.Message);
             }
             finally
             {
@@ -146,7 +146,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #4: " + ex.Message);
             }
             finally
             {
@@ -178,7 +178,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #5: " + ex.Message);
             }
             finally
             {
@@ -223,7 +223,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #6: " + ex.Message);
             }
             finally
             {
@@ -241,7 +241,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT id_vehiculo, cap_carga FROM vehiculo WHERE matricula LIKE @matricula;";
+                        consulta = "SELECT id_vehiculo, cap_carga, activo FROM vehiculo WHERE matricula LIKE @matricula;";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             cmd.Parameters.AddWithValue("@matricula", "%" + matricula + "%");
@@ -265,7 +265,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #7: " + ex.Message);
             }
             finally
             {
@@ -311,7 +311,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error VehiculoBD: " + ex.Message);
+                MessageBox.Show("Error VehiculoBD #8: " + ex.Message);
             }
             finally
             {
