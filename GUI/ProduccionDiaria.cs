@@ -1,20 +1,25 @@
 ﻿using SISVIANSA_ITI_2023.Logica;
+using System.Collections.Generic;
 
 namespace SISVIANSA_ITI_2023.GUI
 {
     public partial class ProduccionDiaria : Form
     {
         private byte rol;
-        private int idSucursal, capProdScursal, capProdActual;
         private Produccion produccion;
         private Sucursal sucursal;
         private List<Produccion> listaProduccion;
+
+        // Variables relacionadas a la capacidad de produccion
+        private int idSucursal, capProdSucursal, capProdActual;
+        private int stockMaximo, stockActual, stockFaltante;
 
         // Variables usados en la validacion de la data grid view
         private DataGridViewCell celda;
         private int filaSeleccionada, colSeleccionada;
         private string valorCeldaModificada;
         private bool produccionValida, estaProcesandoEndCellEdit = false;
+
 
         // --------------- CONSTRUCTOR -------------------
         public ProduccionDiaria(byte rol, int idSucursal)
@@ -24,8 +29,8 @@ namespace SISVIANSA_ITI_2023.GUI
             this.idSucursal = idSucursal;
             produccion = new Produccion(rol);
             sucursal = new Sucursal(rol);
-            capProdScursal = sucursal.obtenerCapProdScursal(idSucursal);
-            capProdActual = capProdScursal;
+            capProdSucursal = sucursal.obtenerCapProdScursal(idSucursal);
+            capProdActual = capProdSucursal;
             actualizarCapProd();
         }
 
@@ -45,7 +50,6 @@ namespace SISVIANSA_ITI_2023.GUI
             {
                 dgvProduccion.Rows.Add(item.IdMenu, item.LoteMin, item.Cantidad, item.LoteMax, item.ProdMenu);
             }
-            txtCapProdSuc.Text = capProdActual.ToString();
         }
 
         private List<Produccion> obtenerListadoProduccion()
@@ -56,10 +60,12 @@ namespace SISVIANSA_ITI_2023.GUI
                 produccion = new Produccion(rol)
                 {
                     IdMenu = Convert.ToInt32(row.Cells[0].Value),
-                    Cantidad = Convert.ToInt32(row.Cells[1].Value),
-                    LoteMin = Convert.ToInt32(row.Cells[2].Value),
+                    LoteMin = Convert.ToInt32(row.Cells[1].Value),
+                    Cantidad = Convert.ToInt32(row.Cells[2].Value),
                     LoteMax = Convert.ToInt32(row.Cells[3].Value),
-                    Prioridad = Convert.ToInt32(row.Cells[4].Value),
+                    ProdMenu = Convert.ToInt32(row.Cells[4].Value),
+                    Prioridad = Convert.ToInt32(row.Cells[5].Value),
+                    CantAProducir = Convert.ToInt32(row.Cells[6].Value)
                 };
                 listaProduccion.Add(produccion);
             }
@@ -83,7 +89,61 @@ namespace SISVIANSA_ITI_2023.GUI
             txtCapProdSuc.Text = capProdActual.ToString();
         }
 
+        // Data grid view
 
+        private void comprobarValorPrioridad(int filaCeldaModificada)
+        {
+            celda = dgvProduccion.Rows[filaCeldaModificada].Cells[5]; // Averigua el valor de la celda modificada
+            valorCeldaModificada = celda.Value.ToString(); // Convierte a string el valor de la celda modificada
+            produccionValida = produccion.comprobarInformacionValida(valorCeldaModificada); // Devuelve si el valor es correcto o no
+
+            if (produccionValida) // Si la produccion es valida
+            {
+                calcularStockFaltantePorDefecto(filaCeldaModificada); // Calcula el stock faltante y lo muestra en la grilla
+                calcularCapProdActual(); // Actualiza el valor de los minutos de produccion restantes
+            }
+            else
+            {
+                MessageBox.Show("El valor debe ser un número mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                celda.Value = "";
+                dgvProduccion.ClearSelection();
+            }
+        }
+
+        private void calcularStockFaltantePorDefecto(int filaCeldaModificada)
+        {
+            /* -- Muestra el stock faltante automaticamente al completar el valor de prioridad -- */
+            stockActual = Convert.ToInt32(dgvProduccion.Rows[filaCeldaModificada].Cells[2].Value); // Obtiene el valor del stock actual
+            stockMaximo = Convert.ToInt32(dgvProduccion.Rows[filaCeldaModificada].Cells[3].Value); // Obtiene el valor del stock maximo
+            stockFaltante = stockMaximo - stockActual; // Calcula el stock faltante
+            dgvProduccion.Rows[filaCeldaModificada].Cells[6].Value = stockFaltante; // Lo muestra en la celda
+        }
+
+        private void calcularCapProdActual()
+        {
+            listaProduccion = obtenerListadoProduccion(); // Obtiene los datos de la grilla
+            capProdActual = produccion.calcularCapProdActualDeSucursal(listaProduccion, capProdSucursal); // Obtiene la capacidad de produccion restante
+            actualizarCapProd(); // Actualiza los valores de produccion de sucursal
+        }
+
+        private void comprobarValorCantidadAProducir(int filaCeldaModificada)
+        {
+            celda = dgvProduccion.Rows[filaCeldaModificada].Cells[6];
+            valorCeldaModificada = celda.Value.ToString(); // Obtener el valor de la cantidad a producir
+            stockMaximo = Convert.ToInt32(dgvProduccion.Rows[filaCeldaModificada].Cells[3].Value); // Obtener el valor maximo del stock
+            produccionValida = produccion.comprobarValorCantidadAProducir(valorCeldaModificada, stockMaximo); // Llamar a un metodo que me diga si es valido o no
+            
+            if (produccionValida) // Si es valido, actualizar la cap prod actual
+            {
+                calcularCapProdActual();
+            }
+            else // Si no es valido mostrar mensaje de error
+            {
+                MessageBox.Show("La cantidad a producir debe ser un valor numérico mayor a cero.\nLa suma del stock actual y la cantidad a producir no puede ser mayor al stock maximo");
+                dgvProduccion.Rows[filaCeldaModificada].Cells[6].Value = "";
+                dgvProduccion.ClearSelection();
+            }    
+        }
 
         // --------------- METODOS WIDGETS ------------------
         private void ProduccionDiaria_Load(object sender, EventArgs e)
@@ -96,7 +156,6 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnEstablecer_Click(object sender, EventArgs e)
         {
             listaProduccion = obtenerListadoProduccion();
-            /*
             byte nivelDeError = produccion.validarPrioridad(listaProduccion);
             if (nivelDeError == 0)
                 guardarCambios();
@@ -106,11 +165,6 @@ namespace SISVIANSA_ITI_2023.GUI
                 MessageBox.Show("El valor de prioridad no puede repetirse.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show("Ha ocurrido un error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            */
-            MenuCocina menuCocina = new MenuCocina(rol, idSucursal);
-            menuCocina.Show(Owner);
-            Close();
-
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -149,7 +203,7 @@ namespace SISVIANSA_ITI_2023.GUI
             DataGridViewCell celda = dgvProduccion.CurrentCell;
             colSeleccionada = celda.ColumnIndex;
             filaSeleccionada = celda.RowIndex;
-            if(colSeleccionada == 6)
+            if (colSeleccionada == 6)
             {
                 var celdaPrioridad = dgvProduccion.Rows[filaSeleccionada].Cells[5].Value;
                 if (celdaPrioridad == null)
@@ -167,7 +221,7 @@ namespace SISVIANSA_ITI_2023.GUI
              * -- tambien actualiza los valores de capacidad de produccion actual disponible -- */
 
             // Comprueba que este metodo no se este ejecutando para evitar un bucle infinito
-            if (estaProcesandoEndCellEdit) 
+            if (estaProcesandoEndCellEdit)
                 return;
             estaProcesandoEndCellEdit = true;
 
@@ -175,35 +229,16 @@ namespace SISVIANSA_ITI_2023.GUI
             // Obtiene el indice de la celda que disparo el evento
             filaSeleccionada = e.RowIndex;
             colSeleccionada = e.ColumnIndex;
-            
-            
+
+
             if (colSeleccionada == 5) // Si corresponde a la columna de prioridad
                 comprobarValorPrioridad(filaSeleccionada); // Realiza las acciones del metodo comprobarValorPrioridad
 
+            if (colSeleccionada == 6) // Si corresponde a la columna de cantidad a producir
+                comprobarValorCantidadAProducir(filaSeleccionada); // Realiza las acciones del metodo comprobarValorCantidadAProducir
 
             // Cuando termina de ejecutarse el metodo, vdeja de procesarce el metodo, por lo que vale falso
             estaProcesandoEndCellEdit = false;
-        }
-
-        private void comprobarValorPrioridad(int filaCeldaModificada)
-        {
-            celda = dgvProduccion.Rows[filaCeldaModificada].Cells[4]; // Averigua el valor de la celda modificada
-            valorCeldaModificada = celda.Value.ToString(); // Convierte a string el valor de la celda modificada
-            produccionValida = produccion.comprobarInformacionValida(valorCeldaModificada); // Devuelve si el valor es correcto o no
-            
-            if (!produccionValida)
-            {
-                MessageBox.Show("El valor debe ser un número mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                celda.Value = "";
-                dgvProduccion.ClearSelection();
-            }
-            else
-            {
-                // Calcula la cantidad de stock a producir
-                // Lo muestra en la celda
-                // Calcula el valor restante de capacidad de produccion de la sucursal
-                // Actualiza los valores de produccion de sucursal
-            }
         }
 
 

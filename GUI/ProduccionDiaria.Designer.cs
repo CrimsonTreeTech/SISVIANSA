@@ -22,6 +22,9 @@
             lblOrden = new Label();
             btnEstablecer = new Button();
             dgvProduccion = new DataGridView();
+            btnRegresar = new Button();
+            lblCapProdSuc = new Label();
+            txtCapProdSuc = new TextBox();
             colIdMenu = new DataGridViewTextBoxColumn();
             colStockMinimo = new DataGridViewTextBoxColumn();
             colCantidadViandas = new DataGridViewTextBoxColumn();
@@ -29,9 +32,6 @@
             colCoccion = new DataGridViewTextBoxColumn();
             colPrioridad = new DataGridViewTextBoxColumn();
             colCantidad = new DataGridViewTextBoxColumn();
-            btnRegresar = new Button();
-            lblCapProdSuc = new Label();
-            txtCapProdSuc = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProduccion).BeginInit();
             SuspendLayout();
             // 
@@ -72,69 +72,6 @@
             dgvProduccion.CellFormatting += dgvProduccion_CellFormatting;
             dgvProduccion.Click += dgvProduccion_Click;
             // 
-            // colIdMenu
-            // 
-            colIdMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colIdMenu.FillWeight = 99.13979F;
-            colIdMenu.HeaderText = "Id menu";
-            colIdMenu.MaxInputLength = 100;
-            colIdMenu.MinimumWidth = 6;
-            colIdMenu.Name = "colIdMenu";
-            colIdMenu.ReadOnly = true;
-            colIdMenu.Resizable = DataGridViewTriState.False;
-            // 
-            // colStockMinimo
-            // 
-            colStockMinimo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colStockMinimo.FillWeight = 104.068741F;
-            colStockMinimo.HeaderText = "Stock Min";
-            colStockMinimo.MaxInputLength = 100;
-            colStockMinimo.MinimumWidth = 6;
-            colStockMinimo.Name = "colStockMinimo";
-            colStockMinimo.ReadOnly = true;
-            // 
-            // colCantidadViandas
-            // 
-            colCantidadViandas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCantidadViandas.FillWeight = 108.413025F;
-            colCantidadViandas.HeaderText = "Stock Actual";
-            colCantidadViandas.MinimumWidth = 6;
-            colCantidadViandas.Name = "colCantidadViandas";
-            colCantidadViandas.ReadOnly = true;
-            // 
-            // colStockMax
-            // 
-            colStockMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colStockMax.FillWeight = 110.206848F;
-            colStockMax.HeaderText = "Stock Max";
-            colStockMax.MinimumWidth = 6;
-            colStockMax.Name = "colStockMax";
-            colStockMax.ReadOnly = true;
-            // 
-            // colCoccion
-            // 
-            colCoccion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCoccion.FillWeight = 103.347542F;
-            colCoccion.HeaderText = "Tiempo coccion";
-            colCoccion.Name = "colCoccion";
-            colCoccion.ReadOnly = true;
-            // 
-            // colPrioridad
-            // 
-            colPrioridad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colPrioridad.FillWeight = 85.99152F;
-            colPrioridad.HeaderText = "Prioridad";
-            colPrioridad.MinimumWidth = 6;
-            colPrioridad.Name = "colPrioridad";
-            // 
-            // colCantidad
-            // 
-            colCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCantidad.FillWeight = 88.8325F;
-            colCantidad.HeaderText = "Cantidad";
-            colCantidad.Name = "colCantidad";
-            colCantidad.ReadOnly = true;
-            // 
             // btnRegresar
             // 
             btnRegresar.Location = new Point(631, 14);
@@ -163,6 +100,74 @@
             txtCapProdSuc.Size = new Size(91, 23);
             txtCapProdSuc.TabIndex = 6;
             // 
+            // colIdMenu
+            // 
+            colIdMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colIdMenu.FillWeight = 99.13979F;
+            colIdMenu.HeaderText = "Id menu";
+            colIdMenu.MaxInputLength = 100;
+            colIdMenu.MinimumWidth = 6;
+            colIdMenu.Name = "colIdMenu";
+            colIdMenu.ReadOnly = true;
+            colIdMenu.Resizable = DataGridViewTriState.False;
+            // 
+            // colStockMinimo
+            // 
+            colStockMinimo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colStockMinimo.FillWeight = 104.068741F;
+            colStockMinimo.HeaderText = "Stock Min";
+            colStockMinimo.MaxInputLength = 100;
+            colStockMinimo.MinimumWidth = 6;
+            colStockMinimo.Name = "colStockMinimo";
+            colStockMinimo.ReadOnly = true;
+            colStockMinimo.Resizable = DataGridViewTriState.False;
+            // 
+            // colCantidadViandas
+            // 
+            colCantidadViandas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCantidadViandas.FillWeight = 108.413025F;
+            colCantidadViandas.HeaderText = "Stock Actual";
+            colCantidadViandas.MinimumWidth = 6;
+            colCantidadViandas.Name = "colCantidadViandas";
+            colCantidadViandas.ReadOnly = true;
+            colCantidadViandas.Resizable = DataGridViewTriState.False;
+            // 
+            // colStockMax
+            // 
+            colStockMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colStockMax.FillWeight = 110.206848F;
+            colStockMax.HeaderText = "Stock Max";
+            colStockMax.MinimumWidth = 6;
+            colStockMax.Name = "colStockMax";
+            colStockMax.ReadOnly = true;
+            colStockMax.Resizable = DataGridViewTriState.False;
+            // 
+            // colCoccion
+            // 
+            colCoccion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCoccion.FillWeight = 103.347542F;
+            colCoccion.HeaderText = "Tiempo coccion";
+            colCoccion.Name = "colCoccion";
+            colCoccion.ReadOnly = true;
+            colCoccion.Resizable = DataGridViewTriState.False;
+            // 
+            // colPrioridad
+            // 
+            colPrioridad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPrioridad.FillWeight = 85.99152F;
+            colPrioridad.HeaderText = "Prioridad";
+            colPrioridad.MinimumWidth = 6;
+            colPrioridad.Name = "colPrioridad";
+            colPrioridad.Resizable = DataGridViewTriState.False;
+            // 
+            // colCantidad
+            // 
+            colCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCantidad.FillWeight = 88.8325F;
+            colCantidad.HeaderText = "Cantidad";
+            colCantidad.Name = "colCantidad";
+            colCantidad.Resizable = DataGridViewTriState.False;
+            // 
             // ProduccionDiaria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -189,6 +194,8 @@
         private Button btnEstablecer;
         private DataGridView dgvProduccion;
         private Button btnRegresar;
+        private Label lblCapProdSuc;
+        private TextBox txtCapProdSuc;
         private DataGridViewTextBoxColumn colIdMenu;
         private DataGridViewTextBoxColumn colStockMinimo;
         private DataGridViewTextBoxColumn colCantidadViandas;
@@ -196,7 +203,5 @@
         private DataGridViewTextBoxColumn colCoccion;
         private DataGridViewTextBoxColumn colPrioridad;
         private DataGridViewTextBoxColumn colCantidad;
-        private Label lblCapProdSuc;
-        private TextBox txtCapProdSuc;
     }
 }

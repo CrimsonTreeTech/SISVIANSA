@@ -17,6 +17,9 @@ namespace SISVIANSA_ITI_2023.Logica
         private List<Produccion> listaProduccion = null;
         private List<int> todasLasPrioridades;
         private ProduccionBD produccionBD;
+
+        // Variables utilizadas para calcular cantidad de produccion
+        private int minutosDeProduccion, tiempoProduccionDelMenu;
        
 
         // ---------- CONSTRUCTOR -----------
@@ -94,7 +97,55 @@ namespace SISVIANSA_ITI_2023.Logica
             return cantidad <= LoteMin;
         }
 
-        /*
+        public bool comprobarInformacionValida(string prioridadSTR)
+        {
+            correcto = true;
+            try
+            {
+                prioridad = Convert.ToInt32(prioridadSTR);
+                correcto = prioridad > 0;
+            }
+            catch
+            {
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        public bool comprobarValorCantidadAProducir(string cantAProducirSTR, int maxStock)
+        {
+            correcto = true;
+            try
+            {
+                cantAProducir = Convert.ToInt32(cantAProducirSTR);
+                correcto = cantAProducir > 0 && cantAProducir < maxStock;
+            }
+            catch
+            {
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        public int calcularCapProdActualDeSucursal(List<Produccion> listaProduccion, int capProdSucursal)
+        {
+            minutosDeProduccion = 0; // Variable que almacenara la suma de los minutos de produccion de los menus
+
+            // Recorrer lista de produccion
+            foreach (Produccion item in listaProduccion)
+            {
+                // Multiplicar el valor de produccion del menu por la cantidad a producir
+                tiempoProduccionDelMenu = item.ProdMenu * item.CantAProducir;
+                // Guardar el valor en una variable
+                minutosDeProduccion += tiempoProduccionDelMenu;
+            }
+            // Restar los minutos de produccion para el menu de los minutos de produccion totales
+            capProdSucursal = capProdSucursal - minutosDeProduccion;
+
+            // Devolver el valor de la capacidad de produccion actual
+            return capProdSucursal;
+        }
+
         public byte validarPrioridad(List<Produccion> listaProduccion)
         {
             if (valoresPrioridadCorrectos(listaProduccion))
@@ -105,22 +156,20 @@ namespace SISVIANSA_ITI_2023.Logica
             else
                 return 2;
         }
-        */
 
-        public bool comprobarInformacionValida(string prioridad)
+
+        private bool valoresPrioridadCorrectos(List<Produccion> listaProduccion)
         {
-            try
+            foreach (Produccion produccion in listaProduccion)
             {
-                int intPrioridad = Convert.ToInt32(prioridad);
-                return intPrioridad > 0;
+                if (produccion.Prioridad > 1 || produccion.Prioridad == null)
+                    return true;
             }
-            catch
-            {
-                return false;
-            }
+            return false;
         }
 
-        /*
+
+        // Este
         private bool sinValoresDuplicados(List<Produccion> listaProduccion)
         {
             correcto = true;
@@ -138,29 +187,23 @@ namespace SISVIANSA_ITI_2023.Logica
             }
             return correcto;
         }
-        */
-        
-        private bool valoresPrioridadCorrectos(List<Produccion> listaProduccion)
-        {
-            foreach (Produccion produccion in listaProduccion)
-            {
-                if (produccion.Prioridad < 1)
-                    return false;
-            }
-            return true;
-        }
 
-        /*
-        private List<int?> listaDePrioridades(List<Produccion> listaProduccion)
+        private List<int> listaDePrioridades(List<Produccion> listaProduccion)
         {
-            todasLasPrioridades = new List<int?>();
+            todasLasPrioridades = new List<int>();
+            int nroPrioridad;
             foreach (Produccion produccion in listaProduccion)
             {
-                todasLasPrioridades.Add(produccion.Prioridad);
+                if (produccion.Prioridad != null)
+                {
+                    nroPrioridad = Convert.ToInt32(produccion.Prioridad);
+                    todasLasPrioridades.Add(nroPrioridad);
+                }
             }
             return todasLasPrioridades;
         }
-        */
+
+
 
     }
 }
