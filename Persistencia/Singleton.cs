@@ -6,7 +6,6 @@ namespace SISVIANSA_ITI_2023.Persistencia
 {
     public class Singleton : IDisposable
     {
-        private string servidor, bd, usuario, password;
         private MySqlConnection conexion;
         private static Singleton instanciaBD = null;
 

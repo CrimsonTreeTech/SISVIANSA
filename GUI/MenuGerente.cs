@@ -82,7 +82,16 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Owner.Show();
+            if (rol == 1) // Nro de rol de gerente
+            {
+                IniciarSesion iniciarSesion = new IniciarSesion();
+                iniciarSesion.Show(Owner);
+            }
+            else if (rol == 6)
+            {
+                AdministrarMenu administrarMenu = new AdministrarMenu(rol);
+                administrarMenu.Show(Owner);
+            }
             Close();
         }
 

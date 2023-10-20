@@ -14,12 +14,16 @@ namespace SISVIANSA_ITI_2023.GUI
 
     {
         byte rol;
+
+        // -------------------- CONSTRUCTOR -------------------------
         public AdministrarMenu(byte rol)
         {
             InitializeComponent();
             this.rol = rol;
         }
 
+
+        // -------------------- METODOS WIDGETS -------------------------
         private void btnRegresar_Click(object sender, EventArgs e)
         {
 
@@ -27,6 +31,41 @@ namespace SISVIANSA_ITI_2023.GUI
             menuInformatico.Show(Owner);
             Close();
 
+        }
+
+        private void btnGerencia_Click(object sender, EventArgs e)
+        {
+            MenuGerente menuGerente = new MenuGerente(rol);
+            menuGerente.Show(Owner);
+            Close();
+        }
+
+        private void btnCocina_Click(object sender, EventArgs e)
+        {
+            SeleccionarSucursal seleccionarSucursal = new SeleccionarSucursal(rol);
+            seleccionarSucursal.Show(Owner);
+            Close();
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            MenuAdministrativo menuAdministrativo = new MenuAdministrativo(rol);
+            menuAdministrativo.Show(Owner);
+            Close();
+        }
+
+        private void btnATC_Click(object sender, EventArgs e)
+        {
+            MenuAdministrativo menuAdministrativo = new MenuAdministrativo(rol);
+            menuAdministrativo.Show(Owner);
+            Close();
+        }
+
+        private void btnTransporte_Click(object sender, EventArgs e)
+        {
+            MenuTransporte menuTransporte = new MenuTransporte(rol);
+            menuTransporte.Show(Owner);
+            Close();
         }
     }
 }
