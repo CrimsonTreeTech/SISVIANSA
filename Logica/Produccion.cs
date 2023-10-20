@@ -11,7 +11,7 @@ namespace SISVIANSA_ITI_2023.Logica
     public class Produccion
     {
         private byte rol;
-        private int idMenu, loteMin, loteMax, cantidad;
+        private int idMenu, loteMin, loteMax, cantidad, prodMenu, cantAProducir;
         private int? prioridad;
         private bool correcto;
         private List<Produccion> listaProduccion = null;
@@ -55,6 +55,18 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             get { return prioridad; }
             set { prioridad = value; }
+        }
+
+        public int ProdMenu
+        {
+            get { return prodMenu; }
+            set { prodMenu = value; }
+        }
+
+        public int CantAProducir
+        {
+            get { return cantAProducir; }
+            set { cantAProducir = value; }
         }
 
         public List<Produccion> ListaProduccion

@@ -9,6 +9,7 @@ using MySqlX.XDevAPI.Relational;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Diagnostics.Metrics;
 using System.Data;
+using Org.BouncyCastle.Utilities;
 
 namespace SISVIANSA_ITI_2023.Persistencia
 {
@@ -37,16 +38,21 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "CREATE TEMPORARY TABLE IF NOT EXISTS produccion AS";
-                        consulta += "SELECT v.id_menu, m.lote_min, count(v.id_vianda) AS cantidad, m.lote_max, NULL AS prioridad";
-                        consulta += "FROM vianda v";
-                        consulta += "JOIN almacena a ON a.id_vianda = v.id_vianda AND id_sucursal = @idSucursal";
-                        consulta += "JOIN menu m ON m.id_menu = v.id_menu";
+                        consulta  = "CREATE VIEW produccion AS ";
+                        consulta += "SELECT v.id_menu, m.lote_min, count(v.id_vianda) AS cantidad, m.lote_max, pm.produccion_menu ";
+                        consulta += "FROM vianda v ";
+                        consulta += "JOIN almacena a ON a.id_vianda = v.id_vianda AND id_sucursal = @idSucursal ";
+                        consulta += "JOIN menu m ON m.id_menu = v.id_menu ";
+                        consulta += "JOIN( ";
+                        consulta += "SELECT m.id_menu, SUM(c.tiempo_produccion) AS produccion_menu ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN integra i ON i.id_menu = m.id_menu ";
+                        consulta += "JOIN comida c ON c.id_comida = i.id_comida ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") pm ON pm.id_menu = m.id_menu ";
                         consulta += "GROUP BY v.id_menu;";
-                        consulta += "ALTER TABLE produccion";
-                        consulta += "ADD COLUMN prioridad INT UNIQUE;";
 
-                        using(MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             cmd.Parameters.AddWithValue("@idSucursal", idSucursal);
                             filasAfectadas = cmd.ExecuteNonQuery();
@@ -54,9 +60,17 @@ namespace SISVIANSA_ITI_2023.Persistencia
                     }
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                if(ex.Number == 1050)
+                {
+                    borrarVistaProduccion();
+                    crearTablaTemporaProduccion(idSucursal);
+                }
+                else
+                {
+                    MessageBox.Show("ProduccionBD #1: " + ex.Number.ToString() + ": " + ex.Message);
+                }
             }
             finally
             {
@@ -74,7 +88,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT id_menu, lote_min, cantidad, lote_max, prioridad FROM produccion WHERE cantidad BETWEEN lote_min AND lote_max;";
+                        consulta  = "SELECT id_menu, lote_min, cantidad, lote_max, produccion_menu FROM produccion;";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -86,12 +100,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         IdMenu = reader.GetInt32("id_menu"),
                                         LoteMin = reader.GetInt32("lote_min"),
                                         Cantidad = reader.GetInt32("cantidad"),
-                                        LoteMax = reader.GetInt32("lote_max")
+                                        LoteMax = reader.GetInt32("lote_max"),
+                                        ProdMenu = reader.GetInt32("produccion_menu")
                                     };
-                                    if (!reader.IsDBNull("prioridad"))
-                                        produccion.Prioridad = reader.GetInt32("prioridad");
-                                    else
-                                        produccion.Prioridad = null;
                                     listaProduccion.Add(produccion);
                                 }
                             }
@@ -99,15 +110,44 @@ namespace SISVIANSA_ITI_2023.Persistencia
                     }
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("ProduccionBD #2: " + ex.Number.ToString() + ": " + ex.Message);
             }
             finally
             {
                 bd.CerrarConexion();
             }
             return listaProduccion;
+        }
+
+        private bool borrarVistaProduccion()
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "DROP VIEW produccion;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ProduccionBD #1: " + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
         }
 
     }

@@ -19,7 +19,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
         private List<Sucursal> sucursales;
         private List<Zona> zonas;
         private string consulta;
-        private int filasAfectadas;
+        private int filasAfectadas, capProd;
         private List<Produccion> listaProduccion;
         private Produccion produccion;
 
@@ -253,6 +253,41 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 bd.CerrarConexion();
             }
             return zonas;
+        }
+
+        public int obtenerCapProdScursal(int idSucursal)
+        {
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT cap_prod FROM sucursal WHERE id_sucursal = @idSucursal;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idSucursal", idSucursal);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    capProd = reader.GetInt32("cap_prod");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error SucursalBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return capProd;
         }
 
     }

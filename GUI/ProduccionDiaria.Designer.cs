@@ -23,11 +23,15 @@
             btnEstablecer = new Button();
             dgvProduccion = new DataGridView();
             colIdMenu = new DataGridViewTextBoxColumn();
-            colCantidadViandas = new DataGridViewTextBoxColumn();
             colStockMinimo = new DataGridViewTextBoxColumn();
+            colCantidadViandas = new DataGridViewTextBoxColumn();
             colStockMax = new DataGridViewTextBoxColumn();
+            colCoccion = new DataGridViewTextBoxColumn();
             colPrioridad = new DataGridViewTextBoxColumn();
+            colCantidad = new DataGridViewTextBoxColumn();
             btnRegresar = new Button();
+            lblCapProdSuc = new Label();
+            txtCapProdSuc = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProduccion).BeginInit();
             SuspendLayout();
             // 
@@ -42,7 +46,7 @@
             // 
             // btnEstablecer
             // 
-            btnEstablecer.Location = new Point(561, 15);
+            btnEstablecer.Location = new Point(756, 15);
             btnEstablecer.Name = "btnEstablecer";
             btnEstablecer.Size = new Size(129, 27);
             btnEstablecer.TabIndex = 2;
@@ -54,60 +58,86 @@
             // 
             dgvProduccion.AllowUserToAddRows = false;
             dgvProduccion.AllowUserToDeleteRows = false;
+            dgvProduccion.AllowUserToOrderColumns = true;
             dgvProduccion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProduccion.Columns.AddRange(new DataGridViewColumn[] { colIdMenu, colCantidadViandas, colStockMinimo, colStockMax, colPrioridad });
+            dgvProduccion.Columns.AddRange(new DataGridViewColumn[] { colIdMenu, colStockMinimo, colCantidadViandas, colStockMax, colCoccion, colPrioridad, colCantidad });
             dgvProduccion.Location = new Point(12, 48);
             dgvProduccion.MultiSelect = false;
             dgvProduccion.Name = "dgvProduccion";
             dgvProduccion.RowHeadersWidth = 51;
             dgvProduccion.RowTemplate.Height = 25;
-            dgvProduccion.Size = new Size(678, 375);
+            dgvProduccion.Size = new Size(873, 375);
             dgvProduccion.TabIndex = 3;
             dgvProduccion.CellEndEdit += dgvProduccion_CellEndEdit;
             dgvProduccion.CellFormatting += dgvProduccion_CellFormatting;
+            dgvProduccion.Click += dgvProduccion_Click;
             // 
             // colIdMenu
             // 
+            colIdMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colIdMenu.FillWeight = 99.13979F;
             colIdMenu.HeaderText = "Id menu";
+            colIdMenu.MaxInputLength = 100;
             colIdMenu.MinimumWidth = 6;
             colIdMenu.Name = "colIdMenu";
             colIdMenu.ReadOnly = true;
-            colIdMenu.Width = 125;
+            colIdMenu.Resizable = DataGridViewTriState.False;
+            // 
+            // colStockMinimo
+            // 
+            colStockMinimo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colStockMinimo.FillWeight = 104.068741F;
+            colStockMinimo.HeaderText = "Stock Min";
+            colStockMinimo.MaxInputLength = 100;
+            colStockMinimo.MinimumWidth = 6;
+            colStockMinimo.Name = "colStockMinimo";
+            colStockMinimo.ReadOnly = true;
             // 
             // colCantidadViandas
             // 
+            colCantidadViandas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCantidadViandas.FillWeight = 108.413025F;
             colCantidadViandas.HeaderText = "Stock Actual";
             colCantidadViandas.MinimumWidth = 6;
             colCantidadViandas.Name = "colCantidadViandas";
             colCantidadViandas.ReadOnly = true;
-            colCantidadViandas.Width = 125;
-            // 
-            // colStockMinimo
-            // 
-            colStockMinimo.HeaderText = "Stock Min";
-            colStockMinimo.MinimumWidth = 6;
-            colStockMinimo.Name = "colStockMinimo";
-            colStockMinimo.ReadOnly = true;
-            colStockMinimo.Width = 125;
             // 
             // colStockMax
             // 
+            colStockMax.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colStockMax.FillWeight = 110.206848F;
             colStockMax.HeaderText = "Stock Max";
             colStockMax.MinimumWidth = 6;
             colStockMax.Name = "colStockMax";
             colStockMax.ReadOnly = true;
-            colStockMax.Width = 125;
+            // 
+            // colCoccion
+            // 
+            colCoccion.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCoccion.FillWeight = 103.347542F;
+            colCoccion.HeaderText = "Tiempo coccion";
+            colCoccion.Name = "colCoccion";
+            colCoccion.ReadOnly = true;
             // 
             // colPrioridad
             // 
+            colPrioridad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPrioridad.FillWeight = 85.99152F;
             colPrioridad.HeaderText = "Prioridad";
             colPrioridad.MinimumWidth = 6;
             colPrioridad.Name = "colPrioridad";
-            colPrioridad.Width = 125;
+            // 
+            // colCantidad
+            // 
+            colCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCantidad.FillWeight = 88.8325F;
+            colCantidad.HeaderText = "Cantidad";
+            colCantidad.Name = "colCantidad";
+            colCantidad.ReadOnly = true;
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(447, 15);
+            btnRegresar.Location = new Point(631, 14);
             btnRegresar.Margin = new Padding(3, 2, 3, 2);
             btnRegresar.Name = "btnRegresar";
             btnRegresar.Size = new Size(91, 28);
@@ -116,11 +146,30 @@
             btnRegresar.UseVisualStyleBackColor = true;
             btnRegresar.Click += btnRegresar_Click;
             // 
+            // lblCapProdSuc
+            // 
+            lblCapProdSuc.AutoSize = true;
+            lblCapProdSuc.Location = new Point(317, 21);
+            lblCapProdSuc.Name = "lblCapProdSuc";
+            lblCapProdSuc.Size = new Size(188, 15);
+            lblCapProdSuc.TabIndex = 5;
+            lblCapProdSuc.Text = "Capacidad de produccion restante";
+            // 
+            // txtCapProdSuc
+            // 
+            txtCapProdSuc.Location = new Point(511, 18);
+            txtCapProdSuc.Name = "txtCapProdSuc";
+            txtCapProdSuc.ReadOnly = true;
+            txtCapProdSuc.Size = new Size(91, 23);
+            txtCapProdSuc.TabIndex = 6;
+            // 
             // ProduccionDiaria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(703, 432);
+            ClientSize = new Size(899, 432);
+            Controls.Add(txtCapProdSuc);
+            Controls.Add(lblCapProdSuc);
             Controls.Add(btnRegresar);
             Controls.Add(dgvProduccion);
             Controls.Add(btnEstablecer);
@@ -139,11 +188,15 @@
         private Label lblOrden;
         private Button btnEstablecer;
         private DataGridView dgvProduccion;
-        private DataGridViewTextBoxColumn colIdMenu;
-        private DataGridViewTextBoxColumn colCantidadViandas;
-        private DataGridViewTextBoxColumn colStockMinimo;
-        private DataGridViewTextBoxColumn colStockMax;
-        private DataGridViewTextBoxColumn colPrioridad;
         private Button btnRegresar;
+        private DataGridViewTextBoxColumn colIdMenu;
+        private DataGridViewTextBoxColumn colStockMinimo;
+        private DataGridViewTextBoxColumn colCantidadViandas;
+        private DataGridViewTextBoxColumn colStockMax;
+        private DataGridViewTextBoxColumn colCoccion;
+        private DataGridViewTextBoxColumn colPrioridad;
+        private DataGridViewTextBoxColumn colCantidad;
+        private Label lblCapProdSuc;
+        private TextBox txtCapProdSuc;
     }
 }

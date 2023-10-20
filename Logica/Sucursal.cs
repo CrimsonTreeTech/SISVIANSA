@@ -116,6 +116,12 @@ namespace SISVIANSA_ITI_2023.Logica
             return sucursalBD.obtenerSucursalesActivas();
         }
 
+        public int obtenerCapProdScursal(int idSucursal)
+        {
+            return sucursalBD.obtenerCapProdScursal(idSucursal);
+        }
+
+
         /////////////////////////////////////////////////////////////////////////////////////
 
 
