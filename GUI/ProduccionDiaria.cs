@@ -5,14 +5,16 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ProduccionDiaria : Form
     {
         private byte rol;
-        private int idSucursal;
-        private bool estaProcesandoEndCellEdit = false;
-
-        private int capProdScursal, capProdActual;
-        private int filaSeleccionada, colSeleccionada;
+        private int idSucursal, capProdScursal, capProdActual;
         private Produccion produccion;
         private Sucursal sucursal;
         private List<Produccion> listaProduccion;
+
+        // Variables usados en la validacion de la data grid view
+        private DataGridViewCell celda;
+        private int filaSeleccionada, colSeleccionada;
+        private string valorCeldaModificada;
+        private bool produccionValida, estaProcesandoEndCellEdit = false;
 
         // --------------- CONSTRUCTOR -------------------
         public ProduccionDiaria(byte rol, int idSucursal)
@@ -84,6 +86,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
 
         // --------------- METODOS WIDGETS ------------------
+        private void ProduccionDiaria_Load(object sender, EventArgs e)
+        {
+            produccion.crearTablaTemporaProduccion(idSucursal);
+            cargarDatos();
+        }
+
+        // Botones
         private void btnEstablecer_Click(object sender, EventArgs e)
         {
             listaProduccion = obtenerListadoProduccion();
@@ -104,14 +113,18 @@ namespace SISVIANSA_ITI_2023.GUI
 
         }
 
-        private void ProduccionDiaria_Load(object sender, EventArgs e)
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-            produccion.crearTablaTemporaProduccion(idSucursal);
-            cargarDatos();
+            SeleccionarSucursal seleccionarSucursal = new SeleccionarSucursal(rol);
+            seleccionarSucursal.Show(Owner);
+            Close();
         }
 
+
+        // Data grid view
         private void dgvProduccion_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            /* -- Pinta de rojo las celdas cuyos valores de stock actual sean iguales o menores al stock minimo -- */
             if (e.RowIndex >= 0 && e.RowIndex < dgvProduccion.Rows.Count)
             {
                 DataGridViewRow row = dgvProduccion.Rows[e.RowIndex];
@@ -128,34 +141,6 @@ namespace SISVIANSA_ITI_2023.GUI
                     row.DefaultCellStyle.ForeColor = dgvProduccion.DefaultCellStyle.ForeColor;
                 }
             }
-        }
-
-        private void dgvProduccion_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (estaProcesandoEndCellEdit)
-                return;
-
-            estaProcesandoEndCellEdit = true;
-
-            int celdaSeleccionada = e.RowIndex;
-            DataGridViewCell celda = dgvProduccion.Rows[celdaSeleccionada].Cells[4];
-            string valorActualizado = celda.Value.ToString();
-            bool produccionValida = produccion.comprobarInformacionValida(valorActualizado);
-            if (!produccionValida)
-            {
-                MessageBox.Show("El valor debe ser un número mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                celda.Value = "";
-                dgvProduccion.ClearSelection();
-                dgvProduccion.CurrentCell = celda;
-            }
-            estaProcesandoEndCellEdit = false;
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            SeleccionarSucursal seleccionarSucursal = new SeleccionarSucursal(rol);
-            seleccionarSucursal.Show(Owner);
-            Close();
         }
 
         private void dgvProduccion_Click(object sender, EventArgs e)
@@ -175,5 +160,53 @@ namespace SISVIANSA_ITI_2023.GUI
             }
 
         }
+
+        private void dgvProduccion_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            /* -- Llama al metodo de validacion al terminar de modificar las columnas prioridad y cantidad a producir.
+             * -- tambien actualiza los valores de capacidad de produccion actual disponible -- */
+
+            // Comprueba que este metodo no se este ejecutando para evitar un bucle infinito
+            if (estaProcesandoEndCellEdit) 
+                return;
+            estaProcesandoEndCellEdit = true;
+
+
+            // Obtiene el indice de la celda que disparo el evento
+            filaSeleccionada = e.RowIndex;
+            colSeleccionada = e.ColumnIndex;
+            
+            
+            if (colSeleccionada == 5) // Si corresponde a la columna de prioridad
+                comprobarValorPrioridad(filaSeleccionada); // Realiza las acciones del metodo comprobarValorPrioridad
+
+
+            // Cuando termina de ejecutarse el metodo, vdeja de procesarce el metodo, por lo que vale falso
+            estaProcesandoEndCellEdit = false;
+        }
+
+        private void comprobarValorPrioridad(int filaCeldaModificada)
+        {
+            celda = dgvProduccion.Rows[filaCeldaModificada].Cells[4]; // Averigua el valor de la celda modificada
+            valorCeldaModificada = celda.Value.ToString(); // Convierte a string el valor de la celda modificada
+            produccionValida = produccion.comprobarInformacionValida(valorCeldaModificada); // Devuelve si el valor es correcto o no
+            
+            if (!produccionValida)
+            {
+                MessageBox.Show("El valor debe ser un número mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                celda.Value = "";
+                dgvProduccion.ClearSelection();
+            }
+            else
+            {
+                // Calcula la cantidad de stock a producir
+                // Lo muestra en la celda
+                // Calcula el valor restante de capacidad de produccion de la sucursal
+                // Actualiza los valores de produccion de sucursal
+            }
+        }
+
+
+
     }
 }
