@@ -32,55 +32,63 @@
             btnCancelar = new Button();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            radioButton1 = new RadioButton();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            radioButton2 = new RadioButton();
             dataGridView1 = new DataGridView();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            dataGridView2 = new DataGridView();
             columna = new DataGridViewTextBoxColumn();
             columna1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             column4 = new DataGridViewTextBoxColumn();
             columna5 = new DataGridViewTextBoxColumn();
             Columna6 = new DataGridViewTextBoxColumn();
-            lblObservaciones = new Label();
-            textBox5 = new TextBox();
-            btnRegresar = new Button();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
             Column6 = new DataGridViewTextBoxColumn();
+            txtNombreCliente = new TextBox();
+            rbtnNombreCliente = new RadioButton();
+            txtDocCliente = new TextBox();
+            rbtnDocCliente = new RadioButton();
+            groupBox2 = new GroupBox();
+            cboDietaMenu = new ComboBox();
+            cboTipoMenu = new ComboBox();
+            dataGridView2 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
+            rbtnTipoMenu = new RadioButton();
+            rbtnDietaMenu = new RadioButton();
+            btnBuscarCliente = new Button();
+            rbtnNombreMenu = new RadioButton();
+            txtNombreMenu = new TextBox();
+            btnBuscarMenu = new Button();
+            lblDatos = new Label();
+            lblDatosCliente = new Label();
+            txtNombreMenuDatos = new TextBox();
+            txtDirClienteDatos = new TextBox();
+            txtTotalPrecioMenu = new TextBox();
+            txtIdMenuDatos = new TextBox();
+            lblDatosMenu = new Label();
+            nudCantidadMenu = new NumericUpDown();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudCantidadMenu).BeginInit();
             SuspendLayout();
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(622, 593);
-            btnAceptar.Margin = new Padding(3, 4, 3, 4);
+            btnAceptar.Location = new Point(1075, 569);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(194, 53);
+            btnAceptar.Size = new Size(170, 40);
             btnAceptar.TabIndex = 11;
-            btnAceptar.Text = "Aceptar";
+            btnAceptar.Text = "Realizar pedido";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(356, 593);
-            btnCancelar.Margin = new Padding(3, 4, 3, 4);
+            btnCancelar.Location = new Point(26, 569);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(194, 53);
+            btnCancelar.Size = new Size(170, 40);
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -89,75 +97,28 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(98, 80);
+            label1.Location = new Point(86, 60);
             label1.Name = "label1";
-            label1.Size = new Size(0, 20);
+            label1.Size = new Size(0, 15);
             label1.TabIndex = 14;
             label1.Click += label1_Click;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnBuscarCliente);
             groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Location = new Point(58, 51);
+            groupBox1.Controls.Add(txtNombreCliente);
+            groupBox1.Controls.Add(rbtnNombreCliente);
+            groupBox1.Controls.Add(txtDocCliente);
+            groupBox1.Controls.Add(rbtnDocCliente);
+            groupBox1.Location = new Point(12, 11);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(743, 160);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(539, 308);
             groupBox1.TabIndex = 15;
             groupBox1.TabStop = false;
             groupBox1.Text = "Cliente";
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(comboBox2);
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(dataGridView2);
-            groupBox2.Controls.Add(radioButton4);
-            groupBox2.Controls.Add(radioButton3);
-            groupBox2.Location = new Point(56, 237);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(745, 133);
-            groupBox2.TabIndex = 16;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Menu";
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(31, 37);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(43, 24);
-            radioButton1.TabIndex = 0;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "CI";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(115, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(115, 80);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 3;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(31, 80);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(85, 24);
-            radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Nombre";
-            radioButton2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -166,49 +127,14 @@
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { columna, columna1, Column2, column4, columna5, Columna6, Column6 });
-            dataGridView1.Location = new Point(298, 34);
+            dataGridView1.Location = new Point(14, 116);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(411, 70);
+            dataGridView1.Size = new Size(507, 180);
             dataGridView1.TabIndex = 4;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(33, 26);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(66, 24);
-            radioButton3.TabIndex = 0;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Dieta";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(33, 71);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(60, 24);
-            radioButton4.TabIndex = 1;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Tipo";
-            radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.AllowUserToAddRows = false;
-            dataGridView2.AllowUserToDeleteRows = false;
-            dataGridView2.AllowUserToOrderColumns = true;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column5, Column7, Column8 });
-            dataGridView2.Location = new Point(286, 25);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(438, 86);
-            dataGridView2.TabIndex = 4;
             // 
             // columna
             // 
@@ -258,54 +184,104 @@
             Columna6.Name = "Columna6";
             Columna6.ReadOnly = true;
             // 
-            // lblObservaciones
-            // 
-            lblObservaciones.AutoSize = true;
-            lblObservaciones.Location = new Point(58, 446);
-            lblObservaciones.Name = "lblObservaciones";
-            lblObservaciones.Size = new Size(105, 20);
-            lblObservaciones.TabIndex = 17;
-            lblObservaciones.Text = "Observaciones";
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(173, 446);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(269, 107);
-            textBox5.TabIndex = 18;
-            // 
-            // btnRegresar
-            // 
-            btnRegresar.Location = new Point(76, 593);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(211, 53);
-            btnRegresar.TabIndex = 19;
-            btnRegresar.Text = "Regresar";
-            btnRegresar.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(117, 71);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(125, 28);
-            comboBox1.TabIndex = 5;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(117, 26);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(125, 28);
-            comboBox2.TabIndex = 6;
-            // 
             // Column6
             // 
             Column6.HeaderText = "Autorizado";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.Width = 125;
+            // 
+            // txtNombreCliente
+            // 
+            txtNombreCliente.Location = new Point(308, 28);
+            txtNombreCliente.Margin = new Padding(3, 2, 3, 2);
+            txtNombreCliente.Name = "txtNombreCliente";
+            txtNombreCliente.Size = new Size(213, 23);
+            txtNombreCliente.TabIndex = 3;
+            // 
+            // rbtnNombreCliente
+            // 
+            rbtnNombreCliente.AutoSize = true;
+            rbtnNombreCliente.Location = new Point(234, 28);
+            rbtnNombreCliente.Margin = new Padding(3, 2, 3, 2);
+            rbtnNombreCliente.Name = "rbtnNombreCliente";
+            rbtnNombreCliente.Size = new Size(69, 19);
+            rbtnNombreCliente.TabIndex = 2;
+            rbtnNombreCliente.TabStop = true;
+            rbtnNombreCliente.Text = "Nombre";
+            rbtnNombreCliente.UseVisualStyleBackColor = true;
+            // 
+            // txtDocCliente
+            // 
+            txtDocCliente.Location = new Point(86, 27);
+            txtDocCliente.Margin = new Padding(3, 2, 3, 2);
+            txtDocCliente.Name = "txtDocCliente";
+            txtDocCliente.Size = new Size(135, 23);
+            txtDocCliente.TabIndex = 1;
+            // 
+            // rbtnDocCliente
+            // 
+            rbtnDocCliente.AutoSize = true;
+            rbtnDocCliente.Location = new Point(14, 28);
+            rbtnDocCliente.Margin = new Padding(3, 2, 3, 2);
+            rbtnDocCliente.Name = "rbtnDocCliente";
+            rbtnDocCliente.Size = new Size(66, 19);
+            rbtnDocCliente.TabIndex = 0;
+            rbtnDocCliente.TabStop = true;
+            rbtnDocCliente.Text = "N° Doc.";
+            rbtnDocCliente.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(btnBuscarMenu);
+            groupBox2.Controls.Add(txtNombreMenu);
+            groupBox2.Controls.Add(rbtnNombreMenu);
+            groupBox2.Controls.Add(cboDietaMenu);
+            groupBox2.Controls.Add(cboTipoMenu);
+            groupBox2.Controls.Add(dataGridView2);
+            groupBox2.Controls.Add(rbtnTipoMenu);
+            groupBox2.Controls.Add(rbtnDietaMenu);
+            groupBox2.Location = new Point(593, 23);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(652, 296);
+            groupBox2.TabIndex = 16;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Menu";
+            // 
+            // cboDietaMenu
+            // 
+            cboDietaMenu.FormattingEnabled = true;
+            cboDietaMenu.Location = new Point(271, 20);
+            cboDietaMenu.Margin = new Padding(3, 2, 3, 2);
+            cboDietaMenu.Name = "cboDietaMenu";
+            cboDietaMenu.Size = new Size(129, 23);
+            cboDietaMenu.TabIndex = 6;
+            // 
+            // cboTipoMenu
+            // 
+            cboTipoMenu.FormattingEnabled = true;
+            cboTipoMenu.Location = new Point(487, 20);
+            cboTipoMenu.Margin = new Padding(3, 2, 3, 2);
+            cboTipoMenu.Name = "cboTipoMenu";
+            cboTipoMenu.Size = new Size(146, 23);
+            cboTipoMenu.TabIndex = 5;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.AllowUserToOrderColumns = true;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column5, Column7, Column8 });
+            dataGridView2.Location = new Point(20, 111);
+            dataGridView2.Margin = new Padding(3, 2, 3, 2);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.RowTemplate.Height = 29;
+            dataGridView2.Size = new Size(613, 173);
+            dataGridView2.TabIndex = 4;
             // 
             // Column1
             // 
@@ -347,28 +323,169 @@
             Column8.Name = "Column8";
             Column8.ReadOnly = true;
             // 
+            // rbtnTipoMenu
+            // 
+            rbtnTipoMenu.AutoSize = true;
+            rbtnTipoMenu.Location = new Point(433, 20);
+            rbtnTipoMenu.Margin = new Padding(3, 2, 3, 2);
+            rbtnTipoMenu.Name = "rbtnTipoMenu";
+            rbtnTipoMenu.Size = new Size(48, 19);
+            rbtnTipoMenu.TabIndex = 1;
+            rbtnTipoMenu.TabStop = true;
+            rbtnTipoMenu.Text = "Tipo";
+            rbtnTipoMenu.UseVisualStyleBackColor = true;
+            // 
+            // rbtnDietaMenu
+            // 
+            rbtnDietaMenu.AutoSize = true;
+            rbtnDietaMenu.Location = new Point(213, 20);
+            rbtnDietaMenu.Margin = new Padding(3, 2, 3, 2);
+            rbtnDietaMenu.Name = "rbtnDietaMenu";
+            rbtnDietaMenu.Size = new Size(52, 19);
+            rbtnDietaMenu.TabIndex = 0;
+            rbtnDietaMenu.TabStop = true;
+            rbtnDietaMenu.Text = "Dieta";
+            rbtnDietaMenu.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarCliente
+            // 
+            btnBuscarCliente.Location = new Point(14, 67);
+            btnBuscarCliente.Name = "btnBuscarCliente";
+            btnBuscarCliente.Size = new Size(507, 32);
+            btnBuscarCliente.TabIndex = 5;
+            btnBuscarCliente.Text = "Buscar";
+            btnBuscarCliente.UseVisualStyleBackColor = true;
+            // 
+            // rbtnNombreMenu
+            // 
+            rbtnNombreMenu.AutoSize = true;
+            rbtnNombreMenu.Location = new Point(20, 19);
+            rbtnNombreMenu.Margin = new Padding(3, 2, 3, 2);
+            rbtnNombreMenu.Name = "rbtnNombreMenu";
+            rbtnNombreMenu.Size = new Size(69, 19);
+            rbtnNombreMenu.TabIndex = 7;
+            rbtnNombreMenu.TabStop = true;
+            rbtnNombreMenu.Text = "Nombre";
+            rbtnNombreMenu.UseVisualStyleBackColor = true;
+            // 
+            // txtNombreMenu
+            // 
+            txtNombreMenu.Location = new Point(95, 18);
+            txtNombreMenu.Margin = new Padding(3, 2, 3, 2);
+            txtNombreMenu.Name = "txtNombreMenu";
+            txtNombreMenu.Size = new Size(95, 23);
+            txtNombreMenu.TabIndex = 6;
+            // 
+            // btnBuscarMenu
+            // 
+            btnBuscarMenu.Location = new Point(20, 57);
+            btnBuscarMenu.Name = "btnBuscarMenu";
+            btnBuscarMenu.Size = new Size(613, 32);
+            btnBuscarMenu.TabIndex = 6;
+            btnBuscarMenu.Text = "Buscar";
+            btnBuscarMenu.UseVisualStyleBackColor = true;
+            // 
+            // lblDatos
+            // 
+            lblDatos.AutoSize = true;
+            lblDatos.Location = new Point(70, 344);
+            lblDatos.Name = "lblDatos";
+            lblDatos.Size = new Size(96, 15);
+            lblDatos.TabIndex = 20;
+            lblDatos.Text = "Datos del pedido";
+            // 
+            // lblDatosCliente
+            // 
+            lblDatosCliente.AutoSize = true;
+            lblDatosCliente.Location = new Point(26, 394);
+            lblDatosCliente.Name = "lblDatosCliente";
+            lblDatosCliente.Size = new Size(126, 15);
+            lblDatosCliente.TabIndex = 21;
+            lblDatosCliente.Text = "Información de cliente";
+            // 
+            // txtNombreMenuDatos
+            // 
+            txtNombreMenuDatos.Location = new Point(179, 391);
+            txtNombreMenuDatos.Margin = new Padding(3, 2, 3, 2);
+            txtNombreMenuDatos.Name = "txtNombreMenuDatos";
+            txtNombreMenuDatos.ReadOnly = true;
+            txtNombreMenuDatos.Size = new Size(243, 23);
+            txtNombreMenuDatos.TabIndex = 6;
+            // 
+            // txtDirClienteDatos
+            // 
+            txtDirClienteDatos.Location = new Point(439, 391);
+            txtDirClienteDatos.Margin = new Padding(3, 2, 3, 2);
+            txtDirClienteDatos.Name = "txtDirClienteDatos";
+            txtDirClienteDatos.ReadOnly = true;
+            txtDirClienteDatos.Size = new Size(477, 23);
+            txtDirClienteDatos.TabIndex = 22;
+            // 
+            // txtTotalPrecioMenu
+            // 
+            txtTotalPrecioMenu.Location = new Point(356, 445);
+            txtTotalPrecioMenu.Margin = new Padding(3, 2, 3, 2);
+            txtTotalPrecioMenu.Name = "txtTotalPrecioMenu";
+            txtTotalPrecioMenu.ReadOnly = true;
+            txtTotalPrecioMenu.Size = new Size(156, 23);
+            txtTotalPrecioMenu.TabIndex = 25;
+            // 
+            // txtIdMenuDatos
+            // 
+            txtIdMenuDatos.Location = new Point(179, 442);
+            txtIdMenuDatos.Margin = new Padding(3, 2, 3, 2);
+            txtIdMenuDatos.Name = "txtIdMenuDatos";
+            txtIdMenuDatos.ReadOnly = true;
+            txtIdMenuDatos.Size = new Size(54, 23);
+            txtIdMenuDatos.TabIndex = 23;
+            // 
+            // lblDatosMenu
+            // 
+            lblDatosMenu.AutoSize = true;
+            lblDatosMenu.Location = new Point(26, 445);
+            lblDatosMenu.Name = "lblDatosMenu";
+            lblDatosMenu.Size = new Size(122, 15);
+            lblDatosMenu.TabIndex = 24;
+            lblDatosMenu.Text = "Información de menu";
+            // 
+            // nudCantidadMenu
+            // 
+            nudCantidadMenu.Location = new Point(267, 445);
+            nudCantidadMenu.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
+            nudCantidadMenu.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            nudCantidadMenu.Name = "nudCantidadMenu";
+            nudCantidadMenu.ReadOnly = true;
+            nudCantidadMenu.Size = new Size(64, 23);
+            nudCantidadMenu.TabIndex = 26;
+            nudCantidadMenu.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
             // GestionarPedido
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(863, 732);
-            Controls.Add(btnRegresar);
-            Controls.Add(textBox5);
-            Controls.Add(lblObservaciones);
+            ClientSize = new Size(1261, 624);
+            Controls.Add(nudCantidadMenu);
+            Controls.Add(txtTotalPrecioMenu);
+            Controls.Add(txtIdMenuDatos);
+            Controls.Add(lblDatosMenu);
+            Controls.Add(txtDirClienteDatos);
+            Controls.Add(txtNombreMenuDatos);
+            Controls.Add(lblDatosCliente);
+            Controls.Add(lblDatos);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "GestionarPedido";
             Text = "RealizarPedido";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudCantidadMenu).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -378,14 +495,14 @@
         private Button btnCancelar;
         private Label label1;
         private GroupBox groupBox1;
-        private RadioButton radioButton1;
+        private RadioButton rbtnDocCliente;
         private GroupBox groupBox2;
         private DataGridView dataGridView1;
-        private TextBox textBox2;
-        private RadioButton radioButton2;
-        private TextBox textBox1;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
+        private TextBox txtNombreCliente;
+        private RadioButton rbtnNombreCliente;
+        private TextBox txtDocCliente;
+        private RadioButton rbtnTipoMenu;
+        private RadioButton rbtnDietaMenu;
         private DataGridView dataGridView2;
         private DataGridViewTextBoxColumn columna;
         private DataGridViewTextBoxColumn columna1;
@@ -393,16 +510,25 @@
         private DataGridViewTextBoxColumn column4;
         private DataGridViewTextBoxColumn columna5;
         private DataGridViewTextBoxColumn Columna6;
-        private Label lblObservaciones;
-        private TextBox textBox5;
-        private Button btnRegresar;
-        private ComboBox comboBox1;
+        private ComboBox cboTipoMenu;
         private DataGridViewTextBoxColumn Column6;
-        private ComboBox comboBox2;
+        private ComboBox cboDietaMenu;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column8;
+        private Button btnBuscarCliente;
+        private Button btnBuscarMenu;
+        private TextBox txtNombreMenu;
+        private RadioButton rbtnNombreMenu;
+        private Label lblDatos;
+        private Label lblDatosCliente;
+        private TextBox txtNombreMenuDatos;
+        private TextBox txtDirClienteDatos;
+        private TextBox txtTotalPrecioMenu;
+        private TextBox txtIdMenuDatos;
+        private Label lblDatosMenu;
+        private NumericUpDown nudCantidadMenu;
     }
 }
