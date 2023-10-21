@@ -156,7 +156,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
                         consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
                         consulta += "WHERE pasa.fecha_act IS NULL ";
-                        consulta += "AAND c.nombre LIKE @valFiltro ";
+                        consulta += "AND c.nombre LIKE @valFiltro ";
                         consulta += "ORDER BY p.nro_pedido ASC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -260,7 +260,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta  = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
                         consulta += "FROM pide p ";
                         consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";

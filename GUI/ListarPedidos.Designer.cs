@@ -159,7 +159,6 @@
             cboZona.DropDownStyle = ComboBoxStyle.DropDownList;
             cboZona.Enabled = false;
             cboZona.FormattingEnabled = true;
-            cboZona.Items.AddRange(new object[] { "Solicitado", "En producción", "En stock", "Enviado", "Entregado", "Rechazado", "Desechado" });
             cboZona.Location = new Point(820, 23);
             cboZona.Name = "cboZona";
             cboZona.Size = new Size(96, 23);

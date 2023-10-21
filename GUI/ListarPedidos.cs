@@ -80,7 +80,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 valFiltro = "";
             }
 
-            else if(rbtnNroPedido.Checked)
+            else if (rbtnNroPedido.Checked)
             {
                 valFiltro = txtNroPedido.Text;
             }
@@ -97,7 +97,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
             else if (rbtnZona.Checked)
             {
-                valFiltro = cboEstado.Text;
+                valFiltro = cboZona.Text;
             }
 
             return valFiltro;
@@ -107,6 +107,7 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             cboZona.Enabled = true;
 
+            cboZona.Items.Clear();
             listaZonas = zona.todasLasZonas();
             foreach (Zona z in listaZonas)
             {
@@ -147,14 +148,14 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             inhabilitarFiltros();
             txtNroPedido.Enabled = true;
-            colFiltro = "p.nro_pedido";
+            colFiltro = "nro_pedido";
         }
 
         private void rbtnCliente_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
             txtCliente.Enabled = true;
-            colFiltro = "c.nombre";
+            colFiltro = "cliente";
         }
 
         private void rbtnEstado_Click(object sender, EventArgs e)
@@ -162,7 +163,7 @@ namespace SISVIANSA_ITI_2023.GUI
             inhabilitarFiltros();
             cboEstado.Enabled = true;
             cboEstado.SelectedIndex = 0;
-            colFiltro = "e.nombre";
+            colFiltro = "estado";
         }
 
         private void rbtnTodo_Click(object sender, EventArgs e)
@@ -175,7 +176,7 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             inhabilitarFiltros();
             cargarCboZona();
-            colFiltro = "p.id_zona";
+            colFiltro = "zona";
         }
     }
 }
