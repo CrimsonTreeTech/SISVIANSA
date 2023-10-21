@@ -35,262 +35,220 @@
             colFecha = new DataGridViewTextBoxColumn();
             colCantidad = new DataGridViewTextBoxColumn();
             colEstado = new DataGridViewTextBoxColumn();
+            colZona = new DataGridViewTextBoxColumn();
+            colDir = new DataGridViewTextBoxColumn();
             gbxFiltrar = new GroupBox();
-            rbtnFiltrarTodo = new RadioButton();
-            cboFiltrarEstado = new ComboBox();
-            rbtnFiltrarEstado = new RadioButton();
-            txtFiltrarIdCliente = new TextBox();
-            txtFiltrarNroPedido = new TextBox();
-            rbtnFiltrarIdCliente = new RadioButton();
-            rbtnFiltrarNroPedido = new RadioButton();
-            gbxOrdenar = new GroupBox();
-            cboOrdenarEstado = new ComboBox();
-            cboOrdenarFecha = new ComboBox();
-            cboOrdenarNroPedido = new ComboBox();
-            rbtnOrdenarEstado = new RadioButton();
-            rbtnOrdenarFecha = new RadioButton();
-            rbtnOrdenarNroPedido = new RadioButton();
+            cboZona = new ComboBox();
+            rbtnZona = new RadioButton();
+            rbtnTodo = new RadioButton();
+            cboEstado = new ComboBox();
+            rbtnEstado = new RadioButton();
+            txtCliente = new TextBox();
+            txtNroPedido = new TextBox();
+            rbtnCliente = new RadioButton();
+            rbtnNroPedido = new RadioButton();
             btnRegresar = new Button();
             btnModificar = new Button();
             btnBuscar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             gbxFiltrar.SuspendLayout();
-            gbxOrdenar.SuspendLayout();
             SuspendLayout();
             // 
             // dgvPedidos
             // 
             dgvPedidos.AllowUserToAddRows = false;
+            dgvPedidos.AllowUserToDeleteRows = false;
+            dgvPedidos.AllowUserToOrderColumns = true;
+            dgvPedidos.AllowUserToResizeColumns = false;
+            dgvPedidos.AllowUserToResizeRows = false;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colNro, colMenu, colCliente, colFecha, colCantidad, colEstado });
-            dgvPedidos.Location = new Point(12, 12);
+            dgvPedidos.Columns.AddRange(new DataGridViewColumn[] { colNro, colMenu, colCliente, colFecha, colCantidad, colEstado, colZona, colDir });
+            dgvPedidos.Location = new Point(12, 108);
             dgvPedidos.MultiSelect = false;
             dgvPedidos.Name = "dgvPedidos";
             dgvPedidos.ReadOnly = true;
             dgvPedidos.RowTemplate.Height = 25;
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPedidos.Size = new Size(583, 315);
+            dgvPedidos.Size = new Size(931, 341);
             dgvPedidos.TabIndex = 0;
             // 
             // colNro
             // 
+            colNro.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colNro.FillWeight = 59.9045258F;
             colNro.HeaderText = "Nro.";
             colNro.Name = "colNro";
             colNro.ReadOnly = true;
-            colNro.Width = 70;
             // 
             // colMenu
             // 
+            colMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colMenu.FillWeight = 65.16104F;
             colMenu.HeaderText = "Menu";
             colMenu.Name = "colMenu";
             colMenu.ReadOnly = true;
-            colMenu.Width = 70;
             // 
             // colCliente
             // 
-            colCliente.HeaderText = "Id cliente";
+            colCliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCliente.FillWeight = 130.441116F;
+            colCliente.HeaderText = "Cliente";
             colCliente.Name = "colCliente";
             colCliente.ReadOnly = true;
-            colCliente.Width = 80;
             // 
             // colFecha
             // 
+            colFecha.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colFecha.FillWeight = 107.027885F;
             colFecha.HeaderText = "Fecha solicitado";
             colFecha.Name = "colFecha";
             colFecha.ReadOnly = true;
-            colFecha.Width = 120;
             // 
             // colCantidad
             // 
+            colCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCantidad.FillWeight = 59.6018028F;
             colCantidad.HeaderText = "Cantidad";
             colCantidad.Name = "colCantidad";
             colCantidad.ReadOnly = true;
-            colCantidad.Width = 80;
             // 
             // colEstado
             // 
+            colEstado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colEstado.FillWeight = 120.211327F;
             colEstado.HeaderText = "Estado";
             colEstado.Name = "colEstado";
             colEstado.ReadOnly = true;
-            colEstado.Width = 120;
+            // 
+            // colZona
+            // 
+            colZona.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colZona.FillWeight = 54.60651F;
+            colZona.HeaderText = "Zona";
+            colZona.Name = "colZona";
+            colZona.ReadOnly = true;
+            // 
+            // colDir
+            // 
+            colDir.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDir.FillWeight = 203.045639F;
+            colDir.HeaderText = "Direccion";
+            colDir.Name = "colDir";
+            colDir.ReadOnly = true;
             // 
             // gbxFiltrar
             // 
-            gbxFiltrar.Controls.Add(rbtnFiltrarTodo);
-            gbxFiltrar.Controls.Add(cboFiltrarEstado);
-            gbxFiltrar.Controls.Add(rbtnFiltrarEstado);
-            gbxFiltrar.Controls.Add(txtFiltrarIdCliente);
-            gbxFiltrar.Controls.Add(txtFiltrarNroPedido);
-            gbxFiltrar.Controls.Add(rbtnFiltrarIdCliente);
-            gbxFiltrar.Controls.Add(rbtnFiltrarNroPedido);
-            gbxFiltrar.Location = new Point(619, 57);
+            gbxFiltrar.Controls.Add(cboZona);
+            gbxFiltrar.Controls.Add(rbtnZona);
+            gbxFiltrar.Controls.Add(rbtnTodo);
+            gbxFiltrar.Controls.Add(cboEstado);
+            gbxFiltrar.Controls.Add(rbtnEstado);
+            gbxFiltrar.Controls.Add(txtCliente);
+            gbxFiltrar.Controls.Add(txtNroPedido);
+            gbxFiltrar.Controls.Add(rbtnCliente);
+            gbxFiltrar.Controls.Add(rbtnNroPedido);
+            gbxFiltrar.Location = new Point(12, 12);
             gbxFiltrar.Name = "gbxFiltrar";
-            gbxFiltrar.Size = new Size(236, 134);
+            gbxFiltrar.Size = new Size(931, 60);
             gbxFiltrar.TabIndex = 1;
             gbxFiltrar.TabStop = false;
             gbxFiltrar.Text = "Filtrar";
             // 
-            // rbtnFiltrarTodo
+            // cboZona
             // 
-            rbtnFiltrarTodo.AutoSize = true;
-            rbtnFiltrarTodo.Location = new Point(13, 102);
-            rbtnFiltrarTodo.Name = "rbtnFiltrarTodo";
-            rbtnFiltrarTodo.Size = new Size(51, 19);
-            rbtnFiltrarTodo.TabIndex = 6;
-            rbtnFiltrarTodo.TabStop = true;
-            rbtnFiltrarTodo.Text = "Todo";
-            rbtnFiltrarTodo.UseVisualStyleBackColor = true;
-            rbtnFiltrarTodo.Click += rbtnFiltrarTodo_Click;
+            cboZona.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboZona.Enabled = false;
+            cboZona.FormattingEnabled = true;
+            cboZona.Items.AddRange(new object[] { "Solicitado", "En producción", "En stock", "Enviado", "Entregado", "Rechazado", "Desechado" });
+            cboZona.Location = new Point(820, 23);
+            cboZona.Name = "cboZona";
+            cboZona.Size = new Size(96, 23);
+            cboZona.TabIndex = 8;
             // 
-            // cboFiltrarEstado
+            // rbtnZona
             // 
-            cboFiltrarEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboFiltrarEstado.FormattingEnabled = true;
-            cboFiltrarEstado.Items.AddRange(new object[] { "Solicitado", "En producción", "En stock", "Enviado", "Entregado", "Rechazado", "Desechado" });
-            cboFiltrarEstado.Location = new Point(107, 76);
-            cboFiltrarEstado.Name = "cboFiltrarEstado";
-            cboFiltrarEstado.Size = new Size(116, 23);
-            cboFiltrarEstado.TabIndex = 5;
+            rbtnZona.AutoSize = true;
+            rbtnZona.Location = new Point(762, 25);
+            rbtnZona.Name = "rbtnZona";
+            rbtnZona.Size = new Size(52, 19);
+            rbtnZona.TabIndex = 7;
+            rbtnZona.Text = "Zona";
+            rbtnZona.UseVisualStyleBackColor = true;
+            rbtnZona.Click += rbtnZona_Click;
             // 
-            // rbtnFiltrarEstado
+            // rbtnTodo
             // 
-            rbtnFiltrarEstado.AutoSize = true;
-            rbtnFiltrarEstado.Location = new Point(13, 77);
-            rbtnFiltrarEstado.Name = "rbtnFiltrarEstado";
-            rbtnFiltrarEstado.Size = new Size(60, 19);
-            rbtnFiltrarEstado.TabIndex = 4;
-            rbtnFiltrarEstado.TabStop = true;
-            rbtnFiltrarEstado.Text = "Estado";
-            rbtnFiltrarEstado.UseVisualStyleBackColor = true;
-            rbtnFiltrarEstado.Click += rbtnFiltrarEstado_Click;
+            rbtnTodo.AutoSize = true;
+            rbtnTodo.Location = new Point(6, 24);
+            rbtnTodo.Name = "rbtnTodo";
+            rbtnTodo.Size = new Size(51, 19);
+            rbtnTodo.TabIndex = 6;
+            rbtnTodo.Text = "Todo";
+            rbtnTodo.UseVisualStyleBackColor = true;
+            rbtnTodo.Click += rbtnTodo_Click;
             // 
-            // txtFiltrarIdCliente
+            // cboEstado
             // 
-            txtFiltrarIdCliente.Location = new Point(107, 47);
-            txtFiltrarIdCliente.Name = "txtFiltrarIdCliente";
-            txtFiltrarIdCliente.Size = new Size(116, 23);
-            txtFiltrarIdCliente.TabIndex = 3;
+            cboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboEstado.FormattingEnabled = true;
+            cboEstado.Items.AddRange(new object[] { "Solicitado", "Confirmado", "Enviado", "Rechazado" });
+            cboEstado.Location = new Point(625, 24);
+            cboEstado.Name = "cboEstado";
+            cboEstado.Size = new Size(116, 23);
+            cboEstado.TabIndex = 5;
             // 
-            // txtFiltrarNroPedido
+            // rbtnEstado
             // 
-            txtFiltrarNroPedido.Location = new Point(107, 18);
-            txtFiltrarNroPedido.Name = "txtFiltrarNroPedido";
-            txtFiltrarNroPedido.Size = new Size(116, 23);
-            txtFiltrarNroPedido.TabIndex = 2;
+            rbtnEstado.AutoSize = true;
+            rbtnEstado.Location = new Point(559, 25);
+            rbtnEstado.Name = "rbtnEstado";
+            rbtnEstado.Size = new Size(60, 19);
+            rbtnEstado.TabIndex = 4;
+            rbtnEstado.Text = "Estado";
+            rbtnEstado.UseVisualStyleBackColor = true;
+            rbtnEstado.Click += rbtnEstado_Click;
             // 
-            // rbtnFiltrarIdCliente
+            // txtCliente
             // 
-            rbtnFiltrarIdCliente.AutoSize = true;
-            rbtnFiltrarIdCliente.Location = new Point(13, 48);
-            rbtnFiltrarIdCliente.Name = "rbtnFiltrarIdCliente";
-            rbtnFiltrarIdCliente.Size = new Size(75, 19);
-            rbtnFiltrarIdCliente.TabIndex = 1;
-            rbtnFiltrarIdCliente.TabStop = true;
-            rbtnFiltrarIdCliente.Text = "Id Cliente";
-            rbtnFiltrarIdCliente.UseVisualStyleBackColor = true;
-            rbtnFiltrarIdCliente.Click += rbtnFiltrarIdCliente_Click;
+            txtCliente.Location = new Point(384, 24);
+            txtCliente.Name = "txtCliente";
+            txtCliente.Size = new Size(137, 23);
+            txtCliente.TabIndex = 3;
             // 
-            // rbtnFiltrarNroPedido
+            // txtNroPedido
             // 
-            rbtnFiltrarNroPedido.AutoSize = true;
-            rbtnFiltrarNroPedido.Location = new Point(13, 22);
-            rbtnFiltrarNroPedido.Name = "rbtnFiltrarNroPedido";
-            rbtnFiltrarNroPedido.Size = new Size(88, 19);
-            rbtnFiltrarNroPedido.TabIndex = 0;
-            rbtnFiltrarNroPedido.TabStop = true;
-            rbtnFiltrarNroPedido.Text = "Nro. Pedido";
-            rbtnFiltrarNroPedido.UseVisualStyleBackColor = true;
-            rbtnFiltrarNroPedido.Click += rbtnFiltrarNroPedido_Click;
+            txtNroPedido.Location = new Point(193, 23);
+            txtNroPedido.Name = "txtNroPedido";
+            txtNroPedido.Size = new Size(64, 23);
+            txtNroPedido.TabIndex = 2;
             // 
-            // gbxOrdenar
+            // rbtnCliente
             // 
-            gbxOrdenar.Controls.Add(cboOrdenarEstado);
-            gbxOrdenar.Controls.Add(cboOrdenarFecha);
-            gbxOrdenar.Controls.Add(cboOrdenarNroPedido);
-            gbxOrdenar.Controls.Add(rbtnOrdenarEstado);
-            gbxOrdenar.Controls.Add(rbtnOrdenarFecha);
-            gbxOrdenar.Controls.Add(rbtnOrdenarNroPedido);
-            gbxOrdenar.Location = new Point(619, 217);
-            gbxOrdenar.Name = "gbxOrdenar";
-            gbxOrdenar.Size = new Size(236, 110);
-            gbxOrdenar.TabIndex = 4;
-            gbxOrdenar.TabStop = false;
-            gbxOrdenar.Text = "Ordenar";
+            rbtnCliente.AutoSize = true;
+            rbtnCliente.Location = new Point(316, 25);
+            rbtnCliente.Name = "rbtnCliente";
+            rbtnCliente.Size = new Size(62, 19);
+            rbtnCliente.TabIndex = 1;
+            rbtnCliente.Text = "Cliente";
+            rbtnCliente.UseVisualStyleBackColor = true;
+            rbtnCliente.Click += rbtnCliente_Click;
             // 
-            // cboOrdenarEstado
+            // rbtnNroPedido
             // 
-            cboOrdenarEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboOrdenarEstado.FormattingEnabled = true;
-            cboOrdenarEstado.Items.AddRange(new object[] { "ASC", "DESC" });
-            cboOrdenarEstado.Location = new Point(128, 80);
-            cboOrdenarEstado.Name = "cboOrdenarEstado";
-            cboOrdenarEstado.Size = new Size(94, 23);
-            cboOrdenarEstado.TabIndex = 6;
-            cboOrdenarEstado.SelectedIndexChanged += cboOrdenarEstado_SelectedIndexChanged;
-            // 
-            // cboOrdenarFecha
-            // 
-            cboOrdenarFecha.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboOrdenarFecha.FormattingEnabled = true;
-            cboOrdenarFecha.Items.AddRange(new object[] { "ASC", "DESC" });
-            cboOrdenarFecha.Location = new Point(128, 51);
-            cboOrdenarFecha.Name = "cboOrdenarFecha";
-            cboOrdenarFecha.Size = new Size(94, 23);
-            cboOrdenarFecha.TabIndex = 5;
-            cboOrdenarFecha.SelectedIndexChanged += cboOrdenarFecha_SelectedIndexChanged;
-            // 
-            // cboOrdenarNroPedido
-            // 
-            cboOrdenarNroPedido.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboOrdenarNroPedido.FormattingEnabled = true;
-            cboOrdenarNroPedido.Items.AddRange(new object[] { "ASC", "DESC" });
-            cboOrdenarNroPedido.Location = new Point(128, 22);
-            cboOrdenarNroPedido.Name = "cboOrdenarNroPedido";
-            cboOrdenarNroPedido.Size = new Size(94, 23);
-            cboOrdenarNroPedido.TabIndex = 4;
-            cboOrdenarNroPedido.SelectedIndexChanged += cboOrdenarNroPedido_SelectedIndexChanged;
-            // 
-            // rbtnOrdenarEstado
-            // 
-            rbtnOrdenarEstado.AutoSize = true;
-            rbtnOrdenarEstado.Location = new Point(12, 81);
-            rbtnOrdenarEstado.Name = "rbtnOrdenarEstado";
-            rbtnOrdenarEstado.Size = new Size(60, 19);
-            rbtnOrdenarEstado.TabIndex = 3;
-            rbtnOrdenarEstado.TabStop = true;
-            rbtnOrdenarEstado.Text = "Estado";
-            rbtnOrdenarEstado.UseVisualStyleBackColor = true;
-            rbtnOrdenarEstado.Click += rbtnOrdenarEstado_Click;
-            // 
-            // rbtnOrdenarFecha
-            // 
-            rbtnOrdenarFecha.AutoSize = true;
-            rbtnOrdenarFecha.Location = new Point(12, 52);
-            rbtnOrdenarFecha.Name = "rbtnOrdenarFecha";
-            rbtnOrdenarFecha.Size = new Size(110, 19);
-            rbtnOrdenarFecha.TabIndex = 2;
-            rbtnOrdenarFecha.TabStop = true;
-            rbtnOrdenarFecha.Text = "Fecha solicitado";
-            rbtnOrdenarFecha.UseVisualStyleBackColor = true;
-            rbtnOrdenarFecha.Click += rbtnOrdenarFecha_Click;
-            // 
-            // rbtnOrdenarNroPedido
-            // 
-            rbtnOrdenarNroPedido.AutoSize = true;
-            rbtnOrdenarNroPedido.Location = new Point(12, 26);
-            rbtnOrdenarNroPedido.Name = "rbtnOrdenarNroPedido";
-            rbtnOrdenarNroPedido.Size = new Size(88, 19);
-            rbtnOrdenarNroPedido.TabIndex = 0;
-            rbtnOrdenarNroPedido.TabStop = true;
-            rbtnOrdenarNroPedido.Text = "Nro. Pedido";
-            rbtnOrdenarNroPedido.UseVisualStyleBackColor = true;
-            rbtnOrdenarNroPedido.Click += rbtnOrdenarNroPedido_Click;
+            rbtnNroPedido.AutoSize = true;
+            rbtnNroPedido.Location = new Point(99, 25);
+            rbtnNroPedido.Name = "rbtnNroPedido";
+            rbtnNroPedido.Size = new Size(88, 19);
+            rbtnNroPedido.TabIndex = 0;
+            rbtnNroPedido.Text = "Nro. Pedido";
+            rbtnNroPedido.UseVisualStyleBackColor = true;
+            rbtnNroPedido.Click += rbtnNroPedido_Click;
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(12, 352);
+            btnRegresar.Location = new Point(12, 455);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(159, 35);
+            btnRegresar.Size = new Size(281, 35);
             btnRegresar.TabIndex = 5;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -298,9 +256,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(695, 352);
+            btnModificar.Location = new Point(662, 455);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(159, 35);
+            btnModificar.Size = new Size(281, 35);
             btnModificar.TabIndex = 7;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -308,9 +266,9 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(619, 12);
+            btnBuscar.Location = new Point(12, 78);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(235, 27);
+            btnBuscar.Size = new Size(931, 24);
             btnBuscar.TabIndex = 8;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
@@ -320,11 +278,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 402);
+            ClientSize = new Size(958, 502);
             Controls.Add(btnBuscar);
             Controls.Add(btnModificar);
             Controls.Add(btnRegresar);
-            Controls.Add(gbxOrdenar);
             Controls.Add(gbxFiltrar);
             Controls.Add(dgvPedidos);
             Name = "ListarPedidos";
@@ -333,39 +290,35 @@
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();
             gbxFiltrar.ResumeLayout(false);
             gbxFiltrar.PerformLayout();
-            gbxOrdenar.ResumeLayout(false);
-            gbxOrdenar.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dgvPedidos;
+
         private GroupBox gbxFiltrar;
-        private RadioButton rbtnFiltrarNroPedido;
-        private TextBox txtFiltrarEstado;
-        private RadioButton rbtnFiltrarEstado;
-        private TextBox txtFiltrarIdCliente;
-        private TextBox txtFiltrarNroPedido;
-        private RadioButton rbtnFiltrarIdCliente;
-        private GroupBox gbxOrdenar;
-        private ComboBox cboOrdenarNroPedido;
-        private RadioButton rbtnOrdenarEstado;
-        private RadioButton rbtnOrdenarFecha;
-        private RadioButton rbtnOrdenarNroPedido;
-        private ComboBox cboFiltrarEstado;
-        private ComboBox cboOrdenarEstado;
-        private ComboBox cboOrdenarFecha;
+        private RadioButton rbtnNroPedido;
+        private RadioButton rbtnEstado;
+        private RadioButton rbtnCliente;
+        private RadioButton rbtnTodo;
+        private RadioButton rbtnZona;
+        private ComboBox cboEstado;
+        private ComboBox cboZona;
+        private TextBox txtEstado;
+        private TextBox txtCliente;
+        private TextBox txtNroPedido;
         private Button btnRegresar;
         private Button btnModificar;
-        private RadioButton rbtnTodo;
-        private RadioButton rbtnFiltrarTodo;
         private Button btnBuscar;
+        private DataGridView dgvPedidos;
         private DataGridViewTextBoxColumn colNro;
         private DataGridViewTextBoxColumn colMenu;
         private DataGridViewTextBoxColumn colCliente;
         private DataGridViewTextBoxColumn colFecha;
         private DataGridViewTextBoxColumn colCantidad;
         private DataGridViewTextBoxColumn colEstado;
+        private DataGridViewTextBoxColumn colZona;
+        private DataGridViewTextBoxColumn colDir;
+
     }
 }

@@ -9,10 +9,11 @@ namespace SISVIANSA_ITI_2023.Logica
 {
     public class Pedido
     {
-        byte rol;
-        int nroPedido, idMenu, idCliente, cantidad;
-        string fechaRealizado, estado;
-        PedidoBD pedidoBD;
+        private byte rol;
+        private int nroPedido, idMenu, cantidad, zona, valFiltroInt;
+        private string cliente,fechaRealizado, estado, dir;
+        private List<Pedido> listaPedidos;
+        private PedidoBD pedidoBD;
 
         // ----------------- CONSTRUCTOR --------------------
 
@@ -36,10 +37,10 @@ namespace SISVIANSA_ITI_2023.Logica
             set { idMenu = value; }
         }
 
-        public int IdCliente
+        public string Cliente
         {
-            get { return idCliente; }
-            set { idCliente = value; }
+            get { return cliente; }
+            set { cliente = value; }
         }
 
         public int Cantidad
@@ -60,16 +61,53 @@ namespace SISVIANSA_ITI_2023.Logica
             set { fechaRealizado = value; }
         }
 
-
-        // --------------------------- CONSULTAS --------------------------------
-        public List<Pedido> listarPedidosOrdenados(string columna, string orden)
+        public int Zona
         {
-            return pedidoBD.listarPedidosOrdenados(columna, orden);
+            get { return zona; }
+            set { zona = value; }
         }
 
-        public List<Pedido> listarPedidosOrdenadosYFiltrados(string colFiltro, object valFiltro, string colOrden, string valOrden)
+        public string Dir
         {
-            return pedidoBD.listarPedidosOrdenadosYFiltrados(colFiltro, valFiltro, colOrden, valOrden);
+            get { return dir; }
+            set { dir = value; }
+        }
+
+
+        // --------------------------- CONSULTAS --------------------------------
+        public List<Pedido> listarPedidosFiltrados(string colFiltro, string valFiltro)
+        {
+            listaPedidos = new List<Pedido>();
+
+            if (colFiltro.Equals("todo"))
+            {
+                listaPedidos = pedidoBD.listarTodosLosPedidos();
+            }
+
+            else if (colFiltro.Equals("nro_pedido"))
+            {
+                valFiltroInt = Convert.ToInt32(valFiltro);
+                listaPedidos = pedidoBD.filtrarPorNro(valFiltroInt);
+            }
+            
+            else if (colFiltro.Equals("cliente"))
+            {
+                listaPedidos = pedidoBD.filtrarPorCliente(valFiltro);
+            }
+
+            else if (colFiltro.Equals("estado"))
+            {
+                listaPedidos = pedidoBD.filtrarPorEstado(valFiltro);
+            }
+            
+            else if (colFiltro.Equals("zona"))
+            {
+                valFiltroInt = Convert.ToInt32(valFiltro);
+                listaPedidos = pedidoBD.filtrarPorZona(valFiltroInt);
+            }
+
+
+            return listaPedidos;
         }
 
     }

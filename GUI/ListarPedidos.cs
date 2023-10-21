@@ -15,10 +15,11 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarPedidos : Form
     {
         private byte rol;
-        private string colFiltro, colOrden, valOrden; // col = columna, val = valor
-        private object valFiltro;
+        private string colFiltro, valFiltro;
         private Pedido pedido;
+        private Zona zona;
         private List<Pedido> listaPedidos;
+        private List<Zona> listaZonas;
 
         // --------------- METODOS AL INICIAR ---------------------
         public ListarPedidos(byte rol)
@@ -26,9 +27,8 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             this.rol = rol;
             pedido = new Pedido(rol);
+            zona = new Zona(rol);
             colFiltro = "todo";
-            colOrden = "nro_pedido";
-            valOrden = "ASC";
             bloqueraFuncionalidadesSegunRol(rol);
         }
 
@@ -40,12 +40,9 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void ListarPedidos_Load(object sender, EventArgs e)
         {
-            reiniciarBusqueda();
-            rbtnFiltrarTodo.Checked = true;
-            rbtnOrdenarNroPedido.Checked = true;
-            cboOrdenarNroPedido.Enabled = true;
-            cboOrdenarNroPedido.SelectedIndex = 0;
-            listaPedidos = pedido.listarPedidosOrdenados("nro_pedido", "ASC");
+            inhabilitarFiltros();
+            rbtnTodo.Checked = true;
+            listaPedidos = pedido.listarPedidosFiltrados("todo", "");
             cargarDatos(listaPedidos);
         }
 
@@ -57,49 +54,66 @@ namespace SISVIANSA_ITI_2023.GUI
             dgvPedidos.Rows.Clear();
             foreach (Pedido item in lista)
             {
-                dgvPedidos.Rows.Add(item.NroPedido, item.IdMenu, item.IdCliente, item.FechaRealizado, item.Cantidad, item.Estado);
+                dgvPedidos.Rows.Add(item.NroPedido, item.IdMenu, item.Cliente, item.FechaRealizado, item.Cantidad, item.Estado, item.Zona, item.Dir);
             }
         }
 
-        private void reiniciarBusqueda()
-        {
-            reiniciarOrden();
-            reiniciarFiltros();
-            inhabilitarFiltros();
-            inhabilitarOrden();
-        }
-
-        // Orden
-        private void inhabilitarOrden()
-        {
-            cboOrdenarEstado.Enabled = false;
-            cboOrdenarFecha.Enabled = false;
-            cboOrdenarNroPedido.Enabled = false;
-        }
-
-        private void reiniciarOrden()
-        {
-            cboOrdenarEstado.SelectedItem = null;
-            cboOrdenarFecha.SelectedItem = null;
-            cboOrdenarNroPedido.SelectedItem = null;
-        }
 
         // Filtros
         private void inhabilitarFiltros()
         {
-            txtFiltrarNroPedido.Enabled = false;
-            txtFiltrarIdCliente.Enabled = false;
-            cboFiltrarEstado.Enabled = false;
+            txtNroPedido.Clear();
+            txtCliente.Clear();
+            cboEstado.SelectedItem = null;
+            cboZona.SelectedItem = null;
+
+            txtNroPedido.Enabled = false;
+            txtCliente.Enabled = false;
+            cboEstado.Enabled = false;
+            cboZona.Enabled = false;
         }
 
-        private void reiniciarFiltros()
+        private string obtenerValFiltro()
         {
-            txtFiltrarNroPedido.Clear();
-            txtFiltrarIdCliente.Clear();
-            cboFiltrarEstado.SelectedItem = null;
+            if (rbtnTodo.Checked)
+            {
+                valFiltro = "";
+            }
+
+            else if(rbtnNroPedido.Checked)
+            {
+                valFiltro = txtNroPedido.Text;
+            }
+
+            else if (rbtnCliente.Checked)
+            {
+                valFiltro = txtCliente.Text;
+            }
+
+            else if (rbtnEstado.Checked)
+            {
+                valFiltro = cboEstado.Text;
+            }
+
+            else if (rbtnZona.Checked)
+            {
+                valFiltro = cboEstado.Text;
+            }
+
+            return valFiltro;
         }
 
+        private void cargarCboZona()
+        {
+            cboZona.Enabled = true;
 
+            listaZonas = zona.todasLasZonas();
+            foreach (Zona z in listaZonas)
+            {
+                cboZona.Items.Add(z.Id.ToString());
+            }
+            cboZona.SelectedIndex = 0;
+        }
 
         // ------------------------ METODOS DE WIDGETS ------------------------------------
 
@@ -121,101 +135,47 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             List<Pedido> lista = new List<Pedido>();
 
-            if (colFiltro.Equals("todo"))
-                lista = pedido.listarPedidosOrdenados(colOrden, valOrden);
-            else
-                lista = pedido.listarPedidosOrdenadosYFiltrados(colFiltro, valFiltro, colOrden, valOrden);
+            valFiltro = obtenerValFiltro();
+            lista = pedido.listarPedidosFiltrados(colFiltro, valFiltro);
 
             cargarDatos(lista);
 
         }
 
-
-        // Radiobuttons orden
-        private void rbtnOrdenarNroPedido_Click(object sender, EventArgs e)
-        {
-            reiniciarOrden();
-            inhabilitarOrden();
-            rbtnOrdenarNroPedido.Checked = true;
-            cboOrdenarNroPedido.Enabled = true;
-            cboOrdenarNroPedido.SelectedIndex = 0;
-            colOrden = "nro_pedido";
-        }
-
-        private void rbtnOrdenarFecha_Click(object sender, EventArgs e)
-        {
-            reiniciarOrden();
-            inhabilitarOrden();
-            rbtnOrdenarFecha.Checked = true;
-            cboOrdenarFecha.Enabled = true;
-            cboOrdenarFecha.SelectedIndex = 0;
-            colOrden = "fecha_realizado";
-        }
-
-        private void rbtnOrdenarEstado_Click(object sender, EventArgs e)
-        {
-            reiniciarOrden();
-            inhabilitarOrden();
-            rbtnOrdenarEstado.Checked = true;
-            cboOrdenarEstado.Enabled = true;
-            cboOrdenarEstado.SelectedIndex = 0;
-            colOrden = "estado.nombre";
-        }
-
-
         // Radiobuttons filtros
-        private void rbtnFiltrarNroPedido_Click(object sender, EventArgs e)
+        private void rbtnNroPedido_Click(object sender, EventArgs e)
         {
-            reiniciarFiltros();
             inhabilitarFiltros();
-            rbtnFiltrarNroPedido.Checked = true;
-            txtFiltrarNroPedido.Enabled = true;
-            colFiltro = "pide.nro_pedido";
+            txtNroPedido.Enabled = true;
+            colFiltro = "p.nro_pedido";
         }
 
-        private void rbtnFiltrarIdCliente_Click(object sender, EventArgs e)
+        private void rbtnCliente_Click(object sender, EventArgs e)
         {
-            reiniciarFiltros();
             inhabilitarFiltros();
-            rbtnFiltrarIdCliente.Checked = true;
-            txtFiltrarIdCliente.Enabled = true;
-            colFiltro = "pide.id_cliente";
+            txtCliente.Enabled = true;
+            colFiltro = "c.nombre";
         }
 
-        private void rbtnFiltrarEstado_Click(object sender, EventArgs e)
+        private void rbtnEstado_Click(object sender, EventArgs e)
         {
-            reiniciarFiltros();
             inhabilitarFiltros();
-            rbtnFiltrarEstado.Checked = true;
-            cboFiltrarEstado.Enabled = true;
-            colFiltro = "estado.nombre";
+            cboEstado.Enabled = true;
+            cboEstado.SelectedIndex = 0;
+            colFiltro = "e.nombre";
         }
 
-        private void rbtnFiltrarTodo_Click(object sender, EventArgs e)
+        private void rbtnTodo_Click(object sender, EventArgs e)
         {
-            reiniciarFiltros();
             inhabilitarFiltros();
-            rbtnFiltrarTodo.Checked = true;
             colFiltro = "todo";
         }
 
-
-        // Combobox de orden
-        private void cboOrdenarEstado_SelectedIndexChanged(object sender, EventArgs e)
+        private void rbtnZona_Click(object sender, EventArgs e)
         {
-            valOrden = cboOrdenarEstado.Text;
+            inhabilitarFiltros();
+            cargarCboZona();
+            colFiltro = "p.id_zona";
         }
-
-        private void cboOrdenarFecha_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            valOrden = cboOrdenarFecha.Text;
-        }
-
-        private void cboOrdenarNroPedido_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            valOrden = cboOrdenarNroPedido.Text;
-        }
-
-
     }
 }

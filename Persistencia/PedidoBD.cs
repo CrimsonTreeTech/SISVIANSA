@@ -34,7 +34,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
 
 
         // ----------------------- CONSULTAS ---------------------------
-        public List<Pedido> listarPedidosOrdenados(string colOrden, string valOrden)
+        public List<Pedido> listarTodosLosPedidos()
         {
             pedidos = new List<Pedido>();
             try
@@ -43,13 +43,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT pide.nro_pedido, pide.id_menu, pide.id_cliente, pide.cantidad, pide.fecha_realizado, estado.nombre " +
-                                            "FROM pide " +
-                                            "JOIN pasa ON pide.nro_pedido = pasa.nro_pedido " +
-                                            "JOIN estado ON pasa.id_estado = estado.id_estado " +
-                                            "WHERE pasa.fecha_act = (SELECT MAX(fecha_act) FROM pasa WHERE pasa.nro_pedido = pide.nro_pedido) ";
+                        consulta  = "SELECT p.nro_pedido, p.id_menu, c.nombre, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta += "FROM pide p ";
+                        consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
+                        consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
+                        consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
+                        consulta += "WHERE pasa.fecha_act IS NULL ";
+                        consulta += "ORDER BY p.nro_pedido ASC; ";
 
-                        consulta += $"ORDER BY {colOrden} {valOrden};";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -60,10 +61,12 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     {
                                         NroPedido = reader.GetInt32("nro_pedido"),
                                         IdMenu = reader.GetInt32("id_menu"),
-                                        IdCliente = reader.GetInt32("id_cliente"),
+                                        Cliente = reader.GetString("nombre"),
+                                        FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd"),
                                         Cantidad = reader.GetInt32("cantidad"),
-                                        Estado = reader.GetString("nombre"),
-                                        FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd")
+                                        Estado = reader.GetString("estado"),
+                                        Zona = reader.GetInt32("id_zona"),
+                                        Dir = reader.GetString("dir")
                                     };
                                     pedidos.Add(pedido);
                                 }
@@ -83,7 +86,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return pedidos;
         }
 
-        public List<Pedido> listarPedidosOrdenadosYFiltrados(string colFiltro, object valFiltro, string colOrden, string valOrden)
+        public List<Pedido> filtrarPorNro(int valFiltro)
         {
             pedidos = new List<Pedido>();
             try
@@ -92,15 +95,19 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT pide.nro_pedido, pide.id_menu, pide.id_cliente, pide.cantidad, pide.fecha_realizado, estado.nombre " +
-                                    "FROM pide " +
-                                    "JOIN pasa ON pide.nro_pedido = pasa.nro_pedido " +
-                                    "JOIN estado ON pasa.id_estado = estado.id_estado " +
-                                    $"WHERE {colFiltro} = @valFiltro AND pasa.fecha_act = (SELECT MAX(fecha_act) FROM pasa WHERE pasa.nro_pedido = pide.nro_pedido) " +
-                                    $"ORDER BY {colOrden} {valOrden};";
+                        consulta  = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta += "FROM pide p ";
+                        consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
+                        consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
+                        consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
+                        consulta += "WHERE pasa.fecha_act IS NULL ";
+                        consulta += "AND p.nro_pedido = @valFiltro ";
+                        consulta += "ORDER BY p.nro_pedido ASC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+                            
                             using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())
@@ -109,10 +116,12 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     {
                                         NroPedido = reader.GetInt32("nro_pedido"),
                                         IdMenu = reader.GetInt32("id_menu"),
-                                        IdCliente = reader.GetInt32("id_cliente"),
+                                        Cliente = reader.GetString("nombre"),
+                                        FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd"),
                                         Cantidad = reader.GetInt32("cantidad"),
-                                        Estado = reader.GetString("nombre"),
-                                        FechaRealizado = reader.GetString("fecha_realizado")
+                                        Estado = reader.GetString("estado"),
+                                        Zona = reader.GetInt32("id_zona"),
+                                        Dir = reader.GetString("dir")
                                     };
                                     pedidos.Add(pedido);
                                 }
@@ -131,6 +140,172 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             return pedidos;
         }
+
+        public List<Pedido> filtrarPorCliente(string valFiltro)
+        {
+            pedidos = new List<Pedido>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta += "FROM pide p ";
+                        consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
+                        consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
+                        consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
+                        consulta += "WHERE pasa.fecha_act IS NULL ";
+                        consulta += "AAND c.nombre LIKE @valFiltro ";
+                        consulta += "ORDER BY p.nro_pedido ASC; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", "%" + valFiltro + "%");
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    pedido = new Pedido(this.rol)
+                                    {
+                                        NroPedido = reader.GetInt32("nro_pedido"),
+                                        IdMenu = reader.GetInt32("id_menu"),
+                                        Cliente = reader.GetString("nombre"),
+                                        FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd"),
+                                        Cantidad = reader.GetInt32("cantidad"),
+                                        Estado = reader.GetString("estado"),
+                                        Zona = reader.GetInt32("id_zona"),
+                                        Dir = reader.GetString("dir")
+                                    };
+                                    pedidos.Add(pedido);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return pedidos;
+        }
+
+        public List<Pedido> filtrarPorEstado(string valFiltro)
+        {
+            pedidos = new List<Pedido>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta += "FROM pide p ";
+                        consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
+                        consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
+                        consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
+                        consulta += "WHERE pasa.fecha_act IS NULL ";
+                        consulta += "AND e.nombre = @valFiltro ";
+                        consulta += "ORDER BY p.nro_pedido ASC; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    pedido = new Pedido(this.rol)
+                                    {
+                                        NroPedido = reader.GetInt32("nro_pedido"),
+                                        IdMenu = reader.GetInt32("id_menu"),
+                                        Cliente = reader.GetString("nombre"),
+                                        FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd"),
+                                        Cantidad = reader.GetInt32("cantidad"),
+                                        Estado = reader.GetString("estado"),
+                                        Zona = reader.GetInt32("id_zona"),
+                                        Dir = reader.GetString("dir")
+                                    };
+                                    pedidos.Add(pedido);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return pedidos;
+        }
+
+        public List<Pedido> filtrarPorZona(int valFiltro)
+        {
+            pedidos = new List<Pedido>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta += "FROM pide p ";
+                        consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
+                        consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
+                        consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
+                        consulta += "WHERE pasa.fecha_act IS NULL ";
+                        consulta += "AND p.id_zona = @valFiltro ";
+                        consulta += "ORDER BY p.nro_pedido ASC; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    pedido = new Pedido(this.rol)
+                                    {
+                                        NroPedido = reader.GetInt32("nro_pedido"),
+                                        IdMenu = reader.GetInt32("id_menu"),
+                                        Cliente = reader.GetString("nombre"),
+                                        FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd"),
+                                        Cantidad = reader.GetInt32("cantidad"),
+                                        Estado = reader.GetString("estado"),
+                                        Zona = reader.GetInt32("id_zona"),
+                                        Dir = reader.GetString("dir")
+                                    };
+                                    pedidos.Add(pedido);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return pedidos;
+        }
+
 
 
     }
