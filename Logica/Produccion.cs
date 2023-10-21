@@ -10,16 +10,16 @@ namespace SISVIANSA_ITI_2023.Logica
 {
     public class Produccion
     {
-        private byte rol;
-        private int idMenu, loteMin, loteMax, cantidad, prodMenu, cantAProducir;
+        private byte rol, nivelDeError;
+        private int idMenu, loteMin, cantidadEnStock, loteMax, prodMenu, cantAProducir;
         private int? prioridad;
         private bool correcto;
         private List<Produccion> listaProduccion = null;
-        private List<int> todasLasPrioridades;
+        private List<int> todasLasPrioridades, prioridadesUnicas;
         private ProduccionBD produccionBD;
 
         // Variables utilizadas para calcular cantidad de produccion
-        private int minutosDeProduccion, tiempoProduccionDelMenu;
+        private int minutosDeProduccion, tiempoProduccionDelMenu, prioridadINT, capProdSobrante;
        
 
         // ---------- CONSTRUCTOR -----------
@@ -27,6 +27,7 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             this.rol = rol;
             produccionBD = new ProduccionBD(rol);
+            todasLasPrioridades = new List<int>();
         }
 
         // ------------ GETTERS Y SETTERS ---------------
@@ -48,10 +49,10 @@ namespace SISVIANSA_ITI_2023.Logica
             set { loteMax = value; }
         }
 
-        public int Cantidad
+        public int CantidadEnStock
         {
-            get { return cantidad; }
-            set { cantidad = value; }
+            get { return cantidadEnStock; }
+            set { cantidadEnStock = value; }
         }
 
         public int? Prioridad
@@ -92,12 +93,30 @@ namespace SISVIANSA_ITI_2023.Logica
 
 
         // ------------- METODOS AUXILIARES --------------
-        public bool calcularBajoStock()
+        public bool noTieneBajoStock()
         {
-            return cantidad <= LoteMin;
+            correcto =  LoteMin < CantidadEnStock;
+            return correcto;
         }
 
-        public bool comprobarInformacionValida(string prioridadSTR)
+        public byte validarListadoDeProduccion(string capProd)
+        {
+            nivelDeError = 0;
+            capProdSobrante = Convert.ToInt32(capProd);
+
+            if (capProdSobrante > 120) // Indica infraproduccion
+            {
+                nivelDeError = 1;
+            }
+            else if (capProdSobrante < -120) // Indica sobreproduccion
+            {
+                nivelDeError = 2;
+            }
+
+            return nivelDeError;
+        }
+
+        public bool comprobarValorPrioridad(string prioridadSTR)
         {
             correcto = true;
             try
@@ -144,63 +163,6 @@ namespace SISVIANSA_ITI_2023.Logica
 
             // Devolver el valor de la capacidad de produccion actual
             return capProdSucursal;
-        }
-
-        public byte validarPrioridad(List<Produccion> listaProduccion)
-        {
-            if (valoresPrioridadCorrectos(listaProduccion))
-                if(sinValoresDuplicados(listaProduccion))
-                    return 0;
-                else
-                    return 1;
-            else
-                return 2;
-        }
-
-
-        private bool valoresPrioridadCorrectos(List<Produccion> listaProduccion)
-        {
-            foreach (Produccion produccion in listaProduccion)
-            {
-                if (produccion.Prioridad > 1 || produccion.Prioridad == null)
-                    return true;
-            }
-            return false;
-        }
-
-
-        // Este
-        private bool sinValoresDuplicados(List<Produccion> listaProduccion)
-        {
-            correcto = true;
-            todasLasPrioridades = listaDePrioridades(listaProduccion);
-            for (int i = 0; i < todasLasPrioridades.Count; i++)
-            {
-                int elemento = todasLasPrioridades[i];
-                todasLasPrioridades.Remove(todasLasPrioridades[i]);
-
-                if (todasLasPrioridades.Contains(elemento))
-                {
-                    correcto = false;
-                    break;
-                }
-            }
-            return correcto;
-        }
-
-        private List<int> listaDePrioridades(List<Produccion> listaProduccion)
-        {
-            todasLasPrioridades = new List<int>();
-            int nroPrioridad;
-            foreach (Produccion produccion in listaProduccion)
-            {
-                if (produccion.Prioridad != null)
-                {
-                    nroPrioridad = Convert.ToInt32(produccion.Prioridad);
-                    todasLasPrioridades.Add(nroPrioridad);
-                }
-            }
-            return todasLasPrioridades;
         }
 
 

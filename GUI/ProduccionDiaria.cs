@@ -12,13 +12,16 @@ namespace SISVIANSA_ITI_2023.GUI
 
         // Variables relacionadas a la capacidad de produccion
         private int idSucursal, capProdSucursal, capProdActual;
-        private int stockMaximo, stockActual, stockFaltante;
+        private int stockMaximo, stockActual, stockFaltante, valorPrioridad;
+        private bool noRepetido;
+        private DataGridViewRow filaClonada;
+        private List<int> valoresDePrioridades;
 
         // Variables usados en la validacion de la data grid view
         private DataGridViewCell celda;
         private int filaSeleccionada, colSeleccionada;
         private string valorCeldaModificada;
-        private bool produccionValida, estaProcesandoEndCellEdit = false;
+        private bool produccionValida, estaProcesandoEndCellEdit = false, procesandoIncersion = false;
 
 
         // --------------- CONSTRUCTOR -------------------
@@ -31,6 +34,7 @@ namespace SISVIANSA_ITI_2023.GUI
             sucursal = new Sucursal(rol);
             capProdSucursal = sucursal.obtenerCapProdScursal(idSucursal);
             capProdActual = capProdSucursal;
+            valoresDePrioridades = new List<int>();
             actualizarCapProd();
         }
 
@@ -48,26 +52,33 @@ namespace SISVIANSA_ITI_2023.GUI
 
             foreach (Produccion item in listaProduccion)
             {
-                dgvProduccion.Rows.Add(item.IdMenu, item.LoteMin, item.Cantidad, item.LoteMax, item.ProdMenu);
+                dgvProduccion.Rows.Add(item.IdMenu, item.LoteMin, item.CantidadEnStock, item.LoteMax, item.ProdMenu);
             }
         }
 
         private List<Produccion> obtenerListadoProduccion()
         {
             listaProduccion = new List<Produccion>();
-            foreach (DataGridViewRow row in dgvProduccion.Rows)
+            try
             {
-                produccion = new Produccion(rol)
+                foreach (DataGridViewRow row in dgvProduccion.Rows)
                 {
-                    IdMenu = Convert.ToInt32(row.Cells[0].Value),
-                    LoteMin = Convert.ToInt32(row.Cells[1].Value),
-                    Cantidad = Convert.ToInt32(row.Cells[2].Value),
-                    LoteMax = Convert.ToInt32(row.Cells[3].Value),
-                    ProdMenu = Convert.ToInt32(row.Cells[4].Value),
-                    Prioridad = Convert.ToInt32(row.Cells[5].Value),
-                    CantAProducir = Convert.ToInt32(row.Cells[6].Value)
-                };
-                listaProduccion.Add(produccion);
+                    produccion = new Produccion(rol)
+                    {
+                        IdMenu = Convert.ToInt32(row.Cells[0].Value),
+                        LoteMin = Convert.ToInt32(row.Cells[1].Value),
+                        CantidadEnStock = Convert.ToInt32(row.Cells[2].Value),
+                        LoteMax = Convert.ToInt32(row.Cells[3].Value),
+                        ProdMenu = Convert.ToInt32(row.Cells[4].Value),
+                        Prioridad = Convert.ToInt32(row.Cells[5].Value),
+                        CantAProducir = Convert.ToInt32(row.Cells[6].Value)
+                    };
+                    listaProduccion.Add(produccion);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nVuelva a intentar la acción o llame a un técnico");
             }
             return listaProduccion;
         }
@@ -95,12 +106,26 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             celda = dgvProduccion.Rows[filaCeldaModificada].Cells[5]; // Averigua el valor de la celda modificada
             valorCeldaModificada = celda.Value.ToString(); // Convierte a string el valor de la celda modificada
-            produccionValida = produccion.comprobarInformacionValida(valorCeldaModificada); // Devuelve si el valor es correcto o no
+            listaProduccion = obtenerListadoProduccion(); // Obtiene una lista con los valores de produccion ingresados
+            produccionValida = produccion.comprobarValorPrioridad(valorCeldaModificada); // Devuelve si el valor es correcto o no
 
             if (produccionValida) // Si la produccion es valida
             {
-                calcularStockFaltantePorDefecto(filaCeldaModificada); // Calcula el stock faltante y lo muestra en la grilla
-                calcularCapProdActual(); // Actualiza el valor de los minutos de produccion restantes
+                valorPrioridad = Convert.ToInt32(valorCeldaModificada);
+                noRepetido = !valoresDePrioridades.Contains(valorPrioridad);
+                if (noRepetido)
+                {
+                    calcularStockFaltantePorDefecto(filaCeldaModificada); // Calcula el stock faltante y lo muestra en la grilla
+                    calcularCapProdActual(); // Actualiza el valor de los minutos de produccion restantes
+                    valoresDePrioridades.Add(valorPrioridad); // Agrega el valor a la lista de prioridades seleccionadas
+                }
+                else
+                {
+                    MessageBox.Show("El valor no puede estar repetido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    celda.Value = "";
+                    dgvProduccion.ClearSelection();
+                }
+
             }
             else
             {
@@ -156,15 +181,24 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnEstablecer_Click(object sender, EventArgs e)
         {
             listaProduccion = obtenerListadoProduccion();
-            byte nivelDeError = produccion.validarPrioridad(listaProduccion);
+            byte nivelDeError = produccion.validarListadoDeProduccion(txtCapProdSuc.Text);
+
             if (nivelDeError == 0)
+            {
                 guardarCambios();
-            else if (nivelDeError == 2)
-                MessageBox.Show("No se han completado todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else if (nivelDeError == 1)
-                MessageBox.Show("El valor de prioridad no puede repetirse.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                MessageBox.Show("La capacidad de produccion de la sucursal no puede superar los 120 minutos.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }   
+            else if (nivelDeError == 2)
+            {
+                MessageBox.Show("La capacidad de produccion de la sucursal no puede ser inferior a -120 minutos..", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
+            {
                 MessageBox.Show("Ha ocurrido un error.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -178,22 +212,28 @@ namespace SISVIANSA_ITI_2023.GUI
         // Data grid view
         private void dgvProduccion_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            /* -- Pinta de rojo las celdas cuyos valores de stock actual sean iguales o menores al stock minimo -- */
-            if (e.RowIndex >= 0 && e.RowIndex < dgvProduccion.Rows.Count)
+            try
             {
-                DataGridViewRow row = dgvProduccion.Rows[e.RowIndex];
-                Produccion item = listaProduccion[e.RowIndex];
+                /* -- Pinta de rojo las celdas cuyos valores de stock actual sean iguales o menores al stock minimo -- */
+                if (e.RowIndex >= 0 && e.RowIndex < dgvProduccion.Rows.Count)
+                {
+                    DataGridViewRow row = dgvProduccion.Rows[e.RowIndex];
+                    Produccion item = listaProduccion[e.RowIndex];
 
-                if (item.calcularBajoStock())
-                {
-                    row.DefaultCellStyle.BackColor = Color.Red;
-                    row.DefaultCellStyle.ForeColor = Color.White;
+                    if (item.noTieneBajoStock())
+                    {
+                        row.DefaultCellStyle.BackColor = row.DefaultCellStyle.BackColor;
+                        row.DefaultCellStyle.ForeColor = row.DefaultCellStyle.ForeColor;
+                    }
+                    else
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Red;
+                        row.DefaultCellStyle.ForeColor = Color.White;
+                    }
                 }
-                else
-                {
-                    row.DefaultCellStyle.BackColor = dgvProduccion.DefaultCellStyle.BackColor;
-                    row.DefaultCellStyle.ForeColor = dgvProduccion.DefaultCellStyle.ForeColor;
-                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

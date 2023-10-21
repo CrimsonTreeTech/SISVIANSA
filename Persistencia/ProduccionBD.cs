@@ -50,7 +50,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN comida c ON c.id_comida = i.id_comida ";
                         consulta += "GROUP BY m.id_menu ";
                         consulta += ") pm ON pm.id_menu = m.id_menu ";
-                        consulta += "GROUP BY v.id_menu;";
+                        consulta += "GROUP BY v.id_menu ";
+                        consulta += "ORDER BY (m.lote_min >= cantidad) DESC;";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -99,7 +100,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     {
                                         IdMenu = reader.GetInt32("id_menu"),
                                         LoteMin = reader.GetInt32("lote_min"),
-                                        Cantidad = reader.GetInt32("cantidad"),
+                                        CantidadEnStock = reader.GetInt32("cantidad"),
                                         LoteMax = reader.GetInt32("lote_max"),
                                         ProdMenu = reader.GetInt32("produccion_menu")
                                     };
