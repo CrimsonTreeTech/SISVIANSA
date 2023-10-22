@@ -14,8 +14,12 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarComidas : Form
     {
         private byte rol;
+        private string colFiltro, valFiltro;
         private Comida comida;
-        private List<Comida> comidas;
+        private Dieta dieta;
+        private List<Comida> listaComidas;
+        private List<Dieta> listaDietas;
+
 
         // ----------------- METODOS AL INICIAR -------------------
         public ListarComidas(byte rol)
@@ -23,8 +27,8 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             this.rol = rol;
             comida = new Comida(rol);
-            bloqueraFuncionalidadesSegunRol(rol);
-            cargarListadoComida();
+            dieta = new Dieta(rol);
+            //listaDietas = new List<Dieta>();
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
@@ -33,6 +37,8 @@ namespace SISVIANSA_ITI_2023.GUI
                 btnModificar.Enabled = false;
         }
 
+        
+        
         // ---------------------- METODOS AUXILIARES ------------------------
         private Comida seleccionarComida()
         {
@@ -48,16 +54,46 @@ namespace SISVIANSA_ITI_2023.GUI
             return comida;
         }
 
-        private void cargarListadoComida()
+        private void cargarListadoComida(List<Comida> listaComidas)
         {
-            comidas = comida.listaDeComidas();
-            foreach (Comida comida in comidas)
+            dgvComidas.Rows.Clear();
+
+            foreach (Comida comida in listaComidas)
             {
                 dgvComidas.Rows.Add(comida.Id, comida.Nombre, comida.Coccion, comida.Activo, comida.Autorizado, comida.DietasSTR);
             }
         }
 
+        private void inhabilitarFiltros()
+        {
+            txtNombre.Clear();
+            chkLstDietas.Items.Clear();
+
+            txtNombre.Enabled = false;
+            chkLstDietas.Enabled = false;
+        }
+
+        private void hablitarListaDietas()
+        {
+            chkLstDietas.Enabled = true;
+
+            listaDietas = dieta.todasLasDietas();
+            foreach (Dieta dieta in listaDietas)
+            {
+                chkLstDietas.Items.Add(dieta.Nombre);
+            }
+        }
+        
         // -------------------- METODOS WIDGETS -----------------------
+        private void ListarComidas_Load(object sender, EventArgs e)
+        {
+            bloqueraFuncionalidadesSegunRol(rol);
+            rbtnTodo.Checked = true;
+            listaComidas = comida.listaDeComidas();
+            cargarListadoComida(listaComidas);
+        }
+
+        // Botones
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             Owner.Show();
@@ -66,7 +102,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnActivar_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnAutorizar_Click(object sender, EventArgs e)
@@ -86,39 +122,47 @@ namespace SISVIANSA_ITI_2023.GUI
         // Radiobuttons
         private void rbtnTodo_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            colFiltro = "todo";
         }
 
         private void rbtnNombre_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            txtNombre.Enabled = true;
+            colFiltro = "nombre";
         }
 
         private void rbtnAutorizado_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            colFiltro = "autorizado";
         }
 
         private void rbtnNoAutorizado_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            colFiltro = "noAutorizado";
         }
 
         private void rbtnActivo_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            colFiltro = "activo";
         }
 
         private void rbtnInactivo_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            colFiltro = "inactivo";
         }
 
         private void rbtnDietas_Click(object sender, EventArgs e)
         {
-
+            inhabilitarFiltros();
+            hablitarListaDietas();
+            colFiltro = "dietas";
         }
-
 
     }
 }

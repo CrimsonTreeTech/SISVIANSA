@@ -296,6 +296,7 @@
             Controls.Add(dgvComidas);
             Name = "ListarComidas";
             Text = "ListarComidas";
+            Load += ListarComidas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvComidas).EndInit();
             Filtos.ResumeLayout(false);
             Filtos.PerformLayout();
