@@ -53,7 +53,7 @@ namespace SISVIANSA_ITI_2023.GUI
             comidas = comida.listaDeComidas();
             foreach (Comida comida in comidas)
             {
-                dgvComidas.Rows.Add(comida.Id, comida.Nombre, comida.Coccion, comida.Activo, comida.Autorizado);
+                dgvComidas.Rows.Add(comida.Id, comida.Nombre, comida.Coccion, comida.Activo, comida.Autorizado, comida.DietasSTR);
             }
         }
 
@@ -64,6 +64,16 @@ namespace SISVIANSA_ITI_2023.GUI
             Close();
         }
 
+        private void btnActivar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAutorizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             comida = seleccionarComida();
@@ -71,5 +81,44 @@ namespace SISVIANSA_ITI_2023.GUI
             gestionarComida.Show(Owner);
             Close();
         }
+
+
+        // Radiobuttons
+        private void rbtnTodo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnNombre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnAutorizado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnNoAutorizado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnActivo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnInactivo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbtnDietas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

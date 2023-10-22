@@ -35,7 +35,11 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT id_comida, nombre, tiempo_produccion, activo, autorizado FROM comida";
+                        consulta  = "SELECT c.id_comida, c.nombre, c.tiempo_produccion, c.activo, c.autorizado, group_concat(' ', d.nombre) AS dietas ";
+                        consulta += "FROM comida c ";
+                        consulta += "JOIN aplica a ON a.id_comida = c.id_comida ";
+                        consulta += "JOIN dieta d ON d.id_dieta = a.id_dieta ";
+                        consulta += "GROUP BY c.id_comida; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -48,8 +52,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Id = reader.GetInt32("id_comida"),
                                         Coccion = reader.GetInt32("tiempo_produccion"),
                                         Nombre = reader.GetString("nombre"),
-                                        Activo = true,
-                                        Autorizado = true
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        DietasSTR = reader.GetString("dietas")
                                     };
                                     comidas.Add(comida);
                                 }

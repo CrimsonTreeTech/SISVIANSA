@@ -17,6 +17,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private ComidasBD comidaBD;
         private DietaBD dietaBD;
         private List<Dieta> dietas;
+        private string dietasStr; // Lista de string conteniendo las dietas a las que pertenece
         private List<string> nombreDietasDisponibles;
         private List<string> listaDietasSeleccionadas = new List<string>();
 
@@ -67,6 +68,13 @@ namespace SISVIANSA_ITI_2023.Logica
             get { return dietas; }
             set { dietas = value; }
         }
+
+        public string DietasSTR
+        {
+            get { return dietasStr; }
+            set { dietasStr = value; }
+        }
+
 
         // ---------- VALIDACIONES -----------
         public bool validarNombre(string nombre)
