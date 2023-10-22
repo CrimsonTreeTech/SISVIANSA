@@ -208,14 +208,6 @@ namespace SISVIANSA_ITI_2023.Logica
 
             else if (colFiltro.Equals("dieta"))
             {
-                /*
-                string cadena = "(";
-                foreach (string item in valFiltro)
-                {
-                    cadena += item + ", ";
-                }
-                cadena = cadena.Remove(cadena.Length - 2);
-                cadena += ")";*/
                 listaMenus = menuBD.filtrarMenuPorDietas(valFiltro);
             }
 

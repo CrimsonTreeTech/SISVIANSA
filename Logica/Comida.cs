@@ -20,6 +20,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private string dietasStr; // Lista de string conteniendo las dietas a las que pertenece
         private List<string> nombreDietasDisponibles;
         private List<string> listaDietasSeleccionadas = new List<string>();
+        private List<Comida> listaComidas;
 
 
         // -------------------- CONSTRUCTOR ----------------------
@@ -113,11 +114,51 @@ namespace SISVIANSA_ITI_2023.Logica
 
 
         // ---------------------- CONSULTAS --------------------------
-        public List<Comida> listaDeComidas()
+        public List<Comida> listaComidasFiltradas(string colFiltro, List<string> valFiltro)
         {
-            return comidaBD.listaDeComidas();
-        }
+            listaComidas = new List<Comida>();
 
+            if (colFiltro.Equals("todo"))
+            {
+                listaComidas = comidaBD.listaDeComidas();
+            }
+
+            else if (colFiltro.Equals("nombre"))
+            {
+                nombre = valFiltro[0];
+                listaComidas = comidaBD.listaDeComidasPorNombre(nombre);
+            }
+
+            else if (colFiltro.Equals("autorizado"))
+            {
+                listaComidas = comidaBD.listaDeComidasPorAutorizado(true);
+            }
+
+            else if (colFiltro.Equals("noAutorizado"))
+            {
+                listaComidas = comidaBD.listaDeComidasPorAutorizado(false);
+            }
+
+            else if (colFiltro.Equals("activo"))
+            {
+                listaComidas = comidaBD.listaDeComidasPorActivo(true);
+            }
+
+            else if (colFiltro.Equals("inactivo"))
+            {
+                listaComidas = comidaBD.listaDeComidasPorActivo(false);
+            }
+
+            else if (colFiltro.Equals("dietas"))
+            {
+                listaComidas = comidaBD.listaDeComidasPorDieta(valFiltro);
+            }
+
+            return listaComidas;
+        }
+       
+        
+        
         // ------------ DIETAS DE LA COMIDA ----------------
         public void cargarDietasAObjetoComida()
         {

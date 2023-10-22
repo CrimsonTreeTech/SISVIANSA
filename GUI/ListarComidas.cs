@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,11 +15,12 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarComidas : Form
     {
         private byte rol;
-        private string colFiltro, valFiltro;
+        private string colFiltro;
         private Comida comida;
         private Dieta dieta;
         private List<Comida> listaComidas;
         private List<Dieta> listaDietas;
+        private List<string> valFiltro;
 
 
         // ----------------- METODOS AL INICIAR -------------------
@@ -37,8 +39,8 @@ namespace SISVIANSA_ITI_2023.GUI
                 btnModificar.Enabled = false;
         }
 
-        
-        
+
+
         // ---------------------- METODOS AUXILIARES ------------------------
         private Comida seleccionarComida()
         {
@@ -83,13 +85,53 @@ namespace SISVIANSA_ITI_2023.GUI
                 chkLstDietas.Items.Add(dieta.Nombre);
             }
         }
-        
+
+        private List<string> obtenerDietasSeleccionadas()
+        {
+            valFiltro = new List<string>();
+
+            for (int i = 0; i < chkLstDietas.Items.Count; i++)
+            {
+                if (chkLstDietas.GetItemChecked(i))
+                {
+                    string dietaCheckeada = chkLstDietas.Items[i].ToString();
+                    valFiltro.Add(dietaCheckeada);
+                }
+            }
+
+            return valFiltro;
+        }
+
+        private List<string> obtenerValFiltro()
+        {
+            valFiltro = new List<string>();
+
+            if (colFiltro.Equals("nombre"))
+            {
+                valFiltro.Add(txtNombre.Text);
+            }
+
+            else if (colFiltro.Equals("dietas"))
+            {
+                valFiltro = obtenerDietasSeleccionadas();
+            }
+
+            else
+            {
+                valFiltro.Add("");
+            }
+
+            return valFiltro;
+        }
+
+
+
         // -------------------- METODOS WIDGETS -----------------------
         private void ListarComidas_Load(object sender, EventArgs e)
         {
             bloqueraFuncionalidadesSegunRol(rol);
             rbtnTodo.Checked = true;
-            listaComidas = comida.listaDeComidas();
+            listaComidas = comida.listaComidasFiltradas("todo", null);
             cargarListadoComida(listaComidas);
         }
 
@@ -102,7 +144,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnActivar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnAutorizar_Click(object sender, EventArgs e)
@@ -117,6 +159,14 @@ namespace SISVIANSA_ITI_2023.GUI
             gestionarComida.Show(Owner);
             Close();
         }
+
+        private void bntBuscar_Click(object sender, EventArgs e)
+        {
+            valFiltro = obtenerValFiltro();
+            listaComidas = comida.listaComidasFiltradas(colFiltro, valFiltro);
+            cargarListadoComida(listaComidas);            
+        }
+
 
 
         // Radiobuttons

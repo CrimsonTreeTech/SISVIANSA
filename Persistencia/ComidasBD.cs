@@ -74,6 +74,222 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return comidas;
         }
 
+        public List<Comida> listaDeComidasPorNombre(string valFiltro)
+        {
+            comidas = new List<Comida>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_comida, c.nombre, c.tiempo_produccion, c.activo, c.autorizado, group_concat(' ', d.nombre) AS dietas ";
+                        consulta += "FROM comida c ";
+                        consulta += "JOIN aplica a ON a.id_comida = c.id_comida ";
+                        consulta += "JOIN dieta d ON d.id_dieta = a.id_dieta ";
+                        consulta += "WHERE c.nombre LIKE @valFiltro ";
+                        consulta += "GROUP BY c.id_comida; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", "%" + valFiltro + "%");
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    comida = new Comida(rol)
+                                    {
+                                        Id = reader.GetInt32("id_comida"),
+                                        Coccion = reader.GetInt32("tiempo_produccion"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    comidas.Add(comida);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return comidas;
+        }
+
+        public List<Comida> listaDeComidasPorAutorizado(bool valFiltro)
+        {
+            comidas = new List<Comida>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_comida, c.nombre, c.tiempo_produccion, c.activo, c.autorizado, group_concat(' ', d.nombre) AS dietas ";
+                        consulta += "FROM comida c ";
+                        consulta += "JOIN aplica a ON a.id_comida = c.id_comida ";
+                        consulta += "JOIN dieta d ON d.id_dieta = a.id_dieta ";
+                        consulta += "WHERE c.autorizado = @valFiltro ";
+                        consulta += "GROUP BY c.id_comida; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    comida = new Comida(rol)
+                                    {
+                                        Id = reader.GetInt32("id_comida"),
+                                        Coccion = reader.GetInt32("tiempo_produccion"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    comidas.Add(comida);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return comidas;
+        }
+
+        public List<Comida> listaDeComidasPorActivo(bool valFiltro)
+        {
+            comidas = new List<Comida>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_comida, c.nombre, c.tiempo_produccion, c.activo, c.autorizado, group_concat(' ', d.nombre) AS dietas ";
+                        consulta += "FROM comida c ";
+                        consulta += "JOIN aplica a ON a.id_comida = c.id_comida ";
+                        consulta += "JOIN dieta d ON d.id_dieta = a.id_dieta ";
+                        consulta += "WHERE c.activo = @valFiltro ";
+                        consulta += "GROUP BY c.id_comida; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    comida = new Comida(rol)
+                                    {
+                                        Id = reader.GetInt32("id_comida"),
+                                        Coccion = reader.GetInt32("tiempo_produccion"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    comidas.Add(comida);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return comidas;
+        }
+
+        public List<Comida> listaDeComidasPorDieta(List<string> valFiltro)
+        {
+            comidas = new List<Comida>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_comida, c.nombre, c.tiempo_produccion, c.activo, c.autorizado, group_concat(' ', d.nombre) AS dietas ";
+                        consulta += "FROM comida c ";
+                        consulta += "JOIN aplica a ON a.id_comida = c.id_comida ";
+                        consulta += "JOIN dieta d ON d.id_dieta = a.id_dieta ";
+                        consulta += "WHERE d.nombre IN ( ";
+                        for (int i = 0; i < valFiltro.Count; i++)
+                        {
+                            consulta += (i > 0 ? ", " : "") + $"@param{i}";
+                        }
+                        consulta += ") ";
+                        consulta += "GROUP BY c.id_comida; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            for (int i = 0; i < valFiltro.Count; i++)
+                            {
+                                cmd.Parameters.AddWithValue($"@param{i}", valFiltro[i]);
+                            }
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    comida = new Comida(rol)
+                                    {
+                                        Id = reader.GetInt32("id_comida"),
+                                        Coccion = reader.GetInt32("tiempo_produccion"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    comidas.Add(comida);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return comidas;
+        }
+
+
+
+
+
         public List<Comida> obtenerComidasSegunDieta(List<int> idDietas)
         {
             comidas = new List<Comida>();

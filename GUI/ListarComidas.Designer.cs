@@ -261,6 +261,7 @@
             bntBuscar.TabIndex = 4;
             bntBuscar.Text = "Buscar";
             bntBuscar.UseVisualStyleBackColor = true;
+            bntBuscar.Click += bntBuscar_Click;
             // 
             // btnActivar
             // 
