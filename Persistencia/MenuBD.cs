@@ -513,7 +513,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT menu.id_menu, menu.activo, menu.autorizado, menu.congelable, menu.lote_max, menu.lote_min, menu.prioridad, menu.stock_actual, menu.sugerencia, menu.tipo_menu, menu_precio.valor FROM menu JOIN menu_precio ON menu.id_menu = menu_precio.id_menu WHERE menu.id_menu = @id AND menu_precio.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio);";
+                        consulta  = "SELECT DISTINCT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, ";
+                        consulta += "m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, i.personalizado, p.cantidad ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN integra i ON i.id_menu = m.id_menu ";
+                        consulta += "JOIN produccion p ON p.id_menu = m.id_menu ";
+                        consulta += "WHERE m.id_menu = @id ";
+                        consulta += "AND mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio); ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -529,10 +536,10 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Congelable = reader.GetInt32("congelable"),
                                         StockMin = reader.GetInt32("lote_max"),
                                         StockMax = reader.GetInt32("lote_min"),
-                                        Prioridad = reader.GetInt32("prioridad"),
-                                        StockActual = reader.GetInt32("stock_actual"),
                                         Tipo = reader.GetString("tipo_menu"),
-                                        Precio = reader.GetDouble("valor")
+                                        Precio = reader.GetDouble("valor"),
+                                        Personalizado = reader.GetBoolean("personalizado"),
+                                        StockActual = reader.GetInt32("cantidad")
                                     };
                                     if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
                                         menu.Sugerencia = reader.GetString("sugerencia");
@@ -546,7 +553,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error MenuBD #4: " + ex.Message);
+                MessageBox.Show("Error MenuBD #obtenerDatosMenu: " + ex.Message);
             }
             finally
             {

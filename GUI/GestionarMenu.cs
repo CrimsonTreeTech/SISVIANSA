@@ -154,20 +154,26 @@ namespace SISVIANSA_ITI_2023.GUI
         private void cargarListaDietas()
         {
             nombreDietas = dieta.nombresDeDietas();
-            checkedListBox1.Items.AddRange(nombreDietas.ToArray());
+            ckLstDietas.Items.AddRange(nombreDietas.ToArray());
         }
 
 
         // ------------------------- CARGAR / GUARDAR DATOS ---------------------------
         private void cargarDatos()
         {
-            txtNombre.Text = "Menu " + menu.Id.ToString();
             chkPersonalizado.Checked = menu.Personalizado;
+            chkAutorizado.Checked = menu.Autorizado;
+            chkActivo.Checked = menu.Activo;
+
+            cboTipo.Text = menu.Tipo;
+
+            txtId.Text = "Menu " + menu.Id.ToString();
             txtPrecio.Text = menu.Precio.ToString();
+            txtStockActual.Text = menu.StockActual.ToString();
             txtMinStock.Text = menu.StockMin.ToString();
             txtMaxStock.Text = menu.StockMax.ToString();
             txtCongelable.Text = menu.Congelable.ToString();
-            cboTipo.Text = menu.Tipo;
+
             rtxtSugerencias.Text = menu.Sugerencia;
         }
 

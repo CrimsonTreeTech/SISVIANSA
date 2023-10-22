@@ -46,6 +46,10 @@ namespace SISVIANSA_ITI_2023.GUI
             chkAutorizado = new CheckBox();
             ckLstDietas = new CheckedListBox();
             chkActivo = new CheckBox();
+            lblId = new Label();
+            txtId = new TextBox();
+            txtStockActual = new TextBox();
+            lblStockActual = new Label();
             SuspendLayout();
             // 
             // btnQuitarComida
@@ -66,7 +70,7 @@ namespace SISVIANSA_ITI_2023.GUI
             lstComidasMenu.ItemHeight = 15;
             lstComidasMenu.Location = new Point(682, 46);
             lstComidasMenu.Name = "lstComidasMenu";
-            lstComidasMenu.Size = new Size(207, 289);
+            lstComidasMenu.Size = new Size(207, 334);
             lstComidasMenu.TabIndex = 8;
             // 
             // lblComidasMenu
@@ -96,7 +100,7 @@ namespace SISVIANSA_ITI_2023.GUI
             lstComidasDisponibles.ItemHeight = 15;
             lstComidasDisponibles.Location = new Point(452, 46);
             lstComidasDisponibles.Name = "lstComidasDisponibles";
-            lstComidasDisponibles.Size = new Size(207, 289);
+            lstComidasDisponibles.Size = new Size(207, 334);
             lstComidasDisponibles.TabIndex = 11;
             // 
             // lblListaComidas
@@ -120,7 +124,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // lblTipo
             // 
             lblTipo.AutoSize = true;
-            lblTipo.Location = new Point(19, 62);
+            lblTipo.Location = new Point(21, 82);
             lblTipo.Name = "lblTipo";
             lblTipo.Size = new Size(30, 15);
             lblTipo.TabIndex = 14;
@@ -131,7 +135,7 @@ namespace SISVIANSA_ITI_2023.GUI
             cboTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTipo.FormattingEnabled = true;
             cboTipo.Items.AddRange(new object[] { "Semanal", "Quincenal", "Mensual" });
-            cboTipo.Location = new Point(55, 59);
+            cboTipo.Location = new Point(57, 79);
             cboTipo.Name = "cboTipo";
             cboTipo.Size = new Size(150, 23);
             cboTipo.TabIndex = 16;
@@ -141,7 +145,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // lblSugerencias
             // 
             lblSugerencias.AutoSize = true;
-            lblSugerencias.Location = new Point(21, 224);
+            lblSugerencias.Location = new Point(22, 262);
             lblSugerencias.Name = "lblSugerencias";
             lblSugerencias.Size = new Size(70, 15);
             lblSugerencias.TabIndex = 25;
@@ -149,15 +153,15 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // rtxtSugerencias
             // 
-            rtxtSugerencias.Location = new Point(21, 242);
+            rtxtSugerencias.Location = new Point(21, 280);
             rtxtSugerencias.Name = "rtxtSugerencias";
-            rtxtSugerencias.Size = new Size(394, 93);
+            rtxtSugerencias.Size = new Size(394, 100);
             rtxtSugerencias.TabIndex = 26;
             rtxtSugerencias.Text = "";
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(21, 369);
+            btnCancelar.Location = new Point(21, 402);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(221, 40);
             btnCancelar.TabIndex = 27;
@@ -167,7 +171,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(668, 369);
+            btnAceptar.Location = new Point(668, 402);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(221, 40);
             btnAceptar.TabIndex = 28;
@@ -177,7 +181,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // txtPrecio
             // 
-            txtPrecio.Location = new Point(135, 88);
+            txtPrecio.Location = new Point(137, 108);
             txtPrecio.Name = "txtPrecio";
             txtPrecio.Size = new Size(70, 23);
             txtPrecio.TabIndex = 38;
@@ -185,7 +189,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // lblPrecio
             // 
             lblPrecio.AutoSize = true;
-            lblPrecio.Location = new Point(21, 94);
+            lblPrecio.Location = new Point(21, 111);
             lblPrecio.Name = "lblPrecio";
             lblPrecio.Size = new Size(40, 15);
             lblPrecio.TabIndex = 37;
@@ -193,7 +197,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // txtCongelable
             // 
-            txtCongelable.Location = new Point(135, 175);
+            txtCongelable.Location = new Point(137, 227);
             txtCongelable.Name = "txtCongelable";
             txtCongelable.Size = new Size(70, 23);
             txtCongelable.TabIndex = 36;
@@ -201,7 +205,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // lblCongelable
             // 
             lblCongelable.AutoSize = true;
-            lblCongelable.Location = new Point(21, 181);
+            lblCongelable.Location = new Point(21, 230);
             lblCongelable.Name = "lblCongelable";
             lblCongelable.Size = new Size(108, 15);
             lblCongelable.TabIndex = 35;
@@ -209,7 +213,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // txtMaxStock
             // 
-            txtMaxStock.Location = new Point(135, 146);
+            txtMaxStock.Location = new Point(137, 198);
             txtMaxStock.Name = "txtMaxStock";
             txtMaxStock.Size = new Size(70, 23);
             txtMaxStock.TabIndex = 34;
@@ -217,7 +221,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // lblMaxStock
             // 
             lblMaxStock.AutoSize = true;
-            lblMaxStock.Location = new Point(21, 149);
+            lblMaxStock.Location = new Point(21, 201);
             lblMaxStock.Name = "lblMaxStock";
             lblMaxStock.Size = new Size(83, 15);
             lblMaxStock.TabIndex = 33;
@@ -225,7 +229,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // txtMinStock
             // 
-            txtMinStock.Location = new Point(135, 117);
+            txtMinStock.Location = new Point(137, 169);
             txtMinStock.Name = "txtMinStock";
             txtMinStock.Size = new Size(70, 23);
             txtMinStock.TabIndex = 32;
@@ -233,7 +237,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // lblMinStock
             // 
             lblMinStock.AutoSize = true;
-            lblMinStock.Location = new Point(21, 123);
+            lblMinStock.Location = new Point(21, 172);
             lblMinStock.Name = "lblMinStock";
             lblMinStock.Size = new Size(81, 15);
             lblMinStock.TabIndex = 31;
@@ -252,7 +256,7 @@ namespace SISVIANSA_ITI_2023.GUI
             // chkAutorizado
             // 
             chkAutorizado.AutoSize = true;
-            chkAutorizado.Location = new Point(369, 381);
+            chkAutorizado.Location = new Point(369, 414);
             chkAutorizado.Name = "chkAutorizado";
             chkAutorizado.Size = new Size(84, 19);
             chkAutorizado.TabIndex = 40;
@@ -262,26 +266,63 @@ namespace SISVIANSA_ITI_2023.GUI
             // ckLstDietas
             // 
             ckLstDietas.FormattingEnabled = true;
-            ckLstDietas.Location = new Point(229, 52);
+            ckLstDietas.Location = new Point(229, 66);
             ckLstDietas.Name = "ckLstDietas";
-            ckLstDietas.Size = new Size(186, 148);
+            ckLstDietas.Size = new Size(186, 184);
             ckLstDietas.TabIndex = 41;
             // 
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(487, 381);
+            chkActivo.Location = new Point(487, 414);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(60, 19);
             chkActivo.TabIndex = 42;
             chkActivo.Text = "Activo";
             chkActivo.UseVisualStyleBackColor = true;
             // 
+            // lblId
+            // 
+            lblId.AutoSize = true;
+            lblId.Location = new Point(21, 52);
+            lblId.Name = "lblId";
+            lblId.Size = new Size(61, 15);
+            lblId.TabIndex = 43;
+            lblId.Text = "Nro Menu";
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(88, 49);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(119, 23);
+            txtId.TabIndex = 44;
+            // 
+            // txtStockActual
+            // 
+            txtStockActual.Location = new Point(137, 140);
+            txtStockActual.Name = "txtStockActual";
+            txtStockActual.Size = new Size(70, 23);
+            txtStockActual.TabIndex = 46;
+            // 
+            // lblStockActual
+            // 
+            lblStockActual.AutoSize = true;
+            lblStockActual.Location = new Point(21, 143);
+            lblStockActual.Name = "lblStockActual";
+            lblStockActual.Size = new Size(71, 15);
+            lblStockActual.TabIndex = 45;
+            lblStockActual.Text = "Stock actual";
+            // 
             // GestionarMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(913, 424);
+            ClientSize = new Size(913, 454);
+            Controls.Add(txtStockActual);
+            Controls.Add(lblStockActual);
+            Controls.Add(txtId);
+            Controls.Add(lblId);
             Controls.Add(chkActivo);
             Controls.Add(ckLstDietas);
             Controls.Add(chkAutorizado);
@@ -344,5 +385,9 @@ namespace SISVIANSA_ITI_2023.GUI
         private CheckedListBox checkedListBox1;
         private CheckBox chkActivo;
         private CheckedListBox ckLstDietas;
+        private Label lblId;
+        private TextBox txtId;
+        private TextBox txtStockActual;
+        private Label lblStockActual;
     }
 }
