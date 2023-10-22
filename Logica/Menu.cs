@@ -12,7 +12,7 @@ namespace SISVIANSA_ITI_2023.Logica
     {
         private byte rol;
         private int id, stockMin, stockMax, congelable, stockActual, prioridad, tiempoElaboracion;
-        private string tipo, sugerencia;
+        private string tipo, sugerencia, dietasSTR; //strimg dietasSTR es para traer las dietas concatenadas y mostrarlas en una dgv
         private bool activo, autorizado, personalizado;
         private double precio;
         private Menu menu;
@@ -111,6 +111,12 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             get { return comidas; }
             set { comidas = value; }
+        }
+
+        public string DietasSTR
+        {
+            get { return dietasSTR; }
+            set { dietasSTR = value; }
         }
 
 

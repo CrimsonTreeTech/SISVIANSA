@@ -121,7 +121,17 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT menu.id_menu, menu.activo, menu.autorizado, menu.congelable, menu.lote_max, menu.lote_min, menu.prioridad, menu.stock_actual, menu.sugerencia, menu.tipo_menu, menu_precio.valor FROM menu JOIN menu_precio ON menu.id_menu = menu_precio.id_menu WHERE menu_precio.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio);";
+                        consulta  = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN ( ";
+                        consulta += "SELECT m.id_menu, GROUP_CONCAT(' ', d.nombre) AS dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN pertenece p ON p.id_menu = m.id_menu ";
+                        consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") d ON d.id_menu = m.id_menu ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio); ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -137,9 +147,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Congelable = reader.GetInt32("congelable"),
                                         StockMin = reader.GetInt32("lote_max"),
                                         StockMax = reader.GetInt32("lote_min"),
-                                        StockActual = reader.GetInt32("stock_actual"),
                                         Tipo = reader.GetString("tipo_menu"),
-                                        Precio = reader.GetDouble("valor")
+                                        Precio = reader.GetDouble("valor"),
+                                        DietasSTR = reader.GetString("dietas")
                                     };
                                     if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
                                         menu.Sugerencia = reader.GetString("sugerencia");

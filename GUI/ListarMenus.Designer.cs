@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             GroupBox gbxFiltrar;
-            chLstDieta = new CheckedListBox();
+            rbtnTodo = new RadioButton();
+            chkLstDietas = new CheckedListBox();
             rbtnFiltroDieta = new RadioButton();
             rbtnFiltroActivo = new RadioButton();
-            rbtnFiltroInactivo = new RadioButton();
+            rbtnInactivo = new RadioButton();
             rbtnFiltroAutorizado = new RadioButton();
             cboFiltroTipo = new ComboBox();
             rbtnFiltrarTipo = new RadioButton();
@@ -40,6 +41,12 @@
             rbtnFiltroNoAutorizados = new RadioButton();
             rbtnFiltroNombre = new RadioButton();
             dgvMenu = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colTipoMenu = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            colAutorizado = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
+            colDietas = new DataGridViewTextBoxColumn();
             btnRegresar = new Button();
             btnDetalles = new Button();
             btnModificar = new Button();
@@ -47,12 +54,6 @@
             btnAutorizar = new Button();
             btnReiniciar = new Button();
             btnBuscar = new Button();
-            colId = new DataGridViewTextBoxColumn();
-            colTipoMenu = new DataGridViewTextBoxColumn();
-            colPrecio = new DataGridViewTextBoxColumn();
-            colAutorizado = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
-            colDietas = new DataGridViewTextBoxColumn();
             gbxFiltrar = new GroupBox();
             gbxFiltrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMenu).BeginInit();
@@ -60,10 +61,11 @@
             // 
             // gbxFiltrar
             // 
-            gbxFiltrar.Controls.Add(chLstDieta);
+            gbxFiltrar.Controls.Add(rbtnTodo);
+            gbxFiltrar.Controls.Add(chkLstDietas);
             gbxFiltrar.Controls.Add(rbtnFiltroDieta);
             gbxFiltrar.Controls.Add(rbtnFiltroActivo);
-            gbxFiltrar.Controls.Add(rbtnFiltroInactivo);
+            gbxFiltrar.Controls.Add(rbtnInactivo);
             gbxFiltrar.Controls.Add(rbtnFiltroAutorizado);
             gbxFiltrar.Controls.Add(cboFiltroTipo);
             gbxFiltrar.Controls.Add(rbtnFiltrarTipo);
@@ -72,96 +74,112 @@
             gbxFiltrar.Controls.Add(rbtnFiltroNombre);
             gbxFiltrar.Location = new Point(12, 12);
             gbxFiltrar.Name = "gbxFiltrar";
-            gbxFiltrar.Size = new Size(766, 100);
+            gbxFiltrar.Size = new Size(803, 100);
             gbxFiltrar.TabIndex = 1;
             gbxFiltrar.TabStop = false;
             gbxFiltrar.Text = "Filtrar";
             // 
-            // chLstDieta
+            // rbtnTodo
             // 
-            chLstDieta.FormattingEnabled = true;
-            chLstDieta.Location = new Point(602, 31);
-            chLstDieta.Name = "chLstDieta";
-            chLstDieta.Size = new Size(149, 58);
-            chLstDieta.TabIndex = 11;
+            rbtnTodo.AutoSize = true;
+            rbtnTodo.Location = new Point(6, 31);
+            rbtnTodo.Name = "rbtnTodo";
+            rbtnTodo.Size = new Size(51, 19);
+            rbtnTodo.TabIndex = 12;
+            rbtnTodo.TabStop = true;
+            rbtnTodo.Text = "Todo";
+            rbtnTodo.UseVisualStyleBackColor = true;
+            rbtnTodo.Click += rbtnTodo_Click;
+            // 
+            // chkLstDietas
+            // 
+            chkLstDietas.FormattingEnabled = true;
+            chkLstDietas.Location = new Point(646, 29);
+            chkLstDietas.Name = "chkLstDietas";
+            chkLstDietas.Size = new Size(149, 58);
+            chkLstDietas.TabIndex = 11;
             // 
             // rbtnFiltroDieta
             // 
             rbtnFiltroDieta.AutoSize = true;
-            rbtnFiltroDieta.Location = new Point(544, 32);
+            rbtnFiltroDieta.Location = new Point(588, 29);
             rbtnFiltroDieta.Name = "rbtnFiltroDieta";
             rbtnFiltroDieta.Size = new Size(52, 19);
             rbtnFiltroDieta.TabIndex = 10;
             rbtnFiltroDieta.TabStop = true;
             rbtnFiltroDieta.Text = "Dieta";
             rbtnFiltroDieta.UseVisualStyleBackColor = true;
+            rbtnFiltroDieta.Click += rbtnDieta_Click;
             // 
             // rbtnFiltroActivo
             // 
             rbtnFiltroActivo.AutoSize = true;
-            rbtnFiltroActivo.Location = new Point(289, 64);
+            rbtnFiltroActivo.Location = new Point(487, 30);
             rbtnFiltroActivo.Name = "rbtnFiltroActivo";
             rbtnFiltroActivo.Size = new Size(59, 19);
             rbtnFiltroActivo.TabIndex = 9;
             rbtnFiltroActivo.TabStop = true;
             rbtnFiltroActivo.Text = "Activo";
             rbtnFiltroActivo.UseVisualStyleBackColor = true;
+            rbtnFiltroActivo.Click += rbtnActivo_Click;
             // 
-            // rbtnFiltroInactivo
+            // rbtnInactivo
             // 
-            rbtnFiltroInactivo.AutoSize = true;
-            rbtnFiltroInactivo.Location = new Point(407, 63);
-            rbtnFiltroInactivo.Name = "rbtnFiltroInactivo";
-            rbtnFiltroInactivo.Size = new Size(67, 19);
-            rbtnFiltroInactivo.TabIndex = 8;
-            rbtnFiltroInactivo.TabStop = true;
-            rbtnFiltroInactivo.Text = "Inactivo";
-            rbtnFiltroInactivo.UseVisualStyleBackColor = true;
+            rbtnInactivo.AutoSize = true;
+            rbtnInactivo.Location = new Point(487, 63);
+            rbtnInactivo.Name = "rbtnInactivo";
+            rbtnInactivo.Size = new Size(67, 19);
+            rbtnInactivo.TabIndex = 8;
+            rbtnInactivo.TabStop = true;
+            rbtnInactivo.Text = "Inactivo";
+            rbtnInactivo.UseVisualStyleBackColor = true;
+            rbtnInactivo.Click += rbtnInactivo_Click;
             // 
             // rbtnFiltroAutorizado
             // 
             rbtnFiltroAutorizado.AutoSize = true;
-            rbtnFiltroAutorizado.Location = new Point(289, 32);
+            rbtnFiltroAutorizado.Location = new Point(350, 31);
             rbtnFiltroAutorizado.Name = "rbtnFiltroAutorizado";
             rbtnFiltroAutorizado.Size = new Size(88, 19);
             rbtnFiltroAutorizado.TabIndex = 7;
             rbtnFiltroAutorizado.TabStop = true;
             rbtnFiltroAutorizado.Text = "Autorizados";
             rbtnFiltroAutorizado.UseVisualStyleBackColor = true;
+            rbtnFiltroAutorizado.Click += rbtnAutorizado_Click;
             // 
             // cboFiltroTipo
             // 
             cboFiltroTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboFiltroTipo.FormattingEnabled = true;
             cboFiltroTipo.Items.AddRange(new object[] { "Semanal", "Quincenal", "Mensual" });
-            cboFiltroTipo.Location = new Point(81, 63);
+            cboFiltroTipo.Location = new Point(165, 62);
             cboFiltroTipo.Name = "cboFiltroTipo";
-            cboFiltroTipo.Size = new Size(174, 23);
+            cboFiltroTipo.Size = new Size(146, 23);
             cboFiltroTipo.TabIndex = 6;
             // 
             // rbtnFiltrarTipo
             // 
             rbtnFiltrarTipo.AutoSize = true;
-            rbtnFiltrarTipo.Location = new Point(6, 64);
+            rbtnFiltrarTipo.Location = new Point(90, 63);
             rbtnFiltrarTipo.Name = "rbtnFiltrarTipo";
             rbtnFiltrarTipo.Size = new Size(48, 19);
             rbtnFiltrarTipo.TabIndex = 5;
             rbtnFiltrarTipo.TabStop = true;
             rbtnFiltrarTipo.Text = "Tipo";
             rbtnFiltrarTipo.UseVisualStyleBackColor = true;
-            rbtnFiltrarTipo.Click += rbtnFiltrarTipo_Click;
+            rbtnFiltrarTipo.Click += rbtnTipo_Click;
             // 
             // txtFiltroNombre
             // 
-            txtFiltroNombre.Location = new Point(81, 28);
+            txtFiltroNombre.Location = new Point(165, 29);
             txtFiltroNombre.Name = "txtFiltroNombre";
-            txtFiltroNombre.Size = new Size(174, 23);
+            txtFiltroNombre.Size = new Size(146, 23);
             txtFiltroNombre.TabIndex = 3;
             // 
             // rbtnFiltroNoAutorizados
             // 
             rbtnFiltroNoAutorizados.AutoSize = true;
-            rbtnFiltroNoAutorizados.Location = new Point(407, 31);
+            rbtnFiltroNoAutorizados.Location = new Point(350, 63);
             rbtnFiltroNoAutorizados.Name = "rbtnFiltroNoAutorizados";
             rbtnFiltroNoAutorizados.Size = new Size(105, 19);
             rbtnFiltroNoAutorizados.TabIndex = 2;
@@ -173,14 +191,14 @@
             // rbtnFiltroNombre
             // 
             rbtnFiltroNombre.AutoSize = true;
-            rbtnFiltroNombre.Location = new Point(6, 32);
+            rbtnFiltroNombre.Location = new Point(90, 31);
             rbtnFiltroNombre.Name = "rbtnFiltroNombre";
             rbtnFiltroNombre.Size = new Size(69, 19);
             rbtnFiltroNombre.TabIndex = 0;
             rbtnFiltroNombre.TabStop = true;
             rbtnFiltroNombre.Text = "Nombre";
             rbtnFiltroNombre.UseVisualStyleBackColor = true;
-            rbtnFiltroNombre.Click += rbtnFiltroNombre_Click;
+            rbtnFiltroNombre.Click += rbtnNombre_Click;
             // 
             // dgvMenu
             // 
@@ -195,6 +213,54 @@
             dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMenu.Size = new Size(974, 359);
             dgvMenu.TabIndex = 0;
+            // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.FillWeight = 45.68528F;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colTipoMenu
+            // 
+            colTipoMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colTipoMenu.FillWeight = 67.38897F;
+            colTipoMenu.HeaderText = "Tipo menu";
+            colTipoMenu.Name = "colTipoMenu";
+            colTipoMenu.ReadOnly = true;
+            // 
+            // colPrecio
+            // 
+            colPrecio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPrecio.FillWeight = 88.74207F;
+            colPrecio.HeaderText = "Precio";
+            colPrecio.Name = "colPrecio";
+            colPrecio.ReadOnly = true;
+            // 
+            // colAutorizado
+            // 
+            colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colAutorizado.FillWeight = 74.16263F;
+            colAutorizado.HeaderText = "Autorizado";
+            colAutorizado.Name = "colAutorizado";
+            colAutorizado.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colActivo.FillWeight = 58.381588F;
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            // 
+            // colDietas
+            // 
+            colDietas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDietas.FillWeight = 265.639374F;
+            colDietas.HeaderText = "Dieta";
+            colDietas.Name = "colDietas";
+            colDietas.ReadOnly = true;
             // 
             // btnRegresar
             // 
@@ -247,9 +313,9 @@
             // 
             // btnReiniciar
             // 
-            btnReiniciar.Location = new Point(784, 33);
+            btnReiniciar.Location = new Point(821, 33);
             btnReiniciar.Name = "btnReiniciar";
-            btnReiniciar.Size = new Size(202, 29);
+            btnReiniciar.Size = new Size(165, 29);
             btnReiniciar.TabIndex = 8;
             btnReiniciar.Text = "Reiniciar";
             btnReiniciar.UseVisualStyleBackColor = true;
@@ -257,61 +323,13 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(784, 72);
+            btnBuscar.Location = new Point(821, 72);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(202, 29);
+            btnBuscar.Size = new Size(165, 29);
             btnBuscar.TabIndex = 9;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
-            // 
-            // colId
-            // 
-            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colId.FillWeight = 45.68528F;
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colTipoMenu
-            // 
-            colTipoMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colTipoMenu.FillWeight = 67.38897F;
-            colTipoMenu.HeaderText = "Tipo menu";
-            colTipoMenu.Name = "colTipoMenu";
-            colTipoMenu.ReadOnly = true;
-            // 
-            // colPrecio
-            // 
-            colPrecio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colPrecio.FillWeight = 88.74207F;
-            colPrecio.HeaderText = "Precio";
-            colPrecio.Name = "colPrecio";
-            colPrecio.ReadOnly = true;
-            // 
-            // colAutorizado
-            // 
-            colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colAutorizado.FillWeight = 74.16263F;
-            colAutorizado.HeaderText = "Autorizado";
-            colAutorizado.Name = "colAutorizado";
-            colAutorizado.ReadOnly = true;
-            // 
-            // colActivo
-            // 
-            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colActivo.FillWeight = 58.381588F;
-            colActivo.HeaderText = "Activo";
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            // 
-            // colDietas
-            // 
-            colDietas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDietas.FillWeight = 265.639374F;
-            colDietas.HeaderText = "Dieta";
-            colDietas.Name = "colDietas";
-            colDietas.ReadOnly = true;
             // 
             // ListarMenus
             // 
@@ -355,9 +373,9 @@
         private Button btnBuscar;
         private DataGridViewTextBoxColumn colDieta;
         private RadioButton rbtnFiltroActivo;
-        private RadioButton rbtnFiltroInactivo;
+        private RadioButton rbtnInactivo;
         private RadioButton rbtnFiltroAutorizado;
-        private CheckedListBox chLstDieta;
+        private CheckedListBox chkLstDietas;
         private RadioButton rbtnFiltroDieta;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colTipoMenu;
@@ -365,5 +383,6 @@
         private DataGridViewTextBoxColumn colAutorizado;
         private DataGridViewTextBoxColumn colActivo;
         private DataGridViewTextBoxColumn colDietas;
+        private RadioButton rbtnTodo;
     }
 }

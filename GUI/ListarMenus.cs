@@ -15,8 +15,11 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         private byte rol;
         private int idMenu;
+        private string colFiltro, valFiltro;
         private Menu menu;
+        private Dieta dieta;
         private List<Menu> listaMenus;
+        List<Dieta> listaDietas;
 
         // ---------------------------- METODOS AL INICIAR --------------------------------
         public ListarMenus(byte rol)
@@ -24,8 +27,7 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             this.rol = rol;
             menu = new Menu(rol);
-            busquedaSinFiltroNiOrden();
-            bloqueraFuncionalidadesSegunRol(rol);
+            dieta = new Dieta(rol);
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
@@ -51,10 +53,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void ListarMenus_Load(object sender, EventArgs e)
         {
-            reiniciarFiltros();
-            reiniciarOrden();
             inhabilitarFiltros();
-            inhabilitarOrden();
+            busquedaSinFiltroNiOrden();
+            bloqueraFuncionalidadesSegunRol(rol);
+            valFiltro = "todo";
+            rbtnTodo.Checked = true;
+            listaMenus = menu.obtenerTodosLosMenu();
+            cargarLista(listaMenus);
         }
 
 
@@ -68,7 +73,7 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             foreach (Menu menu in listaMenus)
             {
-                dgvMenu.Rows.Add(menu.Id, menu.Tipo, menu.Precio, menu.Autorizado, menu.Activo);
+                dgvMenu.Rows.Add(menu.Id, menu.Tipo, menu.Precio, menu.Autorizado, menu.Activo, menu.DietasSTR);
             }
         }
 
@@ -79,88 +84,29 @@ namespace SISVIANSA_ITI_2023.GUI
         }
 
         // ---------------------------- METODOS DE FILTROS --------------------------
-        private void reiniciarFiltros()
-        {
-            rbtnFiltrarTipo.Checked = false;
-            rbtnFiltroNombre.Checked = false;
-            rbtnFiltroNoAutorizados.Checked = false;
-
-            txtFiltroNombre.Clear();
-            cboFiltroTipo.SelectedItem = null;
-        }
-
-        private void reiniciarOrden()
-        {
-            rbtnOrdenNombre.Checked = false;
-            rbtnOrdenTipo.Checked = false;
-
-            cboOrdenNombre.SelectedItem = null;
-            cboOrdenTipo.SelectedItem = null;
-        }
-
         private void inhabilitarFiltros()
         {
+            txtFiltroNombre.Clear();
+            cboFiltroTipo.SelectedItem = null;
+            chkLstDietas.Items.Clear();
+
             txtFiltroNombre.Enabled = false;
             cboFiltroTipo.Enabled = false;
+            chkLstDietas.Enabled = false;
         }
 
-        private void inhabilitarOrden()
+        private void cargarListaDietas()
         {
-            cboOrdenNombre.Enabled = false;
-            cboOrdenTipo.Enabled = false;
+            chkLstDietas.Items.Clear();
+            listaDietas = dieta.todasLasDietas();
+            foreach (Dieta dieta in listaDietas)
+            {
+                chkLstDietas.Items.Add(dieta.Nombre);
+            }
+            chkLstDietas.Enabled = true;
         }
-
-
 
         // ------------------------- METODOS DE WIDGETS ---------------------------------
-
-        // Radio buttons filtros
-        private void rbtnFiltroNombre_Click(object sender, EventArgs e)
-        {
-            reiniciarFiltros();
-            inhabilitarFiltros();
-            rbtnFiltroNombre.Checked = true;
-            txtFiltroNombre.Enabled = true;
-        }
-
-        private void rbtnFiltrarTipo_Click(object sender, EventArgs e)
-        {
-            reiniciarFiltros();
-            inhabilitarFiltros();
-            rbtnFiltrarTipo.Checked = true;
-            cboFiltroTipo.Enabled = true;
-        }
-
-        private void rbtnNoAutorizados_Click(object sender, EventArgs e)
-        {
-            reiniciarFiltros();
-            inhabilitarFiltros();
-            rbtnFiltroNoAutorizados.Checked = true;
-        }
-
-        // Radiobuttons orden
-        private void rbtnOrdenNombre_Click(object sender, EventArgs e)
-        {
-            reiniciarOrden();
-            inhabilitarOrden();
-            rbtnOrdenNombre.Checked = true;
-            cboOrdenNombre.Enabled = true;
-        }
-
-        private void rbtnOrdenTipo_Click(object sender, EventArgs e)
-        {
-            reiniciarOrden();
-            inhabilitarOrden();
-            rbtnOrdenTipo.Checked = true;
-            cboOrdenTipo.Enabled = true;
-        }
-
-        private void rbtnOrdenStock_Click(object sender, EventArgs e)
-        {
-            reiniciarOrden();
-            inhabilitarOrden();
-        }
-
 
         // Botones
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -187,10 +133,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnReiniciar_Click(object sender, EventArgs e)
         {
-            reiniciarFiltros();
-            reiniciarOrden();
             inhabilitarFiltros();
-            inhabilitarOrden();
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
@@ -202,5 +145,52 @@ namespace SISVIANSA_ITI_2023.GUI
         {
 
         }
+
+
+        // Radio buttons filtros
+        private void rbtnNombre_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+            txtFiltroNombre.Enabled = true;
+        }
+
+        private void rbtnTipo_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+            cboFiltroTipo.Enabled = true;
+            cboFiltroTipo.SelectedIndex = 0;
+        }
+
+        private void rbtnNoAutorizados_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+        }
+
+        private void rbtnTodo_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+        }
+
+        private void rbtnAutorizado_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+        }
+
+        private void rbtnActivo_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+        }
+
+        private void rbtnInactivo_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+        }
+
+        private void rbtnDieta_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+            cargarListaDietas();
+        }
     }
+
 }
