@@ -15,11 +15,12 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         private byte rol;
         private int idMenu;
-        private string colFiltro, valFiltro;
+        private string colFiltro;
         private Menu menu;
         private Dieta dieta;
+        private List<string> valFiltro;
         private List<Menu> listaMenus;
-        List<Dieta> listaDietas;
+        private List<Dieta> listaDietas;
 
         // ---------------------------- METODOS AL INICIAR --------------------------------
         public ListarMenus(byte rol)
@@ -28,6 +29,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.rol = rol;
             menu = new Menu(rol);
             dieta = new Dieta(rol);
+            valFiltro = new List<string>();
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
@@ -56,7 +58,6 @@ namespace SISVIANSA_ITI_2023.GUI
             inhabilitarFiltros();
             busquedaSinFiltroNiOrden();
             bloqueraFuncionalidadesSegunRol(rol);
-            valFiltro = "todo";
             rbtnTodo.Checked = true;
             listaMenus = menu.obtenerTodosLosMenu();
             cargarLista(listaMenus);
@@ -71,6 +72,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void cargarLista(List<Menu> listaMenus)
         {
+            dgvMenu.Rows.Clear();
             foreach (Menu menu in listaMenus)
             {
                 dgvMenu.Rows.Add(menu.Id, menu.Tipo, menu.Precio, menu.Autorizado, menu.Activo, menu.DietasSTR);
@@ -83,15 +85,41 @@ namespace SISVIANSA_ITI_2023.GUI
             cargarLista(listaMenus);
         }
 
+        private List<string> obtenerValFiltro()
+        {
+            valFiltro = new List<string>();
+
+            if (colFiltro.Equals("id"))
+            {
+                valFiltro.Add(txtMenu.Text);
+            }
+
+            else if (colFiltro.Equals("tipo"))
+            {
+                valFiltro.Add(cboTipo.Text);
+            }
+
+            else if (colFiltro.Equals("dieta"))
+            {
+                valFiltro = obtenerDietasSeleccionadas();
+            }
+
+            else
+            {
+                valFiltro.Add("");
+            }
+            return valFiltro;
+        }
+
         // ---------------------------- METODOS DE FILTROS --------------------------
         private void inhabilitarFiltros()
         {
-            txtFiltroNombre.Clear();
-            cboFiltroTipo.SelectedItem = null;
+            txtMenu.Clear();
+            cboTipo.SelectedItem = null;
             chkLstDietas.Items.Clear();
 
-            txtFiltroNombre.Enabled = false;
-            cboFiltroTipo.Enabled = false;
+            txtMenu.Enabled = false;
+            cboTipo.Enabled = false;
             chkLstDietas.Enabled = false;
         }
 
@@ -105,6 +133,24 @@ namespace SISVIANSA_ITI_2023.GUI
             }
             chkLstDietas.Enabled = true;
         }
+
+        private List<string> obtenerDietasSeleccionadas()
+        {
+            valFiltro = new List<string>();
+
+            for (int i = 0; i < chkLstDietas.Items.Count; i++)
+            {
+                if (chkLstDietas.GetItemChecked(i))
+                {
+                    string dietaCheckeada = chkLstDietas.Items[i].ToString();
+                    valFiltro.Add(dietaCheckeada);
+                }
+            }
+
+            return valFiltro;
+        }
+
+
 
         // ------------------------- METODOS DE WIDGETS ---------------------------------
 
@@ -143,53 +189,64 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            valFiltro = obtenerValFiltro();
+            listaMenus = menu.buscarMenuFiltrados(colFiltro, valFiltro);
+            cargarLista(listaMenus);
         }
 
 
         // Radio buttons filtros
-        private void rbtnNombre_Click(object sender, EventArgs e)
+        private void rbtnTodo_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
-            txtFiltroNombre.Enabled = true;
+            colFiltro = "todo";
+        }
+
+
+        private void rbtnMenu_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+            txtMenu.Enabled = true;
+            colFiltro = "id";
         }
 
         private void rbtnTipo_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
-            cboFiltroTipo.Enabled = true;
-            cboFiltroTipo.SelectedIndex = 0;
+            cboTipo.Enabled = true;
+            cboTipo.SelectedIndex = 0;
+            colFiltro = "tipo";
         }
 
         private void rbtnNoAutorizados_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
-        }
-
-        private void rbtnTodo_Click(object sender, EventArgs e)
-        {
-            inhabilitarFiltros();
+            colFiltro = "noAutorizado";
         }
 
         private void rbtnAutorizado_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
+            colFiltro = "autorizado";
         }
 
         private void rbtnActivo_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
+            colFiltro = "activo";
         }
 
         private void rbtnInactivo_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
+            colFiltro = "inactivo";
         }
 
         private void rbtnDieta_Click(object sender, EventArgs e)
         {
             inhabilitarFiltros();
             cargarListaDietas();
+            colFiltro = "dieta";
         }
     }
 

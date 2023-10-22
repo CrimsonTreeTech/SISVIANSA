@@ -173,6 +173,338 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return menus;
         }
 
+        public List<Menu> filtrarMenuPorId(int valFiltro)
+        {
+            menus = new List<Menu>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN ( ";
+                        consulta += "SELECT m.id_menu, GROUP_CONCAT(' ', d.nombre) AS dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN pertenece p ON p.id_menu = m.id_menu ";
+                        consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") d ON d.id_menu = m.id_menu ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "AND m.id_menu = @valFiltro; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+                            
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    menu = new Menu(rol)
+                                    {
+                                        Id = reader.GetInt32("id_menu"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Congelable = reader.GetInt32("congelable"),
+                                        StockMin = reader.GetInt32("lote_max"),
+                                        StockMax = reader.GetInt32("lote_min"),
+                                        Tipo = reader.GetString("tipo_menu"),
+                                        Precio = reader.GetDouble("valor"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
+                                        menu.Sugerencia = reader.GetString("sugerencia");
+                                    else
+                                        menu.Sugerencia = "";
+                                    menus.Add(menu);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error MenuBD #3: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return menus;
+        }
+
+        public List<Menu> filtrarMenuPorTipo(string valFiltro)
+        {
+            menus = new List<Menu>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN ( ";
+                        consulta += "SELECT m.id_menu, GROUP_CONCAT(' ', d.nombre) AS dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN pertenece p ON p.id_menu = m.id_menu ";
+                        consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") d ON d.id_menu = m.id_menu ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "AND m.tipo_menu = @valFiltro; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    menu = new Menu(rol)
+                                    {
+                                        Id = reader.GetInt32("id_menu"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Congelable = reader.GetInt32("congelable"),
+                                        StockMin = reader.GetInt32("lote_max"),
+                                        StockMax = reader.GetInt32("lote_min"),
+                                        Tipo = reader.GetString("tipo_menu"),
+                                        Precio = reader.GetDouble("valor"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
+                                        menu.Sugerencia = reader.GetString("sugerencia");
+                                    else
+                                        menu.Sugerencia = "";
+                                    menus.Add(menu);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error MenuBD #3: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return menus;
+        }
+
+        public List<Menu> filtrarMenuPorAutorizado(bool valFiltro)
+        {
+            menus = new List<Menu>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN ( ";
+                        consulta += "SELECT m.id_menu, GROUP_CONCAT(' ', d.nombre) AS dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN pertenece p ON p.id_menu = m.id_menu ";
+                        consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") d ON d.id_menu = m.id_menu ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "AND m.autorizado = @valFiltro; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    menu = new Menu(rol)
+                                    {
+                                        Id = reader.GetInt32("id_menu"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Congelable = reader.GetInt32("congelable"),
+                                        StockMin = reader.GetInt32("lote_max"),
+                                        StockMax = reader.GetInt32("lote_min"),
+                                        Tipo = reader.GetString("tipo_menu"),
+                                        Precio = reader.GetDouble("valor"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
+                                        menu.Sugerencia = reader.GetString("sugerencia");
+                                    else
+                                        menu.Sugerencia = "";
+                                    menus.Add(menu);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error MenuBD #3: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return menus;
+        }
+
+        public List<Menu> filtrarMenuPorActivo(bool valFiltro)
+        {
+            menus = new List<Menu>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN ( ";
+                        consulta += "SELECT m.id_menu, GROUP_CONCAT(' ', d.nombre) AS dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN pertenece p ON p.id_menu = m.id_menu ";
+                        consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") d ON d.id_menu = m.id_menu ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "AND m.activo = @valFiltro; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@valFiltro", valFiltro);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    menu = new Menu(rol)
+                                    {
+                                        Id = reader.GetInt32("id_menu"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Congelable = reader.GetInt32("congelable"),
+                                        StockMin = reader.GetInt32("lote_max"),
+                                        StockMax = reader.GetInt32("lote_min"),
+                                        Tipo = reader.GetString("tipo_menu"),
+                                        Precio = reader.GetDouble("valor"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
+                                        menu.Sugerencia = reader.GetString("sugerencia");
+                                    else
+                                        menu.Sugerencia = "";
+                                    menus.Add(menu);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error MenuBD #3: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return menus;
+        }
+
+
+        public List<Menu> filtrarMenuPorDietas(List<string> valFiltro)
+        {
+            menus = new List<Menu>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
+                        consulta += "JOIN ( ";
+                        consulta += "SELECT m.id_menu, GROUP_CONCAT(' ', d.nombre) AS dietas ";
+                        consulta += "FROM menu m ";
+                        consulta += "JOIN pertenece p ON p.id_menu = m.id_menu ";
+                        consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
+                        consulta += "WHERE d.nombre IN (";
+                        for (int i = 0; i < valFiltro.Count; i++)
+                        {
+                            consulta += (i > 0 ? ", " : "") + $"@param{i}";
+                        }
+                        consulta += ") ";
+                        consulta += "GROUP BY m.id_menu ";
+                        consulta += ") d ON d.id_menu = m.id_menu ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio);";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            for (int i = 0; i < valFiltro.Count; i++)
+                            {
+                                cmd.Parameters.AddWithValue($"@param{i}", valFiltro[i]);
+                            }
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    menu = new Menu(rol)
+                                    {
+                                        Id = reader.GetInt32("id_menu"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Congelable = reader.GetInt32("congelable"),
+                                        StockMin = reader.GetInt32("lote_max"),
+                                        StockMax = reader.GetInt32("lote_min"),
+                                        Tipo = reader.GetString("tipo_menu"),
+                                        Precio = reader.GetDouble("valor"),
+                                        DietasSTR = reader.GetString("dietas")
+                                    };
+                                    if (!reader.IsDBNull(reader.GetOrdinal("sugerencia")))
+                                        menu.Sugerencia = reader.GetString("sugerencia");
+                                    else
+                                        menu.Sugerencia = "";
+                                    menus.Add(menu);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error MenuBD #3: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return menus;
+        }
+
+
+
+
         public Menu obtenerDatosMenu(int idMenu)
         {
             try

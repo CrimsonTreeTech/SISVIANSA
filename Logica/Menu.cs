@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SISVIANSA_ITI_2023.GUI;
 using SISVIANSA_ITI_2023.Persistencia;
 
 namespace SISVIANSA_ITI_2023.Logica
@@ -18,7 +19,8 @@ namespace SISVIANSA_ITI_2023.Logica
         private Menu menu;
         private List<Dieta> dietas;
         private List<Comida> comidas;
-        private MenuBD menuDB;
+        private List<Menu> listaMenus;
+        private MenuBD menuBD;
 
 
 
@@ -123,7 +125,7 @@ namespace SISVIANSA_ITI_2023.Logica
         // ----------------------- METODOS AL INICIAR --------------------------
         public Menu(byte rol)
         {
-            menuDB = new MenuBD(rol);
+            menuBD = new MenuBD(rol);
         }
 
 
@@ -143,26 +145,83 @@ namespace SISVIANSA_ITI_2023.Logica
         // ------------------------ CONSULTAS ---------------------------------
         public List<Menu> obtenerTodosLosMenu()
         {
-            return menuDB.obtenerTodosLosMenu();
+            return menuBD.obtenerTodosLosMenu();
         }
 
         public void cargarDatosDeMenu(int idMenu)
         {
             Id = idMenu;
-            StockMin = menuDB.obtenerDatosMenu(idMenu).StockMin; 
-            StockMax = menuDB.obtenerDatosMenu(idMenu).StockMax; 
-            Congelable = menuDB.obtenerDatosMenu(idMenu).Congelable;
-            StockActual = menuDB.obtenerDatosMenu(idMenu).StockActual;
-            Tipo = menuDB.obtenerDatosMenu(idMenu).Tipo; 
-            Sugerencia = menuDB.obtenerDatosMenu(idMenu).Sugerencia;
-            Activo = menuDB.obtenerDatosMenu(idMenu).Activo;
-            Autorizado = menuDB.obtenerDatosMenu(idMenu).Autorizado;
-            Personalizado = menuDB.obtenerDatosMenu(idMenu).Personalizado;
-            Precio = menuDB.obtenerDatosMenu(idMenu).Precio;
-            Dietas = menuDB.obtenerDietasMenu(idMenu);
-            Comidas = menuDB.obtenerComidasMenu(idMenu);
+            StockMin = menuBD.obtenerDatosMenu(idMenu).StockMin; 
+            StockMax = menuBD.obtenerDatosMenu(idMenu).StockMax; 
+            Congelable = menuBD.obtenerDatosMenu(idMenu).Congelable;
+            StockActual = menuBD.obtenerDatosMenu(idMenu).StockActual;
+            Tipo = menuBD.obtenerDatosMenu(idMenu).Tipo; 
+            Sugerencia = menuBD.obtenerDatosMenu(idMenu).Sugerencia;
+            Activo = menuBD.obtenerDatosMenu(idMenu).Activo;
+            Autorizado = menuBD.obtenerDatosMenu(idMenu).Autorizado;
+            Personalizado = menuBD.obtenerDatosMenu(idMenu).Personalizado;
+            Precio = menuBD.obtenerDatosMenu(idMenu).Precio;
+            Dietas = menuBD.obtenerDietasMenu(idMenu);
+            Comidas = menuBD.obtenerComidasMenu(idMenu);
             TiempoElaboracion = calcularElaboracion();
         }
+
+        public List<Menu> buscarMenuFiltrados(string colFiltro, List<string> valFiltro)
+        {
+            listaMenus = new List<Menu> ();
+
+            if (colFiltro.Equals("todo"))
+            {
+                listaMenus = menuBD.obtenerTodosLosMenu();
+            }
+
+            else if (colFiltro.Equals("id"))
+            {
+                id = Convert.ToInt32(valFiltro[0]);
+                listaMenus = menuBD.filtrarMenuPorId(id);
+            }
+
+            else if (colFiltro.Equals("tipo"))
+            {
+                listaMenus = menuBD.filtrarMenuPorTipo(valFiltro[0]);
+            }
+
+            else if (colFiltro.Equals("autorizado"))
+            {
+                listaMenus = menuBD.filtrarMenuPorAutorizado(true);
+            }
+
+            else if (colFiltro.Equals("noAutorizado"))
+            {
+                listaMenus = menuBD.filtrarMenuPorAutorizado(false);
+            }
+
+            else if (colFiltro.Equals("activo"))
+            {
+                listaMenus = menuBD.filtrarMenuPorActivo(true);
+            }
+
+            else if (colFiltro.Equals("inactivo"))
+            {
+                listaMenus = menuBD.filtrarMenuPorActivo(false);
+            }
+
+            else if (colFiltro.Equals("dieta"))
+            {
+                /*
+                string cadena = "(";
+                foreach (string item in valFiltro)
+                {
+                    cadena += item + ", ";
+                }
+                cadena = cadena.Remove(cadena.Length - 2);
+                cadena += ")";*/
+                listaMenus = menuBD.filtrarMenuPorDietas(valFiltro);
+            }
+
+            return listaMenus;
+        }
+
 
         // --------------------- METODOS AUXILIARES ---------------------------
 
