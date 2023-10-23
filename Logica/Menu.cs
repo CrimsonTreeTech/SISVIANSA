@@ -275,5 +275,10 @@ namespace SISVIANSA_ITI_2023.Logica
             return lst.Count > 0;
         }
 
+        public bool verificarFiltroDeMenu(List<string> valFiltro)
+        {
+            return valFiltro.Count > 1;
+        }
+
     }
 }

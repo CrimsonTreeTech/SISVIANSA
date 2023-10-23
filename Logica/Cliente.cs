@@ -9,24 +9,26 @@ namespace SISVIANSA_ITI_2023.Logica
 {
     public class Cliente
     {
-        byte rol;
-        ClienteComunBD clienteComunBD;
-        ClienteEmpresaBD clienteEmpresaBD;
+        // Ambos
+        private byte rol;
+        private string calle, esq;
+        private int id, nroPuerta;
+        private bool activo, autorizado;
+        private List<string> mails;
+        private List<int> tels;
+        private ClientesBD clientesBD;
 
         // Comun
-        string pNom, sNom, pApe, sApe, tipoDoc;
-        int doc;
+        private string pNom, sNom, pApe, sApe, tipoDoc;
+        private int doc;
+        private ClienteComunBD clienteComunBD;
 
         // Empresa
-        string nombre;
-        int rut;
+        private string nombre;
+        private int rut;
+        private ClienteEmpresaBD clienteEmpresaBD;
 
-        // Ambos
-        string calle, esq;
-        int id, nroPuerta;
-        bool activo, autorizado;
-        List<string> mails;
-        List<int> tels;
+        
 
 
         // --------------- CONSTRUCTOR --------------------
@@ -35,6 +37,7 @@ namespace SISVIANSA_ITI_2023.Logica
             this.rol = rol;
             clienteComunBD = new ClienteComunBD(rol);
             clienteEmpresaBD = new ClienteEmpresaBD(rol);
+            clientesBD = new ClientesBD(rol);
         }
 
 
@@ -214,16 +217,18 @@ namespace SISVIANSA_ITI_2023.Logica
         }
 
 
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        public Cliente obtenerDatosParticular(int idCliente)
+        // ------------------------------- CONSULTAS -----------------------------------
+        public void crearVistaClientes()
         {
-            return clienteComunBD.obtenerDatos(idCliente);
+            if (clientesBD.crearVistaClientesUnificados())
+            {
+                if (clientesBD.crearVistaClientes())
+                {
+                    clientesBD.borrarVistaClientesUnificados();
+                }
+            }
+            
         }
 
-        public Cliente obtenerDatosEmpresa(int idCliente)
-        {
-            return clienteEmpresaBD.obtenerDatos(idCliente);
-        }
     }
 }

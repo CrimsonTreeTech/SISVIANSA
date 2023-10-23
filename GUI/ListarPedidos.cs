@@ -54,7 +54,8 @@ namespace SISVIANSA_ITI_2023.GUI
             dgvPedidos.Rows.Clear();
             foreach (Pedido item in lista)
             {
-                dgvPedidos.Rows.Add(item.NroPedido, item.IdMenu, item.Cliente, item.FechaRealizado, item.Cantidad, item.Estado, item.Zona, item.Dir);
+                string dir = item.Calle + " " + item.NroPuerta.ToString() + " Esq. " + item.Esq;
+                dgvPedidos.Rows.Add(item.NroPedido, item.IdMenu, item.Cliente, item.FechaRealizado, item.Cantidad, item.Estado, item.Zona, dir);
             }
         }
 

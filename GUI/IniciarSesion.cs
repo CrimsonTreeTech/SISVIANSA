@@ -22,7 +22,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private const byte ROL_INFORMATICO = 6;
 
         private short validacionUsuario;
-
+        private Cliente cliente;
         private Usuario usuario;
 
 
@@ -30,6 +30,7 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             InitializeComponent();
             usuario = new Usuario(ROL_INFORMATICO);
+            cliente = new Cliente(ROL_INFORMATICO);
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -77,5 +78,10 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+        private void IniciarSesion_Load(object sender, EventArgs e)
+        {
+            // Crea las vistas necesarias al iniciar el programa
+            cliente.crearVistaClientes();
+        }
     }
 }

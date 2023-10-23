@@ -33,31 +33,34 @@
             // 
             // txtUser
             // 
-            txtUser.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtUser.Location = new Point(371, 53);
+            txtUser.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtUser.Location = new Point(325, 40);
+            txtUser.Margin = new Padding(3, 2, 3, 2);
             txtUser.Name = "txtUser";
             txtUser.PlaceholderText = "Usuario";
-            txtUser.Size = new Size(340, 32);
+            txtUser.Size = new Size(298, 26);
             txtUser.TabIndex = 0;
             txtUser.Text = "cocina";
             // 
             // txtPassword
             // 
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Location = new Point(371, 121);
+            txtPassword.Location = new Point(325, 91);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '●';
             txtPassword.PlaceholderText = "Contraseña";
-            txtPassword.Size = new Size(340, 27);
+            txtPassword.Size = new Size(298, 23);
             txtPassword.TabIndex = 1;
             txtPassword.Text = "1234";
             // 
             // btnIngresar
             // 
             btnIngresar.Cursor = Cursors.Hand;
-            btnIngresar.Location = new Point(371, 194);
+            btnIngresar.Location = new Point(325, 146);
+            btnIngresar.Margin = new Padding(3, 2, 3, 2);
             btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(341, 61);
+            btnIngresar.Size = new Size(298, 46);
             btnIngresar.TabIndex = 2;
             btnIngresar.Text = "Ingresar";
             btnIngresar.UseVisualStyleBackColor = true;
@@ -69,24 +72,27 @@
             pnlCarita.BackgroundImage = Properties.Resources.png_transparent_user_profile_computer_icons_login_user_avatars_thumbnail;
             pnlCarita.BackgroundImageLayout = ImageLayout.Center;
             pnlCarita.Cursor = Cursors.Help;
-            pnlCarita.Location = new Point(12, 12);
+            pnlCarita.Location = new Point(10, 9);
+            pnlCarita.Margin = new Padding(3, 2, 3, 2);
             pnlCarita.Name = "pnlCarita";
-            pnlCarita.Size = new Size(284, 404);
+            pnlCarita.Size = new Size(248, 303);
             pnlCarita.TabIndex = 3;
             // 
             // IniciarSesion
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(760, 428);
+            ClientSize = new Size(665, 321);
             Controls.Add(pnlCarita);
             Controls.Add(btnIngresar);
             Controls.Add(txtPassword);
             Controls.Add(txtUser);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "IniciarSesion";
             Text = "IniciarSesion";
+            Load += IniciarSesion_Load;
             ResumeLayout(false);
             PerformLayout();
         }

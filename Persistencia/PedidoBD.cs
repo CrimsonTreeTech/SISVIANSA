@@ -43,7 +43,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta  = "SELECT p.nro_pedido, p.id_menu, c.nombre, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta  = "SELECT p.nro_pedido, p.id_menu, c.nombre, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.calle, c.esq, c.nro_puerta ";
                         consulta += "FROM pide p ";
                         consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
@@ -66,7 +66,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Cantidad = reader.GetInt32("cantidad"),
                                         Estado = reader.GetString("estado"),
                                         Zona = reader.GetInt32("id_zona"),
-                                        Dir = reader.GetString("dir")
+                                        Calle = reader.GetString("calle"),
+                                        Esq = reader.GetString("esq"),
+                                        NroPuerta = reader.GetInt32("nro_puerta")
                                     };
                                     pedidos.Add(pedido);
                                 }
@@ -95,7 +97,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta  = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta  = "SELECT p.nro_pedido, p.id_menu, c.nombre, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.calle, c.esq, c.nro_puerta ";
                         consulta += "FROM pide p ";
                         consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
@@ -121,7 +123,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Cantidad = reader.GetInt32("cantidad"),
                                         Estado = reader.GetString("estado"),
                                         Zona = reader.GetInt32("id_zona"),
-                                        Dir = reader.GetString("dir")
+                                        Calle = reader.GetString("calle"),
+                                        Esq = reader.GetString("esq"),
+                                        NroPuerta = reader.GetInt32("nro_puerta")
                                     };
                                     pedidos.Add(pedido);
                                 }
@@ -150,7 +154,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.calle, c.esq, c.nro_puerta ";
                         consulta += "FROM pide p ";
                         consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
@@ -176,7 +180,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Cantidad = reader.GetInt32("cantidad"),
                                         Estado = reader.GetString("estado"),
                                         Zona = reader.GetInt32("id_zona"),
-                                        Dir = reader.GetString("dir")
+                                        Calle = reader.GetString("calle"),
+                                        Esq = reader.GetString("esq"),
+                                        NroPuerta = reader.GetInt32("nro_puerta")
                                     };
                                     pedidos.Add(pedido);
                                 }
@@ -205,7 +211,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.calle, c.esq, c.nro_puerta ";
                         consulta += "FROM pide p ";
                         consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
@@ -231,7 +237,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Cantidad = reader.GetInt32("cantidad"),
                                         Estado = reader.GetString("estado"),
                                         Zona = reader.GetInt32("id_zona"),
-                                        Dir = reader.GetString("dir")
+                                        Calle = reader.GetString("calle"),
+                                        Esq = reader.GetString("esq"),
+                                        NroPuerta = reader.GetInt32("nro_puerta")
                                     };
                                     pedidos.Add(pedido);
                                 }
@@ -260,7 +268,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta  = "SELECT p.nro_pedido, c.nombre, p.id_menu, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.dir ";
+                        consulta  = "SELECT p.nro_pedido, p.id_menu, c.nombre, p.fecha_realizado, p.cantidad, e.nombre AS estado,  p.id_zona, c.calle, c.esq, c.nro_puerta ";
                         consulta += "FROM pide p ";
                         consulta += "JOIN clientes c ON c.id_cliente = p.id_cliente ";
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
@@ -286,7 +294,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Cantidad = reader.GetInt32("cantidad"),
                                         Estado = reader.GetString("estado"),
                                         Zona = reader.GetInt32("id_zona"),
-                                        Dir = reader.GetString("dir")
+                                        Calle = reader.GetString("calle"),
+                                        Esq = reader.GetString("esq"),
+                                        NroPuerta = reader.GetInt32("nro_puerta")
                                     };
                                     pedidos.Add(pedido);
                                 }

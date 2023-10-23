@@ -16,6 +16,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private byte rol;
         private int idMenu;
         private string colFiltro;
+        private bool valido;
         private Menu menu;
         private Dieta dieta;
         private List<string> valFiltro;
@@ -150,8 +151,6 @@ namespace SISVIANSA_ITI_2023.GUI
             return valFiltro;
         }
 
-
-
         // ------------------------- METODOS DE WIDGETS ---------------------------------
 
         // Botones
@@ -190,8 +189,16 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             valFiltro = obtenerValFiltro();
-            listaMenus = menu.buscarMenuFiltrados(colFiltro, valFiltro);
-            cargarLista(listaMenus);
+            valido = menu.verificarFiltroDeMenu(valFiltro);
+            if (valido)
+            {
+                listaMenus = menu.buscarMenuFiltrados(colFiltro, valFiltro);
+                cargarLista(listaMenus);
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó filtros de búsqueda correctos");
+            }
         }
 
 

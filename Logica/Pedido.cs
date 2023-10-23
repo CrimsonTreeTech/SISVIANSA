@@ -10,8 +10,8 @@ namespace SISVIANSA_ITI_2023.Logica
     public class Pedido
     {
         private byte rol;
-        private int nroPedido, idMenu, cantidad, zona, valFiltroInt;
-        private string cliente,fechaRealizado, estado, dir;
+        private int nroPedido, idMenu, cantidad, zona, valFiltroInt, nroPuerta;
+        private string cliente,fechaRealizado, estado, calle, esq;
         private List<Pedido> listaPedidos;
         private PedidoBD pedidoBD;
 
@@ -67,10 +67,22 @@ namespace SISVIANSA_ITI_2023.Logica
             set { zona = value; }
         }
 
-        public string Dir
+        public string Calle
         {
-            get { return dir; }
-            set { dir = value; }
+            get { return calle; }
+            set { calle = value; }
+        }
+
+        public string Esq
+        {
+            get { return esq; }
+            set { esq = value; }
+        }
+
+        public int NroPuerta
+        {
+            get { return nroPuerta; }
+            set { nroPuerta = value; }
         }
 
 
