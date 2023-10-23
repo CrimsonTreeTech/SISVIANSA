@@ -101,7 +101,17 @@ namespace SISVIANSA_ITI_2023.GUI
             txtCoccion.Text = comida.Coccion.ToString();
             chkActivo.Checked = comida.Activo;
             chkAutorizado.Checked = comida.Autorizado;
-            lstDietasQuePertenece.Items.AddRange(comida.Dietas.ToArray());
+            cargarLitaDietasDeLaComida();
+            actualizarListas();
+        }
+
+        private void cargarLitaDietasDeLaComida()
+        {
+            lstDietasSeleccionadas.Items.Clear();
+            foreach (Dieta dieta in comida.Dietas)
+            {
+                comida.agregarDieta(dieta.Nombre);
+            }
         }
 
         private void actualizarDatos()
@@ -110,7 +120,7 @@ namespace SISVIANSA_ITI_2023.GUI
             comida.Coccion = Int32.Parse(txtCoccion.Text);
             comida.Activo = chkActivo.Checked;
             comida.Autorizado = chkAutorizado.Checked;
-            comida.actualizarListaDeDietas(lstDietasQuePertenece.Items.OfType<string>().ToList());
+            comida.actualizarListaDeDietas(lstDietasSeleccionadas.Items.OfType<string>().ToList());
         }
 
         private void guardarCambios(metodoDelegado metodo)

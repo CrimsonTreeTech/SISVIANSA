@@ -52,7 +52,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             idSucursal = seleccionarSucursal();
-            ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal);
+            ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal, false);
             produccionDiaria.Show(Owner);
             Close();
         }

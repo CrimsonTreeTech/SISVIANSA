@@ -169,9 +169,6 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             this.dietas = new List<Dieta>();
         }
-
-        
-
         
 
         // ------------------ METODOS LISTA TEMPORAL DE DIETAS SELECCIONADAS ----------------

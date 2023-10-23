@@ -6,6 +6,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ProduccionDiaria : Form
     {
         private byte rol;
+        private bool vieneDelMenuCocina;
         private Produccion produccion;
         private Sucursal sucursal;
         private List<Produccion> listaProduccion;
@@ -25,11 +26,12 @@ namespace SISVIANSA_ITI_2023.GUI
 
 
         // --------------- CONSTRUCTOR -------------------
-        public ProduccionDiaria(byte rol, int idSucursal)
+        public ProduccionDiaria(byte rol, int idSucursal, bool vieneDelMenuCocina)
         {
             InitializeComponent();
             this.rol = rol;
             this.idSucursal = idSucursal;
+            this.vieneDelMenuCocina = vieneDelMenuCocina;
             produccion = new Produccion(rol);
             sucursal = new Sucursal(rol);
             capProdSucursal = sucursal.obtenerCapProdScursal(idSucursal);
@@ -203,8 +205,16 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            SeleccionarSucursal seleccionarSucursal = new SeleccionarSucursal(rol);
-            seleccionarSucursal.Show(Owner);
+            if (vieneDelMenuCocina)
+            {
+                MenuCocina menuCocina = new MenuCocina(rol, idSucursal);
+                menuCocina.Show(Owner);
+            }
+            else
+            {
+                SeleccionarSucursal seleccionarSucursal = new SeleccionarSucursal(rol);
+                seleccionarSucursal.Show(Owner);
+            }
             Close();
         }
 

@@ -117,7 +117,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT dieta.id, dieta.nombre, dieta.descripcion, dieta.activo, dieta.autorizado FROM dieta JOIN aplica ON aplica.id_dieta = dieta.id_dieta WHERE aplica.id_comida = @id;";
+                        consulta = "SELECT dieta.id_dieta, dieta.nombre, dieta.descripcion, dieta.activo, dieta.autorizado FROM dieta JOIN aplica ON aplica.id_dieta = dieta.id_dieta WHERE aplica.id_comida = @id;";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -129,7 +129,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                 {
                                     Dieta dieta = new Dieta(rol)
                                     {
-                                        Id = reader.GetInt32("id"),
+                                        Id = reader.GetInt32("id_dieta"),
                                         Nombre = reader.GetString("nombre"),
                                         Descripcion = reader.GetString("descripcion"),
                                         Activo = reader.GetBoolean("activo"),

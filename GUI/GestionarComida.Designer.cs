@@ -131,7 +131,7 @@
             lblDietasSeleccionadas.Name = "lblDietasSeleccionadas";
             lblDietasSeleccionadas.Size = new Size(143, 15);
             lblDietasSeleccionadas.TabIndex = 9;
-            lblDietasSeleccionadas.Text = "Dietas a las que pertenece";
+            lblDietasSeleccionadas.Text = "Dietas Seleccionadas";
             // 
             // btnAgregar
             // 
@@ -169,19 +169,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(805, 269);
             Controls.Add(chkActivo);
+            Controls.Add(chkAutorizado);
+            Controls.Add(lstDietasDisponibles);
+            Controls.Add(lstDietasSeleccionadas);
+            Controls.Add(lblDietasSeleccionadas);
+            Controls.Add(lblDietasDisponibles);
+            Controls.Add(lblNombre);
+            Controls.Add(lblTiempoCoccion);
+            Controls.Add(txtCoccion);
+            Controls.Add(txtNombre);
             Controls.Add(btnQuitar);
             Controls.Add(btnAgregar);
-            Controls.Add(lstDietasDisponibles);
-            Controls.Add(lblDietasSeleccionadas);
-            Controls.Add(chkAutorizado);
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
-            Controls.Add(lstDietasSeleccionadas);
-            Controls.Add(lblDietasDisponibles);
-            Controls.Add(txtCoccion);
-            Controls.Add(lblTiempoCoccion);
-            Controls.Add(txtNombre);
-            Controls.Add(lblNombre);
             Name = "IngresarComida";
             Text = "IngresarComida";
             Load += IngresarComida_Load;
@@ -193,15 +193,11 @@
 
         private Label lblNombre;
         private TextBox txtNombre;
-        private TextBox textBox1;
         private Label lblTiempoCoccion;
         private Label lblDietasDisponibles;
-        private ListBox lstDietas;
         private Button btnCancelar;
         private Button btnAceptar;
         private CheckBox chkAutorizado;
-        private ListBox lstDietasQuePertenece;
-        private Label label1;
         private Button btnAgregar;
         private Button btnQuitar;
         private ListBox lstDietasDisponibles;

@@ -18,6 +18,8 @@ namespace SISVIANSA_ITI_2023.GUI
         private Menu menu;
         private Dieta dieta;
         private Comida comida;
+        private List<Dieta> listaDietas;
+        private List<Comida> listaComida;
         private List<string> nombreDietas;
         private List<string> listaComidasMenuTemporal;
 
@@ -154,7 +156,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private void cargarListaDietas()
         {
             nombreDietas = dieta.nombresDeDietas();
-            ckLstDietas.Items.AddRange(nombreDietas.ToArray());
+            chkLstDietas.Items.AddRange(nombreDietas.ToArray());
         }
 
 
@@ -175,8 +177,23 @@ namespace SISVIANSA_ITI_2023.GUI
             txtCongelable.Text = menu.Congelable.ToString();
 
             rtxtSugerencias.Text = menu.Sugerencia;
+
+            chekcearDietasDeMenu();
         }
 
+        private void chekcearDietasDeMenu()
+        {
+            listaDietas = menu.Dietas;
+
+            foreach (Dieta dieta in listaDietas)
+            {
+                if (chkLstDietas.Items.Contains(dieta.Nombre))
+                {
+                    int indx = chkLstDietas.Items.IndexOf(dieta.Nombre);
+                    chkLstDietas.SetItemChecked(indx, true);
+                }
+            }
+        }
 
 
         // ---------------------------- METODOS WIDGETS ------------------------------
@@ -237,11 +254,16 @@ namespace SISVIANSA_ITI_2023.GUI
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnMenu_Click(object sender, EventArgs e)
         {
             regresarAlMenu();
         }
 
-
+        private void btnListado_Click(object sender, EventArgs e)
+        {
+            ListarMenus listarMenus = new ListarMenus(rol);
+            listarMenus.Show(Owner);
+            Close();
+        }
     }
 }

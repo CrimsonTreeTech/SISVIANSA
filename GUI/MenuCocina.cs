@@ -24,7 +24,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnProduccionDiaria_Click(object sender, EventArgs e)
         {
-            ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal);
+            ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal, true);
             produccionDiaria.Show(this);
             Hide();
         }

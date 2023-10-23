@@ -84,7 +84,10 @@ namespace SISVIANSA_ITI_2023.Logica
             dietas = dietaBD.dietasAutorizadasYActivo();
             foreach (Dieta dieta in dietas)
             {
-                nombreDietas.Add(dieta.Nombre);
+                if (dieta.Activo)
+                {
+                    nombreDietas.Add(dieta.Nombre);
+                }
             }
             return nombreDietas;
         }
