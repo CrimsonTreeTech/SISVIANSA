@@ -91,7 +91,12 @@ namespace SISVIANSA_ITI_2023.Persistencia
             {
                 if (ex.Number != 1050)
                 {
-                    MessageBox.Show("ClientesBD #crearVistaClientes\n" + ex.Number.ToString() + ": " + ex.Message);
+                    MessageBox.Show("ClientesBD #crearVistaClientesUnificados\n" + ex.Number.ToString() + ": " + ex.Message);
+                }
+                else
+                {
+                    borrarVistaClientesUnificados();
+                    crearVistaClientesUnificados();
                 }
             }
             finally
