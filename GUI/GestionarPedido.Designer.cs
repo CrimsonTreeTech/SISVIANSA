@@ -30,7 +30,6 @@
         {
             btnAceptar = new Button();
             btnCancelar = new Button();
-            label1 = new Label();
             gbxCliente = new GroupBox();
             btnBuscarCliente = new Button();
             dgvCliente = new DataGridView();
@@ -63,6 +62,16 @@
             txtTotalPrecioMenu = new TextBox();
             nudCantidadMenu = new NumericUpDown();
             gpbDatosPedido = new GroupBox();
+            rtxtDir = new RichTextBox();
+            cboZona = new ComboBox();
+            txtUltimaAct = new TextBox();
+            txtEstado = new TextBox();
+            txtNombreClienteDatos = new TextBox();
+            txtNroDocDatos = new TextBox();
+            txtNroClienteDatos = new TextBox();
+            txtNroPedidoDatos = new TextBox();
+            lblPrecioTotal = new Label();
+            lblCantidad = new Label();
             lblZona = new Label();
             lblTipoDocDatos = new Label();
             lblDir = new Label();
@@ -72,16 +81,6 @@
             lblNroClienteDatos = new Label();
             lblMeuDatos = new Label();
             lblNroPedidoDatos = new Label();
-            lblCantidad = new Label();
-            lblPrecioTotal = new Label();
-            txtNroPedidoDatos = new TextBox();
-            txtNroClienteDatos = new TextBox();
-            txtNroDocDatos = new TextBox();
-            txtNombreClienteDatos = new TextBox();
-            txtEstado = new TextBox();
-            txtUltimaAct = new TextBox();
-            cboZona = new ComboBox();
-            rtxtDir = new RichTextBox();
             gbxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             gbxMenu.SuspendLayout();
@@ -110,17 +109,9 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(86, 60);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 15);
-            label1.TabIndex = 14;
-            label1.Click += label1_Click;
-            // 
             // gbxCliente
             // 
+            gbxCliente.BackColor = Color.FromArgb(255, 235, 235);
             gbxCliente.Controls.Add(btnBuscarCliente);
             gbxCliente.Controls.Add(dgvCliente);
             gbxCliente.Controls.Add(txtNombreCliente);
@@ -144,6 +135,7 @@
             btnBuscarCliente.TabIndex = 5;
             btnBuscarCliente.Text = "Buscar";
             btnBuscarCliente.UseVisualStyleBackColor = true;
+            btnBuscarCliente.Click += btnBuscarCliente_Click;
             // 
             // dgvCliente
             // 
@@ -235,6 +227,7 @@
             rbtnNombreCliente.TabStop = true;
             rbtnNombreCliente.Text = "Nombre";
             rbtnNombreCliente.UseVisualStyleBackColor = true;
+            rbtnNombreCliente.Click += rbtnNombreCliente_Click;
             // 
             // txtDocCliente
             // 
@@ -255,9 +248,11 @@
             rbtnDocCliente.TabStop = true;
             rbtnDocCliente.Text = "N° Doc.";
             rbtnDocCliente.UseVisualStyleBackColor = true;
+            rbtnDocCliente.Click += rbtnDocCliente_Click;
             // 
             // gbxMenu
             // 
+            gbxMenu.BackColor = Color.FromArgb(255, 235, 235);
             gbxMenu.Controls.Add(btnBuscarMenu);
             gbxMenu.Controls.Add(txtNombreMenu);
             gbxMenu.Controls.Add(rbtnNombreMenu);
@@ -283,6 +278,7 @@
             btnBuscarMenu.TabIndex = 6;
             btnBuscarMenu.Text = "Buscar";
             btnBuscarMenu.UseVisualStyleBackColor = true;
+            btnBuscarMenu.Click += btnBuscarMenu_Click;
             // 
             // txtNombreMenu
             // 
@@ -331,6 +327,7 @@
             dgvMenu.Columns.AddRange(new DataGridViewColumn[] { Column1, Column3, Column5, Column7, Column8 });
             dgvMenu.Location = new Point(6, 51);
             dgvMenu.Margin = new Padding(3, 2, 3, 2);
+            dgvMenu.MultiSelect = false;
             dgvMenu.Name = "dgvMenu";
             dgvMenu.RowHeadersWidth = 51;
             dgvMenu.RowTemplate.Height = 29;
@@ -462,6 +459,93 @@
             gpbDatosPedido.TabStop = false;
             gpbDatosPedido.Text = "Datos del pedido";
             // 
+            // rtxtDir
+            // 
+            rtxtDir.BackColor = SystemColors.ButtonFace;
+            rtxtDir.Location = new Point(17, 193);
+            rtxtDir.Name = "rtxtDir";
+            rtxtDir.ReadOnly = true;
+            rtxtDir.Size = new Size(287, 67);
+            rtxtDir.TabIndex = 35;
+            rtxtDir.Text = "";
+            // 
+            // cboZona
+            // 
+            cboZona.BackColor = SystemColors.Control;
+            cboZona.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboZona.FormattingEnabled = true;
+            cboZona.Location = new Point(88, 285);
+            cboZona.Name = "cboZona";
+            cboZona.Size = new Size(216, 23);
+            cboZona.TabIndex = 34;
+            // 
+            // txtUltimaAct
+            // 
+            txtUltimaAct.Location = new Point(136, 429);
+            txtUltimaAct.Name = "txtUltimaAct";
+            txtUltimaAct.ReadOnly = true;
+            txtUltimaAct.Size = new Size(168, 23);
+            txtUltimaAct.TabIndex = 33;
+            // 
+            // txtEstado
+            // 
+            txtEstado.Location = new Point(87, 389);
+            txtEstado.Name = "txtEstado";
+            txtEstado.ReadOnly = true;
+            txtEstado.Size = new Size(217, 23);
+            txtEstado.TabIndex = 32;
+            // 
+            // txtNombreClienteDatos
+            // 
+            txtNombreClienteDatos.Location = new Point(105, 133);
+            txtNombreClienteDatos.Name = "txtNombreClienteDatos";
+            txtNombreClienteDatos.ReadOnly = true;
+            txtNombreClienteDatos.ShortcutsEnabled = false;
+            txtNombreClienteDatos.Size = new Size(199, 23);
+            txtNombreClienteDatos.TabIndex = 31;
+            // 
+            // txtNroDocDatos
+            // 
+            txtNroDocDatos.Location = new Point(105, 96);
+            txtNroDocDatos.Name = "txtNroDocDatos";
+            txtNroDocDatos.ReadOnly = true;
+            txtNroDocDatos.Size = new Size(199, 23);
+            txtNroDocDatos.TabIndex = 30;
+            // 
+            // txtNroClienteDatos
+            // 
+            txtNroClienteDatos.Location = new Point(104, 62);
+            txtNroClienteDatos.Name = "txtNroClienteDatos";
+            txtNroClienteDatos.ReadOnly = true;
+            txtNroClienteDatos.Size = new Size(200, 23);
+            txtNroClienteDatos.TabIndex = 29;
+            // 
+            // txtNroPedidoDatos
+            // 
+            txtNroPedidoDatos.Location = new Point(105, 25);
+            txtNroPedidoDatos.Name = "txtNroPedidoDatos";
+            txtNroPedidoDatos.ReadOnly = true;
+            txtNroPedidoDatos.Size = new Size(199, 23);
+            txtNroPedidoDatos.TabIndex = 28;
+            // 
+            // lblPrecioTotal
+            // 
+            lblPrecioTotal.AutoSize = true;
+            lblPrecioTotal.Location = new Point(17, 470);
+            lblPrecioTotal.Name = "lblPrecioTotal";
+            lblPrecioTotal.Size = new Size(67, 15);
+            lblPrecioTotal.TabIndex = 10;
+            lblPrecioTotal.Text = "Precio total";
+            // 
+            // lblCantidad
+            // 
+            lblCantidad.AutoSize = true;
+            lblCantidad.Location = new Point(16, 355);
+            lblCantidad.Name = "lblCantidad";
+            lblCantidad.Size = new Size(55, 15);
+            lblCantidad.TabIndex = 9;
+            lblCantidad.Text = "Cantidad";
+            // 
             // lblZona
             // 
             lblZona.AutoSize = true;
@@ -543,93 +627,6 @@
             lblNroPedidoDatos.TabIndex = 0;
             lblNroPedidoDatos.Text = "N° pedido";
             // 
-            // lblCantidad
-            // 
-            lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(16, 355);
-            lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(55, 15);
-            lblCantidad.TabIndex = 9;
-            lblCantidad.Text = "Cantidad";
-            // 
-            // lblPrecioTotal
-            // 
-            lblPrecioTotal.AutoSize = true;
-            lblPrecioTotal.Location = new Point(17, 470);
-            lblPrecioTotal.Name = "lblPrecioTotal";
-            lblPrecioTotal.Size = new Size(67, 15);
-            lblPrecioTotal.TabIndex = 10;
-            lblPrecioTotal.Text = "Precio total";
-            // 
-            // txtNroPedidoDatos
-            // 
-            txtNroPedidoDatos.Location = new Point(105, 25);
-            txtNroPedidoDatos.Name = "txtNroPedidoDatos";
-            txtNroPedidoDatos.ReadOnly = true;
-            txtNroPedidoDatos.Size = new Size(199, 23);
-            txtNroPedidoDatos.TabIndex = 28;
-            // 
-            // txtNroClienteDatos
-            // 
-            txtNroClienteDatos.Location = new Point(104, 62);
-            txtNroClienteDatos.Name = "txtNroClienteDatos";
-            txtNroClienteDatos.ReadOnly = true;
-            txtNroClienteDatos.Size = new Size(200, 23);
-            txtNroClienteDatos.TabIndex = 29;
-            // 
-            // txtNroDocDatos
-            // 
-            txtNroDocDatos.Location = new Point(105, 96);
-            txtNroDocDatos.Name = "txtNroDocDatos";
-            txtNroDocDatos.ReadOnly = true;
-            txtNroDocDatos.Size = new Size(199, 23);
-            txtNroDocDatos.TabIndex = 30;
-            // 
-            // txtNombreClienteDatos
-            // 
-            txtNombreClienteDatos.Location = new Point(105, 133);
-            txtNombreClienteDatos.Name = "txtNombreClienteDatos";
-            txtNombreClienteDatos.ReadOnly = true;
-            txtNombreClienteDatos.ShortcutsEnabled = false;
-            txtNombreClienteDatos.Size = new Size(199, 23);
-            txtNombreClienteDatos.TabIndex = 31;
-            // 
-            // txtEstado
-            // 
-            txtEstado.Location = new Point(87, 389);
-            txtEstado.Name = "txtEstado";
-            txtEstado.ReadOnly = true;
-            txtEstado.Size = new Size(217, 23);
-            txtEstado.TabIndex = 32;
-            // 
-            // txtUltimaAct
-            // 
-            txtUltimaAct.Location = new Point(136, 429);
-            txtUltimaAct.Name = "txtUltimaAct";
-            txtUltimaAct.ReadOnly = true;
-            txtUltimaAct.Size = new Size(168, 23);
-            txtUltimaAct.TabIndex = 33;
-            // 
-            // cboZona
-            // 
-            cboZona.BackColor = SystemColors.Control;
-            cboZona.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboZona.FormattingEnabled = true;
-            cboZona.Location = new Point(88, 285);
-            cboZona.Name = "cboZona";
-            cboZona.Size = new Size(216, 23);
-            cboZona.TabIndex = 34;
-            // 
-            // rtxtDir
-            // 
-            rtxtDir.BackColor = SystemColors.ButtonFace;
-            rtxtDir.Location = new Point(17, 193);
-            rtxtDir.Name = "rtxtDir";
-            rtxtDir.ReadOnly = true;
-            rtxtDir.Size = new Size(287, 67);
-            rtxtDir.TabIndex = 35;
-            rtxtDir.Text = "";
-            // 
             // GestionarPedido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -638,11 +635,11 @@
             Controls.Add(gpbDatosPedido);
             Controls.Add(gbxMenu);
             Controls.Add(gbxCliente);
-            Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Name = "GestionarPedido";
             Text = "RealizarPedido";
+            Load += GestionarPedido_Load;
             gbxCliente.ResumeLayout(false);
             gbxCliente.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).EndInit();
@@ -653,13 +650,11 @@
             gpbDatosPedido.ResumeLayout(false);
             gpbDatosPedido.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private Button btnAceptar;
         private Button btnCancelar;
-        private Label label1;
         private GroupBox gbxCliente;
         private RadioButton rbtnDocCliente;
         private GroupBox gbxMenu;

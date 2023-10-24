@@ -57,7 +57,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnIngresarPedido_Click(object sender, EventArgs e)
         {
-            GestionarPedido ingresarPedido = new GestionarPedido();
+            GestionarPedido ingresarPedido = new GestionarPedido(rol);
             ingresarPedido.Show(this);
             Hide();
         }

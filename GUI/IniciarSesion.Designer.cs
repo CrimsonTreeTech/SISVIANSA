@@ -40,7 +40,7 @@
             txtUser.PlaceholderText = "Usuario";
             txtUser.Size = new Size(298, 26);
             txtUser.TabIndex = 0;
-            txtUser.Text = "cocina";
+            txtUser.Text = "admin";
             // 
             // txtPassword
             // 

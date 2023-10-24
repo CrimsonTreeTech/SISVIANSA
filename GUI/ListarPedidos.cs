@@ -128,7 +128,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            GestionarPedido gestionarPedido = new GestionarPedido();
+            GestionarPedido gestionarPedido = new GestionarPedido(rol);
             gestionarPedido.Show(Owner);
             Close();
         }
