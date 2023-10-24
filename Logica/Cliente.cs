@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SISVIANSA_ITI_2023.GUI;
 using SISVIANSA_ITI_2023.Persistencia;
 
 namespace SISVIANSA_ITI_2023.Logica
@@ -16,6 +17,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private bool activo, autorizado;
         private List<string> mails;
         private List<int> tels;
+        private List<Cliente> listaClientes;
         private ClientesBD clientesBD;
 
         // Comun
@@ -220,15 +222,21 @@ namespace SISVIANSA_ITI_2023.Logica
         // ------------------------------- CONSULTAS -----------------------------------
         public void crearVistaClientes()
         {
-            if (clientesBD.crearVistaClientesUnificados())
-            {
-                if (clientesBD.crearVistaClientes())
-                {
-                    clientesBD.borrarVistaClientesUnificados();
-                }
-            }
-            
+            clientesBD.crearVistaClientes();
         }
+
+        public List<Cliente> buscarClientesPorNroDoc(string NroDocumento)
+        {
+            listaClientes = new List<Cliente>();
+            try
+            {
+                doc = Convert.ToInt32(NroDocumento);
+                listaClientes = clientesBD.buscarClientesPorNroDoc(doc);
+            }
+            return listaClientes;
+        }
+
+
 
     }
 }

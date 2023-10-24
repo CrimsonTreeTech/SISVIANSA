@@ -14,7 +14,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class GestionarPedido : Form
     {
         private byte rol;
-        private string valFiltroCliente=null, colFiltroCliente=null, valFiltroMenu, colFiltroMenu;
+        private string valFiltroCliente = null, colFiltroCliente = null, valFiltroMenu, colFiltroMenu;
         private Cliente cliente;
         private Pedido pedido;
         private Menu menu;
@@ -74,12 +74,28 @@ namespace SISVIANSA_ITI_2023.GUI
             dgvMenu.Enabled = false;
         }
 
+        private void deshabilitarApartadoPedido()
+        {
+            txtNroPedidoDatos.Enabled = false;
+            txtNroClienteDatos.Enabled = false;
+            txtNroDocDatos.Enabled = false;
+            txtNombreClienteDatos.Enabled = false;
+            rtxtDir.Enabled = false;
+            cboZona.Enabled = false;
+            txtMenuDatos.Enabled = false;
+            nudCantidadMenu.Enabled = false;
+            txtEstado.Enabled = false;
+            txtUltimaAct.Enabled = false;
+            txtTotalPrecioMenu.Enabled = false;
+        }
+
 
         // ---------------- METODOS DE WIDGETS ---------------------
         private void GestionarPedido_Load(object sender, EventArgs e)
         {
             inhabilitarFiltrosCliente();
             deshabilitarApartadoMenu();
+            deshabilitarApartadoPedido();
         }
 
         // Botones
@@ -113,7 +129,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         }
 
-        
+
         // Filtros de cliente
         private void rbtnDocCliente_Click(object sender, EventArgs e)
         {
@@ -129,6 +145,9 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltroCliente = "nombre";
         }
 
-        
+        private void gbxMenu_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
