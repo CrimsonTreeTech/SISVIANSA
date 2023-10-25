@@ -24,7 +24,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             this.rol = rol;
         }
 
-
+        // -------------- CREAR VISTA -------------------
         public bool crearVistaClientes()
         {
             filasAfectadas = 0;
@@ -70,6 +70,58 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             return filasAfectadas > 0;
         }
+
+
+        // ------------------- CONSULTAS POR FILTROS --------------------------
+        public List<Cliente> buscarTodosLosClientes()
+        {
+            listaClientes = new List<Cliente>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta += "FROM clientes c;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    cliente = new Cliente(rol)
+                                    {
+                                        Id = reader.GetInt32("id_cliente"),
+                                        TipoDoc = reader.GetString("tipo_doc"),
+                                        Doc = reader.GetInt64("nro_doc"),
+                                        NombreEmpresa = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Calle = reader.GetString("calle"),
+                                        NroPuerta = reader.GetInt32("nro_puerta"),
+                                        Esq = reader.GetString("esq")
+                                    };
+                                    listaClientes.Add(cliente);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarTodosLosClientes\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaClientes;
+        }
+
 
         public List<Cliente> buscarClientesPorNroDoc(long doc)
         {
@@ -123,6 +175,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return listaClientes;
         }
 
+
+
+        // ---------------------- OTRAS CONSULTAS -----------------------
         public List<int> buscarTelefonosDeCliente(int idCliente)
         {
             listaTelefonos = new List<int>();

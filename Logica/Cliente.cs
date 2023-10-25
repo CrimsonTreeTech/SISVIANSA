@@ -246,8 +246,11 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             listaClientes = new List<Cliente>();
 
-            if(colFiltro.Equals("nro_doc"))
-                buscarClientesPorNroDoc(valFiltro);
+            if (colFiltro.Equals("nro_doc"))
+                listaClientes = buscarClientesPorNroDoc(valFiltro);
+
+            else if (colFiltro.Equals("todo"))
+                listaClientes = buscarTodosLosClientes();
 
             return listaClientes;
         }
@@ -266,7 +269,20 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaClientes;
         }
 
-        
+        private List<Cliente> buscarTodosLosClientes()
+        {
+            listaClientes = clientesBD.buscarTodosLosClientes();
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
+
 
 
 

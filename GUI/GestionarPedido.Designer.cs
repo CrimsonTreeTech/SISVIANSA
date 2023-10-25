@@ -31,6 +31,7 @@
             btnAceptar = new Button();
             btnCancelar = new Button();
             gbxCliente = new GroupBox();
+            rbtnTodoCliente = new RadioButton();
             btnBuscarCliente = new Button();
             dgvCliente = new DataGridView();
             txtNombreCliente = new TextBox();
@@ -38,12 +39,17 @@
             txtDocCliente = new TextBox();
             rbtnDocCliente = new RadioButton();
             gbxMenu = new GroupBox();
+            rbtnTodoMenu = new RadioButton();
             btnBuscarMenu = new Button();
             txtNombreMenu = new TextBox();
             rbtnNombreMenu = new RadioButton();
             cboDietaMenu = new ComboBox();
             cboTipoMenu = new ComboBox();
             dgvMenu = new DataGridView();
+            colMenu = new DataGridViewTextBoxColumn();
+            colTipoMenu = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            colDieta = new DataGridViewTextBoxColumn();
             rbtnTipoMenu = new RadioButton();
             rbtnDietaMenu = new RadioButton();
             txtMenuDatos = new TextBox();
@@ -69,16 +75,13 @@
             lblNroClienteDatos = new Label();
             lblMeuDatos = new Label();
             lblNroPedidoDatos = new Label();
+            colId = new DataGridViewTextBoxColumn();
             colDoc = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colTel = new DataGridViewTextBoxColumn();
             colCorreo = new DataGridViewTextBoxColumn();
             colActivo = new DataGridViewTextBoxColumn();
             colAutorizado = new DataGridViewTextBoxColumn();
-            colMenu = new DataGridViewTextBoxColumn();
-            colTipoMenu = new DataGridViewTextBoxColumn();
-            colPrecio = new DataGridViewTextBoxColumn();
-            colDieta = new DataGridViewTextBoxColumn();
             gbxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             gbxMenu.SuspendLayout();
@@ -110,6 +113,7 @@
             // gbxCliente
             // 
             gbxCliente.BackColor = Color.FromArgb(255, 235, 235);
+            gbxCliente.Controls.Add(rbtnTodoCliente);
             gbxCliente.Controls.Add(btnBuscarCliente);
             gbxCliente.Controls.Add(dgvCliente);
             gbxCliente.Controls.Add(txtNombreCliente);
@@ -124,6 +128,19 @@
             gbxCliente.TabIndex = 15;
             gbxCliente.TabStop = false;
             gbxCliente.Text = "Cliente";
+            // 
+            // rbtnTodoCliente
+            // 
+            rbtnTodoCliente.AutoSize = true;
+            rbtnTodoCliente.Location = new Point(17, 29);
+            rbtnTodoCliente.Margin = new Padding(3, 2, 3, 2);
+            rbtnTodoCliente.Name = "rbtnTodoCliente";
+            rbtnTodoCliente.Size = new Size(56, 19);
+            rbtnTodoCliente.TabIndex = 6;
+            rbtnTodoCliente.TabStop = true;
+            rbtnTodoCliente.Text = "Todos";
+            rbtnTodoCliente.UseVisualStyleBackColor = true;
+            rbtnTodoCliente.CheckedChanged += rbtnTodoCliente_CheckedChanged;
             // 
             // btnBuscarCliente
             // 
@@ -142,7 +159,7 @@
             dgvCliente.AllowUserToOrderColumns = true;
             dgvCliente.AllowUserToResizeRows = false;
             dgvCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCliente.Columns.AddRange(new DataGridViewColumn[] { colDoc, colNombre, colTel, colCorreo, colActivo, colAutorizado });
+            dgvCliente.Columns.AddRange(new DataGridViewColumn[] { colId, colDoc, colNombre, colTel, colCorreo, colActivo, colAutorizado });
             dgvCliente.Location = new Point(6, 66);
             dgvCliente.Margin = new Padding(3, 2, 3, 2);
             dgvCliente.MultiSelect = false;
@@ -156,7 +173,7 @@
             // 
             // txtNombreCliente
             // 
-            txtNombreCliente.Location = new Point(405, 29);
+            txtNombreCliente.Location = new Point(477, 28);
             txtNombreCliente.Margin = new Padding(3, 2, 3, 2);
             txtNombreCliente.Name = "txtNombreCliente";
             txtNombreCliente.Size = new Size(261, 23);
@@ -165,7 +182,7 @@
             // rbtnNombreCliente
             // 
             rbtnNombreCliente.AutoSize = true;
-            rbtnNombreCliente.Location = new Point(331, 29);
+            rbtnNombreCliente.Location = new Point(403, 28);
             rbtnNombreCliente.Margin = new Padding(3, 2, 3, 2);
             rbtnNombreCliente.Name = "rbtnNombreCliente";
             rbtnNombreCliente.Size = new Size(69, 19);
@@ -177,7 +194,7 @@
             // 
             // txtDocCliente
             // 
-            txtDocCliente.Location = new Point(119, 29);
+            txtDocCliente.Location = new Point(199, 28);
             txtDocCliente.Margin = new Padding(3, 2, 3, 2);
             txtDocCliente.Name = "txtDocCliente";
             txtDocCliente.Size = new Size(143, 23);
@@ -186,7 +203,7 @@
             // rbtnDocCliente
             // 
             rbtnDocCliente.AutoSize = true;
-            rbtnDocCliente.Location = new Point(47, 30);
+            rbtnDocCliente.Location = new Point(127, 29);
             rbtnDocCliente.Margin = new Padding(3, 2, 3, 2);
             rbtnDocCliente.Name = "rbtnDocCliente";
             rbtnDocCliente.Size = new Size(66, 19);
@@ -199,6 +216,7 @@
             // gbxMenu
             // 
             gbxMenu.BackColor = Color.FromArgb(255, 235, 235);
+            gbxMenu.Controls.Add(rbtnTodoMenu);
             gbxMenu.Controls.Add(btnBuscarMenu);
             gbxMenu.Controls.Add(txtNombreMenu);
             gbxMenu.Controls.Add(rbtnNombreMenu);
@@ -216,6 +234,18 @@
             gbxMenu.TabStop = false;
             gbxMenu.Text = "Menu";
             // 
+            // rbtnTodoMenu
+            // 
+            rbtnTodoMenu.AutoSize = true;
+            rbtnTodoMenu.Location = new Point(17, 23);
+            rbtnTodoMenu.Margin = new Padding(3, 2, 3, 2);
+            rbtnTodoMenu.Name = "rbtnTodoMenu";
+            rbtnTodoMenu.Size = new Size(56, 19);
+            rbtnTodoMenu.TabIndex = 7;
+            rbtnTodoMenu.TabStop = true;
+            rbtnTodoMenu.Text = "Todos";
+            rbtnTodoMenu.UseVisualStyleBackColor = true;
+            // 
             // btnBuscarMenu
             // 
             btnBuscarMenu.Location = new Point(805, 14);
@@ -228,7 +258,7 @@
             // 
             // txtNombreMenu
             // 
-            txtNombreMenu.Location = new Point(119, 20);
+            txtNombreMenu.Location = new Point(187, 20);
             txtNombreMenu.Margin = new Padding(3, 2, 3, 2);
             txtNombreMenu.Name = "txtNombreMenu";
             txtNombreMenu.Size = new Size(95, 23);
@@ -237,7 +267,7 @@
             // rbtnNombreMenu
             // 
             rbtnNombreMenu.AutoSize = true;
-            rbtnNombreMenu.Location = new Point(44, 20);
+            rbtnNombreMenu.Location = new Point(112, 23);
             rbtnNombreMenu.Margin = new Padding(3, 2, 3, 2);
             rbtnNombreMenu.Name = "rbtnNombreMenu";
             rbtnNombreMenu.Size = new Size(69, 19);
@@ -249,7 +279,7 @@
             // cboDietaMenu
             // 
             cboDietaMenu.FormattingEnabled = true;
-            cboDietaMenu.Location = new Point(333, 19);
+            cboDietaMenu.Location = new Point(369, 19);
             cboDietaMenu.Margin = new Padding(3, 2, 3, 2);
             cboDietaMenu.Name = "cboDietaMenu";
             cboDietaMenu.Size = new Size(129, 23);
@@ -281,6 +311,42 @@
             dgvMenu.Size = new Size(1021, 224);
             dgvMenu.TabIndex = 4;
             // 
+            // colMenu
+            // 
+            colMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colMenu.FillWeight = 65.34058F;
+            colMenu.HeaderText = "Menu";
+            colMenu.MinimumWidth = 6;
+            colMenu.Name = "colMenu";
+            colMenu.ReadOnly = true;
+            // 
+            // colTipoMenu
+            // 
+            colTipoMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colTipoMenu.FillWeight = 80.9910049F;
+            colTipoMenu.HeaderText = "Tipo de Menu";
+            colTipoMenu.MinimumWidth = 6;
+            colTipoMenu.Name = "colTipoMenu";
+            colTipoMenu.ReadOnly = true;
+            // 
+            // colPrecio
+            // 
+            colPrecio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPrecio.FillWeight = 60.9137039F;
+            colPrecio.HeaderText = "Precio";
+            colPrecio.MinimumWidth = 6;
+            colPrecio.Name = "colPrecio";
+            colPrecio.ReadOnly = true;
+            // 
+            // colDieta
+            // 
+            colDieta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDieta.FillWeight = 192.7547F;
+            colDieta.HeaderText = "Dieta";
+            colDieta.MinimumWidth = 6;
+            colDieta.Name = "colDieta";
+            colDieta.ReadOnly = true;
+            // 
             // rbtnTipoMenu
             // 
             rbtnTipoMenu.AutoSize = true;
@@ -296,7 +362,7 @@
             // rbtnDietaMenu
             // 
             rbtnDietaMenu.AutoSize = true;
-            rbtnDietaMenu.Location = new Point(275, 21);
+            rbtnDietaMenu.Location = new Point(311, 21);
             rbtnDietaMenu.Margin = new Padding(3, 2, 3, 2);
             rbtnDietaMenu.Name = "rbtnDietaMenu";
             rbtnDietaMenu.Size = new Size(52, 19);
@@ -534,10 +600,18 @@
             lblNroPedidoDatos.TabIndex = 0;
             lblNroPedidoDatos.Text = "N° pedido";
             // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.FillWeight = 33.9012222F;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
             // colDoc
             // 
             colDoc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDoc.FillWeight = 93.1693039F;
+            colDoc.FillWeight = 104.0143F;
             colDoc.HeaderText = "N° Doc.";
             colDoc.MinimumWidth = 6;
             colDoc.Name = "colDoc";
@@ -546,7 +620,7 @@
             // colNombre
             // 
             colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNombre.FillWeight = 130.432892F;
+            colNombre.FillWeight = 145.6154F;
             colNombre.HeaderText = "Nombre";
             colNombre.MinimumWidth = 6;
             colNombre.Name = "colNombre";
@@ -555,7 +629,7 @@
             // colTel
             // 
             colTel.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colTel.FillWeight = 86.475235F;
+            colTel.FillWeight = 96.54103F;
             colTel.HeaderText = "Teléfono";
             colTel.MinimumWidth = 6;
             colTel.Name = "colTel";
@@ -564,7 +638,7 @@
             // colCorreo
             // 
             colCorreo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCorreo.FillWeight = 130.432892F;
+            colCorreo.FillWeight = 145.6154F;
             colCorreo.HeaderText = "Correo";
             colCorreo.MinimumWidth = 6;
             colCorreo.Name = "colCorreo";
@@ -573,7 +647,7 @@
             // colActivo
             // 
             colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colActivo.FillWeight = 70.14471F;
+            colActivo.FillWeight = 78.3096161F;
             colActivo.HeaderText = "Activo";
             colActivo.MinimumWidth = 6;
             colActivo.Name = "colActivo";
@@ -582,46 +656,10 @@
             // colAutorizado
             // 
             colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colAutorizado.FillWeight = 57.19901F;
+            colAutorizado.FillWeight = 63.85703F;
             colAutorizado.HeaderText = "Autorizado";
             colAutorizado.MinimumWidth = 6;
             colAutorizado.Name = "colAutorizado";
-            // 
-            // colMenu
-            // 
-            colMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colMenu.FillWeight = 65.34058F;
-            colMenu.HeaderText = "Menu";
-            colMenu.MinimumWidth = 6;
-            colMenu.Name = "colMenu";
-            colMenu.ReadOnly = true;
-            // 
-            // colTipoMenu
-            // 
-            colTipoMenu.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colTipoMenu.FillWeight = 80.9910049F;
-            colTipoMenu.HeaderText = "Tipo de Menu";
-            colTipoMenu.MinimumWidth = 6;
-            colTipoMenu.Name = "colTipoMenu";
-            colTipoMenu.ReadOnly = true;
-            // 
-            // colPrecio
-            // 
-            colPrecio.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colPrecio.FillWeight = 60.9137039F;
-            colPrecio.HeaderText = "Precio";
-            colPrecio.MinimumWidth = 6;
-            colPrecio.Name = "colPrecio";
-            colPrecio.ReadOnly = true;
-            // 
-            // colDieta
-            // 
-            colDieta.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDieta.FillWeight = 192.7547F;
-            colDieta.HeaderText = "Dieta";
-            colDieta.MinimumWidth = 6;
-            colDieta.Name = "colDieta";
-            colDieta.ReadOnly = true;
             // 
             // GestionarPedido
             // 
@@ -703,16 +741,19 @@
         private TextBox txtNroPedidoDatos;
         private RichTextBox rtxtDir;
         private DataGridViewTextBoxColumn colCi;
-        private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colApellido;
-        private DataGridViewTextBoxColumn colTel;
-        private DataGridViewTextBoxColumn colCorreo;
-        private DataGridViewTextBoxColumn colActivo;
-        private DataGridViewTextBoxColumn colAutorizado;
-        private DataGridViewTextBoxColumn colDoc;
         private DataGridViewTextBoxColumn colMenu;
         private DataGridViewTextBoxColumn colTipoMenu;
         private DataGridViewTextBoxColumn colPrecio;
         private DataGridViewTextBoxColumn colDieta;
+        private RadioButton rbtnTodoCliente;
+        private RadioButton rbtnTodoMenu;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colDoc;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colTel;
+        private DataGridViewTextBoxColumn colCorreo;
+        private DataGridViewTextBoxColumn colActivo;
+        private DataGridViewTextBoxColumn colAutorizado;
     }
 }

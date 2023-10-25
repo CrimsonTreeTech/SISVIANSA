@@ -46,7 +46,6 @@ namespace SISVIANSA_ITI_2023.GUI
             if (!String.IsNullOrEmpty(colFiltroCliente))
             {
 
-
                 if (colFiltroCliente.Equals("nro_doc"))
                 {
                     valFiltroCliente = txtDocCliente.Text;
@@ -100,7 +99,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
             foreach (Cliente cliente in listaClientes)
             {
-                dgvCliente.Rows.Add(cliente.Doc, cliente.NombreEmpresa, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
+                dgvCliente.Rows.Add(cliente.Id, cliente.Doc, cliente.NombreEmpresa, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
             }
 
         }
@@ -112,6 +111,9 @@ namespace SISVIANSA_ITI_2023.GUI
             inhabilitarFiltrosCliente();
             deshabilitarApartadoMenu();
             deshabilitarApartadoPedido();
+            rbtnTodoCliente.Checked = true;
+            listaClientes = cliente.realizarBusquedaFiltrada("todo", "");
+            cargarListaClientes(listaClientes);
         }
 
         // Botones
@@ -155,6 +157,10 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltroCliente = "nombre";
         }
 
-        
+        private void rbtnTodoCliente_CheckedChanged(object sender, EventArgs e)
+        {
+            inhabilitarFiltrosCliente();
+            colFiltroCliente = "todo";
+        }
     }
 }
