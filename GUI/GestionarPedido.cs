@@ -19,6 +19,8 @@ namespace SISVIANSA_ITI_2023.GUI
         private Cliente cliente;
         private Pedido pedido;
         private Menu menu;
+        private Dieta dieta;
+        private List<Dieta> listaDietas;
         private List<Cliente> listaClientes;
         private List<Menu> listaMenus;
 
@@ -28,18 +30,44 @@ namespace SISVIANSA_ITI_2023.GUI
             cliente = new Cliente(rol);
             pedido = new Pedido(rol);
             menu = new Menu(rol);
+            dieta = new Dieta(rol);
         }
 
         // ------------ METODOS AUXILIARES ----------------
-        private void inhabilitarFiltrosCliente()
+        private void cargarCboDietasMenu()
         {
-            txtDocCliente.Clear();
-            txtNombreCliente.Clear();
-
-            txtDocCliente.Enabled = false;
-            txtNombreCliente.Enabled = false;
+            cboDietaMenu.Enabled = true;
+            listaDietas = dieta.dietasAutorizadasYActivas();
+            foreach (Dieta dieta in listaDietas)
+            {
+                cboDietaMenu.Items.Add(dieta.Nombre);
+            }
+            cboDietaMenu.SelectedIndex = 0;
         }
 
+        // Cargado de listas
+        private Cliente clienteSeleccionado()
+        {
+            filaSeleccionada = dgvCliente.CurrentCell.RowIndex;
+            idClienteSeleccionado = Convert.ToInt32(dgvCliente.Rows[filaSeleccionada].Cells[0].Value);
+
+            cliente = cliente.cargarDatosDeCliente(idClienteSeleccionado);
+            return cliente;
+        }
+
+        private void cargarListaClientes(List<Cliente> listaClientes)
+        {
+            dgvCliente.Rows.Clear();
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                dgvCliente.Rows.Add(cliente.Id, cliente.Doc, cliente.NombreEmpresa, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
+            }
+
+        }
+
+
+        // Deshabilitar / Habilitar apartados
         private void deshabilitarApartadoMenu()
         {
             rbtnTodoMenu.Enabled = false;
@@ -55,7 +83,6 @@ namespace SISVIANSA_ITI_2023.GUI
 
             dgvMenu.Enabled = false;
         }
-
 
         private void habilitarApartadoMenu()
         {
@@ -86,14 +113,28 @@ namespace SISVIANSA_ITI_2023.GUI
             txtTotalPrecioMenu.Enabled = false;
         }
 
-        private Cliente clienteSeleccionado()
-        {
-            filaSeleccionada = dgvCliente.CurrentCell.RowIndex;
-            idClienteSeleccionado = Convert.ToInt32(dgvCliente.Rows[filaSeleccionada].Cells[0].Value);
 
-            cliente = cliente.cargarDatosDeCliente(idClienteSeleccionado);
-            return cliente;
+        // Inhabilitar filtros
+        private void inhabilitarFiltrosCliente()
+        {
+            txtDocCliente.Clear();
+            txtNombreCliente.Clear();
+
+            txtDocCliente.Enabled = false;
+            txtNombreCliente.Enabled = false;
         }
+
+        private void inhabilitarFiltrosMenu()
+        {
+            txtNombreMenu.Clear();
+            cboDietaMenu.SelectedIndex = -1;
+            cboTipoMenu.SelectedIndex = -1;
+
+            txtNombreMenu.Enabled = false;
+            cboDietaMenu.Enabled = false;
+            cboTipoMenu.Enabled = false;
+        }
+
 
         // Cargar listas
         private string obtenerValFiltroCliente()
@@ -116,17 +157,6 @@ namespace SISVIANSA_ITI_2023.GUI
             }
 
             return valFiltroCliente;
-
-        }
-
-        private void cargarListaClientes(List<Cliente> listaClientes)
-        {
-            dgvCliente.Rows.Clear();
-
-            foreach (Cliente cliente in listaClientes)
-            {
-                dgvCliente.Rows.Add(cliente.Id, cliente.Doc, cliente.NombreEmpresa, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
-            }
 
         }
 
@@ -230,6 +260,33 @@ namespace SISVIANSA_ITI_2023.GUI
         }
 
 
-        
+        // Filtros menu
+        private void rbtnTodoMenu_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltrosMenu();
+            colFiltroMenu = "todo";
+        }
+
+        private void rbtnNombreMenu_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltrosMenu();
+            txtNombreMenu.Enabled = true;
+            colFiltroMenu = "id";
+        }
+
+        private void rbtnDietaMenu_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltrosMenu();
+            cargarCboDietasMenu();
+            colFiltroMenu = "dieta";
+        }
+
+        private void rbtnTipoMenu_Click(object sender, EventArgs e)
+        {
+            inhabilitarFiltrosMenu();
+            cboTipoMenu.Enabled = true;
+            cboTipoMenu.SelectedIndex = 0;
+            colFiltroMenu = "tipo";
+        }
     }
 }

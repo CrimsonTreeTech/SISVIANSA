@@ -321,6 +321,7 @@
             rbtnTodoMenu.TabStop = true;
             rbtnTodoMenu.Text = "Todos";
             rbtnTodoMenu.UseVisualStyleBackColor = true;
+            rbtnTodoMenu.Click += rbtnTodoMenu_Click;
             // 
             // btnBuscarMenu
             // 
@@ -351,9 +352,11 @@
             rbtnNombreMenu.TabStop = true;
             rbtnNombreMenu.Text = "Nombre";
             rbtnNombreMenu.UseVisualStyleBackColor = true;
+            rbtnNombreMenu.Click += rbtnNombreMenu_Click;
             // 
             // cboDietaMenu
             // 
+            cboDietaMenu.DropDownStyle = ComboBoxStyle.DropDownList;
             cboDietaMenu.FormattingEnabled = true;
             cboDietaMenu.Location = new Point(369, 19);
             cboDietaMenu.Margin = new Padding(3, 2, 3, 2);
@@ -363,7 +366,9 @@
             // 
             // cboTipoMenu
             // 
+            cboTipoMenu.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTipoMenu.FormattingEnabled = true;
+            cboTipoMenu.Items.AddRange(new object[] { "Semanal", "Quincenal", "Mensual" });
             cboTipoMenu.Location = new Point(577, 19);
             cboTipoMenu.Margin = new Padding(3, 2, 3, 2);
             cboTipoMenu.Name = "cboTipoMenu";
@@ -434,6 +439,7 @@
             rbtnTipoMenu.TabStop = true;
             rbtnTipoMenu.Text = "Tipo";
             rbtnTipoMenu.UseVisualStyleBackColor = true;
+            rbtnTipoMenu.Click += rbtnTipoMenu_Click;
             // 
             // rbtnDietaMenu
             // 
@@ -446,6 +452,7 @@
             rbtnDietaMenu.TabStop = true;
             rbtnDietaMenu.Text = "Dieta";
             rbtnDietaMenu.UseVisualStyleBackColor = true;
+            rbtnDietaMenu.Click += rbtnDietaMenu_Click;
             // 
             // txtMenuDatos
             // 

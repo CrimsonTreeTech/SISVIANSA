@@ -81,7 +81,7 @@ namespace SISVIANSA_ITI_2023.Logica
         public List<string> nombresDeDietas()
         {
             nombreDietas = new List<string>();
-            dietas = dietaBD.dietasAutorizadasYActivo();
+            dietas = dietaBD.dietasAutorizadasYActivas();
             foreach (Dieta dieta in dietas)
             {
                 if (dieta.Activo)
@@ -95,6 +95,11 @@ namespace SISVIANSA_ITI_2023.Logica
         public List<Dieta> todasLasDietas()
         {
             return dietaBD.todasLasDietas(); ;
+        }
+
+        public List<Dieta> dietasAutorizadasYActivas()
+        {
+            return dietaBD.dietasAutorizadasYActivas();
         }
 
     }

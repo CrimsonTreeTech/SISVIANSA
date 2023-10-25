@@ -67,7 +67,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return dietas;
         }
 
-        public List<Dieta> dietasAutorizadasYActivo()
+        public List<Dieta> dietasAutorizadasYActivas()
         {
             dietas = new List<Dieta>();
             try
@@ -152,6 +152,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             return dietas;
         }
+
+
+
 
     }
 }
