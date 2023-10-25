@@ -41,14 +41,18 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private string obtenerValFiltroCliente()
         {
-            valFiltroCliente = null;
+            valFiltroCliente = "";
 
             if (!String.IsNullOrEmpty(colFiltroCliente))
             {
+
+
                 if (colFiltroCliente.Equals("nro_doc"))
                 {
                     valFiltroCliente = txtDocCliente.Text;
                 }
+
+
                 else if (colFiltroCliente.Equals("nombre"))
                 {
                     valFiltroCliente = txtNombreCliente.Text;
@@ -89,6 +93,18 @@ namespace SISVIANSA_ITI_2023.GUI
             txtTotalPrecioMenu.Enabled = false;
         }
 
+        // Cargar listas
+        private void cargarListaClientes(List<Cliente> listaClientes)
+        {
+            dgvCliente.Rows.Clear();
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                dgvCliente.Rows.Add(cliente.Doc, cliente.NombreEmpresa, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
+            }
+
+        }
+
 
         // ---------------- METODOS DE WIDGETS ---------------------
         private void GestionarPedido_Load(object sender, EventArgs e)
@@ -114,14 +130,8 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             valFiltroCliente = obtenerValFiltroCliente();
-            if (!String.IsNullOrEmpty(valFiltroCliente))
-            {
-                MessageBox.Show(valFiltroCliente);
-            }
-            else
-            {
-                MessageBox.Show("No ha seleccionado valores válidos para realizar la búsqueda.");
-            }
+            listaClientes = cliente.realizarBusquedaFiltrada(colFiltroCliente, valFiltroCliente);
+            cargarListaClientes(listaClientes);
         }
 
         private void btnBuscarMenu_Click(object sender, EventArgs e)
@@ -145,9 +155,6 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltroCliente = "nombre";
         }
 
-        private void gbxMenu_Enter(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

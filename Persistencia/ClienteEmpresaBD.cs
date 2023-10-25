@@ -47,7 +47,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = idCliente,
-                                        Rut = reader.GetInt32("rut"),
+                                        Doc = reader.GetInt32("rut"),
                                         NombreEmpresa = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),

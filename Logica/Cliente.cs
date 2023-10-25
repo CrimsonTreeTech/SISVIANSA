@@ -15,6 +15,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private string calle, esq;
         private int id, nroPuerta;
         private bool activo, autorizado;
+        private long doc;
         private List<string> mails;
         private List<int> tels;
         private List<Cliente> listaClientes;
@@ -22,12 +23,10 @@ namespace SISVIANSA_ITI_2023.Logica
 
         // Comun
         private string pNom, sNom, pApe, sApe, tipoDoc;
-        private int doc;
         private ClienteComunBD clienteComunBD;
 
         // Empresa
         private string nombre;
-        private int rut;
         private ClienteEmpresaBD clienteEmpresaBD;
 
         
@@ -74,12 +73,6 @@ namespace SISVIANSA_ITI_2023.Logica
             set { nombre = value; }
         }
 
-        public int Rut
-        {
-            get { return rut; }
-            set { rut = value; }
-        }
-
         public string PNom
         {
             get { return pNom; }
@@ -110,7 +103,7 @@ namespace SISVIANSA_ITI_2023.Logica
             set { tipoDoc = value; }
         }
 
-        public int Doc
+        public long Doc
         {
             get { return doc; }
             set { doc = value; }
@@ -206,6 +199,30 @@ namespace SISVIANSA_ITI_2023.Logica
             return (usuarioCorrecto && dominioCorrecto) || opcional;
         }
 
+        public bool verificarNumeroDocParaBusqueda(string strNumDoc)
+        {
+            try
+            {
+                Convert.ToInt32(strNumDoc);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        // ---------------------------- METODOS AUXILIARES --------------------------------
+        public void cargarTelefonos()
+        {
+            Tels = clientesBD.buscarTelefonosDeCliente(Id);
+        }
+
+        public void cargarMails()
+        {
+            Mails = clientesBD.buscarMailsDeCliente(Id);
+        }
+
 
         // --------------------------------- ABM --------------------------------------
         public bool ingresar()
@@ -225,16 +242,31 @@ namespace SISVIANSA_ITI_2023.Logica
             clientesBD.crearVistaClientes();
         }
 
-        public List<Cliente> buscarClientesPorNroDoc(string NroDocumento)
+        public List<Cliente> realizarBusquedaFiltrada(string colFiltro, string valFiltro)
         {
             listaClientes = new List<Cliente>();
-            try
-            {
-                doc = Convert.ToInt32(NroDocumento);
-                listaClientes = clientesBD.buscarClientesPorNroDoc(doc);
-            }
+
+            if(colFiltro.Equals("nro_doc"))
+                buscarClientesPorNroDoc(valFiltro);
+
             return listaClientes;
         }
+
+        private List<Cliente> buscarClientesPorNroDoc(string nroDoc)
+        {
+            long nDoc = Convert.ToInt64(nroDoc);
+            listaClientes = clientesBD.buscarClientesPorNroDoc(nDoc);
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
+        
 
 
 

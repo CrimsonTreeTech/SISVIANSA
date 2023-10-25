@@ -215,7 +215,6 @@
             gbxMenu.TabIndex = 16;
             gbxMenu.TabStop = false;
             gbxMenu.Text = "Menu";
-            gbxMenu.Enter += gbxMenu_Enter;
             // 
             // btnBuscarMenu
             // 

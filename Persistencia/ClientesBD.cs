@@ -11,10 +11,12 @@ namespace SISVIANSA_ITI_2023.Persistencia
     public class ClientesBD
     {
         private byte rol;
-        private string consulta;
-        private int filasAfectadas;
+        private string consulta, mail;
+        private int filasAfectadas, tel;
         private Cliente cliente;
         private List<Cliente> listaClientes;
+        private List<int> listaTelefonos;
+        private List<string> listaMails;
         private Singleton bd;
 
         public ClientesBD (byte rol)
@@ -47,8 +49,6 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "FROM clientes_unificado cu ";
                         consulta += "JOIN cliente c ON c.id_cliente = cu.id_cliente; ";
 
-                        consulta += "DROP VIEW clientes_unificado; ";
-
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             filasAfectadas = cmd.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return filasAfectadas > 0;
         }
 
-        public bool buscarClientesPorNroDoc(int doc)
+        public List<Cliente> buscarClientesPorNroDoc(long doc)
         {
             listaClientes = new List<Cliente>();
             try
@@ -80,17 +80,33 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        /*
-                        SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, CONCAT(c.calle, ' ', c.nro_puerta, '. Esq.', c.esq, '.'), ct.tel
-                        FROM clientes c
-                        JOIN 
-                        (SELECT ct.id_cliente, MAX(tel) FROM cliente_tel) ct
-                        ON ct.id_cliente = c.id_cliente;
-                        */
+                        consulta  = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta += "FROM clientes c ";
+                        consulta += "WHERE c.nro_doc = @doc;";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
-                            filasAfectadas = cmd.ExecuteNonQuery();
+                            cmd.Parameters.AddWithValue("@doc", doc);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    cliente = new Cliente(rol)
+                                    {
+                                        Id = reader.GetInt32("id_cliente"),
+                                        TipoDoc = reader.GetString("tipo_doc"),
+                                        Doc = reader.GetInt64("nro_doc"),
+                                        NombreEmpresa = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Calle = reader.GetString("calle"),
+                                        NroPuerta = reader.GetInt32("nro_puerta"),
+                                        Esq = reader.GetString("esq")
+                                    };
+                                    listaClientes.Add(cliente);
+                                }
+                            }
                         }
 
                     }
@@ -98,18 +114,92 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (MySqlException ex)
             {
-                if (ex.Number != 1050)
-                {
-                    MessageBox.Show("ClientesBD #crearVistaClientes\n" + ex.Number.ToString() + ": " + ex.Message);
-                }
+                MessageBox.Show("ClientesBD #buscarClientesPorNroDoc\n" + ex.Number.ToString() + ": " + ex.Message);
             }
             finally
             {
                 bd.CerrarConexion();
             }
-            return filasAfectadas > 0;
+            return listaClientes;
         }
 
+        public List<int> buscarTelefonosDeCliente(int idCliente)
+        {
+            listaTelefonos = new List<int>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT tel FROM cliente_tel WHERE id_cliente = @idCliente;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idCliente", idCliente);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    tel = reader.GetInt32("tel");
+                                }
+                                listaTelefonos.Add(tel);
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarTelefonosDeCliente\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaTelefonos;
+        }
+
+        public List<string> buscarMailsDeCliente(int idCliente)
+        {
+            listaMails = new List<string>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT mail FROM cliente_mail WHERE id_cliente = @idCliente;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idCliente", idCliente);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    mail = reader.GetString("mail");
+                                }
+                                listaMails.Add(mail);
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarMailsDeCliente\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaMails;
+        }
 
 
     }

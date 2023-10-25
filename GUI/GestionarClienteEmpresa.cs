@@ -99,7 +99,7 @@ namespace SISVIANSA_ITI_2023.GUI
         // --------------------------- CARGAR / GUARDAR DATOS ------------------------------
         private void cargarDatos()
         {
-            txtRUT.Text = cliente.Rut.ToString();
+            txtRUT.Text = cliente.Doc.ToString();
             txtNombre.Text = cliente.NombreEmpresa;
             txtCalle.Text = cliente.Calle;
             txtEsquina.Text = cliente.Esq;
@@ -117,7 +117,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private void actualizarDatos()
         {
             cliente.NombreEmpresa = txtNombre.Text;
-            cliente.Rut = Int32.Parse(txtRUT.Text);
+            cliente.Doc = Int32.Parse(txtRUT.Text);
             cliente.Calle = txtCalle.Text;
             cliente.Esq = txtEsquina.Text;
             cliente.NroPuerta = Int32.Parse(txtNumeroPuerta.Text);
