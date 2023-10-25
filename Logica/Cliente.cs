@@ -20,6 +20,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private List<int> tels;
         private List<Cliente> listaClientes;
         private ClientesBD clientesBD;
+        private Cliente cliente;
 
         // Comun
         private string pNom, sNom, pApe, sApe, tipoDoc;
@@ -133,6 +134,12 @@ namespace SISVIANSA_ITI_2023.Logica
             set { tels = value; }
         }
 
+        public string direccion()
+        {
+            string dir = Calle + " " + NroPuerta + ". Esq. " + Esq + ".";
+            return dir;
+        }
+
         // --------------------------- VALIDACION DE DATOS ------------------------------
         public bool verificarDocumentos(string tipoDoc, string strNumDoc)
         {
@@ -223,6 +230,17 @@ namespace SISVIANSA_ITI_2023.Logica
             Mails = clientesBD.buscarMailsDeCliente(Id);
         }
 
+        public Cliente cargarDatosDeCliente(int id)
+        {
+            cliente = new Cliente(rol);
+
+            cliente = clientesBD.buscarClientesPorId(id);
+            cliente.cargarTelefonos();
+            cliente.cargarMails();
+
+            return cliente;
+        }
+
 
         // --------------------------------- ABM --------------------------------------
         public bool ingresar()
@@ -254,6 +272,9 @@ namespace SISVIANSA_ITI_2023.Logica
 
             else if (colFiltro.Equals("nombre"))
                 listaClientes = buscarClientesPorNombre(valFiltro);
+
+            else if (colFiltro.Equals("activo y autorizado"))
+                listaClientes = buscarClientesActivosYAutorizados();
 
             return listaClientes;
         }
@@ -288,6 +309,19 @@ namespace SISVIANSA_ITI_2023.Logica
         private List<Cliente> buscarClientesPorNombre(string nombre)
         {
             listaClientes = clientesBD.buscarClientesPorNombre(nombre);
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
+        private List<Cliente> buscarClientesActivosYAutorizados()
+        {
+            listaClientes = clientesBD.buscarClientesActivosYAutorizados();
 
             foreach (Cliente cliente in listaClientes)
             {

@@ -31,9 +31,17 @@
             btnAceptar = new Button();
             btnCancelar = new Button();
             gbxCliente = new GroupBox();
+            rbtnAutorizadosYActivosCliente = new RadioButton();
             rbtnTodoCliente = new RadioButton();
             btnBuscarCliente = new Button();
             dgvCliente = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colDoc = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colTel = new DataGridViewTextBoxColumn();
+            colCorreo = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
+            colAutorizado = new DataGridViewTextBoxColumn();
             txtNombreCliente = new TextBox();
             rbtnNombreCliente = new RadioButton();
             txtDocCliente = new TextBox();
@@ -75,13 +83,6 @@
             lblNroClienteDatos = new Label();
             lblMeuDatos = new Label();
             lblNroPedidoDatos = new Label();
-            colId = new DataGridViewTextBoxColumn();
-            colDoc = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
-            colTel = new DataGridViewTextBoxColumn();
-            colCorreo = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
-            colAutorizado = new DataGridViewTextBoxColumn();
             gbxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             gbxMenu.SuspendLayout();
@@ -113,6 +114,7 @@
             // gbxCliente
             // 
             gbxCliente.BackColor = Color.FromArgb(255, 235, 235);
+            gbxCliente.Controls.Add(rbtnAutorizadosYActivosCliente);
             gbxCliente.Controls.Add(rbtnTodoCliente);
             gbxCliente.Controls.Add(btnBuscarCliente);
             gbxCliente.Controls.Add(dgvCliente);
@@ -128,6 +130,18 @@
             gbxCliente.TabIndex = 15;
             gbxCliente.TabStop = false;
             gbxCliente.Text = "Cliente";
+            // 
+            // rbtnAutorizadosYActivosCliente
+            // 
+            rbtnAutorizadosYActivosCliente.AutoSize = true;
+            rbtnAutorizadosYActivosCliente.Location = new Point(593, 33);
+            rbtnAutorizadosYActivosCliente.Name = "rbtnAutorizadosYActivosCliente";
+            rbtnAutorizadosYActivosCliente.Size = new Size(137, 19);
+            rbtnAutorizadosYActivosCliente.TabIndex = 7;
+            rbtnAutorizadosYActivosCliente.TabStop = true;
+            rbtnAutorizadosYActivosCliente.Text = "Autorizados y activos";
+            rbtnAutorizadosYActivosCliente.UseVisualStyleBackColor = true;
+            rbtnAutorizadosYActivosCliente.Click += rbtnAutorizadosYActivosCliente_Click;
             // 
             // rbtnTodoCliente
             // 
@@ -170,19 +184,81 @@
             dgvCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCliente.Size = new Size(1021, 221);
             dgvCliente.TabIndex = 4;
+            dgvCliente.MouseDoubleClick += dgvCliente_MouseDoubleClick;
+            // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.FillWeight = 33.9012222F;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colDoc
+            // 
+            colDoc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDoc.FillWeight = 104.0143F;
+            colDoc.HeaderText = "N° Doc.";
+            colDoc.MinimumWidth = 6;
+            colDoc.Name = "colDoc";
+            colDoc.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colNombre.FillWeight = 145.6154F;
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 6;
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            // 
+            // colTel
+            // 
+            colTel.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colTel.FillWeight = 96.54103F;
+            colTel.HeaderText = "Teléfono";
+            colTel.MinimumWidth = 6;
+            colTel.Name = "colTel";
+            colTel.ReadOnly = true;
+            // 
+            // colCorreo
+            // 
+            colCorreo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCorreo.FillWeight = 145.6154F;
+            colCorreo.HeaderText = "Correo";
+            colCorreo.MinimumWidth = 6;
+            colCorreo.Name = "colCorreo";
+            colCorreo.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colActivo.FillWeight = 78.3096161F;
+            colActivo.HeaderText = "Activo";
+            colActivo.MinimumWidth = 6;
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            // 
+            // colAutorizado
+            // 
+            colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colAutorizado.FillWeight = 63.85703F;
+            colAutorizado.HeaderText = "Autorizado";
+            colAutorizado.MinimumWidth = 6;
+            colAutorizado.Name = "colAutorizado";
             // 
             // txtNombreCliente
             // 
-            txtNombreCliente.Location = new Point(477, 28);
+            txtNombreCliente.Location = new Point(368, 29);
             txtNombreCliente.Margin = new Padding(3, 2, 3, 2);
             txtNombreCliente.Name = "txtNombreCliente";
-            txtNombreCliente.Size = new Size(261, 23);
+            txtNombreCliente.Size = new Size(201, 23);
             txtNombreCliente.TabIndex = 3;
             // 
             // rbtnNombreCliente
             // 
             rbtnNombreCliente.AutoSize = true;
-            rbtnNombreCliente.Location = new Point(403, 28);
+            rbtnNombreCliente.Location = new Point(294, 29);
             rbtnNombreCliente.Margin = new Padding(3, 2, 3, 2);
             rbtnNombreCliente.Name = "rbtnNombreCliente";
             rbtnNombreCliente.Size = new Size(69, 19);
@@ -194,16 +270,16 @@
             // 
             // txtDocCliente
             // 
-            txtDocCliente.Location = new Point(199, 28);
+            txtDocCliente.Location = new Point(173, 28);
             txtDocCliente.Margin = new Padding(3, 2, 3, 2);
             txtDocCliente.Name = "txtDocCliente";
-            txtDocCliente.Size = new Size(143, 23);
+            txtDocCliente.Size = new Size(109, 23);
             txtDocCliente.TabIndex = 1;
             // 
             // rbtnDocCliente
             // 
             rbtnDocCliente.AutoSize = true;
-            rbtnDocCliente.Location = new Point(127, 29);
+            rbtnDocCliente.Location = new Point(101, 29);
             rbtnDocCliente.Margin = new Padding(3, 2, 3, 2);
             rbtnDocCliente.Name = "rbtnDocCliente";
             rbtnDocCliente.Size = new Size(66, 19);
@@ -600,67 +676,6 @@
             lblNroPedidoDatos.TabIndex = 0;
             lblNroPedidoDatos.Text = "N° pedido";
             // 
-            // colId
-            // 
-            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colId.FillWeight = 33.9012222F;
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colDoc
-            // 
-            colDoc.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDoc.FillWeight = 104.0143F;
-            colDoc.HeaderText = "N° Doc.";
-            colDoc.MinimumWidth = 6;
-            colDoc.Name = "colDoc";
-            colDoc.ReadOnly = true;
-            // 
-            // colNombre
-            // 
-            colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNombre.FillWeight = 145.6154F;
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 6;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            // 
-            // colTel
-            // 
-            colTel.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colTel.FillWeight = 96.54103F;
-            colTel.HeaderText = "Teléfono";
-            colTel.MinimumWidth = 6;
-            colTel.Name = "colTel";
-            colTel.ReadOnly = true;
-            // 
-            // colCorreo
-            // 
-            colCorreo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colCorreo.FillWeight = 145.6154F;
-            colCorreo.HeaderText = "Correo";
-            colCorreo.MinimumWidth = 6;
-            colCorreo.Name = "colCorreo";
-            colCorreo.ReadOnly = true;
-            // 
-            // colActivo
-            // 
-            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colActivo.FillWeight = 78.3096161F;
-            colActivo.HeaderText = "Activo";
-            colActivo.MinimumWidth = 6;
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            // 
-            // colAutorizado
-            // 
-            colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colAutorizado.FillWeight = 63.85703F;
-            colAutorizado.HeaderText = "Autorizado";
-            colAutorizado.MinimumWidth = 6;
-            colAutorizado.Name = "colAutorizado";
-            // 
             // GestionarPedido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -755,5 +770,6 @@
         private DataGridViewTextBoxColumn colCorreo;
         private DataGridViewTextBoxColumn colActivo;
         private DataGridViewTextBoxColumn colAutorizado;
+        private RadioButton rbtnAutorizadosYActivosCliente;
     }
 }
