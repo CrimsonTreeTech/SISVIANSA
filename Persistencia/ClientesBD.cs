@@ -175,6 +175,57 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return listaClientes;
         }
 
+        public List<Cliente> buscarClientesPorNombre(string nombre)
+        {
+            listaClientes = new List<Cliente>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta += "FROM clientes c ";
+                        consulta += "WHERE c.nombre LIKE @nombre;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@nombre", "%"+nombre +"%");
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    cliente = new Cliente(rol)
+                                    {
+                                        Id = reader.GetInt32("id_cliente"),
+                                        TipoDoc = reader.GetString("tipo_doc"),
+                                        Doc = reader.GetInt64("nro_doc"),
+                                        NombreEmpresa = reader.GetString("nombre"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Calle = reader.GetString("calle"),
+                                        NroPuerta = reader.GetInt32("nro_puerta"),
+                                        Esq = reader.GetString("esq")
+                                    };
+                                    listaClientes.Add(cliente);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarClientesPorNroDoc\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaClientes;
+        }
 
 
         // ---------------------- OTRAS CONSULTAS -----------------------
