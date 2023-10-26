@@ -380,17 +380,22 @@
             dgvMenu.AllowUserToAddRows = false;
             dgvMenu.AllowUserToDeleteRows = false;
             dgvMenu.AllowUserToOrderColumns = true;
+            dgvMenu.AllowUserToResizeColumns = false;
+            dgvMenu.AllowUserToResizeRows = false;
             dgvMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMenu.Columns.AddRange(new DataGridViewColumn[] { colMenu, colTipoMenu, colPrecio, colDieta });
             dgvMenu.Location = new Point(6, 51);
             dgvMenu.Margin = new Padding(3, 2, 3, 2);
             dgvMenu.MultiSelect = false;
             dgvMenu.Name = "dgvMenu";
+            dgvMenu.ReadOnly = true;
             dgvMenu.RowHeadersVisible = false;
             dgvMenu.RowHeadersWidth = 51;
             dgvMenu.RowTemplate.Height = 29;
+            dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMenu.Size = new Size(1021, 224);
             dgvMenu.TabIndex = 4;
+            dgvMenu.MouseDoubleClick += dgvMenu_MouseDoubleClick;
             // 
             // colMenu
             // 
@@ -456,6 +461,7 @@
             // 
             // txtMenuDatos
             // 
+            txtMenuDatos.Enabled = false;
             txtMenuDatos.Location = new Point(88, 316);
             txtMenuDatos.Margin = new Padding(3, 2, 3, 2);
             txtMenuDatos.Name = "txtMenuDatos";
@@ -465,6 +471,7 @@
             // 
             // txtTotalPrecioMenu
             // 
+            txtTotalPrecioMenu.Enabled = false;
             txtTotalPrecioMenu.Location = new Point(103, 467);
             txtTotalPrecioMenu.Margin = new Padding(3, 2, 3, 2);
             txtTotalPrecioMenu.Name = "txtTotalPrecioMenu";
@@ -474,6 +481,7 @@
             // 
             // nudCantidadMenu
             // 
+            nudCantidadMenu.Enabled = false;
             nudCantidadMenu.Location = new Point(88, 353);
             nudCantidadMenu.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             nudCantidadMenu.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
@@ -482,6 +490,7 @@
             nudCantidadMenu.Size = new Size(216, 23);
             nudCantidadMenu.TabIndex = 26;
             nudCantidadMenu.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudCantidadMenu.ValueChanged += nudCantidadMenu_ValueChanged;
             // 
             // gpbDatosPedido
             // 
@@ -529,6 +538,7 @@
             // 
             cboZona.BackColor = SystemColors.Control;
             cboZona.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboZona.Enabled = false;
             cboZona.FormattingEnabled = true;
             cboZona.Location = new Point(88, 285);
             cboZona.Name = "cboZona";
@@ -537,6 +547,7 @@
             // 
             // txtUltimaAct
             // 
+            txtUltimaAct.Enabled = false;
             txtUltimaAct.Location = new Point(136, 429);
             txtUltimaAct.Name = "txtUltimaAct";
             txtUltimaAct.ReadOnly = true;
@@ -545,6 +556,7 @@
             // 
             // txtEstado
             // 
+            txtEstado.Enabled = false;
             txtEstado.Location = new Point(87, 389);
             txtEstado.Name = "txtEstado";
             txtEstado.ReadOnly = true;
@@ -553,6 +565,7 @@
             // 
             // txtNombreClienteDatos
             // 
+            txtNombreClienteDatos.Enabled = false;
             txtNombreClienteDatos.Location = new Point(105, 133);
             txtNombreClienteDatos.Name = "txtNombreClienteDatos";
             txtNombreClienteDatos.ReadOnly = true;
@@ -562,6 +575,7 @@
             // 
             // txtNroDocDatos
             // 
+            txtNroDocDatos.Enabled = false;
             txtNroDocDatos.Location = new Point(105, 96);
             txtNroDocDatos.Name = "txtNroDocDatos";
             txtNroDocDatos.ReadOnly = true;
@@ -570,6 +584,7 @@
             // 
             // txtNroClienteDatos
             // 
+            txtNroClienteDatos.Enabled = false;
             txtNroClienteDatos.Location = new Point(104, 62);
             txtNroClienteDatos.Name = "txtNroClienteDatos";
             txtNroClienteDatos.ReadOnly = true;
@@ -578,6 +593,7 @@
             // 
             // txtNroPedidoDatos
             // 
+            txtNroPedidoDatos.Enabled = false;
             txtNroPedidoDatos.Location = new Point(105, 25);
             txtNroPedidoDatos.Name = "txtNroPedidoDatos";
             txtNroPedidoDatos.ReadOnly = true;

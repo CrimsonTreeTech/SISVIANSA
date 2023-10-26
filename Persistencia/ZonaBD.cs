@@ -242,7 +242,11 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT valor FROM zona_precio WHERE id_zona = @id AND fecha_act = (SELECT MAX(fecha_act) FROM zona_precio);";
+                        consulta  = "SELECT id_zona, valor ";
+                        consulta += "FROM zona_precio ";
+                        consulta += "WHERE id_zona = 1 ";
+                        consulta += "ORDER BY fecha_act DESC ";
+                        consulta += "LIMIT 1; ";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             cmd.Parameters.AddWithValue("@id", idZona);
