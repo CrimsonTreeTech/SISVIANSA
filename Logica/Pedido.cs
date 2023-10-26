@@ -10,8 +10,10 @@ namespace SISVIANSA_ITI_2023.Logica
     public class Pedido
     {
         private byte rol;
-        private int nroPedido, idMenu, cantidad, zona, valFiltroInt, nroPuerta;
+        private int nroPedido, idMenu, cantidad, zona, valFiltroInt, nroPuerta, idCliente;
+        private double precioTotal;
         private string cliente,fechaRealizado, estado, calle, esq;
+        private bool pedidoIngresado, pedidoActualizado;
         private List<Pedido> listaPedidos;
         private PedidoBD pedidoBD;
 
@@ -35,6 +37,12 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             get { return idMenu; }
             set { idMenu = value; }
+        }
+
+        public int IdCliente
+        {
+            get { return idCliente; }
+            set { idCliente = value; }
         }
 
         public string Cliente
@@ -83,6 +91,23 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             get { return nroPuerta; }
             set { nroPuerta = value; }
+        }
+
+        public double PrecioTotal
+        {
+            get { return precioTotal; }
+            set { precioTotal = value; }
+        }
+
+
+        // ------------------------------ ABM ----------------------------------
+
+        public bool ingresar()
+        {
+            pedidoIngresado = pedidoBD.ingresarPedido(this);
+            nroPedido = pedidoBD.obtenerNroPedido(this);
+            pedidoActualizado = pedidoBD.ingresarEstadoPedido(nroPedido, 1);
+            return pedidoIngresado && pedidoActualizado;
         }
 
 

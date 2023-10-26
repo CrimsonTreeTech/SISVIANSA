@@ -18,10 +18,10 @@ namespace SISVIANSA_ITI_2023.Persistencia
     internal class PedidoBD
     {
         private string cadenaConexion;
-        
+
         private byte rol;
         private string consulta;
-        private int filasAfectadas;
+        private int filasAfectadas, nroPedido;
         private Pedido pedido;
         private List<Pedido> pedidos;
         private Singleton bd;
@@ -30,10 +30,119 @@ namespace SISVIANSA_ITI_2023.Persistencia
         public PedidoBD(byte rol)
         {
             this.rol = rol;
+            bd = Singleton.RecuperarInstancia();
         }
 
 
+        // ---------------------------- ABM ----------------------------------
+        public bool ingresarPedido(Pedido pedido)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(this.rol))
+                    {
+                        consulta  = "INSERT INTO pide (id_menu, id_cliente, id_zona, fecha_realizado, cantidad) ";
+                        consulta += "VALUES (@idMenu, @idCliente, @idZona, CURRENT_DATE(), @cantidad);";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idMenu", pedido.IdMenu);
+                            cmd.Parameters.AddWithValue("@idCliente", pedido.IdCliente);
+                            cmd.Parameters.AddWithValue("@idZona", pedido.Zona);
+                            cmd.Parameters.AddWithValue("@cantidad", pedido.Cantidad);
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD #ingresarPedido: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
+        public bool ingresarEstadoPedido(int idPedido, int idEstado)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta  = "INSERT INTO pasa (nro_pedido, id_estado, fecha_ini) ";
+                        consulta += "VALUES (@nroPedido, @idEstado, CURRENT_DATE()); ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@nroPedido", idPedido);
+                            cmd.Parameters.AddWithValue("@idEstado", idEstado);
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD #ingresarEstadoPedido: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
+
+
         // ----------------------- CONSULTAS ---------------------------
+        public int obtenerNroPedido(Pedido pedido)
+        {
+            nroPedido = -1;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT MAX(nro_pedido) AS nro FROM pide;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    nroPedido = reader.GetInt32("nro");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD #obtenerNroPedido: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return nroPedido;
+        }
+
+
         public List<Pedido> listarTodosLosPedidos()
         {
             pedidos = new List<Pedido>();
@@ -49,7 +158,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN pasa ON pasa.nro_pedido = p.nro_pedido ";
                         consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
                         consulta += "WHERE pasa.fecha_act IS NULL ";
-                        consulta += "ORDER BY p.nro_pedido ASC; ";
+                        consulta += "ORDER BY p.nro_pedido DESC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -104,7 +213,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
                         consulta += "WHERE pasa.fecha_act IS NULL ";
                         consulta += "AND p.nro_pedido = @valFiltro ";
-                        consulta += "ORDER BY p.nro_pedido ASC; ";
+                        consulta += "ORDER BY p.nro_pedido DESC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -161,7 +270,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
                         consulta += "WHERE pasa.fecha_act IS NULL ";
                         consulta += "AND c.nombre LIKE @valFiltro ";
-                        consulta += "ORDER BY p.nro_pedido ASC; ";
+                        consulta += "ORDER BY p.nro_pedido DESC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -218,7 +327,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
                         consulta += "WHERE pasa.fecha_act IS NULL ";
                         consulta += "AND e.nombre = @valFiltro ";
-                        consulta += "ORDER BY p.nro_pedido ASC; ";
+                        consulta += "ORDER BY p.nro_pedido DESC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -275,7 +384,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN estado e ON pasa.id_estado = e.id_estado ";
                         consulta += "WHERE pasa.fecha_act IS NULL ";
                         consulta += "AND p.id_zona = @valFiltro ";
-                        consulta += "ORDER BY p.nro_pedido ASC; ";
+                        consulta += "ORDER BY p.nro_pedido DESC; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -315,7 +424,6 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             return pedidos;
         }
-
 
 
     }

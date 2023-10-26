@@ -39,6 +39,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return instanciaBD;
         }
 
+        /*
         public bool Conectar(int rol)
         {
             conexionRol = ConexionSegunRol(rol);
@@ -49,6 +50,28 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             return true;
         }
+        */
+
+        public bool Conectar(int rol)
+        {
+            conexionRol = ConexionSegunRol(rol);
+            try
+            {
+                if (conexion == null || conexion.State == System.Data.ConnectionState.Closed)
+                {
+                    Conexion = new MySqlConnection(ConfigurationManager.ConnectionStrings[conexionRol].ConnectionString);
+                    conexion.Open();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción, registrarla o mostrar un mensaje de error, según sea necesario.
+                Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                return false;
+            }
+        }
+
 
         public void CerrarConexion()
         {

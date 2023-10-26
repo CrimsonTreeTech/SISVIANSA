@@ -17,6 +17,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private string valFiltroCliente = null, colFiltroCliente = null, valFiltroMenu, colFiltroMenu;
         private int filaSeleccionada, idClienteSeleccionado, idMenuSeleccionado;
         private double precioTotal;
+        private bool accionExitosa;
         private Cliente cliente;
         private Pedido pedido;
         private Menu menu;
@@ -30,6 +31,7 @@ namespace SISVIANSA_ITI_2023.GUI
         public GestionarPedido(byte rol)
         {
             InitializeComponent();
+            this.rol = rol;
             cliente = new Cliente(rol);
             pedido = new Pedido(rol);
             menu = new Menu(rol);
@@ -45,6 +47,25 @@ namespace SISVIANSA_ITI_2023.GUI
             precioTotal += zona.obtenerPrecio(zona.Id);
 
             txtTotalPrecioMenu.Text = precioTotal.ToString();
+        }
+
+        private Pedido obtenerDatosDePedido()
+        {
+            pedido = new Pedido(rol);
+   
+            pedido.IdCliente = cliente.Id;
+            pedido.Cliente = txtNombreClienteDatos.Text;
+            pedido.IdMenu = Convert.ToInt32(txtMenuDatos.Text);
+            pedido.Cantidad = Convert.ToInt32(nudCantidadMenu.Text);
+            pedido.Estado = txtEstado.Text;
+            pedido.FechaRealizado = txtUltimaAct.Text;
+            pedido.Zona = Convert.ToInt32(cboZona.Text);
+            pedido.Calle = cliente.Calle;
+            pedido.Esq = cliente.Esq;
+            pedido.NroPuerta = cliente.NroPuerta;
+            pedido.PrecioTotal = Convert.ToDouble(txtTotalPrecioMenu.Text);
+
+            return pedido;
         }
 
         // Cargar combo box
@@ -283,8 +304,16 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Owner.Show();
-            Close();
+            pedido = obtenerDatosDePedido();
+            accionExitosa = pedido.ingresar();
+            if (accionExitosa)
+            {
+                MessageBox.Show("Se ha ingresado el pedido exitosamente");
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error, no se ha logrado ingresar el pedido");
+            }
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
