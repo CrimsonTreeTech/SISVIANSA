@@ -54,6 +54,29 @@ namespace SISVIANSA_ITI_2023.GUI
             cliente = cliente.cargarDatosDeCliente(idClienteSeleccionado);
             return cliente;
         }
+       
+        private string obtenerValFiltroCliente()
+        {
+            valFiltroCliente = "";
+
+            if (!String.IsNullOrEmpty(colFiltroCliente))
+            {
+
+                if (colFiltroCliente.Equals("nro_doc"))
+                {
+                    valFiltroCliente = txtDocCliente.Text;
+                }
+
+
+                else if (colFiltroCliente.Equals("nombre"))
+                {
+                    valFiltroCliente = txtNombreCliente.Text;
+                }
+            }
+
+            return valFiltroCliente;
+
+        }
 
         private void cargarListaClientes(List<Cliente> listaClientes)
         {
@@ -64,6 +87,40 @@ namespace SISVIANSA_ITI_2023.GUI
                 dgvCliente.Rows.Add(cliente.Id, cliente.Doc, cliente.NombreEmpresa, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
             }
 
+        }
+
+        private string obtenerValFiltroMenu()
+        {
+            valFiltroMenu = "";
+
+            if (!String.IsNullOrEmpty(colFiltroCliente))
+            {
+
+                if (colFiltroMenu.Equals("id"))
+                {
+                    valFiltroMenu = txtNombreMenu.Text;
+                }
+
+                else if (colFiltroMenu.Equals("dieta"))
+                {
+                    valFiltroMenu = cboDietaMenu.Text;
+                }
+
+                else if (colFiltroMenu.Equals("tipo"))
+                {
+                    valFiltroMenu = cboTipoMenu.Text;
+                }
+            }
+            return valFiltroMenu;
+        }
+
+        private void cargarListaMenus(List<Menu> listaMenus)
+        {
+            dgvMenu.Rows.Clear();
+            foreach (Menu menu in listaMenus)
+            {
+                dgvMenu.Rows.Add(menu.Id, menu.Tipo, menu.Precio, menu.DietasSTR);
+            }
         }
 
 
@@ -96,6 +153,9 @@ namespace SISVIANSA_ITI_2023.GUI
             dgvMenu.Enabled = true;
 
             rbtnTodoMenu.Checked = true;
+
+            listaMenus = menu.buscarMenuFiltrados("todo", "");
+            cargarListaMenus(listaMenus);
         }
 
         private void deshabilitarApartadoPedido()
@@ -135,34 +195,10 @@ namespace SISVIANSA_ITI_2023.GUI
             cboTipoMenu.Enabled = false;
         }
 
-
-        // Cargar listas
-        private string obtenerValFiltroCliente()
-        {
-            valFiltroCliente = "";
-
-            if (!String.IsNullOrEmpty(colFiltroCliente))
-            {
-
-                if (colFiltroCliente.Equals("nro_doc"))
-                {
-                    valFiltroCliente = txtDocCliente.Text;
-                }
-
-
-                else if (colFiltroCliente.Equals("nombre"))
-                {
-                    valFiltroCliente = txtNombreCliente.Text;
-                }
-            }
-
-            return valFiltroCliente;
-
-        }
-
+        
 
         // Modificar datos del pedido
-        private void modDatosPedido_Cliente(Cliente cliente)
+        private void modificarDatosPedido_Cliente(Cliente cliente)
         {
             txtNroClienteDatos.Text = cliente.Id.ToString();
             lblTipoDocDatos.Text = cliente.TipoDoc.ToString();
@@ -178,8 +214,8 @@ namespace SISVIANSA_ITI_2023.GUI
             inhabilitarFiltrosCliente();
             deshabilitarApartadoMenu();
             deshabilitarApartadoPedido();
-            rbtnTodoCliente.Checked = true;
-            listaClientes = cliente.realizarBusquedaFiltrada("todo", "");
+            rbtnAutorizadosYActivosCliente.Checked = true;
+            listaClientes = cliente.realizarBusquedaFiltrada("activo y autorizado", "");
             cargarListaClientes(listaClientes);
         }
 
@@ -205,7 +241,9 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnBuscarMenu_Click(object sender, EventArgs e)
         {
-
+            valFiltroMenu = obtenerValFiltroMenu();
+            listaMenus = menu.buscarMenuFiltrados(colFiltroMenu, valFiltroMenu);
+            cargarListaMenus(listaMenus);
         }
 
         // Data grid views
@@ -223,7 +261,7 @@ namespace SISVIANSA_ITI_2023.GUI
             }
             else
             {
-                modDatosPedido_Cliente(cliente);
+                modificarDatosPedido_Cliente(cliente);
                 habilitarApartadoMenu();
             }
 

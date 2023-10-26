@@ -214,6 +214,35 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaMenus;
         }
 
+        public List<Menu> buscarMenuFiltrados(string colFiltro, string valFiltro)
+        {
+            listaMenus = new List<Menu>();
+
+            if (colFiltro.Equals("todo"))
+            {
+                listaMenus = menuBD.obtenerTodosLosMenu();
+            }
+
+            else if (colFiltro.Equals("id"))
+            {
+                id = Convert.ToInt32(valFiltro);
+                listaMenus = menuBD.filtrarMenuPorId(id);
+            }
+
+            else if (colFiltro.Equals("tipo"))
+            {
+                listaMenus = menuBD.filtrarMenuPorTipo(valFiltro);
+            }
+
+            else if (colFiltro.Equals("dieta"))
+            {
+                List<string> listaValFiltro = new List<string>() { valFiltro };
+                listaMenus = menuBD.filtrarMenuPorDietas(listaValFiltro);
+            }
+
+            return listaMenus;
+        }
+
 
         // --------------------- METODOS AUXILIARES ---------------------------
 
