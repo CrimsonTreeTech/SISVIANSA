@@ -22,6 +22,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private List<Comida> listaComida;
         private List<string> nombreDietas;
         private List<string> listaComidasMenuTemporal;
+        private List<Dieta> listaDietasSeleccionadas;
 
 
         // ------------------------ METODOS AL INICIAR ------------------------------
@@ -207,6 +208,11 @@ namespace SISVIANSA_ITI_2023.GUI
         private void cboTipo_Click(object sender, EventArgs e)
         {
             cambiarOpcionesMenu();
+        }
+
+        private void cargarListaDeComidas()
+        {
+            //comida.listaComidasFiltradas("dietas", listaDietasSeleccionadas)
         }
 
 
