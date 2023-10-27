@@ -15,7 +15,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarComidas : Form
     {
         private byte rol;
-        private string colFiltro;
+        private string colFiltro = "";
         private Comida comida;
         private Dieta dieta;
         private List<Comida> listaComidas;
