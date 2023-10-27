@@ -12,6 +12,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
     {
         private byte rol;
         private string consulta;
+        private int filasAfectadas, c, d; // c y d son contadores para comida y dieta
         private Singleton bd;
         private Menu menu;
         private Comida comida;
@@ -25,6 +26,81 @@ namespace SISVIANSA_ITI_2023.Persistencia
         {
             this.rol = rol;
         }
+
+
+        public bool ingresasrMenu(Menu menu)
+        {
+            filasAfectadas = 0;
+            c = 0;
+            d = 0;
+
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta += " INSERT INTO menu (congelable, stock_actual, lote_min, lote_max, tipo_menu, sugerencia, activo, autorizado) ";
+                        consulta += " VALUES (@congelable, @stockActual, @lote_min, @lote_max, @tipo_menu, @sugerencia, @activo, @autorizado); ";
+
+                        consulta += " SELECT LAST_INSERT_ID() INTO @nuevo_id; ";
+
+                        foreach (Dieta dieta in menu.Dietas)
+                        {
+                            consulta += $"INSERT INTO pertenece (id_dieta, id_menu) VALUES (@dieta{d}, @nuevo_id); ";
+                            d += 1;
+                        }
+                        foreach (Comida comida in menu.Comidas)
+                        {
+                            consulta += $" INSERT INTO integra (id_menu, id_comida, personalizado) VALUES (@nuevo_id, @comida{c}, @personalizado); ";
+                            c += 1;
+                        }
+
+                        consulta += "INSERT INTO menu_precio(id_menu, fecha, valor) VALUES (@nuevo_id, CURRENT_DATE(), @precio); ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@congelable", menu.Congelable);
+                            cmd.Parameters.AddWithValue("@stock_actual", menu.StockActual);
+                            cmd.Parameters.AddWithValue("@lote_min", menu.StockMin);
+                            cmd.Parameters.AddWithValue("@lote_max", menu.StockMax);
+                            cmd.Parameters.AddWithValue("@tipo_menu", menu.Tipo);
+                            cmd.Parameters.AddWithValue("@sugerencia", menu.Sugerencia);
+                            cmd.Parameters.AddWithValue("@activo", menu.Activo);
+                            cmd.Parameters.AddWithValue("@autorizado", menu.Autorizado);
+                            cmd.Parameters.AddWithValue("@precio", menu.Precio);
+
+                            c = 0;
+                            foreach (Comida comida in menu.Comidas)
+                            {
+                                cmd.Parameters.AddWithValue($"@dieta{c}", menu.Comidas[c].Id);
+                                c += 1;
+                            }
+
+                            d = 0;
+                            foreach (Dieta dieta in menu.Dietas)
+                            {
+                                cmd.Parameters.AddWithValue($"@dieta{d}", menu.Dietas[d].Id);
+                                d += 1;
+                            }
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }                       
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error MenuBD #ingresasrMenu: " + ex.Number.ToString() + ". " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
 
         // --------------------- CONSULTAS ------------------------
         public List<Comida> obtenerComidasMenu(int idMenu)

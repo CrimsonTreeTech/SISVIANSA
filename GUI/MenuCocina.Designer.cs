@@ -22,10 +22,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             btnProduccionDiaria = new Button();
@@ -36,6 +32,7 @@
             btnListarPedidos = new Button();
             btnIngresarComida = new Button();
             btnSalir = new Button();
+            btnIngresasrDieta = new Button();
             SuspendLayout();
             // 
             // btnProduccionDiaria
@@ -73,7 +70,7 @@
             // 
             // btnListarDietas
             // 
-            btnListarDietas.Location = new Point(17, 141);
+            btnListarDietas.Location = new Point(17, 142);
             btnListarDietas.Margin = new Padding(3, 2, 3, 2);
             btnListarDietas.Name = "btnListarDietas";
             btnListarDietas.Size = new Size(155, 37);
@@ -117,20 +114,31 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(178, 141);
+            btnSalir.Location = new Point(17, 205);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(155, 37);
+            btnSalir.Size = new Size(316, 37);
             btnSalir.TabIndex = 8;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
+            // btnIngresasrDieta
+            // 
+            btnIngresasrDieta.Location = new Point(178, 142);
+            btnIngresasrDieta.Name = "btnIngresasrDieta";
+            btnIngresasrDieta.Size = new Size(155, 37);
+            btnIngresasrDieta.TabIndex = 9;
+            btnIngresasrDieta.Text = "Ingresasr dieta";
+            btnIngresasrDieta.UseVisualStyleBackColor = true;
+            btnIngresasrDieta.Click += btnIngresarDieta_Click;
+            // 
             // MenuCocina
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(346, 191);
+            ClientSize = new Size(346, 260);
+            Controls.Add(btnIngresasrDieta);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresarComida);
             Controls.Add(btnListarDietas);
@@ -154,5 +162,6 @@
         private Button btnListarPedidos;
         private Button btnIngresarComida;
         private Button btnSalir;
+        private Button btnIngresasrDieta;
     }
 }

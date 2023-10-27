@@ -104,7 +104,7 @@ namespace SISVIANSA_ITI_2023.Logica
         // --------------------- ABM ----------------------
         public bool ingresar()
         {
-            return true;
+            return comidaBD.ingresar(this);
         }
 
         public bool modificar()

@@ -16,15 +16,14 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         private byte rol;
         private Usuario usuario;
-        private List<Usuario> usuarios;
-        private string filtroSeleccionado = "Todo";
+        private List<Usuario> listaUsuarios;
+        private string colFiltro = "Todo";
 
         public ListarUsuario(byte rol)
         {
             InitializeComponent();
             this.rol = rol;
             usuario = new Usuario(rol);
-            consultarDatos();
         }
 
 
@@ -35,10 +34,10 @@ namespace SISVIANSA_ITI_2023.GUI
             {
                 usuario = new Usuario(this.rol)
                 {
-                    Id = Convert.ToInt32(dgvPersonal.SelectedCells[0].Value),
-                    Nombre = dgvPersonal.SelectedCells[1].Value.ToString(),
-                    Rol = dgvPersonal.SelectedCells[2].Value.ToString(),
-                    Activo = Convert.ToBoolean(dgvPersonal.SelectedCells[3].Value)
+                    Id = Convert.ToInt32(dgvUsuarios.SelectedCells[0].Value),
+                    Nombre = dgvUsuarios.SelectedCells[1].Value.ToString(),
+                    Rol = dgvUsuarios.SelectedCells[2].Value.ToString(),
+                    Activo = Convert.ToBoolean(dgvUsuarios.SelectedCells[3].Value)
                 };
                 return usuario;
             }
@@ -50,13 +49,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
         }
 
-        private void cargarDatos(List<Usuario> usuarios)
+        private void cargarDatos(List<Usuario> listaUsuarios)
         {
-            dgvPersonal.Rows.Clear();
+            dgvUsuarios.Rows.Clear();
 
-            foreach (Usuario usuario in usuarios)
+            foreach (Usuario usuario in listaUsuarios)
             {
-                dgvPersonal.Rows.Add(usuario.Id, usuario.Nombre, usuario.Rol, usuario.Activo);
+                dgvUsuarios.Rows.Add(usuario.Id, usuario.Nombre, usuario.Rol, usuario.Activo);
             }
         }
 
@@ -82,7 +81,6 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
-
         private void deshabilitarCamposFiltros()
         {
             txtUsuario.Text = "";
@@ -91,37 +89,38 @@ namespace SISVIANSA_ITI_2023.GUI
             cboRol.Enabled = false;
         }
 
-        private void consultarDatos()
+        private void actualizarGrilla()
         {
-            usuarios = new List<Usuario>();
-            if (rbtnUsuario.Checked)
+            listaUsuarios = new List<Usuario>();
+
+            if (colFiltro.Equals("Todo"))
             {
-                filtroSeleccionado = "Usuario";
-                usuarios = usuario.filtrarListaUsuarios(filtroSeleccionado, txtUsuario.Text);
-            }
-            else if (rbtnRol.Checked)
-            {
-                filtroSeleccionado = "Rol";
-                usuarios = usuario.filtrarListaUsuarios(filtroSeleccionado, cboRol.Text);
-            }
-            else if (rbtnActivo.Checked)
-            {
-                filtroSeleccionado = "Activo";
-                usuarios = usuario.filtrarListaUsuarios(filtroSeleccionado, "");
-            }
-            else if (rbtnInactivo.Checked)
-            {
-                filtroSeleccionado = "Inactivo";
-                usuarios = usuario.filtrarListaUsuarios(filtroSeleccionado, "");
-            }
-            else if (rbtnTodo.Checked)
-            {
-                filtroSeleccionado = "Todo";
-                usuarios = usuario.filtrarListaUsuarios(filtroSeleccionado, "");
+                listaUsuarios = usuario.filtrarListaUsuarios(colFiltro, "");
             }
 
-            cargarDatos(usuarios);
+            else if (colFiltro.Equals("Usuario"))
+            {
+                listaUsuarios = usuario.filtrarListaUsuarios(colFiltro, txtUsuario.Text);
+            }
+
+            else if (colFiltro.Equals("Rol"))
+            {
+                listaUsuarios = usuario.filtrarListaUsuarios(colFiltro, cboRol.Text);
+            }
+
+            else if (colFiltro.Equals("Activo"))
+            {
+                listaUsuarios = usuario.filtrarListaUsuarios(colFiltro, "");
+            }
+
+            else if (colFiltro.Equals("Inactivo"))
+            {
+                listaUsuarios = usuario.filtrarListaUsuarios(colFiltro, "");
+            }
+
+            cargarDatos(listaUsuarios);
         }
+
 
         // ----------------------- METODOS WIDGETS -----------------------
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -147,20 +146,26 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnBaja_Click(object sender, EventArgs e)
         {
             altaBajaUsuario(false);
+            actualizarGrilla();
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
             altaBajaUsuario(true);
+            actualizarGrilla();
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            actualizarGrilla();
+        }
 
         // --------------------------- FILTROS ------------------------------
         private void rbtnUsuario_Click(object sender, EventArgs e)
         {
             deshabilitarCamposFiltros();
             txtUsuario.Enabled = true;
-            filtroSeleccionado = "Usuario";
+            colFiltro = "Usuario";
         }
 
         private void rbtnRol_Click(object sender, EventArgs e)
@@ -168,30 +173,26 @@ namespace SISVIANSA_ITI_2023.GUI
             deshabilitarCamposFiltros();
             cboRol.Enabled = true;
             cboRol.SelectedIndex = 0;
-            filtroSeleccionado = "Rol";
+            colFiltro = "Rol";
         }
 
         private void rbtnActivo_Click(object sender, EventArgs e)
         {
             deshabilitarCamposFiltros();
-            filtroSeleccionado = "Activo";
+            colFiltro = "Activo";
         }
 
         private void rbtnInactivo_Click(object sender, EventArgs e)
         {
             deshabilitarCamposFiltros();
-            filtroSeleccionado = "Inactivo";
+            colFiltro = "Inactivo";
         }
 
         private void rbtnTodo_Click(object sender, EventArgs e)
         {
             deshabilitarCamposFiltros();
-            filtroSeleccionado = "Todo";
+            colFiltro = "Todo";
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            consultarDatos();
-        }
     }
 }

@@ -69,7 +69,15 @@ namespace SISVIANSA_ITI_2023.GUI
             dieta.Autorizado = chkAutorizado.Checked;
         }
 
-        
+        private void vaciarCampos()
+        {
+            txtNombre.Text = "";
+            rtxtDescripcion.Text = "";
+            chkActivo.Checked = false;
+            chkAutorizado.Checked = false;
+        }
+
+
         // --------------- GUARDAR / CARGAR CAMBIOS -------------------
         private void cargarDatos()
         {
@@ -86,7 +94,13 @@ namespace SISVIANSA_ITI_2023.GUI
                 actualizarDatos();
                 bool resultado = metodo();
                 if (resultado)
-                    MessageBox.Show("Se guardaron los cambios", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {
+                    if (opcion == 0)
+                    {
+                        vaciarCampos();
+                        MessageBox.Show("Se guardaron los cambios", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
                 else
                     MessageBox.Show("No se han guardaron los cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

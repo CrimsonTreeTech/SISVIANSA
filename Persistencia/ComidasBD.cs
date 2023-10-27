@@ -13,6 +13,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
     {
         private byte rol;
         private string consulta;
+        private int filasAfectadas, i;
         private Comida comida;
         private List<Comida> comidas;
         private Singleton bd;
@@ -23,6 +24,65 @@ namespace SISVIANSA_ITI_2023.Persistencia
             this.rol = rol;
             bd = Singleton.RecuperarInstancia();
         }
+
+
+
+
+        // ------------------ ABM ------------------------------
+        public bool ingresar(Comida comida)
+        {
+            filasAfectadas = 0;
+            i = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta += "INSERT INTO comida(nombre, tiempo_produccion, activo, autorizado) ";
+                        consulta += "VALUES  (@nombre, @coccion, @activo, @autorizado); ";
+
+                        consulta += "SELECT LAST_INSERT_ID() INTO @nuevo_id; ";
+
+                        foreach (Dieta dieta in comida.Dietas)
+                        {
+                            consulta += $"INSERT INTO aplica (id_dieta, id_comida) VALUES (@param{i}, @nuevo_id); ";
+                            i += 1;
+                        }
+                        
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@nombre", comida.Nombre);
+                            cmd.Parameters.AddWithValue("@coccion", comida.Coccion);
+                            cmd.Parameters.AddWithValue("@activo", comida.Activo);
+                            cmd.Parameters.AddWithValue("@autorizado", comida.Autorizado);
+
+                            i = 0;
+                            foreach (Dieta dieta in comida.Dietas)
+                            {
+                                cmd.Parameters.AddWithValue($"@param{i}", comida.Dietas[i].Id);
+                                i += 1;
+                            }
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD #ingresar: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
+
 
 
         // ------------------- CONSULTAS ---------------------------

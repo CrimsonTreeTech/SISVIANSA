@@ -13,10 +13,11 @@ namespace SISVIANSA_ITI_2023.GUI
 {
     public partial class GestionarComida : Form
     {
-        Dieta dieta;
-        Comida comida;
-        delegate bool metodoDelegado();
-        byte rol, opcion;
+        private byte rol, opcion;
+        private Dieta dieta;
+        private Comida comida;
+        private delegate bool metodoDelegado();
+        
 
         // ---------------------- METODOS AL INICIAR -----------------------------
         public GestionarComida(byte rol)
@@ -26,7 +27,6 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             this.rol = rol;
             this.opcion = 0;
-            bloqueraFuncionalidadesSegunRol(rol);
         }
 
         public GestionarComida(byte rol, Comida comida)
@@ -37,19 +37,23 @@ namespace SISVIANSA_ITI_2023.GUI
             this.rol = rol;
             this.opcion = 1;
             cargarDatos();
-            bloqueraFuncionalidadesSegunRol(rol);
+            
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
         {
             if (rol == 2)
+            {
                 chkAutorizado.Enabled = false;
+                chkActivo.Enabled = false;
+            }
         }
 
         private void IngresarComida_Load(object sender, EventArgs e)
         {
             List<string> dietas = dieta.nombresDeDietas();
             lstDietasDisponibles.Items.AddRange(dietas.ToArray());
+            bloqueraFuncionalidadesSegunRol(rol);
         }
 
 
@@ -93,6 +97,22 @@ namespace SISVIANSA_ITI_2023.GUI
             lstDietasDisponibles.Items.AddRange(dietasDisponibles.ToArray());
         }
 
+        private void vaciarCampos()
+        {
+            txtCoccion.Text = "";
+            txtNombre.Text = "";
+            chkActivo.Checked = false;
+            chkAutorizado.Checked = false;
+
+            foreach (object item in lstDietasDisponibles.Items)
+            {
+                lstDietasSeleccionadas.Items.Add(item);
+            }
+
+            lstDietasDisponibles.ClearSelected();
+
+
+        }
 
         // --------------------------- CARGAR / GUARDAR DATOS ---------------------------------
         private void cargarDatos()
@@ -129,10 +149,15 @@ namespace SISVIANSA_ITI_2023.GUI
             {
                 actualizarDatos();
                 bool resultado = metodo();
-                if(resultado)
-                    MessageBox.Show("Se realizaron los cambios.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (resultado)
+                {
+                    MessageBox.Show("Se guardaron los cambios.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (opcion == 0)
+                        vaciarCampos();
+                }                    
                 else
-                    MessageBox.Show("No se realizaron los cambios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se guardaron los cambios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -149,6 +174,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 guardarCambios(comida.ingresar);
             else if (opcion == 1)
                 guardarCambios(comida.modificar);
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

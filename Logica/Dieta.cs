@@ -69,7 +69,7 @@ namespace SISVIANSA_ITI_2023.Logica
         // ----------------- ABM --------------------
         public bool ingresar()
         {
-            return true;
+            return dietaBD.ingresar(this);
         }
 
         public bool modificar()

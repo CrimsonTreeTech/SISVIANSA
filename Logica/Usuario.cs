@@ -20,7 +20,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private string rol;
         private bool activo;
         private byte byteRol;
-        private List<Usuario> usuarios;
+        private List<Usuario> listaUsuarios = new List<Usuario>();
 
 
         // ------------------ CONSTRUCTOR ----------------------
@@ -132,30 +132,30 @@ namespace SISVIANSA_ITI_2023.Logica
         // ------------------------------- CONSULTAS ----------------------------------
         public List<Usuario> filtrarListaUsuarios(string filtro, string condicion)
         {
-            usuarios = new List<Usuario>();
+            listaUsuarios = new List<Usuario>();
 
             if (filtro.Equals("Usuario"))
             {
-                usuarios = usuarioBD.filtrarUsuariosNombre(condicion);
+                listaUsuarios = usuarioBD.filtrarUsuariosNombre(condicion);
             }
             else if (filtro.Equals("Rol"))
             {
-                usuarios = usuarioBD.filtrarUsuariosRol(condicion);
+                listaUsuarios = usuarioBD.filtrarUsuariosRol(condicion);
             }
             else if (filtro.Equals("Activo"))
             {
-                usuarios = usuarioBD.filtrarUsuariosActivo(true);
+                listaUsuarios = usuarioBD.filtrarUsuariosActivo(true);
             }
             else if (filtro.Equals("Inactivo"))
             {
-                usuarios = usuarioBD.filtrarUsuariosActivo(false);
+                listaUsuarios = usuarioBD.filtrarUsuariosActivo(false);
             }
             else if (filtro.Equals("Todo"))
             {
-                usuarios = usuarioBD.obtenerListaUsuarios();
+                listaUsuarios = usuarioBD.obtenerListaUsuarios();
             }
 
-            return usuarios;
+            return listaUsuarios;
         }
 
     }

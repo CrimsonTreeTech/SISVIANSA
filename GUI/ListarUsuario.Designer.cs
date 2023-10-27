@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgvPersonal = new DataGridView();
+            dgvUsuarios = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colUsuario = new DataGridViewTextBoxColumn();
             colRol = new DataGridViewTextBoxColumn();
@@ -46,23 +46,23 @@
             rbtnRol = new RadioButton();
             rbtnUsuario = new RadioButton();
             btnBuscar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvPersonal).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             gbxFiltros.SuspendLayout();
             SuspendLayout();
             // 
-            // dgvPersonal
+            // dgvUsuarios
             // 
-            dgvPersonal.AllowUserToAddRows = false;
-            dgvPersonal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPersonal.Columns.AddRange(new DataGridViewColumn[] { colId, colUsuario, colRol, colActivo });
-            dgvPersonal.Location = new Point(12, 171);
-            dgvPersonal.MultiSelect = false;
-            dgvPersonal.Name = "dgvPersonal";
-            dgvPersonal.ReadOnly = true;
-            dgvPersonal.RowTemplate.Height = 25;
-            dgvPersonal.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonal.Size = new Size(592, 278);
-            dgvPersonal.TabIndex = 0;
+            dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colUsuario, colRol, colActivo });
+            dgvUsuarios.Location = new Point(12, 171);
+            dgvUsuarios.MultiSelect = false;
+            dgvUsuarios.Name = "dgvUsuarios";
+            dgvUsuarios.ReadOnly = true;
+            dgvUsuarios.RowTemplate.Height = 25;
+            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsuarios.Size = new Size(592, 278);
+            dgvUsuarios.TabIndex = 0;
             // 
             // colId
             // 
@@ -165,7 +165,7 @@
             cboRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cboRol.Enabled = false;
             cboRol.FormattingEnabled = true;
-            cboRol.Items.AddRange(new object[] { "Gerente", "Administrativo", "Jefe de cocina", "Encargado de transporte", "Atención al público", "Informático" });
+            cboRol.Items.AddRange(new object[] { "Gerente", "Informatico", "Jefe de cocina", "Administrativo", "Atencion al cliente", "Transporte" });
             cboRol.Location = new Point(77, 67);
             cboRol.Name = "cboRol";
             cboRol.Size = new Size(174, 23);
@@ -248,10 +248,10 @@
             Controls.Add(btnRegresar);
             Controls.Add(btnModificar);
             Controls.Add(btnBaja);
-            Controls.Add(dgvPersonal);
+            Controls.Add(dgvUsuarios);
             Name = "ListarUsuario";
             Text = "Listar Usuarios";
-            ((System.ComponentModel.ISupportInitialize)dgvPersonal).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             gbxFiltros.ResumeLayout(false);
             gbxFiltros.PerformLayout();
             ResumeLayout(false);
@@ -259,7 +259,7 @@
 
         #endregion
 
-        private DataGridView dgvPersonal;
+        private DataGridView dgvUsuarios;
         private Button btnBaja;
         private Button btnModificar;
         private Button btnRegresar;

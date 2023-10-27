@@ -21,7 +21,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
         private string consulta, nombreRol;
         private int filasAfectadas;
         private Usuario usuario;
-        private List<Usuario> usuarios;
+        private List<Usuario> listaUsuarios;
 
         // ---------------------------- METODOS AL INICIAR ------------------------------
         public UsuarioBD(byte rol)
@@ -71,7 +71,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
 
         public List<Usuario> obtenerListaUsuarios()
         {
-            usuarios = new List<Usuario>();
+            listaUsuarios = new List<Usuario>();
             try
             {
                 using (bd = Singleton.RecuperarInstancia())
@@ -91,9 +91,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Id = reader.GetInt32("id_user"),
                                         Nombre = reader.GetString("user"),
                                         Rol = reader.GetString("rol"),
-                                        Activo = reader.GetBoolean("activo")
+                                        Activo = reader.GetBoolean("activo"),
                                     };
-                                    usuarios.Add(usuario);
+                                    listaUsuarios.Add(usuario);
                                 }
                             }
                         }
@@ -108,11 +108,13 @@ namespace SISVIANSA_ITI_2023.Persistencia
             {
                 bd.CerrarConexion();
             }
-            return usuarios;
+
+            return listaUsuarios;
         }
 
         public List<Usuario> filtrarUsuariosNombre(string filtro)
         {
+            listaUsuarios = new List<Usuario>();
             try
             {
                 using (bd = Singleton.RecuperarInstancia())
@@ -134,7 +136,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Activo = reader.GetBoolean("activo"),
                                         Rol = reader.GetString("rol")
                                     };
-                                    usuarios.Add(usuario);
+                                    listaUsuarios.Add(usuario);
                                 }
                             }
                         }
@@ -149,59 +151,19 @@ namespace SISVIANSA_ITI_2023.Persistencia
             {
                 bd.CerrarConexion();
             }
-            return usuarios;
+            return listaUsuarios;
         }
 
         public List<Usuario> filtrarUsuariosRol(string filtro)
         {
+            listaUsuarios = new List<Usuario>();
             try
             {
                 using (bd = Singleton.RecuperarInstancia())
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT id_user, user, rol, activo FROM usuario WHERE rol LIKE @filtro;";
-                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
-                        {
-                            cmd.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
-                            using (MySqlDataReader reader = cmd.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    usuario = new Usuario(rol)
-                                    {
-                                        Id = reader.GetInt32("id_user"),
-                                        Nombre = reader.GetString("user"),
-                                        Activo = reader.GetBoolean("activo"),
-                                        Rol = reader.GetString("rol")
-                                    };
-                                    usuarios.Add(usuario);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                bd.CerrarConexion();
-            }
-            return usuarios;
-        }
-
-        public List<Usuario> filtrarUsuariosActivo(bool filtro)
-        {
-            try
-            {
-                using (bd = Singleton.RecuperarInstancia())
-                {
-                    if (bd.Conectar(rol))
-                    {
-                        consulta = "SELECT id_user, user, rol, activo FROM usuario WHERE activo LIKE @filtro;";
+                        consulta = "SELECT id_user, user, rol, activo FROM usuario WHERE rol = @filtro;";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             cmd.Parameters.AddWithValue("@filtro", filtro);
@@ -216,7 +178,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         Activo = reader.GetBoolean("activo"),
                                         Rol = reader.GetString("rol")
                                     };
-                                    usuarios.Add(usuario);
+                                    listaUsuarios.Add(usuario);
                                 }
                             }
                         }
@@ -231,7 +193,50 @@ namespace SISVIANSA_ITI_2023.Persistencia
             {
                 bd.CerrarConexion();
             }
-            return usuarios;
+            return listaUsuarios;
+        }
+
+        public List<Usuario> filtrarUsuariosActivo(bool filtro)
+        {
+            listaUsuarios = new List<Usuario>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT id_user, user, rol, activo FROM usuario WHERE activo = @filtro;";
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@filtro", filtro);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    usuario = new Usuario(rol)
+                                    {
+                                        Id = reader.GetInt32("id_user"),
+                                        Nombre = reader.GetString("user"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Rol = reader.GetString("rol")
+                                    };
+                                    listaUsuarios.Add(usuario);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+
+            return listaUsuarios;
         }
 
 

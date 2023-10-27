@@ -142,6 +142,15 @@ namespace SISVIANSA_ITI_2023.Logica
         }
 
 
+
+        // ------------------------------ ABM ----------------------------------
+        public bool ingresar()
+        {
+            return menuBD.ingresasrMenu(this);
+        }
+
+
+
         // ------------------------ CONSULTAS ---------------------------------
         public List<Menu> obtenerTodosLosMenu()
         {
