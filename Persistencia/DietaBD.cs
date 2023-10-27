@@ -76,7 +76,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT id_dieta, nombre, descripcion FROM dieta WHERE autorizado = true AND activo = true;";
+                        consulta = "SELECT id_dieta, nombre, descripcion, activo, autorizado FROM dieta WHERE autorizado = true AND activo = true;";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -88,7 +88,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     {
                                         Id = reader.GetInt32("id_dieta"),
                                         Nombre = reader.GetString("nombre"),
-                                        Descripcion = reader.GetString("descripcion")
+                                        Descripcion = reader.GetString("descripcion"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
                                     };
                                     dietas.Add(dieta);
                                 }
@@ -107,6 +109,95 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             return dietas;
         }
+
+        public List<Dieta> dietasInactivas()
+        {
+            dietas = new List<Dieta>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT id_dieta, nombre, descripcion, activo, autorizado FROM dieta WHERE activo = false;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    dieta = new Dieta(rol)
+                                    {
+                                        Id = reader.GetInt32("id_dieta"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Descripcion = reader.GetString("descripcion"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
+                                    };
+                                    dietas.Add(dieta);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error DietaBD #2: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return dietas;
+        }
+
+
+        public List<Dieta> dietasNoAutorizadas()
+        {
+            dietas = new List<Dieta>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT id_dieta, nombre, descripcion, activo, autorizado FROM dieta WHERE autorizado = false;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    dieta = new Dieta(rol)
+                                    {
+                                        Id = reader.GetInt32("id_dieta"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Descripcion = reader.GetString("descripcion"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
+                                    };
+                                    dietas.Add(dieta);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error DietaBD #2: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return dietas;
+        }
+
+
 
         public List<Dieta> obtenerDietasDeComida(int idComida)
         {

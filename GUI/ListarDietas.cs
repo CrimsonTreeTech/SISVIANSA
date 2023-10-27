@@ -14,27 +14,34 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarDietas : Form
     {
         private byte rol;
+        private string colFiltro = "activo y autorizado";
         private Dieta dieta;
-        private List<Dieta> dietas;
+        private List<Dieta> listaDietas;
 
-        // ----------------------- METODOS AL INICIAR --------------------------
+        // ----------------------- CONSTRUCTOR  --------------------------
         public ListarDietas(byte rol)
         {
             InitializeComponent();
             this.rol = rol;
             dieta = new Dieta(rol);
-            bloqueraFuncionalidadesSegunRol(rol);
-            cargarListado();
-        }
-
-        private void bloqueraFuncionalidadesSegunRol(byte rol)
-        {
-            if (rol == 1)
-                btnModificar.Enabled = false;
         }
 
 
         // ----------------------- METODOS AUXILIARES ------------------------------
+        private void bloqueraFuncionalidadesSegunRol(byte rol)
+        {
+            if (rol == 1)
+            {
+                btnModificar.Enabled = false;
+            }
+            else if (rol == 2)
+            {
+                btnAlta.Enabled = false;
+                btnBaja.Enabled = false;
+                btnAutorizar.Enabled = false;
+            }
+        }
+
         private void regresarAlMenu()
         {
             Owner.Show();
@@ -52,16 +59,27 @@ namespace SISVIANSA_ITI_2023.GUI
             return dieta;
         }
 
-        private void cargarListado()
+        private void cargarListado(List<Dieta> listaDietas)
         {
-            dietas = dieta.todasLasDietas();
-            foreach (Dieta dieta in dietas)
+            dgvDieta.Rows.Clear();
+
+            foreach (Dieta dieta in listaDietas)
             {
                 dgvDieta.Rows.Add(dieta.Id, dieta.Nombre, dieta.Activo, dieta.Autorizado);
             }
         }
 
         // ---------------------- METODOS WIDGETS --------------------------
+        private void ListarDietas_Load(object sender, EventArgs e)
+        {
+            bloqueraFuncionalidadesSegunRol(rol);
+            listaDietas = dieta.busquedaFiltrada(colFiltro);
+            cargarListado(listaDietas);
+            rbtnActivasYAutorizadas.Checked = true;
+        }
+
+        
+        // Botones
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Dieta dietaSeleccionada = seleccionarDieta();
@@ -74,5 +92,35 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             regresarAlMenu();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            listaDietas = dieta.busquedaFiltrada(colFiltro);
+            cargarListado(listaDietas);
+        }
+
+
+        // Radiobuttons
+        private void rbtnTodo_Click(object sender, EventArgs e)
+        {
+            colFiltro = "todo";
+        }
+
+        private void rbtnActivasYAutorizadas_Click(object sender, EventArgs e)
+        {
+            colFiltro = "activo y autorizado";
+        }
+
+        private void rbtnInactivas_Click(object sender, EventArgs e)
+        {
+            colFiltro = "inactivo";
+        }
+
+        private void rbtnNoAutorizadas_Click(object sender, EventArgs e)
+        {
+            colFiltro = "no autorizado";
+        }
+
+        
     }
 }

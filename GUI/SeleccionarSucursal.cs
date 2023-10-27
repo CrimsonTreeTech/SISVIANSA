@@ -52,8 +52,17 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             idSucursal = seleccionarSucursal();
-            ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal, false);
-            produccionDiaria.Show(Owner);
+
+            if (rol == 2) // Nro de rol de cocina
+            {
+                ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal, false);
+                produccionDiaria.Show(Owner);
+            }
+            else if (rol == 6)
+            {
+                MenuCocina menuCocina = new MenuCocina(rol, idSucursal);
+                menuCocina.Show(Owner);
+            }
             Close();
         }
 
