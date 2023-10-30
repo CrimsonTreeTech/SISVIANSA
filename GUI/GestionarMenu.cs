@@ -19,9 +19,10 @@ namespace SISVIANSA_ITI_2023.GUI
         private Dieta dieta;
         private Comida comida;
         private List<Dieta> listaDietas;
-        private List<Comida> listaComida;
+        private List<Comida> listaComidas;
         private List<string> nombreDietas;
         private List<string> listaComidasMenuTemporal;
+        private List<string> listaComidasMenuDisponibles;
         private List<string> listaDietasSeleccionadas;
 
 
@@ -36,6 +37,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.opcion = 0;
             this.Text = "Ingresar menú";
             listaDietasSeleccionadas = new List<string>();
+            listaComidasMenuDisponibles = new List<string>();
             bloqueraFuncionalidadesSegunRol(rol);
         }
 
@@ -118,27 +120,46 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
-        private void completarListaComidasMenu(bool agregar, string comida)
+        private void actualizarListasTemporales(bool agregar, string comida)
         {
             // Obtiene la lista de los items en la listbox lstComidasMenu
-            List<string> listaMenuTemporal = lstComidasMenu.Items.OfType<string>().ToList();
+            listaComidasMenuTemporal = lstComidasMenu.Items.OfType<string>().ToList();
 
             // Agrega o quitala comida seleccionada
             if (agregar)
             {
                 string tipoMenu = cboTipo.Text;
-                listaComidasMenuTemporal = menu.listaTemporalDeComidas(comida, listaMenuTemporal, tipoMenu);
+                listaComidasMenuTemporal = menu.listaTemporalDeComidas(comida, listaComidasMenuTemporal, tipoMenu);
             }
             else
             {
-                listaMenuTemporal.Remove(comida);
+                listaComidasMenuTemporal.Remove(comida);
+                listaComidasMenuDisponibles.Add(comida);
             }
 
             // Limpia la lista de comidas seleccionadas
             lstComidasMenu.Items.Clear();
 
+            // Ordena la lista de comidas temporales
+            listaComidasMenuTemporal.Sort();
+
             // Completa con los valores actualizados la lista de comidas
-            lstComidasMenu.Items.AddRange(listaMenuTemporal.ToArray());
+            lstComidasMenu.Items.AddRange(listaComidasMenuTemporal.ToArray());
+
+            // Borra las comidas seleccionadas de la lista de comidas disponibles
+            foreach(string nombreComida in listaComidasMenuTemporal)
+            {
+                listaComidasMenuDisponibles.Remove(nombreComida);
+            }
+
+            // Ordena la lista de comidas disponibles
+            listaComidasMenuDisponibles.Sort();
+
+            // Vacia la listbox de comidas disponibles
+            lstComidasDisponibles.Items.Clear();
+
+            // Completa la listbox con la lista de comidas disponibles actualizada
+            lstComidasDisponibles.Items.AddRange(listaComidasMenuDisponibles.ToArray());
         }
 
         private void cambiarOpcionesMenu()
@@ -161,6 +182,17 @@ namespace SISVIANSA_ITI_2023.GUI
             chkLstDietas.Items.AddRange(nombreDietas.ToArray());
         }
 
+        private void habilitarChkLstDietas()
+        {
+            if (lstComidasMenu.Items.Count == 0)
+            {
+                chkLstDietas.Enabled = true;
+            }
+            else
+            {
+                chkLstDietas.Enabled = false;
+            }
+        }
 
         // ------------------------- CARGAR / GUARDAR DATOS ---------------------------
         private void cargarDatos()
@@ -213,13 +245,17 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void cargarListaDeComidas()
         {
-            //comida.listaComidasFiltradas("dietas", listaDietasSeleccionadas)
+            listaComidasMenuDisponibles = new List<string>();
+            listaComidas = comida.listaComidasFiltradas("dietas", listaDietasSeleccionadas);
 
             lstComidasDisponibles.Items.Clear();
-            foreach (string nombreDieta in listaDietasSeleccionadas)
+            foreach (Comida comida in listaComidas)
             {
-                lstComidasDisponibles.Items.Add(nombreDieta);
+                listaComidasMenuDisponibles.Add(comida.Nombre);
             }
+
+            listaComidasMenuDisponibles.Sort();
+            lstComidasDisponibles.Items.AddRange(listaComidasMenuDisponibles.ToArray());
         }
 
 
@@ -232,12 +268,14 @@ namespace SISVIANSA_ITI_2023.GUI
                 string comidaSeleccionada = lstComidasDisponibles.SelectedItem.ToString();
 
                 // Actualiza la lista mostrada en la interfaz
-                completarListaComidasMenu(true, comidaSeleccionada);
+                actualizarListasTemporales(true, comidaSeleccionada);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Debe seleccionar una comida para eliminar del menu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            habilitarChkLstDietas();
         }
 
         private void btnQuitarComida_Click(object sender, EventArgs e)
@@ -248,12 +286,13 @@ namespace SISVIANSA_ITI_2023.GUI
                 string comidaSeleccionada = lstComidasMenu.SelectedItem.ToString();
 
                 // Actualiza la lista mostrada en la interfaz
-                completarListaComidasMenu(false, comidaSeleccionada);
+                actualizarListasTemporales(false, comidaSeleccionada);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Debe seleccionar una comida para eliminar del menu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            habilitarChkLstDietas();
 
         }
 

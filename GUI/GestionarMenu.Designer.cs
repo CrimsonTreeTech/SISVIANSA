@@ -25,7 +25,6 @@ namespace SISVIANSA_ITI_2023.GUI
             lstComidasMenu = new ListBox();
             lblComidasMenu = new Label();
             btnAgregarComida = new Button();
-            lstComidasDisponibles = new ListBox();
             lblListaComidas = new Label();
             lblDieta = new Label();
             lblTipo = new Label();
@@ -51,6 +50,7 @@ namespace SISVIANSA_ITI_2023.GUI
             txtStockActual = new TextBox();
             lblStockActual = new Label();
             btnListado = new Button();
+            lstComidasDisponibles = new ListBox();
             SuspendLayout();
             // 
             // btnQuitarComida
@@ -93,16 +93,6 @@ namespace SISVIANSA_ITI_2023.GUI
             btnAgregarComida.Text = "+";
             btnAgregarComida.UseVisualStyleBackColor = true;
             btnAgregarComida.Click += btnAgregarComida_Click;
-            // 
-            // lstComidasDisponibles
-            // 
-            lstComidasDisponibles.Enabled = false;
-            lstComidasDisponibles.FormattingEnabled = true;
-            lstComidasDisponibles.ItemHeight = 15;
-            lstComidasDisponibles.Location = new Point(465, 46);
-            lstComidasDisponibles.Name = "lstComidasDisponibles";
-            lstComidasDisponibles.Size = new Size(207, 364);
-            lstComidasDisponibles.TabIndex = 11;
             // 
             // lblListaComidas
             // 
@@ -327,6 +317,16 @@ namespace SISVIANSA_ITI_2023.GUI
             btnListado.UseVisualStyleBackColor = true;
             btnListado.Click += btnListado_Click;
             // 
+            // lstComidasDisponibles
+            // 
+            lstComidasDisponibles.Enabled = false;
+            lstComidasDisponibles.FormattingEnabled = true;
+            lstComidasDisponibles.ItemHeight = 15;
+            lstComidasDisponibles.Location = new Point(465, 46);
+            lstComidasDisponibles.Name = "lstComidasDisponibles";
+            lstComidasDisponibles.Size = new Size(207, 364);
+            lstComidasDisponibles.TabIndex = 11;
+            // 
             // GestionarMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -376,7 +376,6 @@ namespace SISVIANSA_ITI_2023.GUI
         private ListBox lstComidasMenu;
         private Label lblComidasMenu;
         private Button btnAgregarComida;
-        private ListBox lstComidasDisponibles;
         private Label lblListaComidas;
         private Label lblDieta;
         private Label lblTipo;
@@ -405,5 +404,6 @@ namespace SISVIANSA_ITI_2023.GUI
         private TextBox txtStockActual;
         private Label lblStockActual;
         private Button btnListado;
+        private ListBox lstComidasDisponibles;
     }
 }
