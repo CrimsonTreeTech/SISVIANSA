@@ -22,7 +22,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private List<Comida> listaComida;
         private List<string> nombreDietas;
         private List<string> listaComidasMenuTemporal;
-        private List<Dieta> listaDietasSeleccionadas;
+        private List<string> listaDietasSeleccionadas;
 
 
         // ------------------------ METODOS AL INICIAR ------------------------------
@@ -35,6 +35,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.rol = rol;
             this.opcion = 0;
             this.Text = "Ingresar menú";
+            listaDietasSeleccionadas = new List<string>();
             bloqueraFuncionalidadesSegunRol(rol);
         }
 
@@ -213,6 +214,12 @@ namespace SISVIANSA_ITI_2023.GUI
         private void cargarListaDeComidas()
         {
             //comida.listaComidasFiltradas("dietas", listaDietasSeleccionadas)
+
+            lstComidasDisponibles.Items.Clear();
+            foreach (string nombreDieta in listaDietasSeleccionadas)
+            {
+                lstComidasDisponibles.Items.Add(nombreDieta);
+            }
         }
 
 
@@ -270,6 +277,23 @@ namespace SISVIANSA_ITI_2023.GUI
             ListarMenus listarMenus = new ListarMenus(rol);
             listarMenus.Show(Owner);
             Close();
+        }
+
+        private void chkLstDietas_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            bool nuevoEstado = (e.NewValue == CheckState.Checked);
+            string elementoSeleccionado = chkLstDietas.Items[e.Index].ToString();
+
+            if (nuevoEstado == true)
+            {
+                listaDietasSeleccionadas.Add(elementoSeleccionado);
+            }
+            else
+            {
+                listaDietasSeleccionadas.Remove(elementoSeleccionado);
+            }
+
+            cargarListaDeComidas();
         }
     }
 }

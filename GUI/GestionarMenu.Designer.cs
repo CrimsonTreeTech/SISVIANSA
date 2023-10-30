@@ -266,11 +266,13 @@ namespace SISVIANSA_ITI_2023.GUI
             // 
             // chkLstDietas
             // 
+            chkLstDietas.CheckOnClick = true;
             chkLstDietas.FormattingEnabled = true;
             chkLstDietas.Location = new Point(231, 86);
             chkLstDietas.Name = "chkLstDietas";
             chkLstDietas.Size = new Size(186, 184);
             chkLstDietas.TabIndex = 41;
+            chkLstDietas.ItemCheck += chkLstDietas_ItemCheck;
             // 
             // chkActivo
             // 
