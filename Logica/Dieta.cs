@@ -130,5 +130,18 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaDietas;
         }
 
+        public List<Dieta> obtenerDietasSegunVariosNombres(List<string> nombres)
+        {
+            listaDietas = new List<Dieta>();
+
+            foreach (string nombre in nombres)
+            {
+                Dieta dieta = dietaBD.obtenerDietaSegunNombre(nombre);
+                listaDietas.Add(dieta);
+            }
+
+            return listaDietas;
+        }
+    
     }
 }

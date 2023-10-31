@@ -41,7 +41,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                     if (bd.Conectar(rol))
                     {
                         consulta += " INSERT INTO menu (congelable, stock_actual, lote_min, lote_max, tipo_menu, sugerencia, activo, autorizado) ";
-                        consulta += " VALUES (@congelable, @stockActual, @lote_min, @lote_max, @tipo_menu, @sugerencia, @activo, @autorizado); ";
+                        consulta += " VALUES (@congelable, @stock_actual, @lote_min, @lote_max, @tipo_menu, @sugerencia, @activo, @autorizado); ";
 
                         consulta += " SELECT LAST_INSERT_ID() INTO @nuevo_id; ";
 
@@ -69,11 +69,12 @@ namespace SISVIANSA_ITI_2023.Persistencia
                             cmd.Parameters.AddWithValue("@activo", menu.Activo);
                             cmd.Parameters.AddWithValue("@autorizado", menu.Autorizado);
                             cmd.Parameters.AddWithValue("@precio", menu.Precio);
+                            cmd.Parameters.AddWithValue("@personalizado", menu.Personalizado);
 
                             c = 0;
                             foreach (Comida comida in menu.Comidas)
                             {
-                                cmd.Parameters.AddWithValue($"@dieta{c}", menu.Comidas[c].Id);
+                                cmd.Parameters.AddWithValue($"@comida{c}", menu.Comidas[c].Id);
                                 c += 1;
                             }
 

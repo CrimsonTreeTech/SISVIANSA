@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -194,6 +195,7 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+
         // ------------------------- CARGAR / GUARDAR DATOS ---------------------------
         private void cargarDatos()
         {
@@ -229,6 +231,25 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+        private Menu obtenerInformacionParaGuardar()
+        {
+            Menu menu = new Menu(rol);
+            
+            menu.StockMin = Convert.ToInt32(txtMinStock.Text);
+            menu.StockMax = Convert.ToInt32(txtMaxStock.Text);
+            menu.StockActual = Convert.ToInt32(txtStockActual.Text);
+            menu.Congelable = Convert.ToInt32(txtCongelable.Text);
+            menu.Tipo = cboTipo.Text;
+            menu.Sugerencia = rtxtSugerencias.Text;
+            menu.Activo = chkActivo.Checked;
+            menu.Autorizado = chkAutorizado.Checked;
+            menu.Personalizado = chkPersonalizado.Checked;
+            menu.Precio = Convert.ToDouble(txtPrecio.Text);
+            menu.Dietas = dieta.obtenerDietasSegunVariosNombres(listaDietasSeleccionadas);
+            menu.Comidas = comida.obtenerComidasSegunVariosNombres(listaComidasMenuTemporal);
+
+            return menu; 
+        }
 
         // ---------------------------- METODOS WIDGETS ------------------------------
 
@@ -300,8 +321,12 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             if (validarDatos())
             {
-                MessageBox.Show("Se ingresó el menú correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                regresarAlMenu();
+                menu = obtenerInformacionParaGuardar();
+                bool res = menu.ingresar();
+                if (res)
+                    MessageBox.Show("Se ingresó el menú correctamente", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Ocurrió un problema.");
             }
 
         }

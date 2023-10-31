@@ -279,7 +279,46 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return dietas;
         }
 
+        public Dieta obtenerDietaSegunNombre(string nombre)
+        {
+            dieta = new Dieta(rol);
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT id_dieta, nombre, descripcion, activo, autorizado FROM dieta WHERE nombre = @nombre;";
 
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    dieta.Id = reader.GetInt32("id_dieta");
+                                    dieta.Nombre = reader.GetString("nombre");
+                                    dieta.Descripcion = reader.GetString("descripcion");
+                                    dieta.Activo = reader.GetBoolean("activo");
+                                    dieta.Autorizado = reader.GetBoolean("autorizado");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error DietaBD #2: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return dieta;
+        }
 
 
     }

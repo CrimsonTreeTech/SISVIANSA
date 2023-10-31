@@ -82,9 +82,6 @@ namespace SISVIANSA_ITI_2023.Persistencia
         }
 
 
-
-
-
         // ------------------- CONSULTAS ---------------------------
         public List<Comida> listaDeComidas()
         {
@@ -347,7 +344,52 @@ namespace SISVIANSA_ITI_2023.Persistencia
         }
 
 
+        public Comida buscarComidaPorNombre(string nombre)
+        {
+            comida = new Comida(rol);
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_comida, c.nombre, c.tiempo_produccion, c.activo, c.autorizado, group_concat(' ', d.nombre) AS dietas ";
+                        consulta += "FROM comida c ";
+                        consulta += "JOIN aplica a ON a.id_comida = c.id_comida ";
+                        consulta += "JOIN dieta d ON d.id_dieta = a.id_dieta ";
+                        consulta += "WHERE c.nombre = @nombre ";
+                        consulta += "GROUP BY c.id_comida; ";
 
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    comida.Id = reader.GetInt32("id_comida");
+                                    comida.Coccion = reader.GetInt32("tiempo_produccion");
+                                    comida.Nombre = reader.GetString("nombre");
+                                    comida.Activo = reader.GetBoolean("activo");
+                                    comida.Autorizado = reader.GetBoolean("autorizado");
+                                    comida.DietasSTR = reader.GetString("dietas");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return comida;
+        }
 
 
         public List<Comida> obtenerComidasSegunDieta(List<int> idDietas)

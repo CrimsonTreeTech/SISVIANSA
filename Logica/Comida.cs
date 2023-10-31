@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SISVIANSA_ITI_2023.GUI;
 using SISVIANSA_ITI_2023.Persistencia;
 
 namespace SISVIANSA_ITI_2023.Logica
@@ -156,9 +157,21 @@ namespace SISVIANSA_ITI_2023.Logica
 
             return listaComidas;
         }
-       
-        
-        
+
+        public List<Comida> obtenerComidasSegunVariosNombres(List<string> nombres)
+        {
+            listaComidas = new List<Comida>();
+
+            foreach (string nombre in nombres)
+            {
+                Comida comida = comidaBD.buscarComidaPorNombre(nombre);
+                listaComidas.Add(comida);
+            }
+
+            return listaComidas;
+        }
+
+
         // ------------ DIETAS DE LA COMIDA ----------------
         public void cargarDietasAObjetoComida()
         {
@@ -200,6 +213,7 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             return listaDietasSeleccionadas;
         }
+
 
     }
 }
