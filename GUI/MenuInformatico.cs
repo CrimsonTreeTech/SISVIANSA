@@ -45,9 +45,9 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnAdministrarMenu_Click(object sender, EventArgs e)
         {
-           AdministrarMenu administrarMenu = new AdministrarMenu(rol); // Cambiar que seleccione surcursal
-           administrarMenu.Show(Owner);
-           Close();
+            AdministrarMenu administrarMenu = new AdministrarMenu(rol); // Cambiar que seleccione surcursal
+            administrarMenu.Show(Owner);
+            Close();
         }
     }
 }

@@ -36,9 +36,10 @@
             // 
             // btnListarSucursales
             // 
-            btnListarSucursales.Location = new Point(12, 12);
+            btnListarSucursales.Location = new Point(164, 37);
+            btnListarSucursales.Margin = new Padding(3, 2, 3, 2);
             btnListarSucursales.Name = "btnListarSucursales";
-            btnListarSucursales.Size = new Size(177, 49);
+            btnListarSucursales.Size = new Size(155, 37);
             btnListarSucursales.TabIndex = 9;
             btnListarSucursales.Text = "Ingresar Personal";
             btnListarSucursales.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // btnListarPersonal
             // 
-            btnListarPersonal.Location = new Point(12, 67);
+            btnListarPersonal.Location = new Point(164, 78);
+            btnListarPersonal.Margin = new Padding(3, 2, 3, 2);
             btnListarPersonal.Name = "btnListarPersonal";
-            btnListarPersonal.Size = new Size(177, 49);
+            btnListarPersonal.Size = new Size(155, 37);
             btnListarPersonal.TabIndex = 10;
             btnListarPersonal.Text = "Listar Personal";
             btnListarPersonal.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(12, 216);
+            btnSalir.Location = new Point(164, 190);
+            btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(177, 49);
+            btnSalir.Size = new Size(155, 37);
             btnSalir.TabIndex = 11;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // 
             // btnAdministrarMenu
             // 
-            btnAdministrarMenu.Location = new Point(12, 122);
+            btnAdministrarMenu.Location = new Point(164, 120);
+            btnAdministrarMenu.Margin = new Padding(3, 2, 3, 2);
             btnAdministrarMenu.Name = "btnAdministrarMenu";
-            btnAdministrarMenu.Size = new Size(177, 49);
+            btnAdministrarMenu.Size = new Size(155, 37);
             btnAdministrarMenu.TabIndex = 12;
             btnAdministrarMenu.Text = "Administrar Menu";
             btnAdministrarMenu.UseVisualStyleBackColor = true;
@@ -76,14 +80,13 @@
             // 
             // MenuInformatico
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(204, 294);
+            ClientSize = new Size(508, 271);
             Controls.Add(btnAdministrarMenu);
             Controls.Add(btnListarSucursales);
             Controls.Add(btnSalir);
             Controls.Add(btnListarPersonal);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MenuInformatico";
             Text = "MenuInformatico";
             ResumeLayout(false);

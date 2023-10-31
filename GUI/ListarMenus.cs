@@ -54,17 +54,6 @@ namespace SISVIANSA_ITI_2023.GUI
 
         }
 
-        private void ListarMenus_Load(object sender, EventArgs e)
-        {
-            inhabilitarFiltros();
-            busquedaSinFiltroNiOrden();
-            bloqueraFuncionalidadesSegunRol(rol);
-            rbtnTodo.Checked = true;
-            listaMenus = menu.obtenerTodosLosMenu();
-            cargarLista(listaMenus);
-        }
-
-
         // ------------------------ METODOS AUXILIARES --------------------------------
         private int seleccionarMenu()
         {
@@ -152,6 +141,16 @@ namespace SISVIANSA_ITI_2023.GUI
         }
 
         // ------------------------- METODOS DE WIDGETS ---------------------------------
+        private void ListarMenus_Load(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+            busquedaSinFiltroNiOrden();
+            bloqueraFuncionalidadesSegunRol(rol);
+            rbtnTodo.Checked = true;
+            listaMenus = menu.obtenerTodosLosMenu();
+            cargarLista(listaMenus);
+        }
+
 
         // Botones
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -208,7 +207,6 @@ namespace SISVIANSA_ITI_2023.GUI
             inhabilitarFiltros();
             colFiltro = "todo";
         }
-
 
         private void rbtnMenu_Click(object sender, EventArgs e)
         {
