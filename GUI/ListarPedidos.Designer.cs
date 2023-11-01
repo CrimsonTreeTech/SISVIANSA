@@ -50,6 +50,7 @@
             btnRegresar = new Button();
             btnModificar = new Button();
             btnBuscar = new Button();
+            btnHistorico = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             gbxFiltrar.SuspendLayout();
             SuspendLayout();
@@ -273,11 +274,22 @@
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
+            // btnHistorico
+            // 
+            btnHistorico.Location = new Point(341, 455);
+            btnHistorico.Name = "btnHistorico";
+            btnHistorico.Size = new Size(281, 35);
+            btnHistorico.TabIndex = 9;
+            btnHistorico.Text = "Ver historico";
+            btnHistorico.UseVisualStyleBackColor = true;
+            btnHistorico.Click += btnHistorico_Click;
+            // 
             // ListarPedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 502);
+            Controls.Add(btnHistorico);
             Controls.Add(btnBuscar);
             Controls.Add(btnModificar);
             Controls.Add(btnRegresar);
@@ -318,6 +330,6 @@
         private DataGridViewTextBoxColumn colEstado;
         private DataGridViewTextBoxColumn colZona;
         private DataGridViewTextBoxColumn colDir;
-
+        private Button btnHistorico;
     }
 }

@@ -15,7 +15,7 @@ using MySqlConnector;
 
 namespace SISVIANSA_ITI_2023.Persistencia
 {
-    internal class PedidoBD
+    public class PedidoBD
     {
         private string cadenaConexion;
 
@@ -142,6 +142,48 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return nroPedido;
         }
 
+        public Pedido filtrarPedidoPorId(int id)
+        {
+            pedido = new Pedido(rol);
+
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT  nro_pedido, id_menu, id_cliente, id_zona, fecha_realizado, cantidad FROM pide WHERE nro_pedido = @id;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@id", id);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    pedido.NroPedido = reader.GetInt32("nro_pedido");
+                                    pedido.IdMenu = reader.GetInt32("id_menu");
+                                    pedido.IdCliente = reader.GetInt32("id_cliente");
+                                    pedido.Zona = reader.GetInt32("id_zona");
+                                    pedido.FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd");
+                                    pedido.Cantidad = reader.GetInt32("cantidad");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD #filtrarPedidoPorId: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return pedido;
+        }
 
         public List<Pedido> listarTodosLosPedidos()
         {
@@ -425,6 +467,52 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return pedidos;
         }
 
+        public List<Historico> buscarHistoricoDePedido(int idPedido)
+        {
+            historicos = new List<Historico>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta  = "SELECT p.nro_pedido, e.nombre, p.fecha_act, p.fecha_ini ";
+                        consulta += "FROM pasa p ";
+                        consulta += "JOIN estado e ON p.id_estado = e.id_estado ";
+                        consulta += "WHERE nro_pedido = @idPedido; ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idPedido", idPedido);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    historico = new Historico()
+                                    {
+                                        NroPedido = reader.GetInt32("nro_pedido"),
+                                        Estado = reader.GetString("nombre"),
+                                        FechaInicio = reader.GetDateTime("fecha_ini").ToString("yyyy-mm-dd"),
+                                        FechaActualizacion = reader.GetDateTime("fecha_act").ToString("yyyy-mm-dd")
+                                    };
+                                    historicos.Add(historico);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error PedidoBD #buscarHistoricoDePedido: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return historicos;
+        }
 
     }
 }

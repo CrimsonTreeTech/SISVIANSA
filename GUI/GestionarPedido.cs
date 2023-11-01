@@ -40,6 +40,19 @@ namespace SISVIANSA_ITI_2023.GUI
             modificarDatosPedido_Pedido();
         }
 
+        public GestionarPedido(byte rol, Pedido pedido)
+        {
+            InitializeComponent();
+            this.rol = rol;
+            cliente = new Cliente(rol);
+            this.pedido = pedido;
+            menu = new Menu(rol);
+            dieta = new Dieta(rol);
+            zona = new Zona(rol);
+            modificarDatosPedido_Pedido();
+        }
+
+
         // ------------ METODOS AUXILIARES ----------------
         private void calcularPrecioTotal()
         {

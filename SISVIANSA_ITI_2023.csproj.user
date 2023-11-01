@@ -49,6 +49,9 @@
     <Compile Update="GUI\GestionarZona.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\HistoricoPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\IniciarSesion.cs">
       <SubType>Form</SubType>
     </Compile>

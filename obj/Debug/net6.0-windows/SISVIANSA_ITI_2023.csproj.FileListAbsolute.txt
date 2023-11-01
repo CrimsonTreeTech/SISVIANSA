@@ -788,3 +788,4 @@ C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\refint\SISVIANSA_ITI_2
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.pdb
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
+C:\Users\daniel.nalotto\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.HistoricoPedidos.resources

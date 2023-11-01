@@ -14,7 +14,9 @@ namespace SISVIANSA_ITI_2023.Logica
         private double precioTotal;
         private string cliente,fechaRealizado, estado, calle, esq;
         private bool pedidoIngresado, pedidoActualizado;
+        private Pedido pedido;
         private List<Pedido> listaPedidos;
+        private List<Historico> historico;
         private PedidoBD pedidoBD;
 
         // ----------------- CONSTRUCTOR --------------------
@@ -99,6 +101,11 @@ namespace SISVIANSA_ITI_2023.Logica
             set { precioTotal = value; }
         }
 
+        public List<Historico> Historico
+        {
+            get { return historico; }
+            set { historico = value; }
+        }
 
         // ------------------------------ ABM ----------------------------------
 
@@ -146,6 +153,15 @@ namespace SISVIANSA_ITI_2023.Logica
 
             return listaPedidos;
         }
+
+        public Pedido cargarDatosPedido(int id)
+        {
+            pedido = pedidoBD.filtrarPedidoPorId(id);
+            pedido.Historico = pedidoBD.buscarHistoricoDePedido(id);
+
+            return pedidoBD.filtrarPedidoPorId(id);
+        }
+
 
     }
 }

@@ -59,6 +59,7 @@
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.ReadOnly = true;
+            dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.RowTemplate.Height = 25;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(592, 278);

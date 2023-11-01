@@ -16,6 +16,7 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         private byte rol;
         private string colFiltro, valFiltro;
+        private int filaSeleccionada, idPedidoSeleccionado;
         private Pedido pedido;
         private Zona zona;
         private List<Pedido> listaPedidos;
@@ -32,23 +33,10 @@ namespace SISVIANSA_ITI_2023.GUI
             bloqueraFuncionalidadesSegunRol(rol);
         }
 
-        private void bloqueraFuncionalidadesSegunRol(byte rol)
-        {
-            if (rol == 1 || rol == 2 || rol == 4 || rol == 5)
-                btnModificar.Enabled = false;
-        }
-
-        private void ListarPedidos_Load(object sender, EventArgs e)
-        {
-            inhabilitarFiltros();
-            rbtnTodo.Checked = true;
-            listaPedidos = pedido.listarPedidosFiltrados("todo", "");
-            cargarDatos(listaPedidos);
-        }
-
+        
+        
 
         // ------------ METODOS AUXILIARES -----------------------------
-
         private void cargarDatos(List<Pedido> lista)
         {
             dgvPedidos.Rows.Clear();
@@ -59,6 +47,20 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+        private void bloqueraFuncionalidadesSegunRol(byte rol)
+        {
+            if (rol == 1 || rol == 2 || rol == 4 || rol == 5)
+                btnModificar.Enabled = false;
+        }
+
+        private Pedido obtenerPedidoSeleccionado()
+        {
+            filaSeleccionada =  dgvPedidos.CurrentCell.RowIndex;
+            idPedidoSeleccionado = Convert.ToInt32(dgvPedidos.SelectedCells[1].Value);
+            pedido = pedido.cargarDatosPedido(idPedidoSeleccionado);
+            
+            return pedido;
+        }
 
         // Filtros
         private void inhabilitarFiltros()
@@ -118,6 +120,14 @@ namespace SISVIANSA_ITI_2023.GUI
         }
 
         // ------------------------ METODOS DE WIDGETS ------------------------------------
+        private void ListarPedidos_Load(object sender, EventArgs e)
+        {
+            inhabilitarFiltros();
+            rbtnTodo.Checked = true;
+            listaPedidos = pedido.listarPedidosFiltrados("todo", "");
+            cargarDatos(listaPedidos);
+        }
+
 
         // Botones
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -128,7 +138,8 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            GestionarPedido gestionarPedido = new GestionarPedido(rol);
+            pedido = obtenerPedidoSeleccionado();
+            GestionarPedido gestionarPedido = new GestionarPedido(rol, pedido);
             gestionarPedido.Show(Owner);
             Close();
         }
@@ -142,6 +153,14 @@ namespace SISVIANSA_ITI_2023.GUI
 
             cargarDatos(lista);
 
+        }
+
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            pedido = obtenerPedidoSeleccionado();
+            HistoricoPedidos historicoPedidos = new HistoricoPedidos(rol, pedido);
+            historicoPedidos.Show(Owner);
+            Close();
         }
 
         // Radiobuttons filtros
@@ -179,5 +198,6 @@ namespace SISVIANSA_ITI_2023.GUI
             cargarCboZona();
             colFiltro = "zona";
         }
+
     }
 }
