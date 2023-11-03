@@ -582,7 +582,6 @@ namespace SISVIANSA_ITI_2023.Persistencia
 
 
 
-
         public Menu obtenerDatosMenu(int idMenu)
         {
             try

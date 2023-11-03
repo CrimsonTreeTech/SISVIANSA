@@ -12,6 +12,7 @@ using System.DirectoryServices;
 using System.Data;
 using System.Collections;
 using MySqlConnector;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SISVIANSA_ITI_2023.Persistencia
 {
@@ -23,7 +24,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
         private string consulta;
         private int filasAfectadas, nroPedido;
         private Pedido pedido;
+        private Historico historico;
         private List<Pedido> pedidos;
+        private List<Historico> historicos;
         private Singleton bd;
 
         // --------------------------- METODOS DE INICIO -----------------------------------
@@ -489,13 +492,17 @@ namespace SISVIANSA_ITI_2023.Persistencia
                             {
                                 while (reader.Read())
                                 {
-                                    historico = new Historico()
+                                    historico = new Historico(rol)
                                     {
                                         NroPedido = reader.GetInt32("nro_pedido"),
                                         Estado = reader.GetString("nombre"),
-                                        FechaInicio = reader.GetDateTime("fecha_ini").ToString("yyyy-mm-dd"),
-                                        FechaActualizacion = reader.GetDateTime("fecha_act").ToString("yyyy-mm-dd")
+                                        FechaInicio = reader.GetDateTime("fecha_ini").ToString("yyyy-mm-dd")
                                     };
+
+                                    if (!reader.IsDBNull(reader.GetOrdinal("fecha_act")))
+                                        historico.FechaAct = reader.GetDateTime("fecha_act").ToString("yyyy-mm-dd");
+                                    else
+                                        historico.FechaAct = "Actualmente";
                                     historicos.Add(historico);
                                 }
                             }

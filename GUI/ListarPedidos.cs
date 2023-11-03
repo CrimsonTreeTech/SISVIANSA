@@ -157,7 +157,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
-            pedido = obtenerPedidoSeleccionado();
+            Pedido pedido = obtenerPedidoSeleccionado();
             HistoricoPedidos historicoPedidos = new HistoricoPedidos(rol, pedido);
             historicoPedidos.Show(Owner);
             Close();

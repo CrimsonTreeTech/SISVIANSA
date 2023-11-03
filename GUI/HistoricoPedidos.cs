@@ -15,6 +15,7 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         private byte rol;
         private Pedido pedido;
+        private Historico historico;
 
         // ----------------------- CONSTRUCTOR ----------------------
         public HistoricoPedidos(byte rol, Pedido pedido)
@@ -22,11 +23,12 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             this.rol = rol;
             this.pedido = pedido;
+            historico = new Historico(rol);
+            pedido.Historico = historico.obtenerHistoricosDePedido(pedido.NroPedido);
         }
 
 
-
-        // ---------------------- METODOS AUXILIARES -------------------------
+        // ---------------------- METODOS AUXILIARES ---------------------------
         private void cargarDatosDePedido()
         {
             txtNroPedido.Text = pedido.NroPedido.ToString();
@@ -42,7 +44,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
             foreach (Historico h in pedido.Historico)
             {
-                dgvHistorico.Rows.Add(h.NroPedido, h.Estado, h.FechaInicio, h.FechaAct);
+                dgvHistorico.Rows.Add(h.Estado, h.FechaInicio, h.FechaAct);
             }
         }
 

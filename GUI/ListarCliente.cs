@@ -183,5 +183,10 @@ namespace SISVIANSA_ITI_2023.GUI
                 Close();
             }
         }
+
+        private void rbtnTodos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
