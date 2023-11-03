@@ -45,6 +45,7 @@
             btnMenu = new Button();
             btnListado = new Button();
             btnModificar = new Button();
+            this.btnActualizarEstado = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvHistorico).BeginInit();
             SuspendLayout();
             // 
@@ -190,7 +191,7 @@
             // 
             // btnListado
             // 
-            btnListado.Location = new Point(282, 211);
+            btnListado.Location = new Point(187, 211);
             btnListado.Name = "btnListado";
             btnListado.Size = new Size(169, 37);
             btnListado.TabIndex = 13;
@@ -208,11 +209,22 @@
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 
+            // btnActualizarEstado
+            // 
+            this.btnActualizarEstado.Location = new Point(365, 211);
+            this.btnActualizarEstado.Name = "btnActualizarEstado";
+            this.btnActualizarEstado.Size = new Size(169, 37);
+            this.btnActualizarEstado.TabIndex = 15;
+            this.btnActualizarEstado.Text = "Actualizar estado";
+            this.btnActualizarEstado.UseVisualStyleBackColor = true;
+            this.btnActualizarEstado.Click += this.btnActualizarEstado_Click;
+            // 
             // HistoricoPedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(729, 260);
+            Controls.Add(this.btnActualizarEstado);
             Controls.Add(btnModificar);
             Controls.Add(btnListado);
             Controls.Add(btnMenu);
@@ -254,5 +266,6 @@
         private Button btnMenu;
         private Button btnListado;
         private Button btnModificar;
+        private Button btnActualizarEstado;
     }
 }

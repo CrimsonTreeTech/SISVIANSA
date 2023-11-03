@@ -67,7 +67,6 @@
             rtxtDir = new RichTextBox();
             cboZona = new ComboBox();
             txtUltimaAct = new TextBox();
-            txtEstado = new TextBox();
             txtNombreClienteDatos = new TextBox();
             txtNroDocDatos = new TextBox();
             txtNroClienteDatos = new TextBox();
@@ -83,6 +82,7 @@
             lblNroClienteDatos = new Label();
             lblMeuDatos = new Label();
             lblNroPedidoDatos = new Label();
+            txtEstado = new TextBox();
             gbxCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             gbxMenu.SuspendLayout();
@@ -554,15 +554,6 @@
             txtUltimaAct.Size = new Size(168, 23);
             txtUltimaAct.TabIndex = 33;
             // 
-            // txtEstado
-            // 
-            txtEstado.Enabled = false;
-            txtEstado.Location = new Point(87, 389);
-            txtEstado.Name = "txtEstado";
-            txtEstado.ReadOnly = true;
-            txtEstado.Size = new Size(217, 23);
-            txtEstado.TabIndex = 32;
-            // 
             // txtNombreClienteDatos
             // 
             txtNombreClienteDatos.Enabled = false;
@@ -699,6 +690,15 @@
             lblNroPedidoDatos.TabIndex = 0;
             lblNroPedidoDatos.Text = "N° pedido";
             // 
+            // txtEstado
+            // 
+            txtEstado.Enabled = false;
+            txtEstado.Location = new Point(87, 389);
+            txtEstado.Name = "txtEstado";
+            txtEstado.ReadOnly = true;
+            txtEstado.Size = new Size(217, 23);
+            txtEstado.TabIndex = 32;
+            // 
             // GestionarPedido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -772,7 +772,6 @@
         private Label lblCantidad;
         private ComboBox cboZona;
         private TextBox txtUltimaAct;
-        private TextBox txtEstado;
         private TextBox txtNombreClienteDatos;
         private TextBox txtNroDocDatos;
         private TextBox txtNroClienteDatos;
@@ -794,5 +793,6 @@
         private DataGridViewTextBoxColumn colActivo;
         private DataGridViewTextBoxColumn colAutorizado;
         private RadioButton rbtnAutorizadosYActivosCliente;
+        private TextBox txtEstado;
     }
 }

@@ -12,7 +12,7 @@ namespace SISVIANSA_ITI_2023.Logica
     {
         // Ambos
         private byte rol;
-        private string calle, esq;
+        private string calle, esq, tipo, nombre, tipoDoc;
         private int id, nroPuerta;
         private bool activo, autorizado;
         private long doc;
@@ -23,12 +23,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private Cliente cliente;
 
         // Comun
-        private string pNom, sNom, pApe, sApe, tipoDoc;
-        private ClienteComunBD clienteComunBD;
-
-        // Empresa
-        private string nombre;
-        private ClienteEmpresaBD clienteEmpresaBD;
+        private string pNom, sNom, pApe, sApe;
 
         
 
@@ -37,8 +32,6 @@ namespace SISVIANSA_ITI_2023.Logica
         public Cliente(byte rol)
         {
             this.rol = rol;
-            clienteComunBD = new ClienteComunBD(rol);
-            clienteEmpresaBD = new ClienteEmpresaBD(rol);
             clientesBD = new ClientesBD(rol);
         }
 
@@ -68,7 +61,7 @@ namespace SISVIANSA_ITI_2023.Logica
             set { nroPuerta = value; }
         }
 
-        public string NombreEmpresa
+        public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
@@ -120,6 +113,12 @@ namespace SISVIANSA_ITI_2023.Logica
         {
             get { return autorizado; }
             set { autorizado = value; }
+        }
+
+        public string Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
         }
 
         public List<string> Mails
@@ -267,17 +266,51 @@ namespace SISVIANSA_ITI_2023.Logica
             if (colFiltro.Equals("todo"))
                 listaClientes = buscarTodosLosClientes();
 
+            else if (colFiltro.Equals("id"))
+                listaClientes = buscarClientesPorId(valFiltro);
+
             else if (colFiltro.Equals("nro_doc"))
                 listaClientes = buscarClientesPorNroDoc(valFiltro);
 
             else if (colFiltro.Equals("nombre"))
                 listaClientes = buscarClientesPorNombre(valFiltro);
 
+            else if (colFiltro.Equals("tipo"))
+                listaClientes = buscarClientesPorTipo(valFiltro);
+
+            else if (colFiltro.Equals("activo"))
+                listaClientes = buscarClientesActivosOInactivos(true);
+
+            else if (colFiltro.Equals("inactivo"))
+                listaClientes = buscarClientesActivosOInactivos(false);
+
+            else if (colFiltro.Equals("autorizado"))
+                listaClientes = buscarClientesAutorizadosONoAutorizados(true);
+
+            else if (colFiltro.Equals("no autorizado"))
+                listaClientes = buscarClientesAutorizadosONoAutorizados(false);
+
             else if (colFiltro.Equals("activo y autorizado"))
                 listaClientes = buscarClientesActivosYAutorizados();
 
             return listaClientes;
         }
+
+        private List<Cliente> buscarClientesPorId(string num)
+        {
+            int id = Convert.ToInt32(num);
+            listaClientes.Clear();
+            listaClientes.Add(clientesBD.buscarClientesPorId(id));
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
 
         private List<Cliente> buscarClientesPorNroDoc(string nroDoc)
         {
@@ -332,7 +365,47 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaClientes;
         }
 
+        private List<Cliente> buscarClientesPorTipo(string valFiltro)
+        {
+            listaClientes = clientesBD.buscarClientesPorTipo(valFiltro);
 
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
+        private List<Cliente> buscarClientesActivosOInactivos(bool valFiltro)
+        {
+            listaClientes = clientesBD.buscarClientesActivos(valFiltro);
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
+
+        private List<Cliente> buscarClientesAutorizadosONoAutorizados(bool valFiltro)
+        {
+            listaClientes = clientesBD.buscarClientesAutorizados(valFiltro);
+
+            foreach (Cliente cliente in listaClientes)
+            {
+                cliente.cargarTelefonos();
+                cliente.cargarMails();
+            }
+
+            return listaClientes;
+        }
+
+        
 
 
     }

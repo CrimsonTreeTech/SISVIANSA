@@ -51,6 +51,7 @@
             btnModificar = new Button();
             btnBuscar = new Button();
             btnHistorico = new Button();
+            btnActualizarEstado = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             gbxFiltrar.SuspendLayout();
             SuspendLayout();
@@ -248,7 +249,7 @@
             // 
             btnRegresar.Location = new Point(12, 455);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(281, 35);
+            btnRegresar.Size = new Size(213, 35);
             btnRegresar.TabIndex = 5;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -256,9 +257,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(662, 455);
+            btnModificar.Location = new Point(730, 455);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(281, 35);
+            btnModificar.Size = new Size(213, 35);
             btnModificar.TabIndex = 7;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -276,19 +277,30 @@
             // 
             // btnHistorico
             // 
-            btnHistorico.Location = new Point(341, 455);
+            btnHistorico.Location = new Point(253, 455);
             btnHistorico.Name = "btnHistorico";
-            btnHistorico.Size = new Size(281, 35);
+            btnHistorico.Size = new Size(213, 35);
             btnHistorico.TabIndex = 9;
             btnHistorico.Text = "Ver historico";
             btnHistorico.UseVisualStyleBackColor = true;
             btnHistorico.Click += btnHistorico_Click;
+            // 
+            // btnActualizarEstado
+            // 
+            btnActualizarEstado.Location = new Point(491, 455);
+            btnActualizarEstado.Name = "btnActualizarEstado";
+            btnActualizarEstado.Size = new Size(213, 35);
+            btnActualizarEstado.TabIndex = 10;
+            btnActualizarEstado.Text = "Actualizar estado";
+            btnActualizarEstado.UseVisualStyleBackColor = true;
+            btnActualizarEstado.Click += btnActualizarEstado_Click;
             // 
             // ListarPedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 502);
+            Controls.Add(btnActualizarEstado);
             Controls.Add(btnHistorico);
             Controls.Add(btnBuscar);
             Controls.Add(btnModificar);
@@ -331,5 +343,6 @@
         private DataGridViewTextBoxColumn colZona;
         private DataGridViewTextBoxColumn colDir;
         private Button btnHistorico;
+        private Button btnActualizarEstado;
     }
 }

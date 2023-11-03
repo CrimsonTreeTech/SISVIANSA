@@ -155,7 +155,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT  nro_pedido, id_menu, id_cliente, id_zona, fecha_realizado, cantidad FROM pide WHERE nro_pedido = @id;";
+                        consulta += "SELECT p.nro_pedido, p.id_menu, p.id_cliente, c.nombre, p.id_zona,  ";
+                        consulta += "p.fecha_realizado, p.cantidad, c.calle, c.esq, c.nro_puerta, e.nombre AS estado ";
+                        consulta += "FROM pide p ";
+                        consulta += "JOIN clientes c ON p.id_cliente = c.id_cliente ";
+                        consulta += "JOIN pasa pa ON pa.nro_pedido = p.nro_pedido ";
+                        consulta += "JOIN estado e ON pa.id_estado = e.id_estado ";
+                        consulta += "WHERE p.nro_pedido = 5 AND pa.fecha_act IS NULL; ";
+
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -168,9 +175,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     pedido.NroPedido = reader.GetInt32("nro_pedido");
                                     pedido.IdMenu = reader.GetInt32("id_menu");
                                     pedido.IdCliente = reader.GetInt32("id_cliente");
+                                    pedido.Cliente = reader.GetString("nombre");
                                     pedido.Zona = reader.GetInt32("id_zona");
                                     pedido.FechaRealizado = reader.GetDateTime("fecha_realizado").ToString("yyyy-mm-dd");
                                     pedido.Cantidad = reader.GetInt32("cantidad");
+                                    pedido.Calle = reader.GetString("calle");
+                                    pedido.Esq = reader.GetString("esq");
+                                    pedido.NroPuerta = reader.GetInt32("nro_puerta");
+                                    pedido.Estado = reader.GetString("estado");
                                 }
                             }
                         }

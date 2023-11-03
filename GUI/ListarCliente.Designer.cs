@@ -18,11 +18,19 @@
         private void InitializeComponent()
         {
             dgvClientes = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colTipoDoc = new DataGridViewTextBoxColumn();
+            colDoc = new DataGridViewTextBoxColumn();
+            colTipo = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colDir = new DataGridViewTextBoxColumn();
+            colAutorizado = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
             btnRegresar = new Button();
-            rbtnFiltrarID = new RadioButton();
-            rbtnFiltrarDoc = new RadioButton();
-            rbtnFiltrarNombre = new RadioButton();
-            rbtnFiltrarTipo = new RadioButton();
+            rbtnId = new RadioButton();
+            rbtnDoc = new RadioButton();
+            rbtnNombre = new RadioButton();
+            rbtnTipoDoc = new RadioButton();
             txtDoc = new TextBox();
             btnDarBaja = new Button();
             btnAutorizar = new Button();
@@ -32,20 +40,12 @@
             txtId = new TextBox();
             btnBuscar = new Button();
             gbxFiltros = new GroupBox();
-            colId = new DataGridViewTextBoxColumn();
-            colTipoDoc = new DataGridViewTextBoxColumn();
-            colDoc = new DataGridViewTextBoxColumn();
-            colTipo = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
-            colDir = new DataGridViewTextBoxColumn();
-            colAutorizado = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
-            rbtnTodos = new RadioButton();
-            rbtnActivos = new RadioButton();
-            rbtnInactivos = new RadioButton();
-            rbtnAutorizados = new RadioButton();
-            rbtnNoAutorizados = new RadioButton();
             rbtnActivosYAutorizados = new RadioButton();
+            rbtnNoAutorizados = new RadioButton();
+            rbtnAutorizados = new RadioButton();
+            rbtnInactivos = new RadioButton();
+            rbtnActivos = new RadioButton();
+            rbtnTodos = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             gbxFiltros.SuspendLayout();
             SuspendLayout();
@@ -66,6 +66,68 @@
             dgvClientes.Size = new Size(1286, 442);
             dgvClientes.TabIndex = 0;
             // 
+            // colId
+            // 
+            colId.FillWeight = 57.9888763F;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            colId.Width = 60;
+            // 
+            // colTipoDoc
+            // 
+            colTipoDoc.FillWeight = 84.48268F;
+            colTipoDoc.HeaderText = "Tipo doc.";
+            colTipoDoc.Name = "colTipoDoc";
+            colTipoDoc.ReadOnly = true;
+            colTipoDoc.Width = 80;
+            // 
+            // colDoc
+            // 
+            colDoc.FillWeight = 369.138855F;
+            colDoc.HeaderText = "Doc";
+            colDoc.Name = "colDoc";
+            colDoc.ReadOnly = true;
+            colDoc.Width = 110;
+            // 
+            // colTipo
+            // 
+            colTipo.FillWeight = 41.0392761F;
+            colTipo.HeaderText = "Tipo cliente";
+            colTipo.Name = "colTipo";
+            colTipo.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            colNombre.FillWeight = 86.85427F;
+            colNombre.HeaderText = "Nombre";
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            colNombre.Width = 300;
+            // 
+            // colDir
+            // 
+            colDir.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDir.FillWeight = 86.85427F;
+            colDir.HeaderText = "Direccion";
+            colDir.Name = "colDir";
+            // 
+            // colAutorizado
+            // 
+            colAutorizado.FillWeight = 35.21946F;
+            colAutorizado.HeaderText = "Autorizado";
+            colAutorizado.Name = "colAutorizado";
+            colAutorizado.ReadOnly = true;
+            colAutorizado.Width = 90;
+            // 
+            // colActivo
+            // 
+            colActivo.FillWeight = 38.42244F;
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            colActivo.Width = 90;
+            // 
             // btnRegresar
             // 
             btnRegresar.Location = new Point(12, 591);
@@ -77,57 +139,57 @@
             btnRegresar.UseVisualStyleBackColor = true;
             btnRegresar.Click += btnRegresar_Click;
             // 
-            // rbtnFiltrarID
+            // rbtnId
             // 
-            rbtnFiltrarID.AutoSize = true;
-            rbtnFiltrarID.Location = new Point(9, 22);
-            rbtnFiltrarID.Margin = new Padding(3, 2, 3, 2);
-            rbtnFiltrarID.Name = "rbtnFiltrarID";
-            rbtnFiltrarID.Size = new Size(73, 19);
-            rbtnFiltrarID.TabIndex = 2;
-            rbtnFiltrarID.TabStop = true;
-            rbtnFiltrarID.Text = "Id cliente";
-            rbtnFiltrarID.UseVisualStyleBackColor = true;
-            rbtnFiltrarID.Click += rbtnFiltrarID_Click;
+            rbtnId.AutoSize = true;
+            rbtnId.Location = new Point(9, 22);
+            rbtnId.Margin = new Padding(3, 2, 3, 2);
+            rbtnId.Name = "rbtnId";
+            rbtnId.Size = new Size(73, 19);
+            rbtnId.TabIndex = 2;
+            rbtnId.TabStop = true;
+            rbtnId.Text = "Id cliente";
+            rbtnId.UseVisualStyleBackColor = true;
+            rbtnId.Click += rbtnId_Click;
             // 
-            // rbtnFiltrarDoc
+            // rbtnDoc
             // 
-            rbtnFiltrarDoc.AutoSize = true;
-            rbtnFiltrarDoc.Location = new Point(196, 23);
-            rbtnFiltrarDoc.Margin = new Padding(3, 2, 3, 2);
-            rbtnFiltrarDoc.Name = "rbtnFiltrarDoc";
-            rbtnFiltrarDoc.Size = new Size(49, 19);
-            rbtnFiltrarDoc.TabIndex = 3;
-            rbtnFiltrarDoc.TabStop = true;
-            rbtnFiltrarDoc.Text = "Doc.";
-            rbtnFiltrarDoc.UseVisualStyleBackColor = true;
-            rbtnFiltrarDoc.Click += rbtnFiltrarDoc_Click;
+            rbtnDoc.AutoSize = true;
+            rbtnDoc.Location = new Point(196, 23);
+            rbtnDoc.Margin = new Padding(3, 2, 3, 2);
+            rbtnDoc.Name = "rbtnDoc";
+            rbtnDoc.Size = new Size(49, 19);
+            rbtnDoc.TabIndex = 3;
+            rbtnDoc.TabStop = true;
+            rbtnDoc.Text = "Doc.";
+            rbtnDoc.UseVisualStyleBackColor = true;
+            rbtnDoc.Click += rbtnDoc_Click;
             // 
-            // rbtnFiltrarNombre
+            // rbtnNombre
             // 
-            rbtnFiltrarNombre.AutoSize = true;
-            rbtnFiltrarNombre.Location = new Point(663, 26);
-            rbtnFiltrarNombre.Margin = new Padding(3, 2, 3, 2);
-            rbtnFiltrarNombre.Name = "rbtnFiltrarNombre";
-            rbtnFiltrarNombre.Size = new Size(69, 19);
-            rbtnFiltrarNombre.TabIndex = 4;
-            rbtnFiltrarNombre.TabStop = true;
-            rbtnFiltrarNombre.Text = "Nombre";
-            rbtnFiltrarNombre.UseVisualStyleBackColor = true;
-            rbtnFiltrarNombre.Click += rbtnFiltrarNombre_Click;
+            rbtnNombre.AutoSize = true;
+            rbtnNombre.Location = new Point(663, 26);
+            rbtnNombre.Margin = new Padding(3, 2, 3, 2);
+            rbtnNombre.Name = "rbtnNombre";
+            rbtnNombre.Size = new Size(69, 19);
+            rbtnNombre.TabIndex = 4;
+            rbtnNombre.TabStop = true;
+            rbtnNombre.Text = "Nombre";
+            rbtnNombre.UseVisualStyleBackColor = true;
+            rbtnNombre.Click += rbtnNombre_Click;
             // 
-            // rbtnFiltrarTipo
+            // rbtnTipoDoc
             // 
-            rbtnFiltrarTipo.AutoSize = true;
-            rbtnFiltrarTipo.Location = new Point(393, 24);
-            rbtnFiltrarTipo.Margin = new Padding(3, 2, 3, 2);
-            rbtnFiltrarTipo.Name = "rbtnFiltrarTipo";
-            rbtnFiltrarTipo.Size = new Size(86, 19);
-            rbtnFiltrarTipo.TabIndex = 5;
-            rbtnFiltrarTipo.TabStop = true;
-            rbtnFiltrarTipo.Text = "Tipo cliente";
-            rbtnFiltrarTipo.UseVisualStyleBackColor = true;
-            rbtnFiltrarTipo.Click += rbtnFiltrarTipo_Click;
+            rbtnTipoDoc.AutoSize = true;
+            rbtnTipoDoc.Location = new Point(393, 24);
+            rbtnTipoDoc.Margin = new Padding(3, 2, 3, 2);
+            rbtnTipoDoc.Name = "rbtnTipoDoc";
+            rbtnTipoDoc.Size = new Size(86, 19);
+            rbtnTipoDoc.TabIndex = 5;
+            rbtnTipoDoc.TabStop = true;
+            rbtnTipoDoc.Text = "Tipo cliente";
+            rbtnTipoDoc.UseVisualStyleBackColor = true;
+            rbtnTipoDoc.Click += rbtnTipo_Click;
             // 
             // txtDoc
             // 
@@ -204,6 +266,7 @@
             btnBuscar.TabIndex = 24;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // gbxFiltros
             // 
@@ -218,10 +281,10 @@
             gbxFiltros.Controls.Add(cboTipo);
             gbxFiltros.Controls.Add(txtNombre);
             gbxFiltros.Controls.Add(txtDoc);
-            gbxFiltros.Controls.Add(rbtnFiltrarTipo);
-            gbxFiltros.Controls.Add(rbtnFiltrarNombre);
-            gbxFiltros.Controls.Add(rbtnFiltrarDoc);
-            gbxFiltros.Controls.Add(rbtnFiltrarID);
+            gbxFiltros.Controls.Add(rbtnTipoDoc);
+            gbxFiltros.Controls.Add(rbtnNombre);
+            gbxFiltros.Controls.Add(rbtnDoc);
+            gbxFiltros.Controls.Add(rbtnId);
             gbxFiltros.Location = new Point(12, 24);
             gbxFiltros.Margin = new Padding(3, 2, 3, 2);
             gbxFiltros.Name = "gbxFiltros";
@@ -231,67 +294,70 @@
             gbxFiltros.TabStop = false;
             gbxFiltros.Text = "Filtrar";
             // 
-            // colId
+            // rbtnActivosYAutorizados
             // 
-            colId.FillWeight = 57.9888763F;
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            colId.Width = 60;
+            rbtnActivosYAutorizados.AutoSize = true;
+            rbtnActivosYAutorizados.Location = new Point(824, 59);
+            rbtnActivosYAutorizados.Margin = new Padding(3, 2, 3, 2);
+            rbtnActivosYAutorizados.Name = "rbtnActivosYAutorizados";
+            rbtnActivosYAutorizados.Size = new Size(139, 19);
+            rbtnActivosYAutorizados.TabIndex = 20;
+            rbtnActivosYAutorizados.TabStop = true;
+            rbtnActivosYAutorizados.Text = "Activos y Autorizados";
+            rbtnActivosYAutorizados.UseVisualStyleBackColor = true;
+            rbtnActivosYAutorizados.Click += rbtnActivosYAutorizados_Click;
             // 
-            // colTipoDoc
+            // rbtnNoAutorizados
             // 
-            colTipoDoc.FillWeight = 84.48268F;
-            colTipoDoc.HeaderText = "Tipo doc.";
-            colTipoDoc.Name = "colTipoDoc";
-            colTipoDoc.ReadOnly = true;
-            colTipoDoc.Width = 80;
+            rbtnNoAutorizados.AutoSize = true;
+            rbtnNoAutorizados.Location = new Point(597, 59);
+            rbtnNoAutorizados.Margin = new Padding(3, 2, 3, 2);
+            rbtnNoAutorizados.Name = "rbtnNoAutorizados";
+            rbtnNoAutorizados.Size = new Size(105, 19);
+            rbtnNoAutorizados.TabIndex = 19;
+            rbtnNoAutorizados.TabStop = true;
+            rbtnNoAutorizados.Text = "No autorizados";
+            rbtnNoAutorizados.UseVisualStyleBackColor = true;
+            rbtnNoAutorizados.Click += rbtnNoAutorizados_Click;
             // 
-            // colDoc
+            // rbtnAutorizados
             // 
-            colDoc.FillWeight = 369.138855F;
-            colDoc.HeaderText = "Doc";
-            colDoc.Name = "colDoc";
-            colDoc.ReadOnly = true;
-            colDoc.Width = 110;
+            rbtnAutorizados.AutoSize = true;
+            rbtnAutorizados.Location = new Point(483, 59);
+            rbtnAutorizados.Margin = new Padding(3, 2, 3, 2);
+            rbtnAutorizados.Name = "rbtnAutorizados";
+            rbtnAutorizados.Size = new Size(88, 19);
+            rbtnAutorizados.TabIndex = 18;
+            rbtnAutorizados.TabStop = true;
+            rbtnAutorizados.Text = "Autorizados";
+            rbtnAutorizados.UseVisualStyleBackColor = true;
+            rbtnAutorizados.Click += rbtnAutorizados_Click;
             // 
-            // colTipo
+            // rbtnInactivos
             // 
-            colTipo.FillWeight = 41.0392761F;
-            colTipo.HeaderText = "Tipo cliente";
-            colTipo.Name = "colTipo";
-            colTipo.ReadOnly = true;
+            rbtnInactivos.AutoSize = true;
+            rbtnInactivos.Location = new Point(284, 59);
+            rbtnInactivos.Margin = new Padding(3, 2, 3, 2);
+            rbtnInactivos.Name = "rbtnInactivos";
+            rbtnInactivos.Size = new Size(72, 19);
+            rbtnInactivos.TabIndex = 17;
+            rbtnInactivos.TabStop = true;
+            rbtnInactivos.Text = "Inactivos";
+            rbtnInactivos.UseVisualStyleBackColor = true;
+            rbtnInactivos.Click += rbtnInactivos_Click;
             // 
-            // colNombre
+            // rbtnActivos
             // 
-            colNombre.FillWeight = 86.85427F;
-            colNombre.HeaderText = "Nombre";
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            colNombre.Width = 300;
-            // 
-            // colDir
-            // 
-            colDir.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDir.FillWeight = 86.85427F;
-            colDir.HeaderText = "Direccion";
-            colDir.Name = "colDir";
-            // 
-            // colAutorizado
-            // 
-            colAutorizado.FillWeight = 35.21946F;
-            colAutorizado.HeaderText = "Autorizado";
-            colAutorizado.Name = "colAutorizado";
-            colAutorizado.ReadOnly = true;
-            colAutorizado.Width = 90;
-            // 
-            // colActivo
-            // 
-            colActivo.FillWeight = 38.42244F;
-            colActivo.HeaderText = "Activo";
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            colActivo.Width = 90;
+            rbtnActivos.AutoSize = true;
+            rbtnActivos.Location = new Point(200, 59);
+            rbtnActivos.Margin = new Padding(3, 2, 3, 2);
+            rbtnActivos.Name = "rbtnActivos";
+            rbtnActivos.Size = new Size(64, 19);
+            rbtnActivos.TabIndex = 16;
+            rbtnActivos.TabStop = true;
+            rbtnActivos.Text = "Activos";
+            rbtnActivos.UseVisualStyleBackColor = true;
+            rbtnActivos.Click += rbtnActivos_Click;
             // 
             // rbtnTodos
             // 
@@ -305,66 +371,6 @@
             rbtnTodos.Text = "Todos";
             rbtnTodos.UseVisualStyleBackColor = true;
             rbtnTodos.Click += rbtnTodos_Click;
-            // 
-            // rbtnActivos
-            // 
-            rbtnActivos.AutoSize = true;
-            rbtnActivos.Location = new Point(200, 59);
-            rbtnActivos.Margin = new Padding(3, 2, 3, 2);
-            rbtnActivos.Name = "rbtnActivos";
-            rbtnActivos.Size = new Size(64, 19);
-            rbtnActivos.TabIndex = 16;
-            rbtnActivos.TabStop = true;
-            rbtnActivos.Text = "Activos";
-            rbtnActivos.UseVisualStyleBackColor = true;
-            // 
-            // rbtnInactivos
-            // 
-            rbtnInactivos.AutoSize = true;
-            rbtnInactivos.Location = new Point(284, 59);
-            rbtnInactivos.Margin = new Padding(3, 2, 3, 2);
-            rbtnInactivos.Name = "rbtnInactivos";
-            rbtnInactivos.Size = new Size(72, 19);
-            rbtnInactivos.TabIndex = 17;
-            rbtnInactivos.TabStop = true;
-            rbtnInactivos.Text = "Inactivos";
-            rbtnInactivos.UseVisualStyleBackColor = true;
-            // 
-            // rbtnAutorizados
-            // 
-            rbtnAutorizados.AutoSize = true;
-            rbtnAutorizados.Location = new Point(483, 59);
-            rbtnAutorizados.Margin = new Padding(3, 2, 3, 2);
-            rbtnAutorizados.Name = "rbtnAutorizados";
-            rbtnAutorizados.Size = new Size(88, 19);
-            rbtnAutorizados.TabIndex = 18;
-            rbtnAutorizados.TabStop = true;
-            rbtnAutorizados.Text = "Autorizados";
-            rbtnAutorizados.UseVisualStyleBackColor = true;
-            // 
-            // rbtnNoAutorizados
-            // 
-            rbtnNoAutorizados.AutoSize = true;
-            rbtnNoAutorizados.Location = new Point(597, 59);
-            rbtnNoAutorizados.Margin = new Padding(3, 2, 3, 2);
-            rbtnNoAutorizados.Name = "rbtnNoAutorizados";
-            rbtnNoAutorizados.Size = new Size(105, 19);
-            rbtnNoAutorizados.TabIndex = 19;
-            rbtnNoAutorizados.TabStop = true;
-            rbtnNoAutorizados.Text = "No autorizados";
-            rbtnNoAutorizados.UseVisualStyleBackColor = true;
-            // 
-            // rbtnActivosYAutorizados
-            // 
-            rbtnActivosYAutorizados.AutoSize = true;
-            rbtnActivosYAutorizados.Location = new Point(824, 59);
-            rbtnActivosYAutorizados.Margin = new Padding(3, 2, 3, 2);
-            rbtnActivosYAutorizados.Name = "rbtnActivosYAutorizados";
-            rbtnActivosYAutorizados.Size = new Size(139, 19);
-            rbtnActivosYAutorizados.TabIndex = 20;
-            rbtnActivosYAutorizados.TabStop = true;
-            rbtnActivosYAutorizados.Text = "Activos y Autorizados";
-            rbtnActivosYAutorizados.UseVisualStyleBackColor = true;
             // 
             // ListarCliente
             // 
@@ -391,10 +397,10 @@
 
         private DataGridView dgvClientes;
         private Button btnRegresar;
-        private RadioButton rbtnFiltrarID;
-        private RadioButton rbtnFiltrarDoc;
-        private RadioButton rbtnFiltrarNombre;
-        private RadioButton rbtnFiltrarTipo;
+        private RadioButton rbtnId;
+        private RadioButton rbtnDoc;
+        private RadioButton rbtnNombre;
+        private RadioButton rbtnTipoDoc;
         private TextBox txtDoc;
         private Button btnDarBaja;
         private Button btnAutorizar;

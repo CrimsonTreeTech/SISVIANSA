@@ -48,7 +48,7 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
-        
+
         // --------------------- METODOS WIDGETS ---------------------------
         private void HistoricoPedidos_Load(object sender, EventArgs e)
         {
@@ -58,7 +58,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            if (rol ==  3) // Administrativo
+            if (rol == 3) // Administrativo
             {
                 MenuAdministrativo menu = new MenuAdministrativo(rol);
                 menu.Show(Owner);
@@ -88,6 +88,13 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             GestionarPedido gestionarPedido = new GestionarPedido(rol);
             gestionarPedido.Show(Owner);
+            Close();
+        }
+
+        private void btnActualizarEstado_Click(object sender, EventArgs e)
+        {
+            SeguimientoPedido seguimiento = new SeguimientoPedido(rol, pedido);
+            seguimiento.Show(Owner);
             Close();
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SISVIANSA_ITI_2023.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +14,23 @@ namespace SISVIANSA_ITI_2023.GUI
 {
     public partial class ListarCliente : Form
     {
-        byte rol;
+        private byte rol;
+        private string colFiltro, valFiltro;
+        private List<Cliente> listaClientes;
+        private Cliente cliente;
+
+        // ------------------------- CONSTRUCTOR ---------------------------
         public ListarCliente(byte rol)
         {
             InitializeComponent();
             this.rol = rol;
-            bloqueraFuncionalidadesSegunRol(rol);
+            colFiltro = "todo";
+            valFiltro = "";
+            cliente = new Cliente(rol);
         }
 
+
+        // ----------------------- METODOS AUXILIARES --------------------------
         private void bloqueraFuncionalidadesSegunRol(byte rol)
         {
             if (rol == 1)
@@ -32,139 +42,146 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
-
-        private void VisualizarCliente_Load(object sender, EventArgs e)
+        private void reiniciarFiltros()
         {
-            vaciarCamposFiltros();
-            inhabilitarCamposFiltros();
-            vaciarCamposOrden();
-            inhabilitarCamposOrden();
-        }
-
-
-
-        private void btnReiniciar_Click(object sender, EventArgs e)
-        {
-            vaciarCamposFiltros();
-            vaciarCamposOrden();
-        }
-
-        private void rbtnFiltrarID_Click(object sender, EventArgs e)
-        {
-            vaciarCamposFiltros();
-            inhabilitarCamposFiltros();
-            rbtnFiltrarID.Checked = true;
-            txtId.Enabled = true;
-        }
-
-        private void rbtnFiltrarDoc_Click(object sender, EventArgs e)
-        {
-            vaciarCamposFiltros();
-            inhabilitarCamposFiltros();
-            rbtnFiltrarDoc.Checked = true;
-            txtDoc.Enabled = true;
-        }
-
-        private void rbtnFiltrarNombre_Click(object sender, EventArgs e)
-        {
-            vaciarCamposFiltros();
-            inhabilitarCamposFiltros();
-            rbtnFiltrarNombre.Checked = true;
-            txtNombre.Enabled = true;
-        }
-
-        private void rbtnFiltrarTipo_Click(object sender, EventArgs e)
-        {
-            vaciarCamposFiltros();
-            inhabilitarCamposFiltros();
-            rbtnFiltrarTipo.Checked = true;
-            cboTipo.Enabled = true;
-        }
-
-        private void rbtnOrdenarID_Click(object sender, EventArgs e)
-        {
-            vaciarCamposOrden();
-            inhabilitarCamposOrden();
-            rbtnOrdenarID.Checked = true;
-            cboOrdenId.Enabled = true;
-        }
-
-        private void rbtnOrdenDoc_Click(object sender, EventArgs e)
-        {
-            vaciarCamposOrden();
-            inhabilitarCamposOrden();
-            rbtnOrdenDoc.Checked = true;
-            cboOrdenDoc.Enabled = true;
-        }
-
-        private void rbtnOrdenNombre_Click(object sender, EventArgs e)
-        {
-            vaciarCamposOrden();
-            inhabilitarCamposOrden();
-            rbtnOrdenNombre.Checked = true;
-            cboOrdenNombre.Enabled = true;
-        }
-
-        private void rbtnOrdenTipo_Click(object sender, EventArgs e)
-        {
-            vaciarCamposOrden();
-            inhabilitarCamposOrden();
-            rbtnOrdenTipo.Checked = true;
-            cboOrdenTipo.Enabled = true;
-        }
-
-
-
-
-
-        ///// MEDOTOS AUXILIARES 
-        private void vaciarCamposFiltros()
-        {
-            rbtnFiltrarDoc.Checked = false;
-            rbtnFiltrarID.Checked = false;
-            rbtnFiltrarNombre.Checked = false;
-            rbtnFiltrarTipo.Checked = false;
             txtId.Clear();
             txtDoc.Clear();
             txtNombre.Clear();
-            cboTipo.SelectedItem = null;
-            inhabilitarCamposFiltros();
-        }
+            cboTipo.SelectedItem = -1;
 
-        private void vaciarCamposOrden()
-        {
-            rbtnOrdenarID.Checked = false;
-            rbtnOrdenDoc.Checked = false;
-            rbtnOrdenNombre.Checked = false;
-            rbtnOrdenTipo.Checked = false;
-            cboOrdenDoc.SelectedItem = null;
-            cboOrdenId.SelectedItem = null;
-            cboOrdenNombre.SelectedItem = null;
-            cboOrdenTipo.SelectedItem = null;
-            inhabilitarCamposOrden();
-        }
-
-        private void inhabilitarCamposFiltros()
-        {
             txtId.Enabled = false;
             txtDoc.Enabled = false;
             txtNombre.Enabled = false;
             cboTipo.Enabled = false;
         }
 
-        private void inhabilitarCamposOrden()
+        private string obtenerValFiltro()
         {
-            cboOrdenId.Enabled = false;
-            cboOrdenDoc.Enabled = false;
-            cboOrdenNombre.Enabled = false;
-            cboOrdenTipo.Enabled = false;
+            valFiltro = "";
+
+            if (colFiltro.Equals("id"))
+                valFiltro = txtId.Text;
+
+            else if (colFiltro.Equals("nro_doc"))
+                valFiltro = txtDoc.Text;
+
+            else if (colFiltro.Equals("nombre"))
+                valFiltro = txtNombre.Text;
+
+            else if (colFiltro.Equals("tipo"))
+                valFiltro = cboTipo.Text;
+
+            return valFiltro;
         }
 
+        private void cargarGrilla(List<Cliente> listaClientes)
+        {
+            dgvClientes.Rows.Clear();
+
+            foreach (Cliente c in listaClientes)
+            {
+                dgvClientes.Rows.Add(c.Id, c.TipoDoc, c.Doc, c.Tipo, c.Nombre, c.direccion(), c.Autorizado, c.Activo);
+            }
+        }
+
+
+        // ------------------------ METODOS DE WIDGETS -----------------------------
+        private void VisualizarCliente_Load(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            bloqueraFuncionalidadesSegunRol(rol);
+            rbtnTodos.Checked = true;
+            listaClientes = cliente.realizarBusquedaFiltrada(colFiltro, valFiltro);
+            cargarGrilla(listaClientes);
+        }
+
+
+        // Botones
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             Owner.Show();
             Close();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            valFiltro = obtenerValFiltro();
+            listaClientes = cliente.realizarBusquedaFiltrada(colFiltro, valFiltro);
+            cargarGrilla(listaClientes);
+        }
+
+
+
+        // Radio buttons
+        private void rbtnId_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            txtId.Enabled = true;
+            colFiltro = "id";
+        }
+
+        private void rbtnDoc_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            txtDoc.Enabled = true;
+            colFiltro = "nro_doc";
+        }
+
+        private void rbtnNombre_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            txtNombre.Enabled = true;
+            colFiltro = "nombre";
+        }
+
+        private void rbtnTipo_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            cboTipo.Enabled = true;
+            cboTipo.SelectedIndex = 0;
+            colFiltro = "tipo";
+        }
+
+        private void rbtnTodos_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            colFiltro = "todo";
+        }
+
+        private void rbtnActivos_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            colFiltro = "activo";
+        }
+
+        private void rbtnInactivos_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            colFiltro = "inactivo";
+        }
+
+        private void rbtnAutorizados_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            colFiltro = "autorizado";
+        }
+
+        private void rbtnNoAutorizados_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            colFiltro = "no autorizado";
+        }
+
+        private void rbtnActivosYAutorizados_Click(object sender, EventArgs e)
+        {
+            reiniciarFiltros();
+            colFiltro = "actvo y autorizado";
+        }
+
+
+
+        ///// MEDOTOS AUXILIARES 
+
 
         private byte tipoClienteSeleccionado()
         {
@@ -184,9 +201,6 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
-        private void rbtnTodos_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

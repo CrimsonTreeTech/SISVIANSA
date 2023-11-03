@@ -33,8 +33,8 @@ namespace SISVIANSA_ITI_2023.GUI
             bloqueraFuncionalidadesSegunRol(rol);
         }
 
-        
-        
+
+
 
         // ------------ METODOS AUXILIARES -----------------------------
         private void cargarDatos(List<Pedido> lista)
@@ -55,10 +55,10 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private Pedido obtenerPedidoSeleccionado()
         {
-            filaSeleccionada =  dgvPedidos.CurrentCell.RowIndex;
+            filaSeleccionada = dgvPedidos.CurrentCell.RowIndex;
             idPedidoSeleccionado = Convert.ToInt32(dgvPedidos.SelectedCells[1].Value);
             pedido = pedido.cargarDatosPedido(idPedidoSeleccionado);
-            
+
             return pedido;
         }
 
@@ -163,6 +163,16 @@ namespace SISVIANSA_ITI_2023.GUI
             Close();
         }
 
+        private void btnActualizarEstado_Click(object sender, EventArgs e)
+        {
+            Pedido pedido = obtenerPedidoSeleccionado();
+            SeguimientoPedido seguimiento = new SeguimientoPedido(rol, pedido);
+            seguimiento.Show(Owner);
+            Close();
+        }
+
+
+
         // Radiobuttons filtros
         private void rbtnNroPedido_Click(object sender, EventArgs e)
         {
@@ -198,6 +208,7 @@ namespace SISVIANSA_ITI_2023.GUI
             cargarCboZona();
             colFiltro = "zona";
         }
+
 
     }
 }

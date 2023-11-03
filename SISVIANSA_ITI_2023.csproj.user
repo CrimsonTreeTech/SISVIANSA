@@ -106,6 +106,9 @@
     <Compile Update="GUI\DetallesVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\SeguimientoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\SeleccionarSucursal.cs">
       <SubType>Form</SubType>
     </Compile>

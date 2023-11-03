@@ -48,7 +48,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     {
                                         Id = idCliente,
                                         Doc = reader.GetInt32("rut"),
-                                        NombreEmpresa = reader.GetString("nombre"),
+                                        Nombre = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq")

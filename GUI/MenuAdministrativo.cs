@@ -50,7 +50,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnListarClientes_Click(object sender, EventArgs e)
         {
-            ListarCliente listarCliente = new ListarCliente(3);
+            ListarCliente listarCliente = new ListarCliente(rol);
             listarCliente.Show(this);
             Hide();
         }

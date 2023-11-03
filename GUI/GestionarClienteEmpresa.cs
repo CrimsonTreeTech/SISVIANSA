@@ -100,7 +100,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private void cargarDatos()
         {
             txtRUT.Text = cliente.Doc.ToString();
-            txtNombre.Text = cliente.NombreEmpresa;
+            txtNombre.Text = cliente.Nombre;
             txtCalle.Text = cliente.Calle;
             txtEsquina.Text = cliente.Esq;
             txtNumeroPuerta.Text = cliente.NroPuerta.ToString();
@@ -116,7 +116,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void actualizarDatos()
         {
-            cliente.NombreEmpresa = txtNombre.Text;
+            cliente.Nombre = txtNombre.Text;
             cliente.Doc = Int32.Parse(txtRUT.Text);
             cliente.Calle = txtCalle.Text;
             cliente.Esq = txtEsquina.Text;

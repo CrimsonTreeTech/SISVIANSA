@@ -82,7 +82,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
                         consulta += "FROM clientes c;";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -94,14 +95,15 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        NombreEmpresa = reader.GetString("nombre"),
-                                        Activo = reader.GetBoolean("activo"),
-                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Nombre = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
-                                        Esq = reader.GetString("esq")
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
                                     };
                                     listaClientes.Add(cliente);
                                 }
@@ -130,7 +132,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
                         consulta += "FROM clientes c ";
                         consulta += "WHERE c.id_cliente = @id;";
 
@@ -145,14 +148,15 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        NombreEmpresa = reader.GetString("nombre"),
-                                        Activo = reader.GetBoolean("activo"),
-                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Nombre = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
-                                        Esq = reader.GetString("esq")
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
                                     };
                                 }
                             }
@@ -182,7 +186,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta  = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
                         consulta += "FROM clientes c ";
                         consulta += "WHERE c.nro_doc = @doc;";
 
@@ -197,14 +202,15 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        NombreEmpresa = reader.GetString("nombre"),
-                                        Activo = reader.GetBoolean("activo"),
-                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Nombre = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
-                                        Esq = reader.GetString("esq")
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
                                     };
                                     listaClientes.Add(cliente);
                                 }
@@ -234,7 +240,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
                         consulta += "FROM clientes c ";
                         consulta += "WHERE c.nombre LIKE @nombre;";
 
@@ -249,14 +256,178 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        NombreEmpresa = reader.GetString("nombre"),
-                                        Activo = reader.GetBoolean("activo"),
-                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Nombre = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
-                                        Esq = reader.GetString("esq")
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
+                                    };
+                                    listaClientes.Add(cliente);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarClientesPorNroDoc\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaClientes;
+        }
+
+        public List<Cliente> buscarClientesPorTipo(string tipo)
+        {
+            listaClientes = new List<Cliente>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta  = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
+                        consulta += "FROM clientes c ";
+                        consulta += "WHERE c.tipo_cliente = @tipo;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@tipo", tipo);
+
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    cliente = new Cliente(rol)
+                                    {
+                                        Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoDoc = reader.GetString("tipo_doc"),
+                                        Doc = reader.GetInt64("nro_doc"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Calle = reader.GetString("calle"),
+                                        NroPuerta = reader.GetInt32("nro_puerta"),
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
+                                    };
+                                    listaClientes.Add(cliente);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarClientesPorNroDoc\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaClientes;
+        }
+
+        public List<Cliente> buscarClientesActivos(bool activo)
+        {
+            listaClientes = new List<Cliente>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
+                        consulta += "FROM clientes c ";
+                        consulta += "WHERE c.activo = @activo;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@activo", activo);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    cliente = new Cliente(rol)
+                                    {
+                                        Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoDoc = reader.GetString("tipo_doc"),
+                                        Doc = reader.GetInt64("nro_doc"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Calle = reader.GetString("calle"),
+                                        NroPuerta = reader.GetInt32("nro_puerta"),
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
+                                    };
+                                    listaClientes.Add(cliente);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #buscarClientesPorNroDoc\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaClientes;
+        }
+
+        public List<Cliente> buscarClientesAutorizados(bool autorizado)
+        {
+            listaClientes = new List<Cliente>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
+                        consulta += "FROM clientes c ";
+                        consulta += "WHERE c.autorizado = @autorizado;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@autorizado", autorizado);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    cliente = new Cliente(rol)
+                                    {
+                                        Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoDoc = reader.GetString("tipo_doc"),
+                                        Doc = reader.GetInt64("nro_doc"),
+                                        Nombre = reader.GetString("nombre"),
+                                        Calle = reader.GetString("calle"),
+                                        NroPuerta = reader.GetInt32("nro_puerta"),
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
                                     };
                                     listaClientes.Add(cliente);
                                 }
@@ -286,7 +457,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT c.id_cliente, c.tipo_doc, c.nro_doc, c.nombre, c.activo, c.autorizado, c.calle, c.nro_puerta, c.esq ";
+                        consulta = "SELECT c.id_cliente, c.tipo_cliente, c.tipo_doc, c.nro_doc, c.nombre,";
+                        consulta += "c.calle, c.nro_puerta, c.esq, c.activo, c.autorizado ";
                         consulta += "FROM clientes c ";
                         consulta += "WHERE c.autorizado = true AND c.activo = true;";
 
@@ -300,14 +472,15 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
+                                        Tipo = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        NombreEmpresa = reader.GetString("nombre"),
-                                        Activo = reader.GetBoolean("activo"),
-                                        Autorizado = reader.GetBoolean("autorizado"),
+                                        Nombre = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
-                                        Esq = reader.GetString("esq")
+                                        Esq = reader.GetString("esq"),
+                                        Activo = reader.GetBoolean("activo"),
+                                        Autorizado = reader.GetBoolean("autorizado")
                                     };
                                     listaClientes.Add(cliente);
                                 }
