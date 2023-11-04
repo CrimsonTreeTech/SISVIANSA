@@ -143,5 +143,21 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaDietas;
         }
     
+
+        public bool autorizarDieta(int idDieta)
+        {
+            return dietaBD.autorizarDieta(idDieta, true);
+        }
+
+        public bool altaDieta(int idDieta)
+        {
+            return dietaBD.altaBajaDieta(idDieta, true);
+        }
+
+        public bool bajaDieta(int idDieta)
+        {
+            return dietaBD.altaBajaDieta(idDieta, false);
+        }
+
     }
 }

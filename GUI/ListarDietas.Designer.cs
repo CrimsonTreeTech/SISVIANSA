@@ -53,14 +53,14 @@
             dgvDieta.AllowUserToAddRows = false;
             dgvDieta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDieta.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colActivo, colAutorizado });
-            dgvDieta.Location = new Point(12, 101);
+            dgvDieta.Location = new Point(12, 89);
             dgvDieta.MultiSelect = false;
             dgvDieta.Name = "dgvDieta";
             dgvDieta.ReadOnly = true;
             dgvDieta.RowHeadersVisible = false;
             dgvDieta.RowTemplate.Height = 25;
             dgvDieta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDieta.Size = new Size(774, 219);
+            dgvDieta.Size = new Size(774, 231);
             dgvDieta.TabIndex = 0;
             // 
             // colId
@@ -124,7 +124,7 @@
             gbxFiltros.Controls.Add(rbtnTodo);
             gbxFiltros.Location = new Point(12, 16);
             gbxFiltros.Name = "gbxFiltros";
-            gbxFiltros.Size = new Size(774, 79);
+            gbxFiltros.Size = new Size(774, 67);
             gbxFiltros.TabIndex = 3;
             gbxFiltros.TabStop = false;
             gbxFiltros.Text = "Filtros";
@@ -132,7 +132,7 @@
             // rbtnNoAutorizadas
             // 
             rbtnNoAutorizadas.AutoSize = true;
-            rbtnNoAutorizadas.Location = new Point(378, 31);
+            rbtnNoAutorizadas.Location = new Point(377, 31);
             rbtnNoAutorizadas.Name = "rbtnNoAutorizadas";
             rbtnNoAutorizadas.Size = new Size(104, 19);
             rbtnNoAutorizadas.TabIndex = 4;
@@ -144,7 +144,7 @@
             // rbtnInactivas
             // 
             rbtnInactivas.AutoSize = true;
-            rbtnInactivas.Location = new Point(273, 31);
+            rbtnInactivas.Location = new Point(272, 31);
             rbtnInactivas.Name = "rbtnInactivas";
             rbtnInactivas.Size = new Size(71, 19);
             rbtnInactivas.TabIndex = 3;
@@ -155,9 +155,9 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(598, 22);
+            btnBuscar.Location = new Point(597, 22);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(159, 37);
+            btnBuscar.Size = new Size(159, 28);
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
@@ -166,7 +166,7 @@
             // rbtnActivasYAutorizadas
             // 
             rbtnActivasYAutorizadas.AutoSize = true;
-            rbtnActivasYAutorizadas.Location = new Point(104, 31);
+            rbtnActivasYAutorizadas.Location = new Point(103, 31);
             rbtnActivasYAutorizadas.Name = "rbtnActivasYAutorizadas";
             rbtnActivasYAutorizadas.Size = new Size(135, 19);
             rbtnActivasYAutorizadas.TabIndex = 1;
@@ -178,7 +178,7 @@
             // rbtnTodo
             // 
             rbtnTodo.AutoSize = true;
-            rbtnTodo.Location = new Point(18, 31);
+            rbtnTodo.Location = new Point(17, 31);
             rbtnTodo.Name = "rbtnTodo";
             rbtnTodo.Size = new Size(51, 19);
             rbtnTodo.TabIndex = 0;
@@ -195,6 +195,7 @@
             btnAlta.TabIndex = 4;
             btnAlta.Text = "Alta";
             btnAlta.UseVisualStyleBackColor = true;
+            btnAlta.Click += btnAlta_Click;
             // 
             // btnBaja
             // 
@@ -204,6 +205,7 @@
             btnBaja.TabIndex = 5;
             btnBaja.Text = "Baja";
             btnBaja.UseVisualStyleBackColor = true;
+            btnBaja.Click += btnBaja_Click;
             // 
             // btnAutorizar
             // 
@@ -213,6 +215,7 @@
             btnAutorizar.TabIndex = 6;
             btnAutorizar.Text = "Autorizar";
             btnAutorizar.UseVisualStyleBackColor = true;
+            btnAutorizar.Click += btnAutorizar_Click;
             // 
             // ListarDietas
             // 

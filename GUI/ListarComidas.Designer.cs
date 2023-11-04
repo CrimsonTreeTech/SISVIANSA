@@ -48,8 +48,9 @@
             rbtnNombre = new RadioButton();
             rbtnTodo = new RadioButton();
             bntBuscar = new Button();
-            btnActivar = new Button();
+            btnBaja = new Button();
             btnAutorizar = new Button();
+            btnAlta = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvComidas).BeginInit();
             Filtos.SuspendLayout();
             SuspendLayout();
@@ -63,7 +64,7 @@
             dgvComidas.MultiSelect = false;
             dgvComidas.Name = "dgvComidas";
             dgvComidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvComidas.Size = new Size(979, 360);
+            dgvComidas.Size = new Size(964, 360);
             dgvComidas.TabIndex = 0;
             // 
             // colId
@@ -126,7 +127,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(803, 499);
+            btnModificar.Location = new Point(788, 499);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(188, 38);
             btnModificar.TabIndex = 2;
@@ -257,25 +258,25 @@
             // 
             bntBuscar.Location = new Point(810, 33);
             bntBuscar.Name = "bntBuscar";
-            bntBuscar.Size = new Size(181, 78);
+            bntBuscar.Size = new Size(166, 78);
             bntBuscar.TabIndex = 4;
             bntBuscar.Text = "Buscar";
             bntBuscar.UseVisualStyleBackColor = true;
             bntBuscar.Click += bntBuscar_Click;
             // 
-            // btnActivar
+            // btnBaja
             // 
-            btnActivar.Location = new Point(278, 499);
-            btnActivar.Name = "btnActivar";
-            btnActivar.Size = new Size(188, 38);
-            btnActivar.TabIndex = 5;
-            btnActivar.Text = "Activo";
-            btnActivar.UseVisualStyleBackColor = true;
-            btnActivar.Click += btnActivar_Click;
+            btnBaja.Location = new Point(206, 499);
+            btnBaja.Name = "btnBaja";
+            btnBaja.Size = new Size(188, 38);
+            btnBaja.TabIndex = 5;
+            btnBaja.Text = "Baja";
+            btnBaja.UseVisualStyleBackColor = true;
+            btnBaja.Click += btnBaja_Click;
             // 
             // btnAutorizar
             // 
-            btnAutorizar.Location = new Point(544, 499);
+            btnAutorizar.Location = new Point(594, 499);
             btnAutorizar.Name = "btnAutorizar";
             btnAutorizar.Size = new Size(188, 38);
             btnAutorizar.TabIndex = 6;
@@ -283,13 +284,24 @@
             btnAutorizar.UseVisualStyleBackColor = true;
             btnAutorizar.Click += btnAutorizar_Click;
             // 
+            // btnAlta
+            // 
+            btnAlta.Location = new Point(400, 499);
+            btnAlta.Name = "btnAlta";
+            btnAlta.Size = new Size(188, 38);
+            btnAlta.TabIndex = 7;
+            btnAlta.Text = "Alta";
+            btnAlta.UseVisualStyleBackColor = true;
+            btnAlta.Click += btnAlta_Click;
+            // 
             // ListarComidas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1006, 549);
+            ClientSize = new Size(992, 549);
+            Controls.Add(btnAlta);
             Controls.Add(btnAutorizar);
-            Controls.Add(btnActivar);
+            Controls.Add(btnBaja);
             Controls.Add(bntBuscar);
             Controls.Add(Filtos);
             Controls.Add(btnModificar);
@@ -327,7 +339,8 @@
         private DataGridViewTextBoxColumn colAutorizado;
         private DataGridViewTextBoxColumn colDietas;
         private Button bntBuscar;
-        private Button btnActivar;
+        private Button btnBaja;
         private Button btnAutorizar;
+        private Button btnAlta;
     }
 }

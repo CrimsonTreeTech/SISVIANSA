@@ -259,6 +259,7 @@ namespace SISVIANSA_ITI_2023.Logica
             clientesBD.crearVistaClientes();
         }
 
+        // Busqueda
         public List<Cliente> realizarBusquedaFiltrada(string colFiltro, string valFiltro)
         {
             listaClientes = new List<Cliente>();
@@ -310,7 +311,6 @@ namespace SISVIANSA_ITI_2023.Logica
 
             return listaClientes;
         }
-
 
         private List<Cliente> buscarClientesPorNroDoc(string nroDoc)
         {
@@ -391,7 +391,6 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaClientes;
         }
 
-
         private List<Cliente> buscarClientesAutorizadosONoAutorizados(bool valFiltro)
         {
             listaClientes = clientesBD.buscarClientesAutorizados(valFiltro);
@@ -405,7 +404,23 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaClientes;
         }
 
-        
+
+        // Autorizacion
+        public bool autorizarCliente(int idCliente)
+        {
+            return clientesBD.autorizarCliente(idCliente, true);
+        }
+
+        // Alta / baja
+        public bool altaCliente(int idCliente)
+        {
+            return clientesBD.altaBajaCliente(idCliente, true);
+        }
+
+        public bool bajaCliente(int idCliente)
+        {
+            return clientesBD.altaBajaCliente(idCliente, false);
+        }
 
 
     }

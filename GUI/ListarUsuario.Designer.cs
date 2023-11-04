@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             dgvUsuarios = new DataGridView();
-            colId = new DataGridViewTextBoxColumn();
-            colUsuario = new DataGridViewTextBoxColumn();
-            colRol = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
             btnBaja = new Button();
             btnModificar = new Button();
             btnRegresar = new Button();
@@ -46,6 +42,10 @@
             rbtnRol = new RadioButton();
             rbtnUsuario = new RadioButton();
             btnBuscar = new Button();
+            colId = new DataGridViewTextBoxColumn();
+            colUsuario = new DataGridViewTextBoxColumn();
+            colRol = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             gbxFiltros.SuspendLayout();
             SuspendLayout();
@@ -64,34 +64,6 @@
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(592, 278);
             dgvUsuarios.TabIndex = 0;
-            // 
-            // colId
-            // 
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            colId.Width = 95;
-            // 
-            // colUsuario
-            // 
-            colUsuario.HeaderText = "Usuario";
-            colUsuario.Name = "colUsuario";
-            colUsuario.ReadOnly = true;
-            colUsuario.Width = 200;
-            // 
-            // colRol
-            // 
-            colRol.HeaderText = "Rol";
-            colRol.Name = "colRol";
-            colRol.ReadOnly = true;
-            colRol.Width = 150;
-            // 
-            // colActivo
-            // 
-            colActivo.HeaderText = "Activo";
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            colActivo.Width = 104;
             // 
             // btnBaja
             // 
@@ -238,6 +210,34 @@
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colUsuario
+            // 
+            colUsuario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colUsuario.HeaderText = "Usuario";
+            colUsuario.Name = "colUsuario";
+            colUsuario.ReadOnly = true;
+            // 
+            // colRol
+            // 
+            colRol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colRol.HeaderText = "Rol";
+            colRol.Name = "colRol";
+            colRol.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            // 
             // ListarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -265,10 +265,6 @@
         private Button btnModificar;
         private Button btnRegresar;
         private Button btnAlta;
-        private DataGridViewTextBoxColumn colId;
-        private DataGridViewTextBoxColumn colUsuario;
-        private DataGridViewTextBoxColumn colRol;
-        private DataGridViewTextBoxColumn colActivo;
         private GroupBox gbxFiltros;
         private RadioButton rbtnUsuario;
         private ComboBox cboRol;
@@ -278,5 +274,9 @@
         private RadioButton rbtnRol;
         private RadioButton rbtnTodo;
         private Button btnBuscar;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colUsuario;
+        private DataGridViewTextBoxColumn colRol;
+        private DataGridViewTextBoxColumn colActivo;
     }
 }

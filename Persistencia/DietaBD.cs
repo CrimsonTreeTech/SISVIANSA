@@ -321,5 +321,70 @@ namespace SISVIANSA_ITI_2023.Persistencia
         }
 
 
+        public bool altaBajaDieta(int idDieta, bool alta)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE dieta SET activo = @alta WHERE id_dieta = @idDieta;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idDieta", idDieta);
+                            cmd.Parameters.AddWithValue("@alta", alta);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error DietaBD #altaBajaDieta: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+        public bool autorizarDieta(int idDieta, bool autorizar)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE dieta SET autorizado = @autorizar WHERE id_dieta = @idDieta;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idDieta", idDieta);
+                            cmd.Parameters.AddWithValue("@autorizar", autorizar);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error DietaBD #altaBajaDieta: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
     }
 }

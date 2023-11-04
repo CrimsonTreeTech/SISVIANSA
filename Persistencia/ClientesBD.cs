@@ -176,7 +176,6 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return cliente;
         }
 
-
         public List<Cliente> buscarClientesPorNroDoc(long doc)
         {
             listaClientes = new List<Cliente>();
@@ -582,6 +581,72 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return listaMails;
         }
 
+        
+        
+        // ------------------ AUTORIZACION ------------------
+        public bool autorizarCliente(int idCliente, bool autorizar)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE clientes SET autorizado = @autorizar WHERE id_cliente = @idCliente;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                            cmd.Parameters.AddWithValue("@autorizar", autorizar);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #autorizarCliente: " + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+        public bool altaBajaCliente(int idCliente, bool alta)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE clientes SET activo = @alta WHERE id_cliente = @idCliente;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                            cmd.Parameters.AddWithValue("@alta", alta);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #autorizarCliente: " + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
 
     }
 }

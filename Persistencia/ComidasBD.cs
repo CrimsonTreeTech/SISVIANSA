@@ -484,5 +484,71 @@ namespace SISVIANSA_ITI_2023.Persistencia
         }
 
 
+
+        public bool altaBajaComida(int idComida, bool alta)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE comida SET activo = @alta WHERE id_comida = @idComida;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idComida", idComida);
+                            cmd.Parameters.AddWithValue("@alta", alta);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+        public bool autorizarComida(int idComida, bool alta)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE comida SET autorizado = @alta WHERE id_comida = @idComida;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idComida", idComida);
+                            cmd.Parameters.AddWithValue("@alta", alta);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ComidaBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
     }
 }

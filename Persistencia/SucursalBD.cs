@@ -94,6 +94,39 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return filasAfectadas > 0;
         }
 
+        // ---------- ALTA - BAJA -------------
+        public bool altaBajaSucursal(int idSucursal, bool alta)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE sucursal SET activo=@alta WHERE id_sucursal = @idSucursal;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@alta", alta);
+                            cmd.Parameters.AddWithValue("@idSucursal", idSucursal);
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error SucursalBD: " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+        
 
         // --------------------- CONSULTAS ----------------------------
         public Sucursal datosDeSucursal(int id)

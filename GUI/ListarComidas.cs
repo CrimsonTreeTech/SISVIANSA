@@ -124,6 +124,12 @@ namespace SISVIANSA_ITI_2023.GUI
             return valFiltro;
         }
 
+        private void realizarBusqueda()
+        {
+            valFiltro = obtenerValFiltro();
+            listaComidas = comida.listaComidasFiltradas(colFiltro, valFiltro);
+            cargarListadoComida(listaComidas);
+        }
 
 
         // -------------------- METODOS WIDGETS -----------------------
@@ -142,14 +148,38 @@ namespace SISVIANSA_ITI_2023.GUI
             Close();
         }
 
-        private void btnActivar_Click(object sender, EventArgs e)
+        private void btnBaja_Click(object sender, EventArgs e)
         {
-
+            comida = seleccionarComida();
+            bool res = comida.baja(comida.Id);
+            if (res)
+            {
+                MessageBox.Show("Se autorizo la dieta");
+                realizarBusqueda();
+            }
         }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            comida = seleccionarComida();
+            bool res = comida.alta(comida.Id);
+            if (res)
+            {
+                MessageBox.Show("Se autorizo la dieta");
+                realizarBusqueda();
+            }
+        }
+
 
         private void btnAutorizar_Click(object sender, EventArgs e)
         {
-
+            comida = seleccionarComida();
+            bool res = comida.autorizar(comida.Id);
+            if (res)
+            {
+                MessageBox.Show("Se autorizo la dieta");
+                realizarBusqueda();
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -162,9 +192,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void bntBuscar_Click(object sender, EventArgs e)
         {
-            valFiltro = obtenerValFiltro();
-            listaComidas = comida.listaComidasFiltradas(colFiltro, valFiltro);
-            cargarListadoComida(listaComidas);            
+            realizarBusqueda();
         }
 
 
@@ -214,5 +242,6 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltro = "dietas";
         }
 
+    
     }
 }

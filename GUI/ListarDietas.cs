@@ -1,4 +1,5 @@
-﻿using SISVIANSA_ITI_2023.Logica;
+﻿using MySqlX.XDevAPI;
+using SISVIANSA_ITI_2023.Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarDietas : Form
     {
         private byte rol;
+        private int filaSeleccionada, idDietaSeleccionada;
         private string colFiltro = "activo y autorizado";
         private Dieta dieta;
         private List<Dieta> listaDietas;
@@ -69,6 +71,19 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+        private int obtenreIdDietaSeleccionada()
+        {
+            filaSeleccionada = dgvDieta.CurrentCell.RowIndex;
+            idDietaSeleccionada = Convert.ToInt32(dgvDieta.Rows[filaSeleccionada].Cells[0].Value);
+            return idDietaSeleccionada;
+        }
+
+        private void realizarBusqueda()
+        {
+            listaDietas = dieta.busquedaFiltrada(colFiltro);
+            cargarListado(listaDietas);
+        }
+
         // ---------------------- METODOS WIDGETS --------------------------
         private void ListarDietas_Load(object sender, EventArgs e)
         {
@@ -78,7 +93,7 @@ namespace SISVIANSA_ITI_2023.GUI
             rbtnActivasYAutorizadas.Checked = true;
         }
 
-        
+
         // Botones
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -95,8 +110,41 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            listaDietas = dieta.busquedaFiltrada(colFiltro);
-            cargarListado(listaDietas);
+            realizarBusqueda();
+        }
+
+        private void btnBaja_Click(object sender, EventArgs e)
+        {
+            idDietaSeleccionada = obtenreIdDietaSeleccionada();
+            bool res = dieta.bajaDieta(idDietaSeleccionada);
+            if (res)
+            {
+                MessageBox.Show("Se autorizo la dieta");
+                realizarBusqueda();
+            }
+        }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            idDietaSeleccionada = obtenreIdDietaSeleccionada();
+            bool res = dieta.altaDieta(idDietaSeleccionada);
+            if (res)
+            {
+                MessageBox.Show("Se dio de alta la dieta");
+                realizarBusqueda();
+            }
+        }
+
+        private void btnAutorizar_Click(object sender, EventArgs e)
+        {
+            idDietaSeleccionada = obtenreIdDietaSeleccionada();
+            bool res = dieta.autorizarDieta(idDietaSeleccionada);
+            if (res)
+            {
+                MessageBox.Show("Se autorizo la dieta");
+                realizarBusqueda();
+            }
+
         }
 
 
@@ -121,6 +169,6 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltro = "no autorizado";
         }
 
-        
+    
     }
 }

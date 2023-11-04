@@ -252,6 +252,21 @@ namespace SISVIANSA_ITI_2023.Logica
             return listaMenus;
         }
 
+        public bool alta(int idMenu)
+        {
+            return menuBD.altaBajaMenu(idMenu, true);
+        }
+
+        public bool baja(int idMenu)
+        {
+            return menuBD.altaBajaMenu(idMenu, false);
+        }
+
+        public bool autorizar(int idMenu)
+        {
+            return menuBD.autorizarMenu(idMenu, true);
+        }
+
 
         // --------------------- METODOS AUXILIARES ---------------------------
 

@@ -122,6 +122,18 @@ namespace SISVIANSA_ITI_2023.Logica
         }
 
 
+
+        public bool baja(int idSucursal)
+        {
+            return sucursalBD.altaBajaSucursal(idSucursal, false);
+        }
+
+        public bool alta(int idSucursal)
+        {
+            return sucursalBD.altaBajaSucursal(idSucursal, true);
+        }
+
+
         /////////////////////////////////////////////////////////////////////////////////////
 
 

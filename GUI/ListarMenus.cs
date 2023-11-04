@@ -14,7 +14,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarMenus : Form
     {
         private byte rol;
-        private int idMenu;
+        private int idMenu, filaSeleccionada, idMenuSelecioando;
         private string colFiltro;
         private bool valido;
         private Menu menu;
@@ -31,6 +31,7 @@ namespace SISVIANSA_ITI_2023.GUI
             menu = new Menu(rol);
             dieta = new Dieta(rol);
             valFiltro = new List<string>();
+            colFiltro = "todo";
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
@@ -101,6 +102,13 @@ namespace SISVIANSA_ITI_2023.GUI
             return valFiltro;
         }
 
+        private int obtenerIdMenuSeleccionado()
+        {
+            filaSeleccionada = dgvMenu.CurrentCell.RowIndex;
+            idMenuSelecioando = Convert.ToInt32(dgvMenu.Rows[filaSeleccionada].Cells[0].Value);
+            return idMenuSelecioando;
+        }
+
         // ---------------------------- METODOS DE FILTROS --------------------------
         private void inhabilitarFiltros()
         {
@@ -138,6 +146,21 @@ namespace SISVIANSA_ITI_2023.GUI
             }
 
             return valFiltro;
+        }
+
+        private void realizarBusqueda()
+        {
+            valFiltro = obtenerValFiltro();
+            valido = menu.verificarFiltroDeMenu(valFiltro);
+            if (valido)
+            {
+                listaMenus = menu.buscarMenuFiltrados(colFiltro, valFiltro);
+                cargarLista(listaMenus);
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó filtros de búsqueda correctos");
+            }
         }
 
         // ------------------------- METODOS DE WIDGETS ---------------------------------
@@ -180,24 +203,54 @@ namespace SISVIANSA_ITI_2023.GUI
             inhabilitarFiltros();
         }
 
+        private void btnAutorizar_Click(object sender, EventArgs e)
+        {
+            idMenuSelecioando = obtenerIdMenuSeleccionado();
+            bool res = menu.autorizar(idMenuSelecioando);
+            if (res)
+            {
+                MessageBox.Show("Se guardaron los valores cambiados.");
+                realizarBusqueda();
+            }
+            else
+            {
+                MessageBox.Show("No se han logrado cambiar los valores.");
+            }
+        }
+
         private void btnBaja_Click(object sender, EventArgs e)
         {
+            idMenuSelecioando = obtenerIdMenuSeleccionado();
+            bool res = menu.baja(idMenuSelecioando);
+            if (res)
+            {
+                MessageBox.Show("Se guardaron los valores cambiados.");
+                realizarBusqueda();
+            }
+            else
+            {
+                MessageBox.Show("No se han logrado cambiar los valores.");
+            }
+        }
 
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            idMenuSelecioando = obtenerIdMenuSeleccionado();
+            bool res = menu.alta(idMenuSelecioando);
+            if (res)
+            {
+                MessageBox.Show("Se guardaron los valores cambiados.");
+                realizarBusqueda();
+            }
+            else
+            {
+                MessageBox.Show("No se han logrado cambiar los valores.");
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            valFiltro = obtenerValFiltro();
-            valido = menu.verificarFiltroDeMenu(valFiltro);
-            if (valido)
-            {
-                listaMenus = menu.buscarMenuFiltrados(colFiltro, valFiltro);
-                cargarLista(listaMenus);
-            }
-            else
-            {
-                MessageBox.Show("No seleccionó filtros de búsqueda correctos");
-            }
+            realizarBusqueda();
         }
 
 
@@ -253,6 +306,7 @@ namespace SISVIANSA_ITI_2023.GUI
             cargarListaDietas();
             colFiltro = "dieta";
         }
+
     }
 
 }

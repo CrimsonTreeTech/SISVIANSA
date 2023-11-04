@@ -53,6 +53,7 @@
             btnBaja = new Button();
             btnAutorizar = new Button();
             btnBuscar = new Button();
+            btnAlta = new Button();
             gbxFiltrar = new GroupBox();
             gbxFiltrar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMenu).BeginInit();
@@ -210,7 +211,7 @@
             dgvMenu.ReadOnly = true;
             dgvMenu.RowTemplate.Height = 25;
             dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMenu.Size = new Size(974, 359);
+            dgvMenu.Size = new Size(978, 359);
             dgvMenu.TabIndex = 0;
             // 
             // colMenu
@@ -265,7 +266,7 @@
             // 
             btnRegresar.Location = new Point(12, 494);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(190, 33);
+            btnRegresar.Size = new Size(158, 33);
             btnRegresar.TabIndex = 3;
             btnRegresar.Text = "Regresar";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -273,9 +274,9 @@
             // 
             // btnDetalles
             // 
-            btnDetalles.Location = new Point(208, 494);
+            btnDetalles.Location = new Point(668, 494);
             btnDetalles.Name = "btnDetalles";
-            btnDetalles.Size = new Size(190, 33);
+            btnDetalles.Size = new Size(158, 33);
             btnDetalles.TabIndex = 4;
             btnDetalles.Text = "Ver detalles";
             btnDetalles.UseVisualStyleBackColor = true;
@@ -283,9 +284,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(796, 494);
+            btnModificar.Location = new Point(832, 494);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(190, 33);
+            btnModificar.Size = new Size(158, 33);
             btnModificar.TabIndex = 5;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -293,9 +294,9 @@
             // 
             // btnBaja
             // 
-            btnBaja.Location = new Point(404, 494);
+            btnBaja.Location = new Point(176, 494);
             btnBaja.Name = "btnBaja";
-            btnBaja.Size = new Size(190, 33);
+            btnBaja.Size = new Size(158, 33);
             btnBaja.TabIndex = 6;
             btnBaja.Text = "Dar de Baja";
             btnBaja.UseVisualStyleBackColor = true;
@@ -303,28 +304,40 @@
             // 
             // btnAutorizar
             // 
-            btnAutorizar.Location = new Point(600, 494);
+            btnAutorizar.Location = new Point(504, 494);
             btnAutorizar.Name = "btnAutorizar";
-            btnAutorizar.Size = new Size(190, 33);
+            btnAutorizar.Size = new Size(158, 33);
             btnAutorizar.TabIndex = 7;
             btnAutorizar.Text = "Autorizar";
             btnAutorizar.UseVisualStyleBackColor = true;
+            btnAutorizar.Click += btnAutorizar_Click;
             // 
             // btnBuscar
             // 
             btnBuscar.Location = new Point(821, 41);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(165, 50);
+            btnBuscar.Size = new Size(169, 50);
             btnBuscar.TabIndex = 9;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
+            // 
+            // btnAlta
+            // 
+            btnAlta.Location = new Point(340, 494);
+            btnAlta.Name = "btnAlta";
+            btnAlta.Size = new Size(158, 33);
+            btnAlta.TabIndex = 10;
+            btnAlta.Text = "Dar de Alta";
+            btnAlta.UseVisualStyleBackColor = true;
+            btnAlta.Click += btnAlta_Click;
             // 
             // ListarMenus
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(999, 539);
+            Controls.Add(btnAlta);
             Controls.Add(btnBuscar);
             Controls.Add(btnAutorizar);
             Controls.Add(btnBaja);
@@ -371,5 +384,6 @@
         private DataGridViewTextBoxColumn colAutorizado;
         private DataGridViewTextBoxColumn colActivo;
         private DataGridViewTextBoxColumn colDietas;
+        private Button btnAlta;
     }
 }

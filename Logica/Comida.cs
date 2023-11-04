@@ -172,6 +172,23 @@ namespace SISVIANSA_ITI_2023.Logica
         }
 
 
+        public bool alta(int idComida)
+        {
+            return comidaBD.altaBajaComida(idComida, true);
+        }
+
+        public bool baja(int idComida)
+        {
+            return comidaBD.altaBajaComida(idComida, false);
+        }
+
+        public bool autorizar(int idComida)
+        {
+            return comidaBD.autorizarComida(idComida, true);
+        }
+
+
+
         // ------------ DIETAS DE LA COMIDA ----------------
         public void cargarDietasAObjetoComida()
         {
@@ -198,6 +215,8 @@ namespace SISVIANSA_ITI_2023.Logica
         }
 
         
+
+
 
         public void agregarDieta(string dieta)
         {

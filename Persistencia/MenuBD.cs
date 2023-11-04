@@ -639,5 +639,78 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return menu;
         }
 
+
+
+        // --------- ALTA - BAJA - AUTORIZACION -----------------
+        public bool altaBajaMenu(int idMenu, bool alta)
+        {
+            filasAfectadas = 0;
+
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE menu SET activo = @alta WHERE id_menu = @idMenu;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@alta", alta);
+                            cmd.Parameters.AddWithValue("@idMenu", idMenu);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error MenuBD #altaBajaMenu: " + ex.Number.ToString() + ". " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
+        public bool autorizarMenu(int idMenu, bool alta)
+        {
+            filasAfectadas = 0;
+
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "UPDATE menu SET autorizado = @alta WHERE id_menu = @idMenu;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@alta", alta);
+                            cmd.Parameters.AddWithValue("@idMenu", idMenu);
+
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Error MenuBD #altaBajaMenu: " + ex.Number.ToString() + ". " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
+
+
     }
 }

@@ -15,6 +15,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class ListarCliente : Form
     {
         private byte rol;
+        private int filaSeleccionada, idClienteSelecioando;
         private string colFiltro, valFiltro;
         private List<Cliente> listaClientes;
         private Cliente cliente;
@@ -84,6 +85,20 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+        private int obtenreIdClienteSeleccionado()
+        {
+            filaSeleccionada = dgvClientes.CurrentCell.RowIndex;
+            idClienteSelecioando = Convert.ToInt32(dgvClientes.Rows[filaSeleccionada].Cells[0].Value);
+            return idClienteSelecioando;
+        }
+
+        private void realizarBusqueda()
+        {
+            valFiltro = obtenerValFiltro();
+            listaClientes = cliente.realizarBusquedaFiltrada(colFiltro, valFiltro);
+            cargarGrilla(listaClientes);
+        }
+
 
         // ------------------------ METODOS DE WIDGETS -----------------------------
         private void VisualizarCliente_Load(object sender, EventArgs e)
@@ -105,10 +120,30 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            valFiltro = obtenerValFiltro();
-            listaClientes = cliente.realizarBusquedaFiltrada(colFiltro, valFiltro);
-            cargarGrilla(listaClientes);
+            realizarBusqueda();
         }
+
+        private void btnDarBaja_Click(object sender, EventArgs e)
+        {
+            idClienteSelecioando = obtenreIdClienteSeleccionado();
+            cliente.bajaCliente(idClienteSelecioando);
+            realizarBusqueda();
+        }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            idClienteSelecioando = obtenreIdClienteSeleccionado();
+            cliente.altaCliente(idClienteSelecioando);
+            realizarBusqueda();
+        }
+
+        private void btnAutorizar_Click(object sender, EventArgs e)
+        {
+            idClienteSelecioando = obtenreIdClienteSeleccionado();
+            cliente.autorizarCliente(idClienteSelecioando);
+            realizarBusqueda();
+        }
+
 
 
 
@@ -175,7 +210,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private void rbtnActivosYAutorizados_Click(object sender, EventArgs e)
         {
             reiniciarFiltros();
-            colFiltro = "actvo y autorizado";
+            colFiltro = "activo y autorizado";
         }
 
 
@@ -200,6 +235,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 Close();
             }
         }
+
 
         
     }

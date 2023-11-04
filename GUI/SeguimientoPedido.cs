@@ -29,7 +29,6 @@ namespace SISVIANSA_ITI_2023.GUI
         }
 
         // ----------------- METODOS AUXILIARES -----------------
-
         private void cargarDatos()
         {
             txtNroPedido.Text = pedido.NroPedido.ToString();

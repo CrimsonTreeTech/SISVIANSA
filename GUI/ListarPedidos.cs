@@ -57,8 +57,16 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             filaSeleccionada = dgvPedidos.CurrentCell.RowIndex;
             idPedidoSeleccionado = Convert.ToInt32(dgvPedidos.SelectedCells[1].Value);
+            //MessageBox.Show(idPedidoSeleccionado.ToString());
             pedido = pedido.cargarDatosPedido(idPedidoSeleccionado);
 
+            /*
+            MessageBox.Show(
+                pedido.NroPedido.ToString() + "\n" +
+                pedido.IdCliente.ToString() + "\n" + pedido.Cliente + "\n" +
+                pedido.IdMenu.ToString() + "\n" + pedido.Cantidad.ToString() + "\n" + pedido.PrecioTotal.ToString()
+                );
+            */
             return pedido;
         }
 

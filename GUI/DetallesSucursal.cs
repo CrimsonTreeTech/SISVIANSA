@@ -13,14 +13,14 @@ namespace SISVIANSA_ITI_2023.GUI
 {
     public partial class DetallesSucursal : Form
     {
-        byte rol;
-        Sucursal sucursal;
+        private byte rol;
+        private Sucursal sucursal;
         
         public DetallesSucursal(byte rol, Sucursal sucursal)
         {
+            InitializeComponent();
             this.rol = rol;
             this.sucursal = sucursal;
-            InitializeComponent();
         }
 
         private void regresarAlMenu()
@@ -44,7 +44,11 @@ namespace SISVIANSA_ITI_2023.GUI
             txtNombre.Text = sucursal.Id.ToString();
             txtCapProd.Text = sucursal.CapProd.ToString();
             rtxtMetas.Text = sucursal.Meta;
-            lstZonasCubiertas.Items.AddRange(sucursal.Zonas.ToArray());
+
+            foreach(Zona z in sucursal.Zonas)
+            {
+                lstZonasCubiertas.Items.Add(z.Id);
+            }
         }
 
         private void DetallesSucursal_Load(object sender, EventArgs e)
