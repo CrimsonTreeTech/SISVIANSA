@@ -13,9 +13,10 @@ namespace SISVIANSA_ITI_2023.GUI
 {
     public partial class GestionarClienteComun : Form
     {
-        byte rol, opcion;
-        delegate bool metodoDelegado();
-        Cliente cliente;
+        private byte rol, opcion;
+        private delegate bool metodoDelegado();
+        private Cliente cliente;
+        private List<int?> tels;
 
         // -------------------------- METODOS AL INICIAR -----------------------------
         public GestionarClienteComun(byte rol)
@@ -133,7 +134,36 @@ namespace SISVIANSA_ITI_2023.GUI
             cliente.Activo = chkActivo.Checked;
             cliente.Autorizado = chkAutorizado.Checked;
             cliente.Mails = new List<string> { txtMail1.Text, txtMail2.Text, txtMail3.Text };
-            cliente.Tels = new List<int> { Int32.Parse(txtTel1.Text), Int32.Parse(txtTel2.Text), Int32.Parse(txtTel3.Text) };
+            cliente.Tels = asignarTelefonosACliente();
+        }
+
+        private List<int?> asignarTelefonosACliente()
+        {
+            tels = new List<int?>();
+
+            if (!String.IsNullOrEmpty(txtTel1.Text))
+            {
+                tels.Add(Convert.ToInt32(txtTel1.Text));
+            }
+
+            if (!String.IsNullOrEmpty(txtTel2.Text))
+            {
+                tels.Add(Convert.ToInt32(txtTel2.Text));
+            }
+            else
+            {
+                tels.Add(null);
+            }
+
+            if (!String.IsNullOrEmpty(txtTel3.Text))
+            {
+                tels.Add(Convert.ToInt32(txtTel3.Text));
+            }
+            else
+            {
+                tels.Add(null);
+            }
+            return tels;
         }
 
         private void guardarCambios(metodoDelegado metodo)

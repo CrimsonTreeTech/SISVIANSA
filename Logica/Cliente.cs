@@ -17,7 +17,7 @@ namespace SISVIANSA_ITI_2023.Logica
         private bool activo, autorizado;
         private long doc;
         private List<string> mails;
-        private List<int> tels;
+        private List<int?> tels;
         private List<Cliente> listaClientes;
         private ClientesBD clientesBD;
         private Cliente cliente;
@@ -127,7 +127,7 @@ namespace SISVIANSA_ITI_2023.Logica
             set { mails = value; }
         }
 
-        public List<int> Tels
+        public List<int?> Tels
         {
             get { return tels; }
             set { tels = value; }

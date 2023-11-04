@@ -124,7 +124,7 @@ namespace SISVIANSA_ITI_2023.GUI
             cliente.Activo = chkActivo.Checked;
             cliente.Autorizado = chkAutorizado.Checked;
             cliente.Mails = new List<string> { txtMail1.Text, txtMail2.Text, txtMail3.Text };
-            cliente.Tels = new List<int> { Int32.Parse(txtTel1.Text), Int32.Parse(txtTel2.Text), Int32.Parse(txtTel3.Text) };
+            //cliente.Tels = new List<int?> { Int32.Parse(txtTel1.Text), Int32.Parse(txtTel2.Text), Int32.Parse(txtTel3.Text) };
         }
 
         private void guardarCambios(metodoDelegado metodo)

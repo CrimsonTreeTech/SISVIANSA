@@ -12,10 +12,11 @@ namespace SISVIANSA_ITI_2023.Persistencia
     {
         private byte rol;
         private string consulta, mail;
-        private int filasAfectadas, tel;
+        private int filasAfectadas;
+        private int? tel;
         private Cliente cliente;
         private List<Cliente> listaClientes;
-        private List<int> listaTelefonos;
+        private List<int?> listaTelefonos;
         private List<string> listaMails;
         private Singleton bd;
 
@@ -503,9 +504,9 @@ namespace SISVIANSA_ITI_2023.Persistencia
 
 
         // ---------------------- OTRAS CONSULTAS -----------------------
-        public List<int> buscarTelefonosDeCliente(int idCliente)
+        public List<int?> buscarTelefonosDeCliente(int idCliente)
         {
-            listaTelefonos = new List<int>();
+            listaTelefonos = new List<int?>();
             try
             {
                 using (bd = Singleton.RecuperarInstancia())
@@ -522,7 +523,15 @@ namespace SISVIANSA_ITI_2023.Persistencia
                             {
                                 while (reader.Read())
                                 {
-                                    tel = reader.GetInt32("tel");
+                                    if (!reader.IsDBNull(reader.GetOrdinal("tel")))
+                                    {
+                                        tel = reader.GetInt32("tel");
+                                    }
+                                    else
+                                    {
+                                        tel = null;
+                                    }
+                                    
                                 }
                                 listaTelefonos.Add(tel);
                             }

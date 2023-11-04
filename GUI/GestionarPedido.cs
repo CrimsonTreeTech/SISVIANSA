@@ -44,12 +44,13 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             InitializeComponent();
             this.rol = rol;
-            cliente = new Cliente(rol);
             this.pedido = pedido;
+            cliente = new Cliente(rol);
             menu = new Menu(rol);
             dieta = new Dieta(rol);
             zona = new Zona(rol);
-            modificarDatosPedido_Pedido();
+            realizarBusquedaMenuClienteDePedido();
+            cargarInformacionPedido();
         }
 
 
@@ -291,6 +292,67 @@ namespace SISVIANSA_ITI_2023.GUI
         }
 
 
+        // Iniciar para modificar
+        private void realizarBusquedaMenuClienteDePedido()
+        {
+            rbtnTodoCliente.Checked = false;
+            colFiltroCliente = "id";
+            valFiltroCliente = pedido.IdCliente.ToString();
+            realizarBusquedaCliente();
+            dgvCliente.Rows[0].Selected = true;
+
+            rbtnTodoMenu.Checked = false;
+            colFiltroMenu = "id";
+            valFiltroCliente = pedido.IdCliente.ToString();
+            realizarBusquedaMenu();
+            dgvMenu.Rows[0].Selected = true;
+        }
+
+        private void cargarInformacionPedido()
+        {
+            
+
+            txtNroPedidoDatos.Text = pedido.NroPedido.ToString();
+            
+            /*
+            txtNroClienteDatos.Text = pedido.IdCliente.ToString();
+
+            txtDocCliente.Text = pedido.Cliente;
+            pedido.
+            txtNombreCliente.Text = pedido.Cliente;
+
+            pedido.IdCliente = cliente.Id;
+            pedido.Cliente = txtNombreClienteDatos.Text;
+            pedido.IdMenu = Convert.ToInt32(txtMenuDatos.Text);
+            pedido.Cantidad = Convert.ToInt32(nudCantidadMenu.Text);
+            pedido.Estado = txtEstado.Text;
+            pedido.FechaRealizado = txtUltimaAct.Text;
+            pedido.Zona = Convert.ToInt32(cboZona.Text);
+            pedido.Calle = cliente.Calle;
+            pedido.Esq = cliente.Esq;
+            pedido.NroPuerta = cliente.NroPuerta;
+            pedido.PrecioTotal = Convert.ToDouble(txtTotalPrecioMenu.Text);
+            */
+
+            // Filtrar la busqueda por id cliente e id menu
+        }
+
+
+        // Realizar busqueda
+        private void realizarBusquedaCliente()
+        {
+            valFiltroCliente = obtenerValFiltroCliente();
+            listaClientes = cliente.realizarBusquedaFiltrada(colFiltroCliente, valFiltroCliente);
+            cargarListaClientes(listaClientes);
+        }
+
+        private void realizarBusquedaMenu()
+        {
+            valFiltroMenu = obtenerValFiltroMenu();
+            listaMenus = menu.buscarMenuFiltrados(colFiltroMenu, valFiltroMenu);
+            cargarListaMenus(listaMenus);
+        }
+
 
         // ---------------- METODOS DE WIDGETS ---------------------
         private void GestionarPedido_Load(object sender, EventArgs e)
@@ -331,16 +393,12 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            valFiltroCliente = obtenerValFiltroCliente();
-            listaClientes = cliente.realizarBusquedaFiltrada(colFiltroCliente, valFiltroCliente);
-            cargarListaClientes(listaClientes);
+            realizarBusquedaCliente();
         }
 
         private void btnBuscarMenu_Click(object sender, EventArgs e)
         {
-            valFiltroMenu = obtenerValFiltroMenu();
-            listaMenus = menu.buscarMenuFiltrados(colFiltroMenu, valFiltroMenu);
-            cargarListaMenus(listaMenus);
+            realizarBusquedaMenu();
         }
 
         

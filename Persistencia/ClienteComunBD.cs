@@ -24,6 +24,10 @@ namespace SISVIANSA_ITI_2023.Persistencia
             this.rol = rol;
         }
 
+
+        // ----------------- ABM ----------------------
+       
+
         // ----------------- CONSULTAS --------------------
         public Cliente obtenerDatos(int idCliente)
         {
