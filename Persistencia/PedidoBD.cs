@@ -161,7 +161,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN clientes c ON p.id_cliente = c.id_cliente ";
                         consulta += "JOIN pasa pa ON pa.nro_pedido = p.nro_pedido ";
                         consulta += "JOIN estado e ON pa.id_estado = e.id_estado ";
-                        consulta += "WHERE p.nro_pedido = 5 AND pa.fecha_act IS NULL; ";
+                        consulta += "WHERE p.nro_pedido = @id AND pa.fecha_act IS NULL; ";
 
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -245,7 +245,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error PedidoBD: " + ex.Message);
+                MessageBox.Show("Error PedidoBD #listarTodosLosPedidos: " + ex.Message);
             }
             finally
             {
@@ -302,7 +302,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error PedidoBD: " + ex.Message);
+                MessageBox.Show("Error PedidoBD #filtrarPorNro: " + ex.Message);
             }
             finally
             {
@@ -359,7 +359,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error PedidoBD: " + ex.Message);
+                MessageBox.Show("Error PedidoBD #filtrarPorCliente: " + ex.Message);
             }
             finally
             {
@@ -416,7 +416,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error PedidoBD: " + ex.Message);
+                MessageBox.Show("Error PedidoBD #filtrarPorEstado: " + ex.Message);
             }
             finally
             {
@@ -473,7 +473,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error PedidoBD: " + ex.Message);
+                MessageBox.Show("Error PedidoBD #filtrarPorZona: " + ex.Message);
             }
             finally
             {

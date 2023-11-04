@@ -790,3 +790,5 @@ C:\Users\daniel.nalotto\Desktop\SISVIANSA\bin\Debug\net6.0-windows\SISVIANSA_ITI
 C:\Users\daniel.nalotto\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.genruntimeconfig.cache
 C:\Users\daniel.nalotto\Desktop\SISVIANSA\obj\Debug\net6.0-windows\ref\SISVIANSA_ITI_2023.dll
 C:\Users\daniel.nalotto\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeguimientoPedido.resources
+C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.HistoricoPedidos.resources
+C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeguimientoPedido.resources

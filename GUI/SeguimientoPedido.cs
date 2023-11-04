@@ -38,8 +38,6 @@ namespace SISVIANSA_ITI_2023.GUI
             txtMenu.Text = pedido.IdMenu.ToString();
             txtCantidad.Text = pedido.Cantidad.ToString();
             txtPrecio.Text = pedido.PrecioTotal.ToString();
-
-            MessageBox.Show(pedido.Estado);
         }
 
         // ------------------ METODOS WIDGETS -----------------------
