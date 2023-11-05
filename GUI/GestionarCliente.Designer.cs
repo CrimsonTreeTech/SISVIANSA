@@ -1,6 +1,6 @@
 ﻿namespace SISVIANSA_ITI_2023.GUI
 {
-    partial class GestionarClienteComun
+    partial class GestionarCliente
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -51,6 +51,12 @@
             btnCancelar = new Button();
             btnAceptar = new Button();
             chkActivo = new CheckBox();
+            lblTipoCliente = new Label();
+            cboTipoCliente = new ComboBox();
+            gbxDatos = new GroupBox();
+            gbxContacto = new GroupBox();
+            gbxDatos.SuspendLayout();
+            gbxContacto.SuspendLayout();
             SuspendLayout();
             // 
             // cboTipoDoc
@@ -59,17 +65,16 @@
             cboTipoDoc.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTipoDoc.FormattingEnabled = true;
             cboTipoDoc.ImeMode = ImeMode.NoControl;
-            cboTipoDoc.Items.AddRange(new object[] { "CI", "DNI" });
-            cboTipoDoc.Location = new Point(160, 24);
+            cboTipoDoc.Location = new Point(144, 24);
             cboTipoDoc.Margin = new Padding(4, 3, 4, 3);
             cboTipoDoc.Name = "cboTipoDoc";
-            cboTipoDoc.Size = new Size(139, 23);
+            cboTipoDoc.Size = new Size(89, 23);
             cboTipoDoc.TabIndex = 1;
             // 
             // chkAutorizado
             // 
             chkAutorizado.AutoSize = true;
-            chkAutorizado.Location = new Point(240, 351);
+            chkAutorizado.Location = new Point(265, 29);
             chkAutorizado.Margin = new Padding(4, 3, 4, 3);
             chkAutorizado.Name = "chkAutorizado";
             chkAutorizado.Size = new Size(84, 19);
@@ -80,7 +85,7 @@
             // lblCalle
             // 
             lblCalle.AutoSize = true;
-            lblCalle.Location = new Point(27, 225);
+            lblCalle.Location = new Point(17, 210);
             lblCalle.Margin = new Padding(4, 0, 4, 0);
             lblCalle.Name = "lblCalle";
             lblCalle.Size = new Size(41, 15);
@@ -90,7 +95,7 @@
             // lblNumDoc
             // 
             lblNumDoc.AutoSize = true;
-            lblNumDoc.Location = new Point(321, 31);
+            lblNumDoc.Location = new Point(259, 28);
             lblNumDoc.Margin = new Padding(4, 0, 4, 0);
             lblNumDoc.Name = "lblNumDoc";
             lblNumDoc.Size = new Size(104, 15);
@@ -100,7 +105,7 @@
             // lblTipoDoc
             // 
             lblTipoDoc.AutoSize = true;
-            lblTipoDoc.Location = new Point(26, 28);
+            lblTipoDoc.Location = new Point(17, 28);
             lblTipoDoc.Margin = new Padding(4, 0, 4, 0);
             lblTipoDoc.Name = "lblTipoDoc";
             lblTipoDoc.Size = new Size(119, 15);
@@ -110,7 +115,7 @@
             // lblPrimerNombre
             // 
             lblPrimerNombre.AutoSize = true;
-            lblPrimerNombre.Location = new Point(27, 91);
+            lblPrimerNombre.Location = new Point(17, 79);
             lblPrimerNombre.Margin = new Padding(4, 0, 4, 0);
             lblPrimerNombre.Name = "lblPrimerNombre";
             lblPrimerNombre.Size = new Size(95, 15);
@@ -120,7 +125,7 @@
             // lblSegundoNombre
             // 
             lblSegundoNombre.AutoSize = true;
-            lblSegundoNombre.Location = new Point(27, 121);
+            lblSegundoNombre.Location = new Point(266, 79);
             lblSegundoNombre.Margin = new Padding(4, 0, 4, 0);
             lblSegundoNombre.Name = "lblSegundoNombre";
             lblSegundoNombre.Size = new Size(99, 15);
@@ -130,7 +135,7 @@
             // lblPrimerApellido
             // 
             lblPrimerApellido.AutoSize = true;
-            lblPrimerApellido.Location = new Point(27, 151);
+            lblPrimerApellido.Location = new Point(17, 129);
             lblPrimerApellido.Margin = new Padding(4, 0, 4, 0);
             lblPrimerApellido.Name = "lblPrimerApellido";
             lblPrimerApellido.Size = new Size(95, 15);
@@ -140,7 +145,7 @@
             // lblSegundoApellido
             // 
             lblSegundoApellido.AutoSize = true;
-            lblSegundoApellido.Location = new Point(27, 181);
+            lblSegundoApellido.Location = new Point(266, 129);
             lblSegundoApellido.Margin = new Padding(4, 0, 4, 0);
             lblSegundoApellido.Name = "lblSegundoApellido";
             lblSegundoApellido.Size = new Size(99, 15);
@@ -150,7 +155,7 @@
             // lblTel1
             // 
             lblTel1.AutoSize = true;
-            lblTel1.Location = new Point(379, 94);
+            lblTel1.Location = new Point(17, 38);
             lblTel1.Margin = new Padding(4, 0, 4, 0);
             lblTel1.Name = "lblTel1";
             lblTel1.Size = new Size(69, 15);
@@ -160,7 +165,7 @@
             // lblTel2
             // 
             lblTel2.AutoSize = true;
-            lblTel2.Location = new Point(379, 124);
+            lblTel2.Location = new Point(17, 68);
             lblTel2.Margin = new Padding(4, 0, 4, 0);
             lblTel2.Name = "lblTel2";
             lblTel2.Size = new Size(61, 15);
@@ -170,7 +175,7 @@
             // lblTel3
             // 
             lblTel3.AutoSize = true;
-            lblTel3.Location = new Point(379, 154);
+            lblTel3.Location = new Point(17, 98);
             lblTel3.Margin = new Padding(4, 0, 4, 0);
             lblTel3.Name = "lblTel3";
             lblTel3.Size = new Size(61, 15);
@@ -180,7 +185,7 @@
             // lblMail1
             // 
             lblMail1.AutoSize = true;
-            lblMail1.Location = new Point(379, 220);
+            lblMail1.Location = new Point(239, 37);
             lblMail1.Margin = new Padding(4, 0, 4, 0);
             lblMail1.Name = "lblMail1";
             lblMail1.Size = new Size(58, 15);
@@ -190,7 +195,7 @@
             // lblMail2
             // 
             lblMail2.AutoSize = true;
-            lblMail2.Location = new Point(379, 250);
+            lblMail2.Location = new Point(239, 67);
             lblMail2.Margin = new Padding(4, 0, 4, 0);
             lblMail2.Name = "lblMail2";
             lblMail2.Size = new Size(50, 15);
@@ -200,7 +205,7 @@
             // lblMail3
             // 
             lblMail3.AutoSize = true;
-            lblMail3.Location = new Point(379, 280);
+            lblMail3.Location = new Point(239, 97);
             lblMail3.Margin = new Padding(4, 0, 4, 0);
             lblMail3.Name = "lblMail3";
             lblMail3.Size = new Size(50, 15);
@@ -210,7 +215,7 @@
             // lblEsquina
             // 
             lblEsquina.AutoSize = true;
-            lblEsquina.Location = new Point(27, 255);
+            lblEsquina.Location = new Point(17, 239);
             lblEsquina.Margin = new Padding(4, 0, 4, 0);
             lblEsquina.Name = "lblEsquina";
             lblEsquina.Size = new Size(36, 15);
@@ -220,80 +225,80 @@
             // lblNumeroPuerta
             // 
             lblNumeroPuerta.AutoSize = true;
-            lblNumeroPuerta.Location = new Point(27, 286);
+            lblNumeroPuerta.Location = new Point(356, 211);
             lblNumeroPuerta.Margin = new Padding(4, 0, 4, 0);
             lblNumeroPuerta.Name = "lblNumeroPuerta";
-            lblNumeroPuerta.Size = new Size(112, 15);
+            lblNumeroPuerta.Size = new Size(58, 15);
             lblNumeroPuerta.TabIndex = 29;
-            lblNumeroPuerta.Text = "Numero de puerta *";
+            lblNumeroPuerta.Text = "Nº puerta";
             // 
             // txtNumDoc
             // 
-            txtNumDoc.Location = new Point(439, 28);
+            txtNumDoc.Location = new Point(371, 24);
             txtNumDoc.Margin = new Padding(4, 3, 4, 3);
             txtNumDoc.Name = "txtNumDoc";
-            txtNumDoc.Size = new Size(194, 23);
+            txtNumDoc.Size = new Size(111, 23);
             txtNumDoc.TabIndex = 3;
             // 
             // txtPrimerNombre
             // 
-            txtPrimerNombre.Location = new Point(138, 88);
+            txtPrimerNombre.Location = new Point(17, 97);
             txtPrimerNombre.Margin = new Padding(4, 3, 4, 3);
             txtPrimerNombre.Name = "txtPrimerNombre";
-            txtPrimerNombre.Size = new Size(206, 23);
+            txtPrimerNombre.Size = new Size(216, 23);
             txtPrimerNombre.TabIndex = 5;
             // 
             // txtSegundoNombre
             // 
-            txtSegundoNombre.Location = new Point(138, 118);
+            txtSegundoNombre.Location = new Point(266, 97);
             txtSegundoNombre.Margin = new Padding(4, 3, 4, 3);
             txtSegundoNombre.Name = "txtSegundoNombre";
-            txtSegundoNombre.Size = new Size(206, 23);
+            txtSegundoNombre.Size = new Size(216, 23);
             txtSegundoNombre.TabIndex = 7;
             // 
             // txtPrimerApellido
             // 
-            txtPrimerApellido.Location = new Point(138, 148);
+            txtPrimerApellido.Location = new Point(17, 147);
             txtPrimerApellido.Margin = new Padding(4, 3, 4, 3);
             txtPrimerApellido.Name = "txtPrimerApellido";
-            txtPrimerApellido.Size = new Size(206, 23);
+            txtPrimerApellido.Size = new Size(216, 23);
             txtPrimerApellido.TabIndex = 9;
             // 
             // txtSegundoApellido
             // 
-            txtSegundoApellido.Location = new Point(138, 178);
+            txtSegundoApellido.Location = new Point(266, 147);
             txtSegundoApellido.Margin = new Padding(4, 3, 4, 3);
             txtSegundoApellido.Name = "txtSegundoApellido";
-            txtSegundoApellido.Size = new Size(206, 23);
+            txtSegundoApellido.Size = new Size(216, 23);
             txtSegundoApellido.TabIndex = 11;
             // 
             // txtTel1
             // 
-            txtTel1.Location = new Point(456, 91);
+            txtTel1.Location = new Point(94, 34);
             txtTel1.Margin = new Padding(4, 3, 4, 3);
             txtTel1.Name = "txtTel1";
-            txtTel1.Size = new Size(177, 23);
+            txtTel1.Size = new Size(119, 23);
             txtTel1.TabIndex = 13;
             // 
             // txtTel2
             // 
-            txtTel2.Location = new Point(456, 121);
+            txtTel2.Location = new Point(94, 64);
             txtTel2.Margin = new Padding(4, 3, 4, 3);
             txtTel2.Name = "txtTel2";
-            txtTel2.Size = new Size(177, 23);
+            txtTel2.Size = new Size(119, 23);
             txtTel2.TabIndex = 15;
             // 
             // txtTel3
             // 
-            txtTel3.Location = new Point(456, 151);
+            txtTel3.Location = new Point(94, 94);
             txtTel3.Margin = new Padding(4, 3, 4, 3);
             txtTel3.Name = "txtTel3";
-            txtTel3.Size = new Size(177, 23);
+            txtTel3.Size = new Size(119, 23);
             txtTel3.TabIndex = 17;
             // 
             // txtMail1
             // 
-            txtMail1.Location = new Point(456, 218);
+            txtMail1.Location = new Point(305, 34);
             txtMail1.Margin = new Padding(4, 3, 4, 3);
             txtMail1.Name = "txtMail1";
             txtMail1.Size = new Size(177, 23);
@@ -301,7 +306,7 @@
             // 
             // txtMail2
             // 
-            txtMail2.Location = new Point(456, 248);
+            txtMail2.Location = new Point(305, 65);
             txtMail2.Margin = new Padding(4, 3, 4, 3);
             txtMail2.Name = "txtMail2";
             txtMail2.Size = new Size(177, 23);
@@ -309,7 +314,7 @@
             // 
             // txtMail3
             // 
-            txtMail3.Location = new Point(456, 278);
+            txtMail3.Location = new Point(305, 95);
             txtMail3.Margin = new Padding(4, 3, 4, 3);
             txtMail3.Name = "txtMail3";
             txtMail3.Size = new Size(177, 23);
@@ -317,34 +322,34 @@
             // 
             // txtCalle
             // 
-            txtCalle.Location = new Point(69, 221);
+            txtCalle.Location = new Point(59, 206);
             txtCalle.Margin = new Padding(4, 3, 4, 3);
             txtCalle.Name = "txtCalle";
-            txtCalle.Size = new Size(275, 23);
+            txtCalle.Size = new Size(284, 23);
             txtCalle.TabIndex = 26;
             // 
             // txtEsquina
             // 
-            txtEsquina.Location = new Point(69, 251);
+            txtEsquina.Location = new Point(59, 235);
             txtEsquina.Margin = new Padding(4, 3, 4, 3);
             txtEsquina.Name = "txtEsquina";
-            txtEsquina.Size = new Size(275, 23);
+            txtEsquina.Size = new Size(423, 23);
             txtEsquina.TabIndex = 28;
             // 
             // txtNumeroPuerta
             // 
-            txtNumeroPuerta.Location = new Point(160, 281);
+            txtNumeroPuerta.Location = new Point(422, 206);
             txtNumeroPuerta.Margin = new Padding(4, 3, 4, 3);
             txtNumeroPuerta.Name = "txtNumeroPuerta";
-            txtNumeroPuerta.Size = new Size(184, 23);
+            txtNumeroPuerta.Size = new Size(60, 23);
             txtNumeroPuerta.TabIndex = 30;
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(29, 351);
+            btnCancelar.Location = new Point(22, 526);
             btnCancelar.Margin = new Padding(4, 3, 4, 3);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(88, 27);
+            btnCancelar.Size = new Size(166, 33);
             btnCancelar.TabIndex = 33;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -352,10 +357,10 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(545, 351);
+            btnAceptar.Location = new Point(354, 526);
             btnAceptar.Margin = new Padding(4, 3, 4, 3);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(88, 27);
+            btnAceptar.Size = new Size(166, 33);
             btnAceptar.TabIndex = 34;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -364,7 +369,7 @@
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(395, 351);
+            chkActivo.Location = new Point(416, 29);
             chkActivo.Margin = new Padding(4, 3, 4, 3);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(60, 19);
@@ -372,49 +377,98 @@
             chkActivo.Text = "Activo";
             chkActivo.UseVisualStyleBackColor = true;
             // 
-            // IngresarClienteComun
+            // lblTipoCliente
+            // 
+            lblTipoCliente.AutoSize = true;
+            lblTipoCliente.Location = new Point(22, 30);
+            lblTipoCliente.Name = "lblTipoCliente";
+            lblTipoCliente.Size = new Size(68, 15);
+            lblTipoCliente.TabIndex = 36;
+            lblTipoCliente.Text = "Tipo cliente";
+            // 
+            // cboTipoCliente
+            // 
+            cboTipoCliente.AccessibleRole = AccessibleRole.Document;
+            cboTipoCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboTipoCliente.FormattingEnabled = true;
+            cboTipoCliente.ImeMode = ImeMode.NoControl;
+            cboTipoCliente.Items.AddRange(new object[] { "Empresa", "Particular" });
+            cboTipoCliente.Location = new Point(97, 27);
+            cboTipoCliente.Margin = new Padding(4, 3, 4, 3);
+            cboTipoCliente.Name = "cboTipoCliente";
+            cboTipoCliente.Size = new Size(108, 23);
+            cboTipoCliente.TabIndex = 37;
+            cboTipoCliente.SelectedIndexChanged += cboTipoCliente_SelectedIndexChanged;
+            // 
+            // gbxDatos
+            // 
+            gbxDatos.Controls.Add(lblSegundoNombre);
+            gbxDatos.Controls.Add(lblTipoDoc);
+            gbxDatos.Controls.Add(cboTipoDoc);
+            gbxDatos.Controls.Add(lblNumDoc);
+            gbxDatos.Controls.Add(txtNumDoc);
+            gbxDatos.Controls.Add(lblPrimerNombre);
+            gbxDatos.Controls.Add(txtPrimerNombre);
+            gbxDatos.Controls.Add(txtNumeroPuerta);
+            gbxDatos.Controls.Add(lblNumeroPuerta);
+            gbxDatos.Controls.Add(txtSegundoNombre);
+            gbxDatos.Controls.Add(txtEsquina);
+            gbxDatos.Controls.Add(lblPrimerApellido);
+            gbxDatos.Controls.Add(lblEsquina);
+            gbxDatos.Controls.Add(txtPrimerApellido);
+            gbxDatos.Controls.Add(txtCalle);
+            gbxDatos.Controls.Add(lblSegundoApellido);
+            gbxDatos.Controls.Add(lblCalle);
+            gbxDatos.Controls.Add(txtSegundoApellido);
+            gbxDatos.Location = new Point(22, 69);
+            gbxDatos.Name = "gbxDatos";
+            gbxDatos.Size = new Size(498, 280);
+            gbxDatos.TabIndex = 38;
+            gbxDatos.TabStop = false;
+            gbxDatos.Text = "Datos";
+            // 
+            // gbxContacto
+            // 
+            gbxContacto.Controls.Add(txtMail1);
+            gbxContacto.Controls.Add(lblTel1);
+            gbxContacto.Controls.Add(txtTel1);
+            gbxContacto.Controls.Add(lblTel2);
+            gbxContacto.Controls.Add(txtTel2);
+            gbxContacto.Controls.Add(lblTel3);
+            gbxContacto.Controls.Add(txtTel3);
+            gbxContacto.Controls.Add(lblMail1);
+            gbxContacto.Controls.Add(lblMail2);
+            gbxContacto.Controls.Add(txtMail2);
+            gbxContacto.Controls.Add(lblMail3);
+            gbxContacto.Controls.Add(txtMail3);
+            gbxContacto.Location = new Point(22, 369);
+            gbxContacto.Name = "gbxContacto";
+            gbxContacto.Size = new Size(498, 140);
+            gbxContacto.TabIndex = 39;
+            gbxContacto.TabStop = false;
+            gbxContacto.Text = "Contacto";
+            // 
+            // GestionarClienteComun
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
-            ClientSize = new Size(667, 391);
+            ClientSize = new Size(555, 581);
+            Controls.Add(gbxContacto);
+            Controls.Add(gbxDatos);
+            Controls.Add(cboTipoCliente);
+            Controls.Add(lblTipoCliente);
             Controls.Add(chkActivo);
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
-            Controls.Add(txtNumeroPuerta);
-            Controls.Add(lblNumeroPuerta);
-            Controls.Add(txtEsquina);
-            Controls.Add(lblEsquina);
-            Controls.Add(txtCalle);
-            Controls.Add(lblCalle);
             Controls.Add(chkAutorizado);
-            Controls.Add(txtMail3);
-            Controls.Add(lblMail3);
-            Controls.Add(txtMail2);
-            Controls.Add(lblMail2);
-            Controls.Add(txtMail1);
-            Controls.Add(lblMail1);
-            Controls.Add(txtTel3);
-            Controls.Add(lblTel3);
-            Controls.Add(txtTel2);
-            Controls.Add(lblTel2);
-            Controls.Add(txtTel1);
-            Controls.Add(lblTel1);
-            Controls.Add(txtSegundoApellido);
-            Controls.Add(lblSegundoApellido);
-            Controls.Add(txtPrimerApellido);
-            Controls.Add(lblPrimerApellido);
-            Controls.Add(txtSegundoNombre);
-            Controls.Add(lblSegundoNombre);
-            Controls.Add(txtPrimerNombre);
-            Controls.Add(lblPrimerNombre);
-            Controls.Add(txtNumDoc);
-            Controls.Add(lblNumDoc);
-            Controls.Add(cboTipoDoc);
-            Controls.Add(lblTipoDoc);
             Margin = new Padding(4, 3, 4, 3);
-            Name = "IngresarClienteComun";
-            Text = "Ingresar cliente comun";
+            Name = "GestionarClienteComun";
+            Text = "Ingresar cliente";
+            gbxDatos.ResumeLayout(false);
+            gbxDatos.PerformLayout();
+            gbxContacto.ResumeLayout(false);
+            gbxContacto.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -455,5 +509,9 @@
         private Button btnCancelar;
         private Button btnAceptar;
         private CheckBox chkActivo;
+        private Label lblTipoCliente;
+        private ComboBox cboTipoCliente;
+        private GroupBox gbxDatos;
+        private GroupBox gbxContacto;
     }
 }

@@ -19,10 +19,7 @@
     <Compile Update="GUI\AdministrarMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\GestionarClienteComun.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="GUI\GestionarClienteEmpresa.cs">
+    <Compile Update="GUI\GestionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\GestionarDieta.cs">

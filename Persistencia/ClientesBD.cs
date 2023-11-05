@@ -73,6 +73,103 @@ namespace SISVIANSA_ITI_2023.Persistencia
         }
 
 
+        // -------------- ABM CLIENTE COMUN ---------------------
+        public bool ingresarClienteComun(Cliente cliente)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "INSERT INTO cliente(calle, esq, nro_puerta, activo, autorizado) ";
+                        consulta += "VALUES (@calle, @esq, @nro_puerta, @activo, @autorizado); ";
+
+                        consulta += "SELECT LAST_INSERT_ID() INTO @nuevo_id; ";
+
+                        consulta += "INSERT INTO cliente_comun(id_cliente, doc, tipo_doc, p_nom, s_nom, p_ape, s_ape) ";
+                        consulta += "VALUES (@nuevo_id, @doc, @tipo_doc, @p_nom, @s_nom, @p_ape, @s_ape); ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@calle", cliente.Calle);
+                            cmd.Parameters.AddWithValue("@esq", cliente.Esq);
+                            cmd.Parameters.AddWithValue("@nro_puerta", cliente.NroPuerta);
+                            cmd.Parameters.AddWithValue("@activo", cliente.Activo);
+                            cmd.Parameters.AddWithValue("@autorizado", cliente.Autorizado);
+                            cmd.Parameters.AddWithValue("@doc", cliente.Doc);
+                            cmd.Parameters.AddWithValue("@tipo_doc", cliente.TipoDoc);
+                            cmd.Parameters.AddWithValue("@p_nom", cliente.PNom);
+                            cmd.Parameters.AddWithValue("@s_nom", cliente.SNom);
+                            cmd.Parameters.AddWithValue("@p_ape", cliente.PApe);
+                            cmd.Parameters.AddWithValue("@s_ape", cliente.SApe);
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #ingresarClienteComun\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas >0;
+        }
+
+
+        // -------------- ABM CLIENTE COMUN ---------------------
+        public bool ingresarClienteEmpresa(Cliente cliente)
+        {
+            filasAfectadas = 0;
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta = "INSERT INTO cliente(calle, esq, nro_puerta, activo, autorizado) ";
+                        consulta += "VALUES (@calle, @esq, @nro_puerta, @activo, @autorizado); ";
+
+                        consulta += "SELECT LAST_INSERT_ID() INTO @nuevo_id; ";
+
+                        consulta += "INSERT INTO cliente_empresa(id_cliente, rut, nombre) ";
+                        consulta += "VALUES (@nuevo_id, @rut, @nombre); ";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@calle", cliente.Calle);
+                            cmd.Parameters.AddWithValue("@esq", cliente.Esq);
+                            cmd.Parameters.AddWithValue("@nro_puerta", cliente.NroPuerta);
+                            cmd.Parameters.AddWithValue("@activo", cliente.Activo);
+                            cmd.Parameters.AddWithValue("@autorizado", cliente.Autorizado);
+                            cmd.Parameters.AddWithValue("@rut", cliente.Doc);
+                            cmd.Parameters.AddWithValue("@nombre", cliente.PNom);
+                            filasAfectadas = cmd.ExecuteNonQuery();
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #ingresarClienteComun\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return filasAfectadas > 0;
+        }
+
+
+
+
+
         // ------------------- CONSULTAS POR FILTROS --------------------------
         public List<Cliente> buscarTodosLosClientes()
         {
@@ -96,7 +193,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -149,7 +246,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -202,7 +299,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -256,7 +353,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -311,7 +408,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -365,7 +462,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -419,7 +516,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),
@@ -472,7 +569,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     cliente = new Cliente(rol)
                                     {
                                         Id = reader.GetInt32("id_cliente"),
-                                        Tipo = reader.GetString("tipo_cliente"),
+                                        TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
                                         Nombre = reader.GetString("nombre"),

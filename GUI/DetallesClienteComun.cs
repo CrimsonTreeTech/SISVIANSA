@@ -67,7 +67,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            GestionarClienteComun gestionarClienteComun = new GestionarClienteComun(rol);
+            GestionarCliente gestionarClienteComun = new GestionarCliente(rol);
             gestionarClienteComun.Show(Owner);
             Close();
         }

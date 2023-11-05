@@ -36,8 +36,8 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnIngresarClienteComun_Click(object sender, EventArgs e)
         {
-            GestionarClienteComun ingresarClienteComun = new GestionarClienteComun(rol);
-            ingresarClienteComun.Show(this);
+            GestionarCliente ingresarCliente = new GestionarCliente(rol);
+            ingresarCliente.Show(this);
             this.Hide();
         }
 

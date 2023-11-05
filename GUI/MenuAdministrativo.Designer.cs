@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnIngresarClienteEmpresa = new Button();
             btnListarClientes = new Button();
             btnIngresarClienteComun = new Button();
             btnListarPedidos = new Button();
@@ -36,20 +35,9 @@
             btnSalir = new Button();
             SuspendLayout();
             // 
-            // btnIngresarClienteEmpresa
-            // 
-            btnIngresarClienteEmpresa.Location = new Point(42, 85);
-            btnIngresarClienteEmpresa.Margin = new Padding(3, 2, 3, 2);
-            btnIngresarClienteEmpresa.Name = "btnIngresarClienteEmpresa";
-            btnIngresarClienteEmpresa.Size = new Size(155, 37);
-            btnIngresarClienteEmpresa.TabIndex = 12;
-            btnIngresarClienteEmpresa.Text = "Ingresar Cliente Empresa";
-            btnIngresarClienteEmpresa.UseVisualStyleBackColor = true;
-            btnIngresarClienteEmpresa.Click += btnIngresarClienteEmpresa_Click;
-            // 
             // btnListarClientes
             // 
-            btnListarClientes.Location = new Point(42, 145);
+            btnListarClientes.Location = new Point(204, 26);
             btnListarClientes.Margin = new Padding(3, 2, 3, 2);
             btnListarClientes.Name = "btnListarClientes";
             btnListarClientes.Size = new Size(155, 37);
@@ -60,18 +48,18 @@
             // 
             // btnIngresarClienteComun
             // 
-            btnIngresarClienteComun.Location = new Point(42, 25);
+            btnIngresarClienteComun.Location = new Point(31, 26);
             btnIngresarClienteComun.Margin = new Padding(3, 2, 3, 2);
             btnIngresarClienteComun.Name = "btnIngresarClienteComun";
             btnIngresarClienteComun.Size = new Size(155, 37);
             btnIngresarClienteComun.TabIndex = 8;
-            btnIngresarClienteComun.Text = "Ingresar Cliente Comun";
+            btnIngresarClienteComun.Text = "Ingresar Cliente";
             btnIngresarClienteComun.UseVisualStyleBackColor = true;
             btnIngresarClienteComun.Click += btnIngresarClienteComun_Click;
             // 
             // btnListarPedidos
             // 
-            btnListarPedidos.Location = new Point(235, 85);
+            btnListarPedidos.Location = new Point(204, 86);
             btnListarPedidos.Margin = new Padding(3, 2, 3, 2);
             btnListarPedidos.Name = "btnListarPedidos";
             btnListarPedidos.Size = new Size(155, 37);
@@ -82,7 +70,7 @@
             // 
             // btnIngresarPedido
             // 
-            btnIngresarPedido.Location = new Point(235, 25);
+            btnIngresarPedido.Location = new Point(31, 86);
             btnIngresarPedido.Margin = new Padding(3, 2, 3, 2);
             btnIngresarPedido.Name = "btnIngresarPedido";
             btnIngresarPedido.Size = new Size(155, 37);
@@ -93,10 +81,10 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(235, 145);
+            btnSalir.Location = new Point(31, 145);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(155, 37);
+            btnSalir.Size = new Size(328, 37);
             btnSalir.TabIndex = 23;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -106,11 +94,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(443, 214);
+            ClientSize = new Size(395, 214);
             Controls.Add(btnSalir);
             Controls.Add(btnListarPedidos);
             Controls.Add(btnIngresarPedido);
-            Controls.Add(btnIngresarClienteEmpresa);
             Controls.Add(btnListarClientes);
             Controls.Add(btnIngresarClienteComun);
             Name = "MenuAdministrativo";
@@ -119,7 +106,6 @@
         }
 
         #endregion
-        private Button btnIngresarClienteEmpresa;
         private Button btnListarClientes;
         private Button btnIngresarClienteComun;
         private Button btnListarPedidos;

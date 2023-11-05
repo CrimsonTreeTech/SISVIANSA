@@ -30,7 +30,6 @@
         {
             btnListarPedidos = new Button();
             btnListarMenu = new Button();
-            btnIngresarClienteEmpresa = new Button();
             btnListarClientes = new Button();
             btnIngresarClienteComun = new Button();
             btnSalir = new Button();
@@ -38,7 +37,7 @@
             // 
             // btnListarPedidos
             // 
-            btnListarPedidos.Location = new Point(31, 87);
+            btnListarPedidos.Location = new Point(45, 32);
             btnListarPedidos.Margin = new Padding(3, 2, 3, 2);
             btnListarPedidos.Name = "btnListarPedidos";
             btnListarPedidos.Size = new Size(155, 37);
@@ -49,7 +48,7 @@
             // 
             // btnListarMenu
             // 
-            btnListarMenu.Location = new Point(31, 142);
+            btnListarMenu.Location = new Point(45, 87);
             btnListarMenu.Margin = new Padding(3, 2, 3, 2);
             btnListarMenu.Name = "btnListarMenu";
             btnListarMenu.Size = new Size(155, 37);
@@ -58,20 +57,9 @@
             btnListarMenu.UseVisualStyleBackColor = true;
             btnListarMenu.Click += btnListarMenu_Click;
             // 
-            // btnIngresarClienteEmpresa
-            // 
-            btnIngresarClienteEmpresa.Location = new Point(222, 87);
-            btnIngresarClienteEmpresa.Margin = new Padding(3, 2, 3, 2);
-            btnIngresarClienteEmpresa.Name = "btnIngresarClienteEmpresa";
-            btnIngresarClienteEmpresa.Size = new Size(155, 37);
-            btnIngresarClienteEmpresa.TabIndex = 22;
-            btnIngresarClienteEmpresa.Text = "Ingresar Cliente Empresa";
-            btnIngresarClienteEmpresa.UseVisualStyleBackColor = true;
-            btnIngresarClienteEmpresa.Click += btnIngresarClienteEmpresa_Click;
-            // 
             // btnListarClientes
             // 
-            btnListarClientes.Location = new Point(31, 29);
+            btnListarClientes.Location = new Point(222, 32);
             btnListarClientes.Margin = new Padding(3, 2, 3, 2);
             btnListarClientes.Name = "btnListarClientes";
             btnListarClientes.Size = new Size(155, 37);
@@ -82,21 +70,21 @@
             // 
             // btnIngresarClienteComun
             // 
-            btnIngresarClienteComun.Location = new Point(222, 32);
+            btnIngresarClienteComun.Location = new Point(222, 87);
             btnIngresarClienteComun.Margin = new Padding(3, 2, 3, 2);
             btnIngresarClienteComun.Name = "btnIngresarClienteComun";
             btnIngresarClienteComun.Size = new Size(155, 37);
             btnIngresarClienteComun.TabIndex = 20;
-            btnIngresarClienteComun.Text = "Ingresar Cliente Comun";
+            btnIngresarClienteComun.Text = "Ingresar Cliente";
             btnIngresarClienteComun.UseVisualStyleBackColor = true;
             btnIngresarClienteComun.Click += btnIngresarClienteComun_Click;
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(222, 142);
+            btnSalir.Location = new Point(45, 142);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(155, 37);
+            btnSalir.Size = new Size(332, 37);
             btnSalir.TabIndex = 25;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -110,7 +98,6 @@
             Controls.Add(btnSalir);
             Controls.Add(btnListarPedidos);
             Controls.Add(btnListarMenu);
-            Controls.Add(btnIngresarClienteEmpresa);
             Controls.Add(btnListarClientes);
             Controls.Add(btnIngresarClienteComun);
             Name = "MenuAtencionCliente";
@@ -122,7 +109,6 @@
 
         private Button btnListarPedidos;
         private Button btnListarMenu;
-        private Button btnIngresarClienteEmpresa;
         private Button btnListarClientes;
         private Button btnIngresarClienteComun;
         private Button btnSalir;

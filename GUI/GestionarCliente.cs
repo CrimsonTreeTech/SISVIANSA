@@ -11,7 +11,7 @@ using SISVIANSA_ITI_2023.Logica;
 
 namespace SISVIANSA_ITI_2023.GUI
 {
-    public partial class GestionarClienteComun : Form
+    public partial class GestionarCliente : Form
     {
         private byte rol, opcion;
         private delegate bool metodoDelegado();
@@ -19,16 +19,18 @@ namespace SISVIANSA_ITI_2023.GUI
         private List<int?> tels;
 
         // -------------------------- METODOS AL INICIAR -----------------------------
-        public GestionarClienteComun(byte rol)
+        public GestionarCliente(byte rol)
         {
             InitializeComponent();
             cliente = new Cliente(rol);
             this.rol = rol;
             this.opcion = 0;
             bloqueraFuncionalidadesSegunRol(rol);
+            entradasClienteParticular();
+            cboTipoCliente.SelectedItem = "Particular";
         }
 
-        public GestionarClienteComun(byte rol, Cliente cliente)
+        public GestionarCliente(byte rol, Cliente cliente)
         {
             InitializeComponent();
             this.cliente = cliente;
@@ -38,14 +40,14 @@ namespace SISVIANSA_ITI_2023.GUI
             cargarDatos();
         }
 
+
+        // --------------------------- METODOS AUXILIARES -------------------------------
         private void bloqueraFuncionalidadesSegunRol(byte rol)
         {
             if (rol == 4)
                 chkAutorizado.Enabled = false;
         }
 
-
-        // --------------------------- METODOS AUXILIARES -------------------------------
         private void marcarIncorrecto(bool valido, Label obj)
         {
             if (valido)
@@ -60,11 +62,26 @@ namespace SISVIANSA_ITI_2023.GUI
             Close();
         }
 
+        private bool validarNombre()
+        {
+            bool nombre = cliente.verificarCampoNoVacio(txtPrimerNombre.Text);
+            marcarIncorrecto(nombre, lblPrimerNombre);
+
+            if (cboTipoCliente.Text.Equals("Particular"))
+            {
+                bool apellido = cliente.verificarCampoNoVacio(txtPrimerApellido.Text);
+                nombre = nombre && apellido;
+                marcarIncorrecto(apellido, lblPrimerApellido);
+            }
+
+            return nombre;
+        }
+
+
         private bool validarDatos()
         {
             bool documento = cliente.verificarDocumentos(cboTipoDoc.Text, txtNumDoc.Text);
-            bool nombre = cliente.verificarCampoNoVacio(txtPrimerNombre.Text);
-            bool apellido = cliente.verificarCampoNoVacio(txtPrimerApellido.Text);
+            bool nombre = validarNombre();
             bool calle = cliente.verificarCampoNoVacio(txtCalle.Text);
             bool esquina = cliente.verificarCampoNoVacio(txtEsquina.Text);
             bool numPuerta = cliente.verificarCampoNumerico(txtNumeroPuerta.Text);
@@ -77,8 +94,6 @@ namespace SISVIANSA_ITI_2023.GUI
 
             marcarIncorrecto(documento, lblNumDoc);
             marcarIncorrecto(documento, lblTipoDoc);
-            marcarIncorrecto(nombre, lblPrimerNombre);
-            marcarIncorrecto(apellido, lblPrimerApellido);
             marcarIncorrecto(calle, lblCalle);
             marcarIncorrecto(esquina, lblEsquina);
             marcarIncorrecto(numPuerta, lblNumeroPuerta);
@@ -94,9 +109,42 @@ namespace SISVIANSA_ITI_2023.GUI
                 MessageBox.Show("El telefono deben ser 8 digitos: numeros fijos o celulares sin el 0 inicial", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return documento && nombre && apellido && calle && esquina && numPuerta && tel1 && tel2 && tel3 && mail1 && mail2 && mail3;
+            return documento && nombre && calle && esquina && numPuerta && tel1 && tel2 && tel3 && mail1 && mail2 && mail3;
         }
 
+        private void entradasClienteParticular()
+        {
+            cboTipoDoc.Items.Clear();
+            cboTipoDoc.Items.AddRange(new object[] { "CI", "DNI" });
+            cboTipoDoc.SelectedIndex = 0;
+
+            lblPrimerNombre.Text = "Primer nombre *";
+            lblSegundoNombre.Text = "Segundo nombre";
+            lblPrimerApellido.Text = "Primer apellido *";
+            lblSegundoApellido.Text = "Segundo apellido";
+
+            txtPrimerNombre.Enabled = true;
+            txtSegundoNombre.Enabled = true;
+            txtPrimerApellido.Enabled = true;
+            txtSegundoApellido.Enabled = true;
+        }
+
+        private void entradasClienteEmpresa()
+        {
+            cboTipoDoc.Items.Clear();
+            cboTipoDoc.Items.AddRange(new object[] { "RUT" });
+            cboTipoDoc.SelectedIndex = 0;
+
+            lblPrimerNombre.Text = "Nombre *";
+            lblSegundoNombre.Text = "";
+            lblPrimerApellido.Text = "";
+            lblSegundoApellido.Text = "";
+
+            txtPrimerNombre.Enabled = true;
+            txtSegundoNombre.Enabled = false;
+            txtPrimerApellido.Enabled = false;
+            txtSegundoApellido.Enabled = false;
+        }
 
         // -------------------------- CARGAR / GUARDAR DATOS ----------------------------
         private void cargarDatos()
@@ -123,14 +171,15 @@ namespace SISVIANSA_ITI_2023.GUI
         private void actualizarDatos()
         {
             cliente.TipoDoc = cboTipoDoc.Text;
-            cliente.Doc = Int32.Parse(txtNumDoc.Text);
+            cliente.Doc = Convert.ToInt64(txtNumDoc.Text);
             cliente.PNom = txtPrimerNombre.Text;
             cliente.SNom = txtSegundoNombre.Text;
             cliente.PApe = txtPrimerApellido.Text;
             cliente.SApe = txtSegundoApellido.Text;
             cliente.Calle = txtCalle.Text;
             cliente.Esq = txtEsquina.Text;
-            cliente.NroPuerta = Int32.Parse(txtNumeroPuerta.Text);
+            cliente.TipoCliente = cboTipoCliente.Text;
+            cliente.NroPuerta = Convert.ToInt32(txtNumeroPuerta.Text);
             cliente.Activo = chkActivo.Checked;
             cliente.Autorizado = chkAutorizado.Checked;
             cliente.Mails = new List<string> { txtMail1.Text, txtMail2.Text, txtMail3.Text };
@@ -179,6 +228,7 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
+
         // ----------------------------- METODOS WIDGETS --------------------------------
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -191,6 +241,18 @@ namespace SISVIANSA_ITI_2023.GUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             regresarAlMenu();
+        }
+
+        private void cboTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTipoCliente.Text.Equals("Empresa"))
+            {
+                entradasClienteEmpresa();
+            }
+            else
+            {
+                entradasClienteParticular();
+            }
         }
     }
 }

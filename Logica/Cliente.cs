@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using SISVIANSA_ITI_2023.GUI;
@@ -12,9 +13,9 @@ namespace SISVIANSA_ITI_2023.Logica
     {
         // Ambos
         private byte rol;
-        private string calle, esq, tipo, nombre, tipoDoc;
+        private string calle, esq, tipoCliente, nombre, tipoDoc;
         private int id, nroPuerta;
-        private bool activo, autorizado;
+        private bool activo, autorizado, resultado;
         private long doc;
         private List<string> mails;
         private List<int?> tels;
@@ -115,10 +116,10 @@ namespace SISVIANSA_ITI_2023.Logica
             set { autorizado = value; }
         }
 
-        public string Tipo
+        public string TipoCliente
         {
-            get { return tipo; }
-            set { tipo = value; }
+            get { return tipoCliente; }
+            set { tipoCliente = value; }
         }
 
         public List<string> Mails
@@ -218,6 +219,7 @@ namespace SISVIANSA_ITI_2023.Logica
             }
         }
 
+
         // ---------------------------- METODOS AUXILIARES --------------------------------
         public void cargarTelefonos()
         {
@@ -244,7 +246,17 @@ namespace SISVIANSA_ITI_2023.Logica
         // --------------------------------- ABM --------------------------------------
         public bool ingresar()
         {
-            return true;
+            resultado = false;
+
+            if (TipoCliente.Equals("Empresa"))
+            {
+                resultado = clientesBD.ingresarClienteEmpresa(this);
+            }
+            else if (TipoCliente.Equals("Particular"))
+            {
+                resultado = clientesBD.ingresarClienteComun(this);
+            }
+            return resultado;
         }
 
         public bool modificar()
