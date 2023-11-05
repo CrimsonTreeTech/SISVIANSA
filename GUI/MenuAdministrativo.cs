@@ -41,13 +41,6 @@ namespace SISVIANSA_ITI_2023.GUI
             this.Hide();
         }
 
-        private void btnIngresarClienteEmpresa_Click(object sender, EventArgs e)
-        {
-            GestionarClienteEmpresa ingresarClienteEmpresa = new GestionarClienteEmpresa(rol);
-            ingresarClienteEmpresa.Show(this);
-            Hide();
-        }
-
         private void btnListarClientes_Click(object sender, EventArgs e)
         {
             ListarCliente listarCliente = new ListarCliente(rol);

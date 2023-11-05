@@ -675,12 +675,9 @@ C:\Users\DanMa\Desktop\SISVIANSA\bin\Debug\net6.0-windows\runtimes\browser\lib\n
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.csproj.AssemblyReference.cache
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.AdministrarMenu.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\ventana3.AsignarZonas.resources
-C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteComun.resources
-C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesClienteEmpresa.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesMenu.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesSucursal.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\ventana3.DetallesVehiculo.resources
-C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarClienteEmpresa.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarComida.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarDieta.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarMenu.resources
@@ -792,3 +789,4 @@ C:\Users\daniel.nalotto\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.HistoricoPedidos.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeguimientoPedido.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarCliente.resources
+C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesCliente.resources

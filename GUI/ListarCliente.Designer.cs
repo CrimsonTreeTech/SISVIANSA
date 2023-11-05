@@ -246,7 +246,7 @@
             // 
             cboTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cboTipo.FormattingEnabled = true;
-            cboTipo.Items.AddRange(new object[] { "Comun", "Empresa" });
+            cboTipo.Items.AddRange(new object[] { "Particular", "Empresa" });
             cboTipo.Location = new Point(584, 19);
             cboTipo.Margin = new Padding(3, 2, 3, 2);
             cboTipo.Name = "cboTipo";

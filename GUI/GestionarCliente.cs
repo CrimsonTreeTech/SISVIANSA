@@ -38,6 +38,9 @@ namespace SISVIANSA_ITI_2023.GUI
             this.opcion = 1;
             bloqueraFuncionalidadesSegunRol(rol);
             cargarDatos();
+
+
+            MessageBox.Show(cliente.Tels.Count.ToString());
         }
 
 
@@ -156,11 +159,11 @@ namespace SISVIANSA_ITI_2023.GUI
             txtPrimerApellido.Text = cliente.PApe;
             txtSegundoApellido.Text = cliente.SApe;
             txtMail1.Text = cliente.Mails[0];
-            txtMail2.Text = cliente.Mails[1];
-            txtMail3.Text = cliente.Mails[2];
+            //txtMail2.Text = cliente.Mails[1];
+            //txtMail3.Text = cliente.Mails[2];
             txtTel1.Text = cliente.Tels[0].ToString();
-            txtTel2.Text = cliente.Tels[1].ToString();
-            txtTel3.Text = cliente.Tels[2].ToString();
+            //txtTel2.Text = cliente.Tels[1].ToString();
+            //txtTel3.Text = cliente.Tels[2].ToString();
             txtCalle.Text = cliente.Calle;
             txtEsquina.Text = cliente.Esq;
             txtNumeroPuerta.Text = cliente.NroPuerta.ToString();

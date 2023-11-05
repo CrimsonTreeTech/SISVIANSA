@@ -4,10 +4,7 @@
     <Compile Update="GUI\AsignarZonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\DetallesClienteComun.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="GUI\DetallesClienteEmpresa.cs">
+    <Compile Update="GUI\DetallesCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\DetallesMenu.cs">

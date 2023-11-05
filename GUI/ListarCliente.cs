@@ -25,8 +25,6 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             InitializeComponent();
             this.rol = rol;
-            colFiltro = "todo";
-            valFiltro = "";
             cliente = new Cliente(rol);
         }
 
@@ -105,6 +103,8 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             reiniciarFiltros();
             bloqueraFuncionalidadesSegunRol(rol);
+            colFiltro = "todo";
+            valFiltro = "";
             rbtnTodos.Checked = true;
             listaClientes = cliente.realizarBusquedaFiltrada(colFiltro, valFiltro);
             cargarGrilla(listaClientes);
@@ -228,9 +228,12 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
+            idClienteSelecioando = obtenreIdClienteSeleccionado();
+            cliente = cliente.cargarDatosDeCliente(idClienteSelecioando);
+
             if (tipoClienteSeleccionado() == 1)
             {
-                DetallesClienteComun detallesClienteComun = new DetallesClienteComun(this.rol);
+                DetallesCliente detallesClienteComun = new DetallesCliente(this.rol, cliente);
                 detallesClienteComun.Show(Owner);
                 Close();
             }
