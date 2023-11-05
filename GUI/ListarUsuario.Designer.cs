@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarUsuario));
             dgvUsuarios = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colUsuario = new DataGridViewTextBoxColumn();
+            colRol = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
             btnBaja = new Button();
             btnModificar = new Button();
             btnRegresar = new Button();
@@ -42,10 +47,6 @@
             rbtnRol = new RadioButton();
             rbtnUsuario = new RadioButton();
             btnBuscar = new Button();
-            colId = new DataGridViewTextBoxColumn();
-            colUsuario = new DataGridViewTextBoxColumn();
-            colRol = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
             gbxFiltros.SuspendLayout();
             SuspendLayout();
@@ -64,6 +65,34 @@
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.Size = new Size(592, 278);
             dgvUsuarios.TabIndex = 0;
+            // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colUsuario
+            // 
+            colUsuario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colUsuario.HeaderText = "Usuario";
+            colUsuario.Name = "colUsuario";
+            colUsuario.ReadOnly = true;
+            // 
+            // colRol
+            // 
+            colRol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colRol.HeaderText = "Rol";
+            colRol.Name = "colRol";
+            colRol.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
             // 
             // btnBaja
             // 
@@ -210,34 +239,6 @@
             btnBuscar.UseVisualStyleBackColor = true;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // colId
-            // 
-            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colUsuario
-            // 
-            colUsuario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colUsuario.HeaderText = "Usuario";
-            colUsuario.Name = "colUsuario";
-            colUsuario.ReadOnly = true;
-            // 
-            // colRol
-            // 
-            colRol.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colRol.HeaderText = "Rol";
-            colRol.Name = "colRol";
-            colRol.ReadOnly = true;
-            // 
-            // colActivo
-            // 
-            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colActivo.HeaderText = "Activo";
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            // 
             // ListarUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -250,6 +251,7 @@
             Controls.Add(btnModificar);
             Controls.Add(btnBaja);
             Controls.Add(dgvUsuarios);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarUsuario";
             Text = "Listar Usuarios";
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();

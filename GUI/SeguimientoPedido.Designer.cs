@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeguimientoPedido));
             lblEstado = new Label();
             cboEstado = new ComboBox();
             btnListado = new Button();
@@ -213,6 +214,7 @@
             Controls.Add(btnListado);
             Controls.Add(cboEstado);
             Controls.Add(lblEstado);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SeguimientoPedido";
             Text = "SeguimientoPedido";
             Load += SeguimientoPedido_Load;

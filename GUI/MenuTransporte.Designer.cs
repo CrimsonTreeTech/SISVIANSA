@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuTransporte));
             btnListarVehiculo = new Button();
             IngresarVehiculo = new Button();
             btnListarZona = new Button();
@@ -113,6 +114,7 @@
             Controls.Add(btnIngresarZona);
             Controls.Add(btnListarVehiculo);
             Controls.Add(IngresarVehiculo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuTransporte";
             Text = "MenuTransporte";
             ResumeLayout(false);

@@ -25,6 +25,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IniciarSesion));
             txtUser = new TextBox();
             txtPassword = new TextBox();
             btnIngresar = new Button();
@@ -89,6 +90,7 @@
             Controls.Add(txtPassword);
             Controls.Add(txtUser);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "IniciarSesion";
             Text = "IniciarSesion";

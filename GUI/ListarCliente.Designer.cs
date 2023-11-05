@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarCliente));
             dgvClientes = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colTipoDoc = new DataGridViewTextBoxColumn();
@@ -398,6 +399,7 @@
             Controls.Add(btnDarBaja);
             Controls.Add(btnRegresar);
             Controls.Add(dgvClientes);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "ListarCliente";
             Text = "ListarClientes";

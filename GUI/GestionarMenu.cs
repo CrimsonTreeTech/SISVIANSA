@@ -148,7 +148,7 @@ namespace SISVIANSA_ITI_2023.GUI
             lstComidasMenu.Items.AddRange(listaComidasMenuTemporal.ToArray());
 
             // Borra las comidas seleccionadas de la lista de comidas disponibles
-            foreach(string nombreComida in listaComidasMenuTemporal)
+            foreach (string nombreComida in listaComidasMenuTemporal)
             {
                 listaComidasMenuDisponibles.Remove(nombreComida);
             }
@@ -234,7 +234,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private Menu obtenerInformacionParaGuardar()
         {
             Menu menu = new Menu(rol);
-            
+
             menu.StockMin = Convert.ToInt32(txtMinStock.Text);
             menu.StockMax = Convert.ToInt32(txtMaxStock.Text);
             menu.StockActual = Convert.ToInt32(txtStockActual.Text);
@@ -248,7 +248,7 @@ namespace SISVIANSA_ITI_2023.GUI
             menu.Dietas = dieta.obtenerDietasSegunVariosNombres(listaDietasSeleccionadas);
             menu.Comidas = comida.obtenerComidasSegunVariosNombres(listaComidasMenuTemporal);
 
-            return menu; 
+            return menu;
         }
 
         // ---------------------------- METODOS WIDGETS ------------------------------

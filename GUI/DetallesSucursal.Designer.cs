@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetallesSucursal));
             lblCapProd = new Label();
             txtCapProd = new TextBox();
             lblMetas = new Label();
@@ -137,6 +138,7 @@
             Controls.Add(lblMetas);
             Controls.Add(txtCapProd);
             Controls.Add(lblCapProd);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DetallesSucursal";
             Text = "DetallesSucursal";
             Load += DetallesSucursal_Load;

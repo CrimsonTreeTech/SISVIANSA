@@ -18,6 +18,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarSucursal));
             lblCapProd = new Label();
             txtCapProd = new TextBox();
             lblMetas = new Label();
@@ -162,7 +163,7 @@
             lblNombre.TabIndex = 12;
             lblNombre.Text = "Nombre *";
             // 
-            // IngresarSucursal
+            // GestionarSucursal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -181,8 +182,9 @@
             Controls.Add(lblMetas);
             Controls.Add(txtCapProd);
             Controls.Add(lblCapProd);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
-            Name = "IngresarSucursal";
+            Name = "GestionarSucursal";
             Text = "IngresarSucursal";
             Load += IngresarSucursal_Load;
             ResumeLayout(false);

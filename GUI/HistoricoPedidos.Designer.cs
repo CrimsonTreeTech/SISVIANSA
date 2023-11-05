@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoricoPedidos));
             lblNroPedido = new Label();
             lblliente = new Label();
             lblMenu = new Label();
@@ -45,7 +46,7 @@
             btnMenu = new Button();
             btnListado = new Button();
             btnModificar = new Button();
-            this.btnActualizarEstado = new Button();
+            btnActualizarEstado = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvHistorico).BeginInit();
             SuspendLayout();
             // 
@@ -211,20 +212,20 @@
             // 
             // btnActualizarEstado
             // 
-            this.btnActualizarEstado.Location = new Point(365, 211);
-            this.btnActualizarEstado.Name = "btnActualizarEstado";
-            this.btnActualizarEstado.Size = new Size(169, 37);
-            this.btnActualizarEstado.TabIndex = 15;
-            this.btnActualizarEstado.Text = "Actualizar estado";
-            this.btnActualizarEstado.UseVisualStyleBackColor = true;
-            this.btnActualizarEstado.Click += this.btnActualizarEstado_Click;
+            btnActualizarEstado.Location = new Point(365, 211);
+            btnActualizarEstado.Name = "btnActualizarEstado";
+            btnActualizarEstado.Size = new Size(169, 37);
+            btnActualizarEstado.TabIndex = 15;
+            btnActualizarEstado.Text = "Actualizar estado";
+            btnActualizarEstado.UseVisualStyleBackColor = true;
+            btnActualizarEstado.Click += btnActualizarEstado_Click;
             // 
             // HistoricoPedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(729, 260);
-            Controls.Add(this.btnActualizarEstado);
+            Controls.Add(btnActualizarEstado);
             Controls.Add(btnModificar);
             Controls.Add(btnListado);
             Controls.Add(btnMenu);
@@ -239,6 +240,7 @@
             Controls.Add(lblMenu);
             Controls.Add(lblliente);
             Controls.Add(lblNroPedido);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HistoricoPedidos";
             Text = "HistoricoPedidos";
             Load += HistoricoPedidos_Load;

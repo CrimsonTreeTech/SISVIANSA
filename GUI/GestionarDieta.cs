@@ -89,7 +89,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void guardarCambios(metodoDelegado metodo)
         {
-            if(validarDatos())
+            if (validarDatos())
             {
                 actualizarDatos();
                 bool resultado = metodo();
@@ -106,7 +106,7 @@ namespace SISVIANSA_ITI_2023.GUI
             }
         }
 
-        
+
         // ---------------------- METODOS DE WIDGETS --------------------------
         private void btnCancelar_Click(object sender, EventArgs e)
         {

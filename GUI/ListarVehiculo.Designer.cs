@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarVehiculo));
             txtMatricula = new TextBox();
             btnBuscar = new Button();
             dgvVehiculos = new DataGridView();
@@ -226,6 +227,7 @@
             Controls.Add(dgvVehiculos);
             Controls.Add(btnBuscar);
             Controls.Add(txtMatricula);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "ListarVehiculo";
             Text = "Listar vehiculos";

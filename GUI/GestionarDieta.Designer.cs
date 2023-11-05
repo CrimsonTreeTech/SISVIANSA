@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarDieta));
             lblNombre = new Label();
             txtNombre = new TextBox();
             lblDescripcion = new Label();
@@ -100,7 +101,7 @@
             chkActivo.Text = "Activo";
             chkActivo.UseVisualStyleBackColor = true;
             // 
-            // IngresarDieta
+            // GestionarDieta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -113,7 +114,8 @@
             Controls.Add(lblDescripcion);
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
-            Name = "IngresarDieta";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "GestionarDieta";
             Text = "IngresarDieta";
             ResumeLayout(false);
             PerformLayout();

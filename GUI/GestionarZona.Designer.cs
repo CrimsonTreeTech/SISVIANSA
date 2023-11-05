@@ -19,6 +19,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarZona));
             lblListaBarrios = new Label();
             lstBarrios = new ListBox();
             btnQuitar = new Button();
@@ -121,7 +122,7 @@
             lblPrecio.TabIndex = 9;
             lblPrecio.Text = "Precio:";
             // 
-            // IngresarZona
+            // GestionarZona
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -136,7 +137,8 @@
             Controls.Add(btnQuitar);
             Controls.Add(lstBarrios);
             Controls.Add(lblListaBarrios);
-            Name = "IngresarZona";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "GestionarZona";
             Text = "IngresarZona";
             Load += IngresarZona_Load;
             ResumeLayout(false);

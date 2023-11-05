@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarUsuario));
             lblUser = new Label();
             lblPass = new Label();
             lblRol = new Label();
@@ -144,6 +145,7 @@
             Controls.Add(lblRol);
             Controls.Add(lblPass);
             Controls.Add(lblUser);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "GestionarUsuario";
             Text = "IngresarPersonal";
             ResumeLayout(false);

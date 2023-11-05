@@ -25,6 +25,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetallesVehiculo));
             btnListadoVehiculos = new Button();
             btnAsignarZonas = new Button();
             txtCapacidad = new TextBox();
@@ -123,6 +124,7 @@
             Controls.Add(txtMatricula);
             Controls.Add(btnAsignarZonas);
             Controls.Add(btnListadoVehiculos);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "DetallesVehiculo";
             Text = "Visualizar vehiculo";

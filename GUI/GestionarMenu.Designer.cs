@@ -21,6 +21,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarMenu));
             btnQuitarComida = new Button();
             lstComidasMenu = new ListBox();
             lblComidasMenu = new Label();
@@ -363,6 +364,7 @@ namespace SISVIANSA_ITI_2023.GUI
             Controls.Add(lstComidasMenu);
             Controls.Add(lblComidasMenu);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "GestionarMenu";
             Text = "IngresarMenu";
             Load += IngresarMenu_Load;

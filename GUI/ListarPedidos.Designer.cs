@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarPedidos));
             dgvPedidos = new DataGridView();
             colNro = new DataGridViewTextBoxColumn();
             colMenu = new DataGridViewTextBoxColumn();
@@ -307,6 +308,7 @@
             Controls.Add(btnRegresar);
             Controls.Add(gbxFiltrar);
             Controls.Add(dgvPedidos);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarPedidos";
             Text = "ListarPedidos";
             Load += ListarPedidos_Load;

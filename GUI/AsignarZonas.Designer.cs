@@ -19,6 +19,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarZonas));
             btnGuardar = new Button();
             lstZonasSeleccionadas = new ListBox();
             btnDeseleccionar = new Button();
@@ -102,6 +103,7 @@
             Controls.Add(lstZonasSeleccionadas);
             Controls.Add(btnGuardar);
             Controls.Add(lstZonasDisponibles);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "AsignarZonas";
             Text = "Asignar zonas a vehiculos";

@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarComida));
             lblNombre = new Label();
             txtNombre = new TextBox();
             txtCoccion = new TextBox();
@@ -129,7 +130,7 @@
             lblDietasSeleccionadas.AutoSize = true;
             lblDietasSeleccionadas.Location = new Point(587, 17);
             lblDietasSeleccionadas.Name = "lblDietasSeleccionadas";
-            lblDietasSeleccionadas.Size = new Size(143, 15);
+            lblDietasSeleccionadas.Size = new Size(116, 15);
             lblDietasSeleccionadas.TabIndex = 9;
             lblDietasSeleccionadas.Text = "Dietas Seleccionadas";
             // 
@@ -163,7 +164,7 @@
             chkActivo.Text = "Activo";
             chkActivo.UseVisualStyleBackColor = true;
             // 
-            // IngresarComida
+            // GestionarComida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -182,7 +183,8 @@
             Controls.Add(btnAgregar);
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
-            Name = "IngresarComida";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "GestionarComida";
             Text = "IngresarComida";
             Load += IngresarComida_Load;
             ResumeLayout(false);

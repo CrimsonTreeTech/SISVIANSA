@@ -19,12 +19,10 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProduccionDiaria));
             lblOrden = new Label();
             btnEstablecer = new Button();
             dgvProduccion = new DataGridView();
-            btnRegresar = new Button();
-            lblCapProdSuc = new Label();
-            txtCapProdSuc = new TextBox();
             colIdMenu = new DataGridViewTextBoxColumn();
             colStockMinimo = new DataGridViewTextBoxColumn();
             colCantidadViandas = new DataGridViewTextBoxColumn();
@@ -32,6 +30,9 @@
             colCoccion = new DataGridViewTextBoxColumn();
             colPrioridad = new DataGridViewTextBoxColumn();
             colCantidad = new DataGridViewTextBoxColumn();
+            btnRegresar = new Button();
+            lblCapProdSuc = new Label();
+            txtCapProdSuc = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvProduccion).BeginInit();
             SuspendLayout();
             // 
@@ -71,34 +72,6 @@
             dgvProduccion.CellEndEdit += dgvProduccion_CellEndEdit;
             dgvProduccion.CellFormatting += dgvProduccion_CellFormatting;
             dgvProduccion.Click += dgvProduccion_Click;
-            // 
-            // btnRegresar
-            // 
-            btnRegresar.Location = new Point(631, 14);
-            btnRegresar.Margin = new Padding(3, 2, 3, 2);
-            btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(91, 28);
-            btnRegresar.TabIndex = 4;
-            btnRegresar.Text = "Regresar";
-            btnRegresar.UseVisualStyleBackColor = true;
-            btnRegresar.Click += btnRegresar_Click;
-            // 
-            // lblCapProdSuc
-            // 
-            lblCapProdSuc.AutoSize = true;
-            lblCapProdSuc.Location = new Point(317, 21);
-            lblCapProdSuc.Name = "lblCapProdSuc";
-            lblCapProdSuc.Size = new Size(188, 15);
-            lblCapProdSuc.TabIndex = 5;
-            lblCapProdSuc.Text = "Capacidad de produccion restante";
-            // 
-            // txtCapProdSuc
-            // 
-            txtCapProdSuc.Location = new Point(511, 18);
-            txtCapProdSuc.Name = "txtCapProdSuc";
-            txtCapProdSuc.ReadOnly = true;
-            txtCapProdSuc.Size = new Size(91, 23);
-            txtCapProdSuc.TabIndex = 6;
             // 
             // colIdMenu
             // 
@@ -168,6 +141,34 @@
             colCantidad.Name = "colCantidad";
             colCantidad.Resizable = DataGridViewTriState.False;
             // 
+            // btnRegresar
+            // 
+            btnRegresar.Location = new Point(631, 14);
+            btnRegresar.Margin = new Padding(3, 2, 3, 2);
+            btnRegresar.Name = "btnRegresar";
+            btnRegresar.Size = new Size(91, 28);
+            btnRegresar.TabIndex = 4;
+            btnRegresar.Text = "Regresar";
+            btnRegresar.UseVisualStyleBackColor = true;
+            btnRegresar.Click += btnRegresar_Click;
+            // 
+            // lblCapProdSuc
+            // 
+            lblCapProdSuc.AutoSize = true;
+            lblCapProdSuc.Location = new Point(317, 21);
+            lblCapProdSuc.Name = "lblCapProdSuc";
+            lblCapProdSuc.Size = new Size(188, 15);
+            lblCapProdSuc.TabIndex = 5;
+            lblCapProdSuc.Text = "Capacidad de produccion restante";
+            // 
+            // txtCapProdSuc
+            // 
+            txtCapProdSuc.Location = new Point(511, 18);
+            txtCapProdSuc.Name = "txtCapProdSuc";
+            txtCapProdSuc.ReadOnly = true;
+            txtCapProdSuc.Size = new Size(91, 23);
+            txtCapProdSuc.TabIndex = 6;
+            // 
             // ProduccionDiaria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -179,6 +180,7 @@
             Controls.Add(dgvProduccion);
             Controls.Add(btnEstablecer);
             Controls.Add(lblOrden);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ProduccionDiaria";
             Text = "ProduccionDiaria";
             Load += ProduccionDiaria_Load;

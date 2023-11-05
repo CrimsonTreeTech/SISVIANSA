@@ -127,7 +127,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(validarDatos())
+            if (validarDatos())
             {
                 MessageBox.Show("Se guardaron los datos", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 regresarAlMenu();

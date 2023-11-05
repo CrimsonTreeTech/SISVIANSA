@@ -62,7 +62,7 @@ namespace ventana3
             listarVehiculo.Show(Owner);
             Close();
         }
-    
-    
+
+
     }
 }

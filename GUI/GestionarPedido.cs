@@ -66,7 +66,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private Pedido obtenerDatosDePedido()
         {
             pedido = new Pedido(rol);
-   
+
             pedido.IdCliente = cliente.Id;
             pedido.Cliente = txtNombreClienteDatos.Text;
             pedido.IdMenu = Convert.ToInt32(txtMenuDatos.Text);
@@ -310,10 +310,10 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void cargarInformacionPedido()
         {
-            
+
 
             txtNroPedidoDatos.Text = pedido.NroPedido.ToString();
-            
+
             /*
             txtNroClienteDatos.Text = pedido.IdCliente.ToString();
 
@@ -369,7 +369,7 @@ namespace SISVIANSA_ITI_2023.GUI
             calcularPrecioTotal();
         }
 
-        
+
         // Botones
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -401,7 +401,7 @@ namespace SISVIANSA_ITI_2023.GUI
             realizarBusquedaMenu();
         }
 
-        
+
         // Data grid views
         private void dgvCliente_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -490,6 +490,6 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltroMenu = "tipo";
         }
 
-       
+
     }
 }

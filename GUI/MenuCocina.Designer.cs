@@ -24,6 +24,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuCocina));
             btnProduccionDiaria = new Button();
             btnIngresarMenu = new Button();
             btnListarMenu = new Button();
@@ -147,6 +148,7 @@
             Controls.Add(btnProduccionDiaria);
             Controls.Add(btnIngresarMenu);
             Controls.Add(btnListarMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuCocina";
             Text = "MenuJefeCocina";
             ResumeLayout(false);

@@ -21,6 +21,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministrarMenu));
             btnRegresar = new Button();
             btnGerencia = new Button();
             btnCocina = new Button();
@@ -112,6 +113,7 @@
             Controls.Add(btnCocina);
             Controls.Add(btnGerencia);
             Controls.Add(btnRegresar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "AdministrarMenu";
             Text = "AdministrarMenu";

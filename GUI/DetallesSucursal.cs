@@ -15,7 +15,7 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         private byte rol;
         private Sucursal sucursal;
-        
+
         public DetallesSucursal(byte rol, Sucursal sucursal)
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace SISVIANSA_ITI_2023.GUI
             txtCapProd.Text = sucursal.CapProd.ToString();
             rtxtMetas.Text = sucursal.Meta;
 
-            foreach(Zona z in sucursal.Zonas)
+            foreach (Zona z in sucursal.Zonas)
             {
                 lstZonasCubiertas.Items.Add(z.Id);
             }

@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarCliente));
             cboTipoDoc = new ComboBox();
             chkAutorizado = new CheckBox();
             lblCalle = new Label();
@@ -448,7 +449,7 @@
             gbxContacto.TabStop = false;
             gbxContacto.Text = "Contacto";
             // 
-            // GestionarClienteComun
+            // GestionarCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -462,8 +463,9 @@
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Controls.Add(chkAutorizado);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
-            Name = "GestionarClienteComun";
+            Name = "GestionarCliente";
             Text = "Ingresar cliente";
             gbxDatos.ResumeLayout(false);
             gbxDatos.PerformLayout();

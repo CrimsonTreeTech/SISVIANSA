@@ -159,7 +159,7 @@ namespace SISVIANSA_ITI_2023.GUI
             valorCeldaModificada = celda.Value.ToString(); // Obtener el valor de la cantidad a producir
             stockMaximo = Convert.ToInt32(dgvProduccion.Rows[filaCeldaModificada].Cells[3].Value); // Obtener el valor maximo del stock
             produccionValida = produccion.comprobarValorCantidadAProducir(valorCeldaModificada, stockMaximo); // Llamar a un metodo que me diga si es valido o no
-            
+
             if (produccionValida) // Si es valido, actualizar la cap prod actual
             {
                 calcularCapProdActual();
@@ -169,7 +169,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 MessageBox.Show("La cantidad a producir debe ser un valor numérico mayor a cero.\nLa suma del stock actual y la cantidad a producir no puede ser mayor al stock maximo");
                 dgvProduccion.Rows[filaCeldaModificada].Cells[6].Value = "";
                 dgvProduccion.ClearSelection();
-            }    
+            }
         }
 
         // --------------- METODOS WIDGETS ------------------
@@ -192,7 +192,7 @@ namespace SISVIANSA_ITI_2023.GUI
             else if (nivelDeError == 1)
             {
                 MessageBox.Show("La capacidad de produccion de la sucursal no puede superar los 120 minutos.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }   
+            }
             else if (nivelDeError == 2)
             {
                 MessageBox.Show("La capacidad de produccion de la sucursal no puede ser inferior a -120 minutos..", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -241,7 +241,8 @@ namespace SISVIANSA_ITI_2023.GUI
                         row.DefaultCellStyle.ForeColor = Color.White;
                     }
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

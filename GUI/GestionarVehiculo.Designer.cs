@@ -19,6 +19,7 @@
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GestionarVehiculo));
             lblCapacidad = new Label();
             lblMatricula = new Label();
             btnGuardar = new Button();
@@ -100,7 +101,7 @@
             lblInformacionMatricula.TabIndex = 8;
             lblInformacionMatricula.Text = "* Ej: ABC1234";
             // 
-            // IngresarVehiculo
+            // GestionarVehiculo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -113,7 +114,8 @@
             Controls.Add(lblMatricula);
             Controls.Add(btnGuardar);
             Controls.Add(txtMatricula);
-            Name = "IngresarVehiculo";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "GestionarVehiculo";
             Text = "Ingresar vehiculo";
             ResumeLayout(false);
             PerformLayout();

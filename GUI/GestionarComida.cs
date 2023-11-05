@@ -17,7 +17,7 @@ namespace SISVIANSA_ITI_2023.GUI
         private Dieta dieta;
         private Comida comida;
         private delegate bool metodoDelegado();
-        
+
 
         // ---------------------- METODOS AL INICIAR -----------------------------
         public GestionarComida(byte rol)
@@ -37,7 +37,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.rol = rol;
             this.opcion = 1;
             cargarDatos();
-            
+
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
@@ -155,7 +155,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
                     if (opcion == 0)
                         vaciarCampos();
-                }                    
+                }
                 else
                     MessageBox.Show("No se guardaron los cambios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

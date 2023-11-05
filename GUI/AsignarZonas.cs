@@ -40,7 +40,7 @@ namespace ventana3
         private void cargarDatos()
         {
             List<Zona> zonasRepartoVehiculo = vehiculo.ListaZonasDeReparto;
-            
+
             if (zonasRepartoVehiculo != null)
             {
                 foreach (Zona item in zonasRepartoVehiculo)
@@ -49,7 +49,7 @@ namespace ventana3
                     logicaVehiculos.agregarZonaTemporal(cadena);
                 }
             }
-            
+
             actualizarListas();
         }
 

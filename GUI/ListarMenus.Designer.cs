@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             GroupBox gbxFiltrar;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarMenus));
             rbtnTodo = new RadioButton();
             chkLstDietas = new CheckedListBox();
             rbtnDieta = new RadioButton();
@@ -346,6 +347,7 @@
             Controls.Add(btnRegresar);
             Controls.Add(gbxFiltrar);
             Controls.Add(dgvMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarMenus";
             Text = "ListarMenus";
             Load += ListarMenus_Load;

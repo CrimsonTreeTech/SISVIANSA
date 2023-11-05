@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetallesMenu));
             lstComidas = new ListBox();
             lblComidasMenu = new Label();
             lblDieta = new Label();
@@ -287,6 +288,7 @@
             Controls.Add(lblDieta);
             Controls.Add(lstComidas);
             Controls.Add(lblComidasMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DetallesMenu";
             Text = "DetallesMenu";
             ResumeLayout(false);

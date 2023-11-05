@@ -45,7 +45,7 @@ namespace SISVIANSA_ITI_2023.GUI
             txtElaboracion.Text = menu.TiempoElaboracion.ToString();
 
             rtxtSugerencias.Text = menu.Sugerencia;
-            
+
             cargarComidasCbo();
             cargarDietasCbo();
         }

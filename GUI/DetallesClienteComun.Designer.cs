@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetallesClienteComun));
             chkAutorizado = new CheckBox();
             lblCalle = new Label();
             lblId = new Label();
@@ -436,6 +437,7 @@
             Controls.Add(txtPrimerNombre);
             Controls.Add(lblPrimerNombre);
             Controls.Add(lblId);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "DetallesClienteComun";
             Text = "Detalle cliente comun";

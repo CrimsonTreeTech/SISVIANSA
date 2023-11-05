@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetallesClienteEmpresa));
             lblRUT = new Label();
             lblNombre = new Label();
             txtNombre = new TextBox();
@@ -355,6 +356,7 @@
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
             Controls.Add(lblRUT);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "DetallesClienteEmpresa";
             Text = "DetallesClienteEmpresa";

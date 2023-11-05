@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuGerente));
             btnListarZona = new Button();
             btnListarVehiculo = new Button();
             btnListarDietas = new Button();
@@ -165,6 +166,7 @@
             Controls.Add(btnListarMenu);
             Controls.Add(btnListarSucursales);
             Controls.Add(btnListarClientes);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuGerente";
             Text = "MenuGerente";
             ResumeLayout(false);

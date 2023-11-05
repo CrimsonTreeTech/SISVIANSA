@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionarSucursal));
             lblSeleccioinarSucursal = new Label();
             cboSucursales = new ComboBox();
             btnAceptar = new Button();
@@ -38,9 +39,9 @@
             // lblSeleccioinarSucursal
             // 
             lblSeleccioinarSucursal.AutoSize = true;
-            lblSeleccioinarSucursal.Location = new Point(27, 39);
+            lblSeleccioinarSucursal.Location = new Point(24, 29);
             lblSeleccioinarSucursal.Name = "lblSeleccioinarSucursal";
-            lblSeleccioinarSucursal.Size = new Size(152, 20);
+            lblSeleccioinarSucursal.Size = new Size(121, 15);
             lblSeleccioinarSucursal.TabIndex = 0;
             lblSeleccioinarSucursal.Text = "Selecciona la sucursal";
             // 
@@ -48,18 +49,16 @@
             // 
             cboSucursales.DropDownStyle = ComboBoxStyle.DropDownList;
             cboSucursales.FormattingEnabled = true;
-            cboSucursales.Location = new Point(232, 109);
-            cboSucursales.Margin = new Padding(3, 4, 3, 4);
+            cboSucursales.Location = new Point(203, 82);
             cboSucursales.Name = "cboSucursales";
-            cboSucursales.Size = new Size(92, 28);
+            cboSucursales.Size = new Size(81, 23);
             cboSucursales.TabIndex = 1;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(148, 191);
-            btnAceptar.Margin = new Padding(3, 4, 3, 4);
+            btnAceptar.Location = new Point(130, 143);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(262, 45);
+            btnAceptar.Size = new Size(229, 34);
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -68,17 +67,18 @@
             // lblSucursal
             // 
             lblSucursal.AutoSize = true;
-            lblSucursal.Location = new Point(50, 109);
+            lblSucursal.Location = new Point(44, 82);
             lblSucursal.Name = "lblSucursal";
-            lblSucursal.Size = new Size(63, 20);
+            lblSucursal.Size = new Size(51, 15);
             lblSucursal.TabIndex = 3;
             lblSucursal.Text = "Sucursal";
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(148, 276);
+            btnSalir.Location = new Point(130, 207);
+            btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(262, 43);
+            btnSalir.Size = new Size(229, 32);
             btnSalir.TabIndex = 4;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -86,15 +86,15 @@
             // 
             // SeleccionarSucursal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(556, 413);
+            ClientSize = new Size(486, 310);
             Controls.Add(btnSalir);
             Controls.Add(lblSucursal);
             Controls.Add(btnAceptar);
             Controls.Add(cboSucursales);
             Controls.Add(lblSeleccioinarSucursal);
-            Margin = new Padding(3, 4, 3, 4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SeleccionarSucursal";
             Text = "SeleccionarSucursal";
             ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarDietas));
             dgvDieta = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
@@ -229,6 +230,7 @@
             Controls.Add(btnRegresar);
             Controls.Add(btnModificar);
             Controls.Add(dgvDieta);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarDietas";
             Text = "LisarDietas";
             Load += ListarDietas_Load;

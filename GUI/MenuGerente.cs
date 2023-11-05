@@ -14,7 +14,7 @@ namespace SISVIANSA_ITI_2023.GUI
     public partial class MenuGerente : Form
     {
         private byte rol;
-        
+
         // ------------ CONSTRUCTOR -------------
         public MenuGerente(byte rol)
         {

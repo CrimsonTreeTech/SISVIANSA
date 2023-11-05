@@ -15,7 +15,7 @@ namespace SISVIANSA_ITI_2023.GUI
     {
         byte rol;
         Zona zona;
-        
+
         // -------------------------------- METODOS INICIALES --------------------------------
         public ListarZonas(byte rol)
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarZonas));
             lstZonas = new ListBox();
             lblZonas = new Label();
             lblBarrios = new Label();
@@ -105,6 +106,7 @@
             Controls.Add(lblBarrios);
             Controls.Add(lblZonas);
             Controls.Add(lstZonas);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarZonas";
             Text = "ListarZonas";
             Load += ListarZonas_Load;

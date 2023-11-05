@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarSucursales));
             dgvSucursal = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colCapProd = new DataGridViewTextBoxColumn();
@@ -137,6 +138,7 @@
             Controls.Add(btnDetalles);
             Controls.Add(btnRegresar);
             Controls.Add(dgvSucursal);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarSucursales";
             Text = "VisualizarSucursales";
             Load += ListarSucursales_Load;
