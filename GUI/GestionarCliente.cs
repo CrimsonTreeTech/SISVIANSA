@@ -38,9 +38,6 @@ namespace SISVIANSA_ITI_2023.GUI
             this.opcion = 1;
             bloqueraFuncionalidadesSegunRol(rol);
             cargarDatos();
-
-
-            MessageBox.Show(cliente.Tels.Count.ToString());
         }
 
 
@@ -152,23 +149,50 @@ namespace SISVIANSA_ITI_2023.GUI
         // -------------------------- CARGAR / GUARDAR DATOS ----------------------------
         private void cargarDatos()
         {
+            cboTipoCliente.SelectedItem = cliente.TipoCliente;
             cboTipoDoc.Text = cliente.TipoDoc;
             txtNumDoc.Text = cliente.Doc.ToString();
-            txtPrimerNombre.Text = cliente.PNom;
-            txtSegundoNombre.Text = cliente.SNom;
-            txtPrimerApellido.Text = cliente.PApe;
-            txtSegundoApellido.Text = cliente.SApe;
-            txtMail1.Text = cliente.Mails[0];
-            //txtMail2.Text = cliente.Mails[1];
-            //txtMail3.Text = cliente.Mails[2];
-            txtTel1.Text = cliente.Tels[0].ToString();
-            //txtTel2.Text = cliente.Tels[1].ToString();
-            //txtTel3.Text = cliente.Tels[2].ToString();
             txtCalle.Text = cliente.Calle;
             txtEsquina.Text = cliente.Esq;
             txtNumeroPuerta.Text = cliente.NroPuerta.ToString();
             chkActivo.Checked = cliente.Activo;
             chkAutorizado.Checked = cliente.Autorizado;
+
+            txtPrimerNombre.Text = cliente.PNom;
+            txtSegundoNombre.Text = cliente.SNom;
+            txtPrimerApellido.Text = cliente.PApe;
+            txtSegundoApellido.Text = cliente.SApe;
+
+            cargarMails();
+            cargarTels();
+        }
+
+        private void cargarTels()
+        {
+            txtTel1.Text = cliente.Tels[0].ToString();
+
+            if (cliente.Tels.Count() > 1)
+            {
+                txtTel2.Text = cliente.Tels[1].ToString();
+            }
+            else if(cliente.Tels.Count > 2)
+            {
+                txtTel3.Text = cliente.Tels[2].ToString();
+            }
+        }
+
+        private void cargarMails()
+        {
+            txtMail1.Text = cliente.Mails[0];
+
+            if (cliente.Mails.Count() > 1)
+            {
+                txtMail2.Text = cliente.Mails[1];
+            }
+            else if (cliente.Mails.Count > 2)
+            {
+                txtMail3.Text = cliente.Mails[2];
+            }
         }
 
         private void actualizarDatos()

@@ -79,7 +79,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
             foreach (Cliente c in listaClientes)
             {
-                dgvClientes.Rows.Add(c.Id, c.TipoDoc, c.Doc, c.TipoCliente, c.Nombre, c.direccion(), c.Autorizado, c.Activo);
+                dgvClientes.Rows.Add(c.Id, c.TipoDoc, c.Doc, c.TipoCliente, c.NombreCompleto, c.direccion(), c.Autorizado, c.Activo);
             }
         }
 

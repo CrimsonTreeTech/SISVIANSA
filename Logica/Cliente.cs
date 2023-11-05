@@ -13,7 +13,7 @@ namespace SISVIANSA_ITI_2023.Logica
     {
         // Ambos
         private byte rol;
-        private string calle, esq, tipoCliente, nombre, tipoDoc;
+        private string calle, esq, tipoCliente, nombreCompleto, tipoDoc;
         private int id, nroPuerta;
         private bool activo, autorizado, resultado;
         private long doc;
@@ -62,10 +62,10 @@ namespace SISVIANSA_ITI_2023.Logica
             set { nroPuerta = value; }
         }
 
-        public string Nombre
+        public string NombreCompleto
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return nombreCompleto; }
+            set { nombreCompleto = value; }
         }
 
         public string PNom
@@ -236,6 +236,20 @@ namespace SISVIANSA_ITI_2023.Logica
             cliente = new Cliente(rol);
 
             cliente = clientesBD.buscarClientesPorId(id);
+
+            if (cliente.TipoCliente.Equals("Empresa"))
+            {
+                cliente.PNom = cliente.NombreCompleto;
+            }
+            else if (cliente.TipoCliente.Equals("Particular"))
+            {
+                List<string> nombresCliente = clientesBD.obtenerNombresClienteParticular(id);
+                cliente.PNom = nombresCliente[0];
+                cliente.SNom = nombresCliente[1];
+                cliente.PApe = nombresCliente[2];
+                cliente.SApe = nombresCliente[3];
+            }
+
             cliente.cargarTelefonos();
             cliente.cargarMails();
 

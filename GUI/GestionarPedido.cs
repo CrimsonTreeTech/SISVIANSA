@@ -136,7 +136,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
             foreach (Cliente cliente in listaClientes)
             {
-                dgvCliente.Rows.Add(cliente.Id, cliente.Doc, cliente.Nombre, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
+                dgvCliente.Rows.Add(cliente.Id, cliente.Doc, cliente.NombreCompleto, cliente.Tels[0], cliente.Mails[0], cliente.Activo, cliente.Autorizado);
             }
 
         }
@@ -276,7 +276,7 @@ namespace SISVIANSA_ITI_2023.GUI
             txtNroClienteDatos.Text = cliente.Id.ToString();
             lblTipoDocDatos.Text = cliente.TipoDoc.ToString();
             txtNroDocDatos.Text = cliente.Doc.ToString();
-            txtNombreClienteDatos.Text = cliente.Nombre;
+            txtNombreClienteDatos.Text = cliente.NombreCompleto;
             rtxtDir.Text = cliente.direccion();
         }
 

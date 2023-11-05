@@ -42,7 +42,7 @@ namespace SISVIANSA_ITI_2023.GUI
             chkAutorizado.Checked = cliente.Autorizado;
             //chkActivo.Checked = cliente.Activo;
 
-            txtNombre.Text = cliente.Nombre;
+            txtNombre.Text = cliente.NombreCompleto;
             lblDoc.Text = cliente.TipoDoc;
             txtDoc.Text = cliente.Doc.ToString();
 
@@ -50,15 +50,45 @@ namespace SISVIANSA_ITI_2023.GUI
             txtNumeroPuerta.Text = cliente.NroPuerta.ToString();
             txtEsquina.Text = cliente.Esq;
 
-            txtTel1.Text = cliente.Tels[0].ToString();
-            //txtTel2.Text = cliente.Tels[1].ToString();
-            //txtTel3.Text = cliente.Tels[2].ToString();
+            cliente.cargarTelefonos();
+            cliente.cargarMails();
+            MessageBox.Show(cliente.Tels.Count().ToString());
 
-            txtMail1.Text = cliente.Mails[0];
-            //txtMail2.Text = cliente.Mails[1];
-            //txtMail3.Text = cliente.Mails[2];
+
+            cargarMails();
+            cargarTels();
         }
 
+        private void cargarTels()
+        {
+            txtTel1.Text = cliente.Tels[0].ToString();
+            MessageBox.Show(cliente.Tels[0].ToString());
+
+            if (cliente.Tels.Count() > 1)
+            {
+                txtTel2.Text = cliente.Tels[1].ToString();
+                MessageBox.Show(cliente.Tels[1].ToString());
+            }
+            else if (cliente.Tels.Count > 2)
+            {
+                txtTel3.Text = cliente.Tels[2].ToString();
+                MessageBox.Show(cliente.Tels[2].ToString());
+            }
+        }
+
+        private void cargarMails()
+        {
+            txtMail1.Text = cliente.Mails[0];
+
+            if (cliente.Mails.Count() > 1)
+            {
+                txtMail2.Text = cliente.Mails[1];
+            }
+            else if (cliente.Mails.Count > 2)
+            {
+                txtMail3.Text = cliente.Mails[2];
+            }
+        }
 
 
         // ------------------- METODOS DE WIDGETS -----------------

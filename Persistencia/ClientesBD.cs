@@ -17,7 +17,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
         private Cliente cliente;
         private List<Cliente> listaClientes;
         private List<int?> listaTelefonos;
-        private List<string> listaMails;
+        private List<string> listaMails, listaNombresParticular;
         private Singleton bd;
 
         public ClientesBD (byte rol)
@@ -196,7 +196,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -249,7 +249,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -302,7 +302,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -356,7 +356,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -411,7 +411,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -465,7 +465,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -519,7 +519,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -572,7 +572,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                         TipoCliente = reader.GetString("tipo_cliente"),
                                         TipoDoc = reader.GetString("tipo_doc"),
                                         Doc = reader.GetInt64("nro_doc"),
-                                        Nombre = reader.GetString("nombre"),
+                                        NombreCompleto = reader.GetString("nombre"),
                                         Calle = reader.GetString("calle"),
                                         NroPuerta = reader.GetInt32("nro_puerta"),
                                         Esq = reader.GetString("esq"),
@@ -623,12 +623,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     if (!reader.IsDBNull(reader.GetOrdinal("tel")))
                                     {
                                         tel = reader.GetInt32("tel");
-                                    }
-                                    else
-                                    {
-                                        tel = null;
-                                    }
-                                    
+                                    }                                    
                                 }
                                 listaTelefonos.Add(tel);
                             }
@@ -687,8 +682,69 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return listaMails;
         }
 
-        
-        
+        public List<string> obtenerNombresClienteParticular(int idCliente)
+        {
+            listaNombresParticular = new List<string>();
+            try
+            {
+                using (bd = Singleton.RecuperarInstancia())
+                {
+                    if (bd.Conectar(rol))
+                    {
+                        consulta  = "SELECT p_nom, s_nom, p_ape, s_ape ";
+                        consulta += "FROM cliente_comun ";
+                        consulta += "WHERE id_cliente = @idCliente;";
+
+                        using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                        {
+                            cmd.Parameters.AddWithValue("@idCliente", idCliente);
+
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    listaNombresParticular.Add(reader.GetString("p_nom"));
+                                    
+                                    if (!reader.IsDBNull(reader.GetOrdinal("s_nom")))
+                                    {
+                                        listaNombresParticular.Add(reader.GetString("s_nom"));
+                                    }
+                                    else
+                                    {
+                                        listaNombresParticular.Add("");
+                                    }
+
+                                    
+                                    listaNombresParticular.Add(reader.GetString("p_ape"));
+
+                                    if (!reader.IsDBNull(reader.GetOrdinal("s_ape")))
+                                    {
+                                        listaNombresParticular.Add(reader.GetString("s_ape"));
+                                    }
+                                    else
+                                    {
+                                        listaNombresParticular.Add("");
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("ClientesBD #obtenerNombresClienteParticular\n" + ex.Number.ToString() + ": " + ex.Message);
+            }
+            finally
+            {
+                bd.CerrarConexion();
+            }
+            return listaNombresParticular;
+        }
+
+
+
         // ------------------ AUTORIZACION ------------------
         public bool autorizarCliente(int idCliente, bool autorizar)
         {
