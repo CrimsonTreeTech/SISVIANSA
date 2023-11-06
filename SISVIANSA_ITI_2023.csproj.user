@@ -67,6 +67,9 @@
     <Compile Update="GUI\ListarVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\ListarViandas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\ListarZonas.cs">
       <SubType>Form</SubType>
     </Compile>
