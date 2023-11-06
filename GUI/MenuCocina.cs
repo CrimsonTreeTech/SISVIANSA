@@ -92,5 +92,12 @@ namespace SISVIANSA_ITI_2023.GUI
             }
             Close();
         }
+
+        private void btnListarViandas_Click(object sender, EventArgs e)
+        {
+            ListarViandas listarViandas = new ListarViandas(rol, idSucursal);
+            listarViandas.Show(this);
+            Hide();
+        }
     }
 }

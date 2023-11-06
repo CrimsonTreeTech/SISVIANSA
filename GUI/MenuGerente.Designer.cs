@@ -39,6 +39,7 @@
             btnListarClientes = new Button();
             btnSalir = new Button();
             btnIngresarSucursal = new Button();
+            btnListarViandas = new Button();
             SuspendLayout();
             // 
             // btnListarZona
@@ -131,7 +132,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(235, 263);
+            btnSalir.Location = new Point(42, 340);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(155, 37);
@@ -151,11 +152,23 @@
             btnIngresarSucursal.UseVisualStyleBackColor = true;
             btnIngresarSucursal.Click += btnIngresarSucursal_Click;
             // 
+            // btnListarViandas
+            // 
+            btnListarViandas.Location = new Point(235, 263);
+            btnListarViandas.Margin = new Padding(3, 2, 3, 2);
+            btnListarViandas.Name = "btnListarViandas";
+            btnListarViandas.Size = new Size(155, 37);
+            btnListarViandas.TabIndex = 43;
+            btnListarViandas.Text = "Listar viandas";
+            btnListarViandas.UseVisualStyleBackColor = true;
+            btnListarViandas.Click += btnListarViandas_Click;
+            // 
             // MenuGerente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 329);
+            ClientSize = new Size(428, 437);
+            Controls.Add(btnListarViandas);
             Controls.Add(btnIngresarSucursal);
             Controls.Add(btnSalir);
             Controls.Add(btnListarZona);
@@ -184,5 +197,6 @@
         private Button btnListarClientes;
         private Button btnSalir;
         private Button btnIngresarSucursal;
+        private Button btnListarViandas;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SISVIANSA_ITI_2023.Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -99,6 +100,13 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             GestionarSucursal ingresarSucursal = new GestionarSucursal(rol);
             ingresarSucursal.Show(this);
+            Hide();
+        }
+
+        private void btnListarViandas_Click(object sender, EventArgs e)
+        {
+            ListarViandas listarViandas = new ListarViandas(rol, 0);
+            listarViandas.Show(this);
             Hide();
         }
     }

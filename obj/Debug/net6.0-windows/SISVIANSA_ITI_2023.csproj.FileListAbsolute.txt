@@ -790,3 +790,4 @@ C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.SeguimientoPedido.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.GestionarCliente.resources
 C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.DetallesCliente.resources
+C:\Users\DanMa\Desktop\SISVIANSA\obj\Debug\net6.0-windows\SISVIANSA_ITI_2023.GUI.ListarViandas.resources

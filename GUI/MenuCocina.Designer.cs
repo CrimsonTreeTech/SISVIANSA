@@ -34,6 +34,7 @@
             btnIngresarComida = new Button();
             btnSalir = new Button();
             btnIngresasrDieta = new Button();
+            btnListarViandas = new Button();
             SuspendLayout();
             // 
             // btnProduccionDiaria
@@ -115,7 +116,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(17, 205);
+            btnSalir.Location = new Point(17, 264);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(316, 37);
@@ -134,11 +135,23 @@
             btnIngresasrDieta.UseVisualStyleBackColor = true;
             btnIngresasrDieta.Click += btnIngresarDieta_Click;
             // 
+            // btnListarViandas
+            // 
+            btnListarViandas.Location = new Point(17, 183);
+            btnListarViandas.Margin = new Padding(3, 2, 3, 2);
+            btnListarViandas.Name = "btnListarViandas";
+            btnListarViandas.Size = new Size(155, 37);
+            btnListarViandas.TabIndex = 10;
+            btnListarViandas.Text = "Listar viandas";
+            btnListarViandas.UseVisualStyleBackColor = true;
+            btnListarViandas.Click += btnListarViandas_Click;
+            // 
             // MenuCocina
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(346, 260);
+            ClientSize = new Size(346, 331);
+            Controls.Add(btnListarViandas);
             Controls.Add(btnIngresasrDieta);
             Controls.Add(btnSalir);
             Controls.Add(btnIngresarComida);
@@ -165,5 +178,6 @@
         private Button btnIngresarComida;
         private Button btnSalir;
         private Button btnIngresasrDieta;
+        private Button btnListarViandas;
     }
 }
