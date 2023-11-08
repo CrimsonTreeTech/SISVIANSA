@@ -95,9 +95,12 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnListarViandas_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             ListarViandas listarViandas = new ListarViandas(rol, idSucursal);
             listarViandas.Show(this);
             Hide();
+            */
         }
     }
 }

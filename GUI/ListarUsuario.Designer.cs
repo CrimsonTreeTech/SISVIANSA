@@ -254,6 +254,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarUsuario";
             Text = "Listar Usuarios";
+            Load += ListarUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
             gbxFiltros.ResumeLayout(false);
             gbxFiltros.PerformLayout();

@@ -78,17 +78,23 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             Sucursal sucursal = seleccionarSucursal();
             DetallesSucursal detallesSucursal = new DetallesSucursal(this.rol, sucursal);
             detallesSucursal.Show(Owner);
             Close();
+            */
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             GestionarSucursal gestionarSucursal = new GestionarSucursal(rol);
             gestionarSucursal.Show(Owner);
             Close();
+            */
         }
 
         private void btnDarBaja_Click(object sender, EventArgs e)

@@ -97,10 +97,13 @@ namespace SISVIANSA_ITI_2023.GUI
         // Botones
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+            /*
             Dieta dietaSeleccionada = seleccionarDieta();
             GestionarDieta gestionarDieta = new GestionarDieta(this.rol, dietaSeleccionada);
             gestionarDieta.Show(Owner);
             Close();
+            */
         }
 
         private void btnRegresar_Click(object sender, EventArgs e)

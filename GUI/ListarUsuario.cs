@@ -123,6 +123,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
 
         // ----------------------- METODOS WIDGETS -----------------------
+        private void ListarUsuario_Load(object sender, EventArgs e)
+        {
+            deshabilitarCamposFiltros();
+            rbtnTodo.Checked = true;
+            actualizarGrilla();
+        }
+
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             Owner.Show();
@@ -194,5 +201,6 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltro = "Todo";
         }
 
+        
     }
 }

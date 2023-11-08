@@ -57,6 +57,8 @@ namespace SISVIANSA_ITI_2023.GUI
         // -------------------------------- METODOS WIDGETS --------------------------------
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             try
             {
                 Zona zonaSeleccionada = obtenerZona();
@@ -75,6 +77,7 @@ namespace SISVIANSA_ITI_2023.GUI
             {
                 MessageBox.Show(ex.Message);
             }
+            */
         }
 
 

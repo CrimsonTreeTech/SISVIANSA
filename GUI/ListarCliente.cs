@@ -46,7 +46,7 @@ namespace SISVIANSA_ITI_2023.GUI
             txtId.Clear();
             txtDoc.Clear();
             txtNombre.Clear();
-            cboTipo.SelectedItem = -1;
+            cboTipo.SelectedItem = null;
 
             txtId.Enabled = false;
             txtDoc.Enabled = false;
@@ -233,8 +233,8 @@ namespace SISVIANSA_ITI_2023.GUI
 
             if (tipoClienteSeleccionado() == 1)
             {
-                DetallesCliente detallesClienteComun = new DetallesCliente(this.rol, cliente);
-                detallesClienteComun.Show(Owner);
+                DetallesCliente detallesCliente = new DetallesCliente(this.rol, cliente);
+                detallesCliente.Show(Owner);
                 Close();
             }
         }

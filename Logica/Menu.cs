@@ -220,6 +220,11 @@ namespace SISVIANSA_ITI_2023.Logica
                 listaMenus = menuBD.filtrarMenuPorDietas(valFiltro);
             }
 
+            foreach(Menu menu in listaMenus)
+            {
+                MessageBox.Show(menu.Id.ToString());
+            }
+
             return listaMenus;
         }
 

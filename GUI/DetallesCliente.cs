@@ -99,9 +99,12 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             GestionarCliente gestionarCliente = new GestionarCliente(rol, cliente);
             gestionarCliente.Show(Owner);
             Close();
+            */
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

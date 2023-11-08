@@ -184,18 +184,24 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             idMenu = seleccionarMenu();
             DetallesMenu detalles = new DetallesMenu(idMenu, this.rol);
             detalles.Show(Owner);
             Close();
+            */
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             int idMenu = seleccionarMenu();
             GestionarMenu gestionarMenu = new GestionarMenu(this.rol, idMenu);
             gestionarMenu.Show(Owner);
             Close();
+            */
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)

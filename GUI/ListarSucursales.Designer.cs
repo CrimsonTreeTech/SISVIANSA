@@ -140,7 +140,7 @@
             Controls.Add(dgvSucursal);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarSucursales";
-            Text = "VisualizarSucursales";
+            Text = "Listar sucursales";
             Load += ListarSucursales_Load;
             ((System.ComponentModel.ISupportInitialize)dgvSucursal).EndInit();
             ResumeLayout(false);

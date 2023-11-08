@@ -27,9 +27,12 @@ namespace SISVIANSA_ITI_2023.GUI
         // ----------- METODOS WIDGETS -------------
         private void btnListarVehiculo_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             ListarVehiculo listarVehiculo = new ListarVehiculo(rol);
             listarVehiculo.Show(this);
             Hide();
+            */
         }
 
         private void btnListarMenu_Click(object sender, EventArgs e)
@@ -98,16 +101,22 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnIngresarSucursal_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             GestionarSucursal ingresarSucursal = new GestionarSucursal(rol);
             ingresarSucursal.Show(this);
             Hide();
+            */
         }
 
         private void btnListarViandas_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             ListarViandas listarViandas = new ListarViandas(rol, 0);
             listarViandas.Show(this);
             Hide();
+            */
         }
     }
 }

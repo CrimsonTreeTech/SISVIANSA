@@ -146,10 +146,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             pedido = obtenerPedidoSeleccionado();
             GestionarPedido gestionarPedido = new GestionarPedido(rol, pedido);
             gestionarPedido.Show(Owner);
             Close();
+            */
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -165,18 +168,24 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             Pedido pedido = obtenerPedidoSeleccionado();
             HistoricoPedidos historicoPedidos = new HistoricoPedidos(rol, pedido);
             historicoPedidos.Show(Owner);
             Close();
+            */
         }
 
         private void btnActualizarEstado_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             Pedido pedido = obtenerPedidoSeleccionado();
             SeguimientoPedido seguimiento = new SeguimientoPedido(rol, pedido);
             seguimiento.Show(Owner);
             Close();
+            */
         }
 
 

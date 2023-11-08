@@ -184,10 +184,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             comida = seleccionarComida();
             GestionarComida gestionarComida = new GestionarComida(rol, comida);
             gestionarComida.Show(Owner);
             Close();
+            */
         }
 
         private void bntBuscar_Click(object sender, EventArgs e)
