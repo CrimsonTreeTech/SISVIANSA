@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
@@ -325,14 +326,21 @@ namespace SISVIANSA_ITI_2023.Logica
 
         private List<Cliente> buscarClientesPorId(string num)
         {
-            int id = Convert.ToInt32(num);
-            listaClientes.Clear();
-            listaClientes.Add(clientesBD.buscarClientesPorId(id));
-
-            foreach (Cliente cliente in listaClientes)
+            try
             {
-                cliente.cargarTelefonos();
-                cliente.cargarMails();
+                int id = Convert.ToInt32(num);
+                listaClientes.Clear();
+                listaClientes.Add(clientesBD.buscarClientesPorId(id));
+
+                foreach (Cliente cliente in listaClientes)
+                {
+                    cliente.cargarTelefonos();
+                    cliente.cargarMails();
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("No se selecciono un valor de filtro correcto.", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             return listaClientes;
@@ -340,15 +348,22 @@ namespace SISVIANSA_ITI_2023.Logica
 
         private List<Cliente> buscarClientesPorNroDoc(string nroDoc)
         {
-            long nDoc = Convert.ToInt64(nroDoc);
-            listaClientes = clientesBD.buscarClientesPorNroDoc(nDoc);
-
-            foreach (Cliente cliente in listaClientes)
+            try
             {
-                cliente.cargarTelefonos();
-                cliente.cargarMails();
-            }
+                long nDoc = Convert.ToInt64(nroDoc);
+                listaClientes = clientesBD.buscarClientesPorNroDoc(nDoc);
 
+                foreach (Cliente cliente in listaClientes)
+                {
+                    cliente.cargarTelefonos();
+                    cliente.cargarMails();
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("No se selecciono un valor de filtro correcto.", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
             return listaClientes;
         }
 

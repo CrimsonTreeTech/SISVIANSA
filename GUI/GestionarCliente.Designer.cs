@@ -238,6 +238,7 @@
             txtNumDoc.Location = new Point(371, 24);
             txtNumDoc.Margin = new Padding(4, 3, 4, 3);
             txtNumDoc.Name = "txtNumDoc";
+            txtNumDoc.PlaceholderText = "Ej.: 12345678";
             txtNumDoc.Size = new Size(111, 23);
             txtNumDoc.TabIndex = 3;
             // 
@@ -246,6 +247,7 @@
             txtPrimerNombre.Location = new Point(17, 97);
             txtPrimerNombre.Margin = new Padding(4, 3, 4, 3);
             txtPrimerNombre.Name = "txtPrimerNombre";
+            txtPrimerNombre.PlaceholderText = "Nombre";
             txtPrimerNombre.Size = new Size(216, 23);
             txtPrimerNombre.TabIndex = 5;
             // 
@@ -254,6 +256,7 @@
             txtSegundoNombre.Location = new Point(266, 97);
             txtSegundoNombre.Margin = new Padding(4, 3, 4, 3);
             txtSegundoNombre.Name = "txtSegundoNombre";
+            txtSegundoNombre.PlaceholderText = "Nombre";
             txtSegundoNombre.Size = new Size(216, 23);
             txtSegundoNombre.TabIndex = 7;
             // 
@@ -262,6 +265,7 @@
             txtPrimerApellido.Location = new Point(17, 147);
             txtPrimerApellido.Margin = new Padding(4, 3, 4, 3);
             txtPrimerApellido.Name = "txtPrimerApellido";
+            txtPrimerApellido.PlaceholderText = "Apellido";
             txtPrimerApellido.Size = new Size(216, 23);
             txtPrimerApellido.TabIndex = 9;
             // 
@@ -270,6 +274,7 @@
             txtSegundoApellido.Location = new Point(266, 147);
             txtSegundoApellido.Margin = new Padding(4, 3, 4, 3);
             txtSegundoApellido.Name = "txtSegundoApellido";
+            txtSegundoApellido.PlaceholderText = "Apellido";
             txtSegundoApellido.Size = new Size(216, 23);
             txtSegundoApellido.TabIndex = 11;
             // 
@@ -278,6 +283,7 @@
             txtTel1.Location = new Point(94, 34);
             txtTel1.Margin = new Padding(4, 3, 4, 3);
             txtTel1.Name = "txtTel1";
+            txtTel1.PlaceholderText = "Ej.: 12345678";
             txtTel1.Size = new Size(119, 23);
             txtTel1.TabIndex = 13;
             // 
@@ -302,6 +308,7 @@
             txtMail1.Location = new Point(305, 34);
             txtMail1.Margin = new Padding(4, 3, 4, 3);
             txtMail1.Name = "txtMail1";
+            txtMail1.PlaceholderText = "Ej.: ejemplo@mail.com";
             txtMail1.Size = new Size(177, 23);
             txtMail1.TabIndex = 19;
             // 
@@ -326,6 +333,7 @@
             txtCalle.Location = new Point(59, 206);
             txtCalle.Margin = new Padding(4, 3, 4, 3);
             txtCalle.Name = "txtCalle";
+            txtCalle.PlaceholderText = "Nombre de la calle";
             txtCalle.Size = new Size(284, 23);
             txtCalle.TabIndex = 26;
             // 
@@ -334,6 +342,7 @@
             txtEsquina.Location = new Point(59, 235);
             txtEsquina.Margin = new Padding(4, 3, 4, 3);
             txtEsquina.Name = "txtEsquina";
+            txtEsquina.PlaceholderText = "Nombre de la calle";
             txtEsquina.Size = new Size(423, 23);
             txtEsquina.TabIndex = 28;
             // 
@@ -342,6 +351,7 @@
             txtNumeroPuerta.Location = new Point(422, 206);
             txtNumeroPuerta.Margin = new Padding(4, 3, 4, 3);
             txtNumeroPuerta.Name = "txtNumeroPuerta";
+            txtNumeroPuerta.PlaceholderText = "0000";
             txtNumeroPuerta.Size = new Size(60, 23);
             txtNumeroPuerta.TabIndex = 30;
             // 

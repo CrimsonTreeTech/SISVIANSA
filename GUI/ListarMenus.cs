@@ -36,19 +36,18 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)
         {
-            if (rol == 1)
+            if (rol == 1) // Gerente
             {
-                btnBaja.Enabled = false;
                 btnModificar.Enabled = false;
             }
-            else if (rol == 2)
+            else if (rol == 2) // Cocina
             {
-                btnBaja.Enabled = false;
                 btnAutorizar.Enabled = false;
             }
-            else if (rol == 4)
+            else if (rol == 4) // Atc
             {
                 btnBaja.Enabled = false;
+                btnAlta.Enabled = false;
                 btnModificar.Enabled = false;
                 btnAutorizar.Enabled = false;
             }

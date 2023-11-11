@@ -260,7 +260,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
+                        consulta  = "SELECT m.id_menu, m.activo, m.autorizado, m.congelable, m.lote_max, m.lote_min, m.sugerencia, m.tipo_menu, mp.valor, d.dietas ";
                         consulta += "FROM menu m ";
                         consulta += "JOIN menu_precio mp ON m.id_menu = mp.id_menu ";
                         consulta += "JOIN ( ";
@@ -270,7 +270,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
                         consulta += "GROUP BY m.id_menu ";
                         consulta += ") d ON d.id_menu = m.id_menu ";
-                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio WHERE menu_precio.id_menu = m.id_menu) ";
                         consulta += "AND m.id_menu = @valFiltro; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -334,7 +334,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
                         consulta += "GROUP BY m.id_menu ";
                         consulta += ") d ON d.id_menu = m.id_menu ";
-                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio WHERE menu_precio.id_menu = m.id_menu) ";
                         consulta += "AND m.tipo_menu = @valFiltro; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -398,7 +398,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
                         consulta += "GROUP BY m.id_menu ";
                         consulta += ") d ON d.id_menu = m.id_menu ";
-                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio WHERE menu_precio.id_menu = m.id_menu) ";
                         consulta += "AND m.autorizado = @valFiltro; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -462,7 +462,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN dieta d ON d.id_dieta = p.id_dieta ";
                         consulta += "GROUP BY m.id_menu ";
                         consulta += ") d ON d.id_menu = m.id_menu ";
-                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio) ";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio WHERE menu_precio.id_menu = m.id_menu) ";
                         consulta += "AND m.activo = @valFiltro; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
@@ -533,7 +533,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += ") ";
                         consulta += "GROUP BY m.id_menu ";
                         consulta += ") d ON d.id_menu = m.id_menu ";
-                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio);";
+                        consulta += "WHERE mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio WHERE menu_precio.id_menu = m.id_menu) ;";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -597,7 +597,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN integra i ON i.id_menu = m.id_menu ";
                         consulta += "JOIN produccion p ON p.id_menu = m.id_menu ";
                         consulta += "WHERE m.id_menu = @id ";
-                        consulta += "AND mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio); ";
+                        consulta += "AND mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precioWHERE menu_precio.id_menu = m.id_menu); ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {

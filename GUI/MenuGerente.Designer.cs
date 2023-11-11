@@ -49,7 +49,7 @@
             btnListarZona.Name = "btnListarZona";
             btnListarZona.Size = new Size(155, 37);
             btnListarZona.TabIndex = 40;
-            btnListarZona.Text = "Listar Zonas";
+            btnListarZona.Text = "Listar zonas";
             btnListarZona.UseVisualStyleBackColor = true;
             btnListarZona.Click += btnListarZona_Click;
             // 
@@ -60,7 +60,7 @@
             btnListarVehiculo.Name = "btnListarVehiculo";
             btnListarVehiculo.Size = new Size(155, 37);
             btnListarVehiculo.TabIndex = 39;
-            btnListarVehiculo.Text = "Listar Vehiculo";
+            btnListarVehiculo.Text = "Listar vehiculos";
             btnListarVehiculo.UseVisualStyleBackColor = true;
             btnListarVehiculo.Click += btnListarVehiculo_Click;
             // 
@@ -82,7 +82,7 @@
             btnListarComida.Name = "btnListarComida";
             btnListarComida.Size = new Size(155, 37);
             btnListarComida.TabIndex = 37;
-            btnListarComida.Text = "Listar comida";
+            btnListarComida.Text = "Listar comidas";
             btnListarComida.UseVisualStyleBackColor = true;
             btnListarComida.Click += btnListarComida_Click;
             // 
@@ -104,7 +104,7 @@
             btnListarMenu.Name = "btnListarMenu";
             btnListarMenu.Size = new Size(155, 37);
             btnListarMenu.TabIndex = 35;
-            btnListarMenu.Text = "Listar menu";
+            btnListarMenu.Text = "Listar menús";
             btnListarMenu.UseVisualStyleBackColor = true;
             btnListarMenu.Click += btnListarMenu_Click;
             // 
@@ -132,10 +132,10 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(42, 340);
+            btnSalir.Location = new Point(31, 370);
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(155, 37);
+            btnSalir.Size = new Size(359, 37);
             btnSalir.TabIndex = 41;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             btnIngresarSucursal.Name = "btnIngresarSucursal";
             btnIngresarSucursal.Size = new Size(155, 37);
             btnIngresarSucursal.TabIndex = 42;
-            btnIngresarSucursal.Text = "Ingresar sucursales";
+            btnIngresarSucursal.Text = "Ingresar sucursal";
             btnIngresarSucursal.UseVisualStyleBackColor = true;
             btnIngresarSucursal.Click += btnIngresarSucursal_Click;
             // 

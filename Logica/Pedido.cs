@@ -130,8 +130,16 @@ namespace SISVIANSA_ITI_2023.Logica
 
             else if (colFiltro.Equals("nro_pedido"))
             {
-                valFiltroInt = Convert.ToInt32(valFiltro);
-                listaPedidos = pedidoBD.filtrarPorNro(valFiltroInt);
+                try
+                {
+                    valFiltroInt = Convert.ToInt32(valFiltro);
+                    listaPedidos = pedidoBD.filtrarPorNro(valFiltroInt);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("No se selecciono un valor de filtro correcto.", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
             }
             
             else if (colFiltro.Equals("cliente"))

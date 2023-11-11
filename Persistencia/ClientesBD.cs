@@ -112,7 +112,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("ClientesBD #ingresarClienteComun\n" + ex.Number.ToString() + ": " + ex.Message);
+                if (ex.Number == 1062)
+                {
+                    MessageBox.Show("Ya existe un cliente registrado con este documento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error inesperado y no se han guardado los datos. Consulte con el técnico", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             finally
             {
@@ -157,7 +164,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("ClientesBD #ingresarClienteComun\n" + ex.Number.ToString() + ": " + ex.Message);
+                if (ex.Number == 1062)
+                {
+                    MessageBox.Show("Ya existe un cliente registrado con este documento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error inesperado y no se han guardado los datos. Consulte con el técnico", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             finally
             {

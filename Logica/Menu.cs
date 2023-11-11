@@ -186,8 +186,16 @@ namespace SISVIANSA_ITI_2023.Logica
 
             else if (colFiltro.Equals("id"))
             {
-                id = Convert.ToInt32(valFiltro[0]);
-                listaMenus = menuBD.filtrarMenuPorId(id);
+                try
+                {
+                    id = Convert.ToInt32(valFiltro[0]);
+                    listaMenus = menuBD.filtrarMenuPorId(id);
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("No se selecciono un valor de filtro correcto.", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
             }
 
             else if (colFiltro.Equals("tipo"))
@@ -218,11 +226,6 @@ namespace SISVIANSA_ITI_2023.Logica
             else if (colFiltro.Equals("dieta"))
             {
                 listaMenus = menuBD.filtrarMenuPorDietas(valFiltro);
-            }
-
-            foreach(Menu menu in listaMenus)
-            {
-                MessageBox.Show(menu.Id.ToString());
             }
 
             return listaMenus;

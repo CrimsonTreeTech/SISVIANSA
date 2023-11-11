@@ -32,11 +32,14 @@ namespace SISVIANSA_ITI_2023.GUI
         // ----------------------- METODOS AUXILIARES --------------------------
         private void bloqueraFuncionalidadesSegunRol(byte rol)
         {
-            if (rol == 1)
-                btnDarBaja.Enabled = false;
-            else if (rol == 4)
+            if (rol == 1) // Gerente
             {
                 btnDarBaja.Enabled = false;
+                btnAlta.Enabled = false;
+            }
+
+            else if (rol == 4) // ATC
+            {
                 btnAutorizar.Enabled = false;
             }
         }
@@ -228,6 +231,8 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             idClienteSelecioando = obtenreIdClienteSeleccionado();
             cliente = cliente.cargarDatosDeCliente(idClienteSelecioando);
 
@@ -237,6 +242,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 detallesCliente.Show(Owner);
                 Close();
             }
+            */
         }
 
 

@@ -104,11 +104,6 @@ namespace SISVIANSA_ITI_2023.GUI
             marcarIncorrecto(mail2, lblMail2);
             marcarIncorrecto(mail3, lblMail3);
 
-            if (!tel1 || !tel2 || !tel3)
-            {
-                MessageBox.Show("El telefono deben ser 8 digitos: numeros fijos o celulares sin el 0 inicial", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             return documento && nombre && calle && esquina && numPuerta && tel1 && tel2 && tel3 && mail1 && mail2 && mail3;
         }
 
@@ -175,7 +170,7 @@ namespace SISVIANSA_ITI_2023.GUI
             {
                 txtTel2.Text = cliente.Tels[1].ToString();
             }
-            else if(cliente.Tels.Count > 2)
+            else if (cliente.Tels.Count > 2)
             {
                 txtTel3.Text = cliente.Tels[2].ToString();
             }
@@ -250,8 +245,6 @@ namespace SISVIANSA_ITI_2023.GUI
                 bool resultado = metodo();
                 if (resultado)
                     MessageBox.Show("Se guardaron los cambios.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                else
-                    MessageBox.Show("No se han logrado guardaron los cambios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
