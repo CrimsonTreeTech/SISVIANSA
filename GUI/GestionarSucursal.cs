@@ -35,7 +35,13 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void IngresarSucursal_Load(object sender, EventArgs e)
         {
-            List<string> zonasDisponibles = zona.obtenerZonas();
+            List<string> zonasDisponibles = new List<string>();
+            List<Zona> zonas = zona.todasLasZonas();
+            foreach(Zona zona in zonas)
+            {
+                zonasDisponibles.Add("Zona " + zona.ToString());
+            }
+
             lstZonsaDisponibles.Items.AddRange(zonasDisponibles.ToArray());
         }
 

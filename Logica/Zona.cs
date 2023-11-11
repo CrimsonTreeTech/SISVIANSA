@@ -170,11 +170,5 @@ namespace SISVIANSA_ITI_2023.Logica
         }
 
 
-        // --------------------------------------------------------------------
-        public List<string> obtenerZonas()
-        {
-            return zonaBD.obtenerZonas();
-        }
-
     }
 }

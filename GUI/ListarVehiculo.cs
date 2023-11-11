@@ -18,36 +18,25 @@ namespace ventana3
         private byte rol;
         private Vehiculo vehiculo;
         private Zona logicaZona;
+        private string colFiltro = "todo";
 
         // ------------------------------- METEDOS AL INCIAR -------------------------------
         public ListarVehiculo(byte rol)
         {
             InitializeComponent();
             this.rol = rol;
-            bloqueraFuncionalidadesSegunRol(rol);
-            vehiculo = new Vehiculo(this.rol);
-            logicaZona = new Zona(this.rol);
+            vehiculo = new Vehiculo(rol);
+            logicaZona = new Zona(rol);
         }
 
         private void ListarVehiculo_Load(object sender, EventArgs e)
         {
             limpiarFiltros();
             inhabilitarFiltros();
+            rbtnTodo.Checked = true;
             buscarTodo();
         }
 
-        private void bloqueraFuncionalidadesSegunRol(byte rol)
-        {
-            if (rol == 1)
-            {
-                btnBaja.Enabled = false;
-                btnAsignarZona.Enabled = false;
-            }
-            else if (rol == 5)
-            {
-                btnBaja.Enabled = false;
-            }
-        }
 
 
         // -------------------------- METODOS AUXILIARES -----------------------------------
@@ -119,6 +108,15 @@ namespace ventana3
                 MessageBox.Show("Ha ocurrido un error al cargar las zonas");
         }
 
+        private void actualizarDGV()
+        {
+            if (colFiltro.Equals("matricula"))
+                buscarPorMatricula();
+            else if (colFiltro.Equals("zona"))
+                buscarPorZona();
+            else
+                buscarTodo();
+        }
 
         // Seleccionar  vehiculo
         private Vehiculo vehiculoSeleccionado()
@@ -137,24 +135,6 @@ namespace ventana3
         }
 
 
-        // Guardar datos
-        private void darBajaAlta(bool alta)
-        {
-            if (vehiculoSeleccionado() != null)
-            {
-                Vehiculo vehiculo = vehiculoSeleccionado();
-                DialogResult mensaje = MessageBox.Show("¿Desea borrar el vehiculo " + vehiculo.Matricula + "?", "Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (mensaje == DialogResult.Yes)
-                {
-                    bool res = vehiculo.bajaAlta(alta);
-                    if (res)
-                        MessageBox.Show("Se ha borrado el vehiculo");
-                    else
-                        MessageBox.Show("No se ha logrado borrado el vehiculo");
-                }
-            }
-        }
-
 
         // -------------------------- METODOS WIDGETS -----------------------------------
         // Botones
@@ -166,28 +146,38 @@ namespace ventana3
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            darBajaAlta(true);
+            vehiculo = vehiculoSeleccionado();
+            vehiculo.bajaAlta(true);
+            actualizarDGV();
         }
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            darBajaAlta(false);
+            vehiculo = vehiculoSeleccionado();
+            vehiculo.bajaAlta(false);
+            actualizarDGV();
         }
 
         private void btnAsignarZona_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             Vehiculo vehiculo = vehiculoSeleccionado();
             AsignarZonas asignarZonas = new AsignarZonas(vehiculo, this.rol);
             asignarZonas.Show(Owner);
             Close();
+            */
         }
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             Vehiculo vehiculo = vehiculoSeleccionado();
             DetallesVehiculo detallesVehiculo = new DetallesVehiculo(this.rol, vehiculo);
             detallesVehiculo.Show(Owner);
             Close();
+            */
         }
 
 
@@ -196,7 +186,7 @@ namespace ventana3
         {
             limpiarFiltros();
             inhabilitarFiltros();
-            rbtnMatricula.Checked = true;
+            colFiltro = "matricula";
             txtMatricula.Enabled = true;
         }
 
@@ -204,7 +194,7 @@ namespace ventana3
         {
             limpiarFiltros();
             inhabilitarFiltros();
-            rbtnZona.Checked = true;
+            colFiltro = "zona";
             cboZona.Enabled = true;
             cargarZonasCBO();
         }
@@ -213,7 +203,7 @@ namespace ventana3
         {
             limpiarFiltros();
             inhabilitarFiltros();
-            rbtnTodo.Checked = true;
+            colFiltro = "todo";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

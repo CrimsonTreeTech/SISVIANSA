@@ -23,11 +23,6 @@ namespace SISVIANSA_ITI_2023.Logica
 
 
         // --------------- CONSTRUCTORES ------------------------
-        public Vehiculo()
-        {
-
-        }
-
         public Vehiculo(byte rol)
         { 
             this.rol = rol;

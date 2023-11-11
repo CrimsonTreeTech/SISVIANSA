@@ -156,10 +156,10 @@ namespace SISVIANSA_ITI_2023.Persistencia
         }
 
 
-        // Baja
+        // Alta / Baja
         public bool bajaAltaVehiculo(int id, bool activo)
         {
-            filasAfectadas = -1;
+            filasAfectadas = 0;
             try
             {
                 using (bd = Singleton.RecuperarInstancia())
@@ -169,8 +169,8 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta = "UPDATE vehiculo SET activo=@activo WHERE id_vehiculo=@id;";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
-                            cmd.Parameters.AddWithValue("@id", vehiculo.Id);
-                            cmd.Parameters.AddWithValue("@activo", vehiculo.Activo);
+                            cmd.Parameters.AddWithValue("@id", id);
+                            cmd.Parameters.AddWithValue("@activo", activo);
                             filasAfectadas = cmd.ExecuteNonQuery();
                         }
                     }
@@ -241,7 +241,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT id_vehiculo, cap_carga, activo FROM vehiculo WHERE matricula LIKE @matricula;";
+                        consulta = "SELECT id_vehiculo, matricula, cap_carga, activo FROM vehiculo WHERE matricula LIKE @matricula;";
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
                             cmd.Parameters.AddWithValue("@matricula", "%" + matricula + "%");
@@ -252,7 +252,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                     vehiculo = new Vehiculo(rol)
                                     {
                                         Id = reader.GetInt32("id_vehiculo"),
-                                        Matricula = matricula,
+                                        Matricula = reader.GetString("matricula"),
                                         CapCarga = reader.GetInt32("cap_carga"),
                                         Activo = reader.GetBoolean("activo")
                                     };
@@ -274,7 +274,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             return vehiculos;
         }
 
-        public List<Vehiculo> filtrarPorZona(int id_zona)
+        public List<Vehiculo> filtrarPorZona(int idZona)
         {
             vehiculos = new List<Vehiculo>();
             try
@@ -283,13 +283,14 @@ namespace SISVIANSA_ITI_2023.Persistencia
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT vehiculo.id_vehiculo, vehiculo.matricula, vehiculo.cap_carga " +
-                                   "FROM vehiculo JOIN reparte ON vehiculo.id_vehiculo = reparte.id_vehiculo " +
-                                   "WHERE reparte.id_zona = @id_zona;";
+                        consulta  = "SELECT v.id_vehiculo, v.matricula, v.cap_carga, v.activo ";
+                        consulta += "FROM vehiculo v ";
+                        consulta += "JOIN reparte r ON v.id_vehiculo = r.id_vehiculo ";
+                        consulta += "WHERE r.id_zona = @idZona; ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
-                            cmd.Parameters.AddWithValue("@id_zona", id_zona);
+                            cmd.Parameters.AddWithValue("@idZona", idZona);
                             using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())

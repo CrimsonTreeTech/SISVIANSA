@@ -134,7 +134,7 @@
             // 
             // btnBaja
             // 
-            btnBaja.Location = new Point(228, 332);
+            btnBaja.Location = new Point(120, 332);
             btnBaja.Margin = new Padding(3, 2, 3, 2);
             btnBaja.Name = "btnBaja";
             btnBaja.Size = new Size(102, 29);
@@ -201,7 +201,7 @@
             // 
             // btnAlta
             // 
-            btnAlta.Location = new Point(120, 332);
+            btnAlta.Location = new Point(228, 332);
             btnAlta.Margin = new Padding(3, 2, 3, 2);
             btnAlta.Name = "btnAlta";
             btnAlta.Size = new Size(102, 29);

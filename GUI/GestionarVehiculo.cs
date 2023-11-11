@@ -17,7 +17,7 @@ namespace ventana3
         byte rol;
         public GestionarVehiculo(byte rol)
         {
-            logicaVehiculo = new Vehiculo();
+            logicaVehiculo = new Vehiculo(rol);
             this.rol = rol;
             InitializeComponent();
         }

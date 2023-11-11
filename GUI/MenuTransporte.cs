@@ -30,19 +30,20 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnListarVehiculo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            /*
             ListarVehiculo listarVehiculo = new ListarVehiculo(rol);
             listarVehiculo.Show(this);
             Hide();
-            */
+            
         }
 
         private void btnIngresarZona_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             GestionarZona gestionarZona = new GestionarZona(rol);
             gestionarZona.Show(this);
             Hide();
+            */
         }
 
         private void btnListarZona_Click(object sender, EventArgs e)

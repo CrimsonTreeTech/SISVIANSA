@@ -154,9 +154,16 @@ namespace SISVIANSA_ITI_2023.Logica
 
         public List<string> listaZonasDisponibles()
         {
-            List<string> zonasDisponibles = zonaBD.obtenerZonas();
+            List<Zona> zonas = zonaBD.todasLasZonas();
+            List<string> zonasDisponibles = new List<string>();
 
-            foreach (var item in listTemporalZonasSuc)
+            foreach(Zona zona in zonas)
+            {
+                zonasDisponibles.Add("Zona " + zona.Id.ToString());
+            }
+
+
+            foreach (string item in listTemporalZonasSuc)
             {
                 if (zonasDisponibles.Contains(item))
                     zonasDisponibles.Remove(item);

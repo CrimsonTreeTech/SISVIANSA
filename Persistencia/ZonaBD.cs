@@ -224,7 +224,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error ZonaBD: " + ex.Message);
+                MessageBox.Show("Error ZonaBD 1: " + ex.Message);
             }
             finally
             {
@@ -264,7 +264,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error ZonaBD: " + ex.Message);
+                MessageBox.Show("Error ZonaBD 2: " + ex.Message);
             }
             finally
             {
@@ -276,17 +276,19 @@ namespace SISVIANSA_ITI_2023.Persistencia
         public List<Zona> zonasDeRepartoDeVehiculo(int idVehiculo)
         {
             zonas = new List<Zona>();
+            /*
             try
             {
                 using (bd = Singleton.RecuperarInstancia())
                 {
                     if (bd.Conectar(rol))
                     {
-                        consulta = "SELECT z.id_zona, z.activo, z.autorizado, zp.precio " +
-                                    "FROM zona z " +
-                                    "JOIN zona_precio zp ON z.id_zona = zp.id_zona " +
-                                    "JOIN reparte r ON r.id_zona = z.id_zona " +
-                                    "WHERE r.id_vehiculo = 1 AND zp.fecha_act = (SELECT MAX(zp.fecha_act) FROM zona_precio zp);";
+                        consulta += "SELECT z.id_zona, z.activo, z.autorizado, zp.valor ";
+                        consulta += "FROM zona z  ";
+                        consulta += "JOIN zona_precio zp ON z.id_zona = zp.id_zona  ";
+                        consulta += "JOIN reparte r ON r.id_zona = z.id_zona  ";
+                        consulta += "WHERE r.id_vehiculo = @idVehiculo ";
+                        consulta += "AND zp.fecha_act = (SELECT MAX(zp.fecha_act) FROM zona_precio zp WHERE zp.id_zona = z.id_zona); ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {
@@ -297,10 +299,10 @@ namespace SISVIANSA_ITI_2023.Persistencia
                                 {
                                     zona = new Zona(rol)
                                     {
-                                        Id = reader.GetInt32("id_vehiculo"),
+                                        Id = reader.GetInt32("id_zona"),
                                         Activo = reader.GetBoolean("activo"),
                                         Autorizado = reader.GetBoolean("autorizado"),
-                                        Precio = reader.GetDouble("precio")
+                                        Precio = reader.GetDouble("valor")
                                     };
                                     vehiculos.Add(vehiculo);
                                 }
@@ -311,21 +313,48 @@ namespace SISVIANSA_ITI_2023.Persistencia
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error ZonaBD: " + ex.Message);
+                MessageBox.Show("Error ZonaBD 3: " + ex.Message);
             }
             finally
             {
                 bd.CerrarConexion();
             }
+            */
+            using (bd = Singleton.RecuperarInstancia())
+            {
+                if (bd.Conectar(rol))
+                {
+                    consulta += "SELECT z.id_zona, z.activo, z.autorizado, zp.valor ";
+                    consulta += "FROM zona z  ";
+                    consulta += "JOIN zona_precio zp ON z.id_zona = zp.id_zona  ";
+                    consulta += "JOIN reparte r ON r.id_zona = z.id_zona  ";
+                    consulta += "WHERE r.id_vehiculo = @idVehiculo ";
+                    consulta += "AND zp.fecha_act = (SELECT MAX(zp.fecha_act) FROM zona_precio zp WHERE zp.id_zona = z.id_zona); ";
+
+                    using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idVehiculo", idVehiculo);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                zona = new Zona(rol)
+                                {
+                                    Id = reader.GetInt32("id_zona"),
+                                    Activo = reader.GetBoolean("activo"),
+                                    Autorizado = reader.GetBoolean("autorizado"),
+                                    Precio = reader.GetDouble("valor")
+                                };
+                                zonas.Add(zona);
+                            }
+                        }
+                    }
+                }
+            }
+            bd.CerrarConexion();
             return zonas;
         }
 
-
-        // --------------------------------------------------------------
-        public List<string> obtenerZonas()
-        {
-            return new List<string> { "Zona 1", "Zona 2", "Zona 3", "Zona 4", "Zona 5", "Zona 6"};
-        }
 
     }
 }
