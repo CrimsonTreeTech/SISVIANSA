@@ -38,6 +38,7 @@ namespace SISVIANSA_ITI_2023.GUI
             dieta = new Dieta(rol);
             zona = new Zona(rol);
             modificarDatosPedido_Pedido();
+            this.Text = "Ingresar pedido";
         }
 
         public GestionarPedido(byte rol, Pedido pedido)
@@ -51,6 +52,7 @@ namespace SISVIANSA_ITI_2023.GUI
             zona = new Zona(rol);
             realizarBusquedaMenuClienteDePedido();
             cargarInformacionPedido();
+            this.Text = "Modificar pedido";
         }
 
 

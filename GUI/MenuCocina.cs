@@ -24,9 +24,12 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void btnProduccionDiaria_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            /*
             ProduccionDiaria produccionDiaria = new ProduccionDiaria(rol, idSucursal, true);
             produccionDiaria.Show(this);
             Hide();
+            */
         }
 
         private void btnIngresarMenu_Click(object sender, EventArgs e)

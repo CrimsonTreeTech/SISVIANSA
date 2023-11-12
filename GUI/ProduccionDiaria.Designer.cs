@@ -72,6 +72,7 @@
             dgvProduccion.CellEndEdit += dgvProduccion_CellEndEdit;
             dgvProduccion.CellFormatting += dgvProduccion_CellFormatting;
             dgvProduccion.Click += dgvProduccion_Click;
+            dgvProduccion.KeyDown += dgvProduccion_KeyDown;
             // 
             // colIdMenu
             // 
@@ -182,7 +183,7 @@
             Controls.Add(lblOrden);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ProduccionDiaria";
-            Text = "ProduccionDiaria";
+            Text = "Produccion diaria";
             Load += ProduccionDiaria_Load;
             ((System.ComponentModel.ISupportInitialize)dgvProduccion).EndInit();
             ResumeLayout(false);

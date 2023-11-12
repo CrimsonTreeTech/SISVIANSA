@@ -103,7 +103,7 @@
             Controls.Add(btnIngresarClienteComun);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuAtencionCliente";
-            Text = "MenuAtencionCliente";
+            Text = "Menu atencion al cliente";
             ResumeLayout(false);
         }
 

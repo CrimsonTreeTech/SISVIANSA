@@ -402,7 +402,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "ListarCliente";
-            Text = "ListarClientes";
+            Text = "Listar clientes";
             Load += VisualizarCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             gbxFiltros.ResumeLayout(false);

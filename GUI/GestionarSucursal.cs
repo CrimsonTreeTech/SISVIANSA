@@ -23,6 +23,7 @@ namespace SISVIANSA_ITI_2023.GUI
             sucursal = new Sucursal(rol);
             zona = new Zona(rol);
             InitializeComponent();
+            this.Text = "Ingresar sucursal";
         }
 
         public GestionarSucursal(byte rol, Sucursal sucursal)
@@ -31,6 +32,7 @@ namespace SISVIANSA_ITI_2023.GUI
             zona = new Zona(rol);
             InitializeComponent();
             cargarDatos();
+            this.Text = "Modificar sucursal";
         }
 
         private void IngresarSucursal_Load(object sender, EventArgs e)

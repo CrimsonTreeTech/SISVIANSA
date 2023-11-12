@@ -349,7 +349,7 @@
             Controls.Add(dgvMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarMenus";
-            Text = "ListarMenus";
+            Text = "Listar menus";
             Load += ListarMenus_Load;
             gbxFiltrar.ResumeLayout(false);
             gbxFiltrar.PerformLayout();

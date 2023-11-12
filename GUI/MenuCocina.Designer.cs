@@ -163,7 +163,7 @@
             Controls.Add(btnListarMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuCocina";
-            Text = "MenuJefeCocina";
+            Text = "Menu jefe de cocina";
             ResumeLayout(false);
         }
 

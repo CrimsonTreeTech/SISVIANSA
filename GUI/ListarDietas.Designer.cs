@@ -232,7 +232,7 @@
             Controls.Add(dgvDieta);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarDietas";
-            Text = "LisarDietas";
+            Text = "Lisar dietas";
             Load += ListarDietas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDieta).EndInit();
             gbxFiltros.ResumeLayout(false);

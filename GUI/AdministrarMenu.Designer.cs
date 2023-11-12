@@ -116,7 +116,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "AdministrarMenu";
-            Text = "AdministrarMenu";
+            Text = "Administrar menu";
             ResumeLayout(false);
         }
 

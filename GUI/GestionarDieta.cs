@@ -25,6 +25,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.opcion = 0;
             dieta = new Dieta(rol);
             InitializeComponent();
+            this.Text = "Ingresar dieta";
         }
 
         public GestionarDieta(byte rol, Dieta dieta)
@@ -34,10 +35,20 @@ namespace SISVIANSA_ITI_2023.GUI
             this.opcion = 1;
             this.dieta = dieta;
             cargarDatos();
+            this.Text = "Modificar dieta";
         }
 
 
         // ---------------- METODOS AUXILIARES ----------------------
+        private void bloquearFuncionalidadesSegunRol(int rol)
+        {
+            if (rol == 2)
+            {
+                chkActivo.Enabled = false;
+                chkAutorizado.Enabled = false;
+            }
+        }
+        
         private void regresarAlMenu()
         {
             Owner.Show();

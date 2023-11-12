@@ -27,6 +27,7 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             this.rol = rol;
             this.opcion = 0;
+            this.Text = "Ingresar comida";
         }
 
         public GestionarComida(byte rol, Comida comida)
@@ -37,7 +38,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.rol = rol;
             this.opcion = 1;
             cargarDatos();
-
+            this.Text = "Modificar cliente";
         }
 
         private void bloqueraFuncionalidadesSegunRol(byte rol)

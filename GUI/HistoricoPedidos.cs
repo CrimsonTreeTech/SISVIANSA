@@ -25,6 +25,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.pedido = pedido;
             historico = new Historico(rol);
             pedido.Historico = historico.obtenerHistoricosDePedido(pedido.NroPedido);
+            this.Text = "Histórico de pedido";
         }
 
 

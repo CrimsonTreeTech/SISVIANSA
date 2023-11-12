@@ -299,12 +299,12 @@ namespace SISVIANSA_ITI_2023.Logica
                 return 20;
         }
 
-        public bool esInt(string num)
+        public bool esIntPositivo(string num)
         {
             try
             {
-                Int32.Parse(num);
-                return true;
+                int nro = Int32.Parse(num);
+                return nro > 0;
             }
             catch (Exception)
             {
@@ -312,12 +312,12 @@ namespace SISVIANSA_ITI_2023.Logica
             }
         }
 
-        public bool esDouble(string num)
+        public bool validarPrecio(string num)
         {
             try
             {
-                Double.Parse(num);
-                return true;
+                double precio = Double.Parse(num);
+                return precio > 0;
             }
             catch (Exception)
             {
@@ -329,6 +329,17 @@ namespace SISVIANSA_ITI_2023.Logica
         public bool campoNoVacio(string str)
         {
             return !String.IsNullOrEmpty(str);
+        }
+
+        public bool verificarStockMin(string stockMinStr, string stockMaxStr)
+        {
+            bool stockMinCorrecto = esIntPositivo(stockMinStr);
+            bool stockMaxCorrecto = esIntPositivo(stockMaxStr);
+
+            if (stockMinCorrecto && stockMaxCorrecto)
+                return Convert.ToInt32(stockMinStr) < Convert.ToInt32(stockMaxStr);
+            else
+                return false;
         }
 
         public bool listaNoVacia(List<string> lst)

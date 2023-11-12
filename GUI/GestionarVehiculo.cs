@@ -1,4 +1,5 @@
 ﻿using SISVIANSA_ITI_2023.Logica;
+using SISVIANSA_ITI_2023.Persistencia;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,16 @@ namespace ventana3
 {
     public partial class GestionarVehiculo : Form
     {
-        Vehiculo logicaVehiculo;
-        byte rol;
+        private Vehiculo vehiculo;
+        private byte rol;
+
+        // ------------- CONSTRUCTOR ----------------
         public GestionarVehiculo(byte rol)
         {
-            logicaVehiculo = new Vehiculo(rol);
-            this.rol = rol;
             InitializeComponent();
+            vehiculo = new Vehiculo(rol);
+            this.rol = rol;
+            this.Text = "Ingresar vehiculo";
         }
 
         // -------------------- METODOS AUXILIARES -----------------------
@@ -51,8 +55,8 @@ namespace ventana3
 
         private bool validarDatos()
         {
-            bool matricula = logicaVehiculo.verificarMatricula(txtMatricula.Text);
-            bool carga = logicaVehiculo.verificarCarga(txtCapacidad.Text);
+            bool matricula = vehiculo.verificarMatricula(txtMatricula.Text);
+            bool carga = vehiculo.verificarCarga(txtCapacidad.Text);
             marcarIncorrecto(matricula, lblMatricula);
             marcarIncorrecto(carga, lblCapacidad);
             return matricula && carga;

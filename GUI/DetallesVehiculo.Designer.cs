@@ -127,7 +127,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "DetallesVehiculo";
-            Text = "Visualizar vehiculo";
+            Text = "Detalles de vehiculo";
             Load += DetallesVehiculo_Load;
             ResumeLayout(false);
             PerformLayout();

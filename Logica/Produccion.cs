@@ -124,7 +124,7 @@ namespace SISVIANSA_ITI_2023.Logica
                 prioridad = Convert.ToInt32(prioridadSTR);
                 correcto = prioridad > 0;
             }
-            catch
+            catch (Exception e)
             {
                 correcto = false;
             }

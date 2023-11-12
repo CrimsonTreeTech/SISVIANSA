@@ -31,6 +31,7 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             usuario = new Usuario(ROL_INFORMATICO);
             cliente = new Cliente(ROL_INFORMATICO);
+            this.Text = "Iniciar sesión";
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

@@ -97,7 +97,7 @@ namespace SISVIANSA_ITI_2023.GUI
         // Botones
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); 
+            MessageBox.Show("Funcionalidad en mantenimiento", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             /*
             Dieta dietaSeleccionada = seleccionarDieta();
             GestionarDieta gestionarDieta = new GestionarDieta(this.rol, dietaSeleccionada);
@@ -122,7 +122,7 @@ namespace SISVIANSA_ITI_2023.GUI
             bool res = dieta.bajaDieta(idDietaSeleccionada);
             if (res)
             {
-                MessageBox.Show("Se autorizo la dieta");
+                MessageBox.Show("Se guardaron los cambios");
                 realizarBusqueda();
             }
         }

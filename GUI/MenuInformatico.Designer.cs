@@ -90,7 +90,7 @@
             Controls.Add(btnListarPersonal);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuInformatico";
-            Text = "MenuInformatico";
+            Text = "Menu de informatico";
             ResumeLayout(false);
         }
 

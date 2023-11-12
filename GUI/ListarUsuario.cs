@@ -201,6 +201,6 @@ namespace SISVIANSA_ITI_2023.GUI
             colFiltro = "Todo";
         }
 
-        
+
     }
 }

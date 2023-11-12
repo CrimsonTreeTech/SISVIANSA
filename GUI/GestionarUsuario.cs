@@ -27,6 +27,7 @@ namespace SISVIANSA_ITI_2023.GUI
             InitializeComponent();
             operacion = 0;
             cboRol.SelectedIndex = 0;
+            this.Text = "Ingresar usuario";
         }
 
         // Modificar usuarios
@@ -36,6 +37,7 @@ namespace SISVIANSA_ITI_2023.GUI
             operacion = 1;
             this.usuario = usuario;
             cargarDatos();
+            this.Text = "Modificar usuario";
         }
 
 

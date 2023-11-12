@@ -107,9 +107,12 @@ namespace SISVIANSA_ITI_2023.GUI
         private void comprobarValorPrioridad(int filaCeldaModificada)
         {
             celda = dgvProduccion.Rows[filaCeldaModificada].Cells[5]; // Averigua el valor de la celda modificada
-            valorCeldaModificada = celda.Value.ToString(); // Convierte a string el valor de la celda modificada
-            listaProduccion = obtenerListadoProduccion(); // Obtiene una lista con los valores de produccion ingresados
-            produccionValida = produccion.comprobarValorPrioridad(valorCeldaModificada); // Devuelve si el valor es correcto o no
+            if (celda.Value != null)
+            {
+                valorCeldaModificada = celda.Value.ToString(); // Convierte a string el valor de la celda modificada
+                produccionValida = produccion.comprobarValorPrioridad(valorCeldaModificada); // Devuelve si el valor es correcto o no
+                //listaProduccion = obtenerListadoProduccion(); // Obtiene una lista con los valores de produccion ingresados
+            }
 
             if (produccionValida) // Si la produccion es valida
             {
@@ -292,7 +295,9 @@ namespace SISVIANSA_ITI_2023.GUI
             estaProcesandoEndCellEdit = false;
         }
 
-
-
+        private void dgvProduccion_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

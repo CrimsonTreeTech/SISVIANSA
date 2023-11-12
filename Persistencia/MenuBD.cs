@@ -597,7 +597,7 @@ namespace SISVIANSA_ITI_2023.Persistencia
                         consulta += "JOIN integra i ON i.id_menu = m.id_menu ";
                         consulta += "JOIN produccion p ON p.id_menu = m.id_menu ";
                         consulta += "WHERE m.id_menu = @id ";
-                        consulta += "AND mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precioWHERE menu_precio.id_menu = m.id_menu); ";
+                        consulta += "AND mp.fecha = (SELECT MAX(menu_precio.fecha) FROM menu_precio WHERE menu_precio.id_menu = m.id_menu); ";
 
                         using (MySqlCommand cmd = new MySqlCommand(consulta, bd.Conexion))
                         {

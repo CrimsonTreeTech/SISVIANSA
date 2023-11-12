@@ -290,7 +290,7 @@
             Controls.Add(lblComidasMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DetallesMenu";
-            Text = "DetallesMenu";
+            Text = "Detalles del menu";
             ResumeLayout(false);
             PerformLayout();
         }

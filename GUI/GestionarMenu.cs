@@ -62,6 +62,7 @@ namespace SISVIANSA_ITI_2023.GUI
             if (rol == 2)
             {
                 chkAutorizado.Enabled = false;
+                chkActivo.Enabled = false;
                 chkPersonalizado.Enabled = false;
             }
         }
@@ -78,20 +79,22 @@ namespace SISVIANSA_ITI_2023.GUI
         private bool validarDatos()
         {
             bool tipo = menu.campoNoVacio(cboTipo.Text);
-            bool precio = menu.esDouble(txtPrecio.Text);
-            bool stockMin = menu.esInt(txtMinStock.Text);
-            bool stockMax = menu.esInt(txtMaxStock.Text);
-            bool congelable = menu.esInt(txtCongelable.Text);
+            bool precio = menu.validarPrecio(txtPrecio.Text);
+            bool stockActual = menu.esIntPositivo(txtStockActual.Text);
+            bool stockMin = menu.verificarStockMin(txtMinStock.Text, txtMaxStock.Text);
+            bool stockMax = menu.esIntPositivo(txtMaxStock.Text);
+            bool congelable = menu.esIntPositivo(txtCongelable.Text);
             bool comidas = menu.listaNoVacia(lstComidasMenu.Items.OfType<string>().ToList());
 
             marcarIncorrecto(tipo, lblTipo);
             marcarIncorrecto(precio, lblPrecio);
+            marcarIncorrecto(stockActual, lblStockActual);
             marcarIncorrecto(stockMin, lblMinStock);
             marcarIncorrecto(stockMax, lblMaxStock);
             marcarIncorrecto(congelable, lblCongelable);
             marcarIncorrecto(comidas, lblComidasMenu);
 
-            return tipo && precio && stockMin && stockMax && congelable && comidas;
+            return tipo && precio && stockActual && stockMin && stockMax && congelable && comidas;
         }
 
         private void marcarIncorrecto(bool valido, Label obj)

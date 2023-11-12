@@ -181,7 +181,7 @@
             Controls.Add(btnListarClientes);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuGerente";
-            Text = "MenuGerente";
+            Text = "Menu de gerencia";
             ResumeLayout(false);
         }
 

@@ -216,7 +216,7 @@
             Controls.Add(lblEstado);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SeguimientoPedido";
-            Text = "SeguimientoPedido";
+            Text = "Seguimiento pedido";
             Load += SeguimientoPedido_Load;
             ResumeLayout(false);
             PerformLayout();

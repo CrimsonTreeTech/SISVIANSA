@@ -310,7 +310,7 @@
             Controls.Add(dgvPedidos);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarPedidos";
-            Text = "ListarPedidos";
+            Text = "Listar pedidos";
             Load += ListarPedidos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();
             gbxFiltrar.ResumeLayout(false);

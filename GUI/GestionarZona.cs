@@ -13,9 +13,9 @@ namespace SISVIANSA_ITI_2023.GUI
 {
     public partial class GestionarZona : Form
     {
-        byte rol, opcion;
-        delegate bool metodoDelegado();
-        Zona zona;
+        private byte rol, opcion;
+        private delegate bool metodoDelegado();
+        private Zona zona;
 
 
         // ----------------- METODOS AL INICIAR ---------------------
@@ -25,6 +25,7 @@ namespace SISVIANSA_ITI_2023.GUI
             zona = new Zona(rol);
             this.rol = rol;
             opcion = 0;
+            this.Text = "Ingresar zona";
         }
 
         public GestionarZona(byte rol, Zona zona)
@@ -33,6 +34,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.rol = rol;
             this.zona = zona;
             opcion = 1;
+            this.Text = "Modificar zona";
         }
 
         private void IngresarZona_Load(object sender, EventArgs e)

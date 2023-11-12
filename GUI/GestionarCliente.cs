@@ -28,6 +28,7 @@ namespace SISVIANSA_ITI_2023.GUI
             bloqueraFuncionalidadesSegunRol(rol);
             entradasClienteParticular();
             cboTipoCliente.SelectedItem = "Particular";
+            this.Text = "Ingresar cliente";
         }
 
         public GestionarCliente(byte rol, Cliente cliente)
@@ -38,6 +39,7 @@ namespace SISVIANSA_ITI_2023.GUI
             this.opcion = 1;
             bloqueraFuncionalidadesSegunRol(rol);
             cargarDatos();
+            this.Text = "Modificar cliente";
         }
 
 
@@ -139,6 +141,14 @@ namespace SISVIANSA_ITI_2023.GUI
             txtSegundoNombre.Enabled = false;
             txtPrimerApellido.Enabled = false;
             txtSegundoApellido.Enabled = false;
+        }
+
+        private void vaciarCamposRelacionadosAlTipoCliente()
+        {
+            txtNumDoc.Clear();
+            txtPrimerApellido.Clear();
+            txtSegundoApellido.Clear();
+            txtSegundoNombre.Clear();
         }
 
         // -------------------------- CARGAR / GUARDAR DATOS ----------------------------
@@ -265,6 +275,7 @@ namespace SISVIANSA_ITI_2023.GUI
 
         private void cboTipoCliente_SelectedIndexChanged(object sender, EventArgs e)
         {
+            vaciarCamposRelacionadosAlTipoCliente();
             if (cboTipoCliente.Text.Equals("Empresa"))
             {
                 entradasClienteEmpresa();

@@ -96,7 +96,7 @@
             Controls.Add(lblSeleccioinarSucursal);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "SeleccionarSucursal";
-            Text = "SeleccionarSucursal";
+            Text = "Seleccionar sucursal";
             ResumeLayout(false);
             PerformLayout();
         }

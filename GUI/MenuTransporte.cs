@@ -33,7 +33,7 @@ namespace SISVIANSA_ITI_2023.GUI
             ListarVehiculo listarVehiculo = new ListarVehiculo(rol);
             listarVehiculo.Show(this);
             Hide();
-            
+
         }
 
         private void btnIngresarZona_Click(object sender, EventArgs e)

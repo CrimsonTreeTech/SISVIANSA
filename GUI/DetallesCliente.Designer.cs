@@ -333,7 +333,7 @@
             txtTipoCliente.Size = new Size(91, 23);
             txtTipoCliente.TabIndex = 39;
             // 
-            // DetallesClienteComun
+            // DetallesCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -370,8 +370,8 @@
             Controls.Add(lblId);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
-            Name = "DetallesClienteComun";
-            Text = "Detalle cliente comun";
+            Name = "DetallesCliente";
+            Text = "Detalle del cliente";
             Load += DetallesClienteComun_Load;
             ResumeLayout(false);
             PerformLayout();

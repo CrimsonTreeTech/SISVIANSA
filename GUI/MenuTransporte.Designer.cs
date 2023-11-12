@@ -116,7 +116,7 @@
             Controls.Add(IngresarVehiculo);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MenuTransporte";
-            Text = "MenuTransporte";
+            Text = "Menu transporte";
             ResumeLayout(false);
         }
 

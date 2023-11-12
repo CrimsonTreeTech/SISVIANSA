@@ -140,7 +140,7 @@
             Controls.Add(lblCapProd);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "DetallesSucursal";
-            Text = "DetallesSucursal";
+            Text = "Detalles de la sucursal";
             Load += DetallesSucursal_Load;
             ResumeLayout(false);
             PerformLayout();

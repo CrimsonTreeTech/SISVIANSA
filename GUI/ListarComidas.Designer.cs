@@ -310,7 +310,7 @@
             Controls.Add(dgvComidas);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ListarComidas";
-            Text = "ListarComidas";
+            Text = "Listar comidas";
             Load += ListarComidas_Load;
             ((System.ComponentModel.ISupportInitialize)dgvComidas).EndInit();
             Filtos.ResumeLayout(false);
