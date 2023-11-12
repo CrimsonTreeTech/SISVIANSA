@@ -39,7 +39,7 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             List<string> zonasDisponibles = new List<string>();
             List<Zona> zonas = zona.todasLasZonas();
-            foreach(Zona zona in zonas)
+            foreach (Zona zona in zonas)
             {
                 zonasDisponibles.Add("Zona " + zona.ToString());
             }

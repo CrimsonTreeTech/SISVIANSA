@@ -59,6 +59,9 @@
             // dgvComidas
             // 
             dgvComidas.AllowUserToAddRows = false;
+            dgvComidas.AllowUserToDeleteRows = false;
+            dgvComidas.AllowUserToResizeColumns = false;
+            dgvComidas.AllowUserToResizeRows = false;
             dgvComidas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvComidas.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colCoccion, colActivo, colAutorizado, colDietas });
             dgvComidas.Location = new Point(12, 133);
@@ -309,6 +312,8 @@
             Controls.Add(btnRegresar);
             Controls.Add(dgvComidas);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarComidas";
             Text = "Listar comidas";
             Load += ListarComidas_Load;

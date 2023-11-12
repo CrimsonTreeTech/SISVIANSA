@@ -146,6 +146,8 @@
             Controls.Add(lblPass);
             Controls.Add(lblUser);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarUsuario";
             Text = "IngresarPersonal";
             ResumeLayout(false);

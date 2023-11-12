@@ -204,6 +204,9 @@
             // dgvMenu
             // 
             dgvMenu.AllowUserToAddRows = false;
+            dgvMenu.AllowUserToDeleteRows = false;
+            dgvMenu.AllowUserToResizeColumns = false;
+            dgvMenu.AllowUserToResizeRows = false;
             dgvMenu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMenu.Columns.AddRange(new DataGridViewColumn[] { colMenu, colTipoMenu, colPrecio, colAutorizado, colActivo, colDietas });
             dgvMenu.Location = new Point(12, 118);
@@ -348,6 +351,8 @@
             Controls.Add(gbxFiltrar);
             Controls.Add(dgvMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarMenus";
             Text = "Listar menus";
             Load += ListarMenus_Load;

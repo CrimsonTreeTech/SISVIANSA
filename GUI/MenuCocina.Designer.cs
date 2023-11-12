@@ -162,6 +162,8 @@
             Controls.Add(btnIngresarMenu);
             Controls.Add(btnListarMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MenuCocina";
             Text = "Menu jefe de cocina";
             ResumeLayout(false);

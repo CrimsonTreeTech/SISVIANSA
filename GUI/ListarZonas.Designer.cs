@@ -107,6 +107,8 @@
             Controls.Add(lblZonas);
             Controls.Add(lstZonas);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarZonas";
             Text = "Listar zonas";
             Load += ListarZonas_Load;

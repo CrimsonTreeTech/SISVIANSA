@@ -32,10 +32,10 @@
             // 
             // btnRegresar
             // 
-            btnRegresar.Location = new Point(512, 238);
+            btnRegresar.Location = new Point(66, 284);
             btnRegresar.Margin = new Padding(3, 2, 3, 2);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(176, 44);
+            btnRegresar.Size = new Size(207, 44);
             btnRegresar.TabIndex = 0;
             btnRegresar.TabStop = false;
             btnRegresar.Text = "Regresar";
@@ -44,10 +44,10 @@
             // 
             // btnGerencia
             // 
-            btnGerencia.Location = new Point(223, 43);
+            btnGerencia.Location = new Point(66, 15);
             btnGerencia.Margin = new Padding(3, 2, 3, 2);
             btnGerencia.Name = "btnGerencia";
-            btnGerencia.Size = new Size(176, 44);
+            btnGerencia.Size = new Size(207, 44);
             btnGerencia.TabIndex = 1;
             btnGerencia.TabStop = false;
             btnGerencia.Text = "Gerencia";
@@ -56,10 +56,10 @@
             // 
             // btnCocina
             // 
-            btnCocina.Location = new Point(223, 91);
+            btnCocina.Location = new Point(66, 63);
             btnCocina.Margin = new Padding(3, 2, 3, 2);
             btnCocina.Name = "btnCocina";
-            btnCocina.Size = new Size(176, 44);
+            btnCocina.Size = new Size(207, 44);
             btnCocina.TabIndex = 2;
             btnCocina.TabStop = false;
             btnCocina.Text = "Cocina";
@@ -68,10 +68,10 @@
             // 
             // btnAdmin
             // 
-            btnAdmin.Location = new Point(223, 139);
+            btnAdmin.Location = new Point(66, 111);
             btnAdmin.Margin = new Padding(3, 2, 3, 2);
             btnAdmin.Name = "btnAdmin";
-            btnAdmin.Size = new Size(176, 44);
+            btnAdmin.Size = new Size(207, 44);
             btnAdmin.TabIndex = 3;
             btnAdmin.TabStop = false;
             btnAdmin.Text = "Administrativo";
@@ -80,10 +80,10 @@
             // 
             // btnATC
             // 
-            btnATC.Location = new Point(223, 187);
+            btnATC.Location = new Point(66, 159);
             btnATC.Margin = new Padding(3, 2, 3, 2);
             btnATC.Name = "btnATC";
-            btnATC.Size = new Size(176, 44);
+            btnATC.Size = new Size(207, 44);
             btnATC.TabIndex = 4;
             btnATC.TabStop = false;
             btnATC.Text = "Atención al cliente";
@@ -92,10 +92,10 @@
             // 
             // btnTransporte
             // 
-            btnTransporte.Location = new Point(223, 235);
+            btnTransporte.Location = new Point(66, 207);
             btnTransporte.Margin = new Padding(3, 2, 3, 2);
             btnTransporte.Name = "btnTransporte";
-            btnTransporte.Size = new Size(176, 44);
+            btnTransporte.Size = new Size(207, 44);
             btnTransporte.TabIndex = 5;
             btnTransporte.TabStop = false;
             btnTransporte.Text = "Transporte";
@@ -106,7 +106,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(352, 338);
             Controls.Add(btnTransporte);
             Controls.Add(btnATC);
             Controls.Add(btnAdmin);
@@ -115,6 +115,8 @@
             Controls.Add(btnRegresar);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AdministrarMenu";
             Text = "Administrar menu";
             ResumeLayout(false);

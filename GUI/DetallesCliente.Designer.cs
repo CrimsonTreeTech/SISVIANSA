@@ -370,6 +370,8 @@
             Controls.Add(lblId);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DetallesCliente";
             Text = "Detalle del cliente";
             Load += DetallesClienteComun_Load;

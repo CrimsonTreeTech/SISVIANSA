@@ -115,6 +115,8 @@
             Controls.Add(txtNombre);
             Controls.Add(lblNombre);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarDieta";
             Text = "IngresarDieta";
             ResumeLayout(false);

@@ -55,6 +55,9 @@
             // dgvClientes
             // 
             dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.AllowUserToResizeColumns = false;
+            dgvClientes.AllowUserToResizeRows = false;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { colId, colTipoDoc, colDoc, colTipo, colNombre, colDir, colAutorizado, colActivo });
             dgvClientes.Location = new Point(12, 134);
@@ -401,6 +404,8 @@
             Controls.Add(dgvClientes);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarCliente";
             Text = "Listar clientes";
             Load += VisualizarCliente_Load;

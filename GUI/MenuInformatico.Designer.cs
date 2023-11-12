@@ -89,6 +89,8 @@
             Controls.Add(btnSalir);
             Controls.Add(btnListarPersonal);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MenuInformatico";
             Text = "Menu de informatico";
             ResumeLayout(false);

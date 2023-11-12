@@ -68,7 +68,7 @@ namespace SISVIANSA_ITI_2023.GUI
         {
             reiniciarFiltros();
 
-            if(rol == 1)
+            if (rol == 1)
             {
                 rbtnTodo.Checked = true;
             }
@@ -79,7 +79,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 cargarCboSucursal();
             }
         }
-        
+
         // Radio buttons
         private void rbtnTodo_Click(object sender, EventArgs e)
         {
@@ -126,6 +126,6 @@ namespace SISVIANSA_ITI_2023.GUI
             MessageBox.Show("Esta funcionalidad se encuentra actualmente en mantenimiento.", "SISVIANSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        
+
     }
 }

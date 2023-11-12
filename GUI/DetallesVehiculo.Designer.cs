@@ -126,6 +126,8 @@
             Controls.Add(btnListadoVehiculos);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DetallesVehiculo";
             Text = "Detalles de vehiculo";
             Load += DetallesVehiculo_Load;

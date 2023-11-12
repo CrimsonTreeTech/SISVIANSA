@@ -184,6 +184,8 @@
             Controls.Add(lblCapProd);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarSucursal";
             Text = "IngresarSucursal";
             Load += IngresarSucursal_Load;

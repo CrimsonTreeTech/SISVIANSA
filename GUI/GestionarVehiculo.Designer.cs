@@ -115,6 +115,8 @@
             Controls.Add(btnGuardar);
             Controls.Add(txtMatricula);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarVehiculo";
             Text = "Ingresar vehiculo";
             ResumeLayout(false);

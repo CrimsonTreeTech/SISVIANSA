@@ -70,6 +70,9 @@
             // dgvVehiculos
             // 
             dgvVehiculos.AllowUserToAddRows = false;
+            dgvVehiculos.AllowUserToDeleteRows = false;
+            dgvVehiculos.AllowUserToResizeColumns = false;
+            dgvVehiculos.AllowUserToResizeRows = false;
             dgvVehiculos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVehiculos.Columns.AddRange(new DataGridViewColumn[] { colId, colMatricula, colCapCarga, colActivo });
             dgvVehiculos.Location = new Point(12, 55);
@@ -229,6 +232,8 @@
             Controls.Add(txtMatricula);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarVehiculo";
             Text = "Listar vehiculos";
             Load += ListarVehiculo_Load;

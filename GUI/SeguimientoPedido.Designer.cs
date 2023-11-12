@@ -215,6 +215,8 @@
             Controls.Add(cboEstado);
             Controls.Add(lblEstado);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SeguimientoPedido";
             Text = "Seguimiento pedido";
             Load += SeguimientoPedido_Load;

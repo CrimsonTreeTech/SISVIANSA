@@ -180,6 +180,8 @@
             Controls.Add(btnListarSucursales);
             Controls.Add(btnListarClientes);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MenuGerente";
             Text = "Menu de gerencia";
             ResumeLayout(false);

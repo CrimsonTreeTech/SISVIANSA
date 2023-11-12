@@ -48,7 +48,7 @@ namespace SISVIANSA_ITI_2023.GUI
                 chkAutorizado.Enabled = false;
             }
         }
-        
+
         private void regresarAlMenu()
         {
             Owner.Show();

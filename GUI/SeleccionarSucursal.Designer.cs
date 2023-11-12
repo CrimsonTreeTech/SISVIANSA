@@ -95,6 +95,8 @@
             Controls.Add(cboSucursales);
             Controls.Add(lblSeleccioinarSucursal);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SeleccionarSucursal";
             Text = "Seleccionar sucursal";
             ResumeLayout(false);

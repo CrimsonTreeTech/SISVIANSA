@@ -61,7 +61,6 @@
             // 
             dgvPedidos.AllowUserToAddRows = false;
             dgvPedidos.AllowUserToDeleteRows = false;
-            dgvPedidos.AllowUserToOrderColumns = true;
             dgvPedidos.AllowUserToResizeColumns = false;
             dgvPedidos.AllowUserToResizeRows = false;
             dgvPedidos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -309,6 +308,8 @@
             Controls.Add(gbxFiltrar);
             Controls.Add(dgvPedidos);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarPedidos";
             Text = "Listar pedidos";
             Load += ListarPedidos_Load;

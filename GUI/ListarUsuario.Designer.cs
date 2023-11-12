@@ -54,6 +54,9 @@
             // dgvUsuarios
             // 
             dgvUsuarios.AllowUserToAddRows = false;
+            dgvUsuarios.AllowUserToDeleteRows = false;
+            dgvUsuarios.AllowUserToResizeColumns = false;
+            dgvUsuarios.AllowUserToResizeRows = false;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colUsuario, colRol, colActivo });
             dgvUsuarios.Location = new Point(12, 171);
@@ -252,6 +255,8 @@
             Controls.Add(btnBaja);
             Controls.Add(dgvUsuarios);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarUsuario";
             Text = "Listar personal";
             Load += ListarUsuario_Load;

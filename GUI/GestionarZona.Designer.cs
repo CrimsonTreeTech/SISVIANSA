@@ -138,6 +138,8 @@
             Controls.Add(lstBarrios);
             Controls.Add(lblListaBarrios);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarZona";
             Text = "IngresarZona";
             Load += IngresarZona_Load;

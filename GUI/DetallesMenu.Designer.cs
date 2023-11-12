@@ -289,6 +289,8 @@
             Controls.Add(lstComidas);
             Controls.Add(lblComidasMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DetallesMenu";
             Text = "Detalles del menu";
             ResumeLayout(false);

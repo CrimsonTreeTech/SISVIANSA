@@ -172,6 +172,7 @@
             dgvCliente.AllowUserToAddRows = false;
             dgvCliente.AllowUserToDeleteRows = false;
             dgvCliente.AllowUserToOrderColumns = true;
+            dgvCliente.AllowUserToResizeColumns = false;
             dgvCliente.AllowUserToResizeRows = false;
             dgvCliente.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCliente.Columns.AddRange(new DataGridViewColumn[] { colId, colDoc, colNombre, colTel, colCorreo, colActivo, colAutorizado });
@@ -711,6 +712,8 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarPedido";
             Text = "RealizarPedido";
             Load += GestionarPedido_Load;

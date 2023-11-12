@@ -44,6 +44,9 @@
             // dgvSucursal
             // 
             dgvSucursal.AllowUserToAddRows = false;
+            dgvSucursal.AllowUserToDeleteRows = false;
+            dgvSucursal.AllowUserToResizeColumns = false;
+            dgvSucursal.AllowUserToResizeRows = false;
             dgvSucursal.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSucursal.Columns.AddRange(new DataGridViewColumn[] { colId, colCapProd, colActivo });
             dgvSucursal.Location = new Point(12, 12);
@@ -139,6 +142,8 @@
             Controls.Add(btnRegresar);
             Controls.Add(dgvSucursal);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarSucursales";
             Text = "Listar sucursales";
             Load += ListarSucursales_Load;

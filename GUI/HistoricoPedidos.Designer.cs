@@ -241,6 +241,8 @@
             Controls.Add(lblliente);
             Controls.Add(lblNroPedido);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "HistoricoPedidos";
             Text = "HistoricoPedidos";
             Load += HistoricoPedidos_Load;

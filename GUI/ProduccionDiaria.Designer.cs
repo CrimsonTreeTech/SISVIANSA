@@ -59,7 +59,8 @@
             // 
             dgvProduccion.AllowUserToAddRows = false;
             dgvProduccion.AllowUserToDeleteRows = false;
-            dgvProduccion.AllowUserToOrderColumns = true;
+            dgvProduccion.AllowUserToResizeColumns = false;
+            dgvProduccion.AllowUserToResizeRows = false;
             dgvProduccion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvProduccion.Columns.AddRange(new DataGridViewColumn[] { colIdMenu, colStockMinimo, colCantidadViandas, colStockMax, colCoccion, colPrioridad, colCantidad });
             dgvProduccion.Location = new Point(12, 48);
@@ -182,6 +183,8 @@
             Controls.Add(btnEstablecer);
             Controls.Add(lblOrden);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ProduccionDiaria";
             Text = "Produccion diaria";
             Load += ProduccionDiaria_Load;

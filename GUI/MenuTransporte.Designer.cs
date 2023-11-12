@@ -115,6 +115,8 @@
             Controls.Add(btnListarVehiculo);
             Controls.Add(IngresarVehiculo);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MenuTransporte";
             Text = "Menu transporte";
             ResumeLayout(false);

@@ -365,6 +365,8 @@ namespace SISVIANSA_ITI_2023.GUI
             Controls.Add(lblComidasMenu);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarMenu";
             Text = "IngresarMenu";
             Load += IngresarMenu_Load;

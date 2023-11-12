@@ -52,6 +52,9 @@
             // dgvDieta
             // 
             dgvDieta.AllowUserToAddRows = false;
+            dgvDieta.AllowUserToDeleteRows = false;
+            dgvDieta.AllowUserToResizeColumns = false;
+            dgvDieta.AllowUserToResizeRows = false;
             dgvDieta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDieta.Columns.AddRange(new DataGridViewColumn[] { colId, colNombre, colActivo, colAutorizado });
             dgvDieta.Location = new Point(12, 89);
@@ -231,6 +234,8 @@
             Controls.Add(btnModificar);
             Controls.Add(dgvDieta);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ListarDietas";
             Text = "Lisar dietas";
             Load += ListarDietas_Load;

@@ -475,6 +475,8 @@
             Controls.Add(chkAutorizado);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarCliente";
             Text = "Ingresar cliente";
             gbxDatos.ResumeLayout(false);

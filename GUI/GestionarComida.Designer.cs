@@ -184,6 +184,8 @@
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "GestionarComida";
             Text = "IngresarComida";
             Load += IngresarComida_Load;

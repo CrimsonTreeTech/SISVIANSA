@@ -139,6 +139,8 @@
             Controls.Add(txtCapProd);
             Controls.Add(lblCapProd);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DetallesSucursal";
             Text = "Detalles de la sucursal";
             Load += DetallesSucursal_Load;

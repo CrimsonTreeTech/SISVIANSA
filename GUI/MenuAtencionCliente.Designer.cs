@@ -102,6 +102,8 @@
             Controls.Add(btnListarClientes);
             Controls.Add(btnIngresarClienteComun);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MenuAtencionCliente";
             Text = "Menu atencion al cliente";
             ResumeLayout(false);
