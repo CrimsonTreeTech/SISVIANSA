@@ -214,6 +214,7 @@
             Controls.Add(btnListado);
             Controls.Add(cboEstado);
             Controls.Add(lblEstado);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

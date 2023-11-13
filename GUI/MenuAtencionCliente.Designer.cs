@@ -101,6 +101,7 @@
             Controls.Add(btnListarMenu);
             Controls.Add(btnListarClientes);
             Controls.Add(btnIngresarClienteComun);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

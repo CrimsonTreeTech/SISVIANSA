@@ -240,6 +240,7 @@
             Controls.Add(lblMenu);
             Controls.Add(lblliente);
             Controls.Add(lblNroPedido);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

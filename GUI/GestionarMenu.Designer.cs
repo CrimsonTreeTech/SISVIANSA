@@ -363,7 +363,7 @@ namespace SISVIANSA_ITI_2023.GUI
             Controls.Add(btnQuitarComida);
             Controls.Add(lstComidasMenu);
             Controls.Add(lblComidasMenu);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

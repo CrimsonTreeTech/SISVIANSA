@@ -66,6 +66,7 @@
             dgvProduccion.Location = new Point(12, 48);
             dgvProduccion.MultiSelect = false;
             dgvProduccion.Name = "dgvProduccion";
+            dgvProduccion.RowHeadersVisible = false;
             dgvProduccion.RowHeadersWidth = 51;
             dgvProduccion.RowTemplate.Height = 25;
             dgvProduccion.Size = new Size(873, 375);
@@ -173,8 +174,7 @@
             // 
             // ProduccionDiaria
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(899, 432);
             Controls.Add(txtCapProdSuc);
             Controls.Add(lblCapProdSuc);
@@ -182,6 +182,7 @@
             Controls.Add(dgvProduccion);
             Controls.Add(btnEstablecer);
             Controls.Add(lblOrden);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

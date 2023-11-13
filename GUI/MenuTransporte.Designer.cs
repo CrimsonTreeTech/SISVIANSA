@@ -114,6 +114,7 @@
             Controls.Add(btnIngresarZona);
             Controls.Add(btnListarVehiculo);
             Controls.Add(IngresarVehiculo);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

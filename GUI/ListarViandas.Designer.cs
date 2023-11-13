@@ -230,6 +230,7 @@
             Controls.Add(btnRegresar);
             Controls.Add(dataGridView1);
             Controls.Add(gbxFiltros);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

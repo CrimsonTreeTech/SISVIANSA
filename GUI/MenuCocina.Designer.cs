@@ -161,6 +161,7 @@
             Controls.Add(btnProduccionDiaria);
             Controls.Add(btnIngresarMenu);
             Controls.Add(btnListarMenu);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

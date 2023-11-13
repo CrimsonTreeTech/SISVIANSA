@@ -88,6 +88,7 @@
             Controls.Add(btnListarSucursales);
             Controls.Add(btnSalir);
             Controls.Add(btnListarPersonal);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

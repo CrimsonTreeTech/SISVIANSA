@@ -711,6 +711,7 @@
             Controls.Add(gbxCliente);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

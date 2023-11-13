@@ -311,6 +311,7 @@
             Controls.Add(btnModificar);
             Controls.Add(btnRegresar);
             Controls.Add(dgvComidas);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

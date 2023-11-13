@@ -103,6 +103,7 @@
             Controls.Add(lstZonasSeleccionadas);
             Controls.Add(btnGuardar);
             Controls.Add(lstZonasDisponibles);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;

@@ -138,6 +138,7 @@
             Controls.Add(lblMetas);
             Controls.Add(txtCapProd);
             Controls.Add(lblCapProd);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

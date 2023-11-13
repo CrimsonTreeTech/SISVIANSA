@@ -94,6 +94,7 @@
             Controls.Add(btnAceptar);
             Controls.Add(cboSucursales);
             Controls.Add(lblSeleccioinarSucursal);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

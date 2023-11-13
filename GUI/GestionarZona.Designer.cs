@@ -137,6 +137,7 @@
             Controls.Add(btnQuitar);
             Controls.Add(lstBarrios);
             Controls.Add(lblListaBarrios);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

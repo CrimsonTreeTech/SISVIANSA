@@ -402,6 +402,7 @@
             Controls.Add(btnDarBaja);
             Controls.Add(btnRegresar);
             Controls.Add(dgvClientes);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;

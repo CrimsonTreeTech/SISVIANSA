@@ -292,6 +292,7 @@
             txtTel2.Location = new Point(94, 64);
             txtTel2.Margin = new Padding(4, 3, 4, 3);
             txtTel2.Name = "txtTel2";
+            txtTel2.PlaceholderText = "Ej.: 12345678";
             txtTel2.Size = new Size(119, 23);
             txtTel2.TabIndex = 15;
             // 
@@ -300,6 +301,7 @@
             txtTel3.Location = new Point(94, 94);
             txtTel3.Margin = new Padding(4, 3, 4, 3);
             txtTel3.Name = "txtTel3";
+            txtTel3.PlaceholderText = "Ej.: 12345678";
             txtTel3.Size = new Size(119, 23);
             txtTel3.TabIndex = 17;
             // 
@@ -317,6 +319,7 @@
             txtMail2.Location = new Point(305, 65);
             txtMail2.Margin = new Padding(4, 3, 4, 3);
             txtMail2.Name = "txtMail2";
+            txtMail2.PlaceholderText = "Ej.: ejemplo@mail.com";
             txtMail2.Size = new Size(177, 23);
             txtMail2.TabIndex = 21;
             // 
@@ -325,6 +328,7 @@
             txtMail3.Location = new Point(305, 95);
             txtMail3.Margin = new Padding(4, 3, 4, 3);
             txtMail3.Name = "txtMail3";
+            txtMail3.PlaceholderText = "Ej.: ejemplo@mail.com";
             txtMail3.Size = new Size(177, 23);
             txtMail3.TabIndex = 23;
             // 
@@ -473,6 +477,7 @@
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Controls.Add(chkAutorizado);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;

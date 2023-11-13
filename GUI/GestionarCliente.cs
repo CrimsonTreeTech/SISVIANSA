@@ -119,6 +119,13 @@ namespace SISVIANSA_ITI_2023.GUI
             lblSegundoNombre.Text = "Segundo nombre";
             lblPrimerApellido.Text = "Primer apellido *";
             lblSegundoApellido.Text = "Segundo apellido";
+            lblNumDoc.Text = "Nro. Documento *";
+
+            txtPrimerApellido.PlaceholderText = "Apellido";
+            txtSegundoApellido.PlaceholderText = "Apellido";
+            txtSegundoNombre.PlaceholderText = "Nombre";
+            txtPrimerNombre.PlaceholderText = "Nombre";
+            txtNumDoc.PlaceholderText = "12345678";
 
             txtPrimerNombre.Enabled = true;
             txtSegundoNombre.Enabled = true;
@@ -132,10 +139,17 @@ namespace SISVIANSA_ITI_2023.GUI
             cboTipoDoc.Items.AddRange(new object[] { "RUT" });
             cboTipoDoc.SelectedIndex = 0;
 
-            lblPrimerNombre.Text = "Nombre *";
+            lblPrimerNombre.Text = "Empresa *";
             lblSegundoNombre.Text = "";
             lblPrimerApellido.Text = "";
             lblSegundoApellido.Text = "";
+            lblNumDoc.Text = "Nro. RUT *";
+
+            txtPrimerApellido.PlaceholderText = "";
+            txtSegundoApellido.PlaceholderText = "";
+            txtSegundoNombre.PlaceholderText = "";
+            txtPrimerNombre.PlaceholderText = "Nombre empresa";
+            txtNumDoc.PlaceholderText = "123456789012";
 
             txtPrimerNombre.Enabled = true;
             txtSegundoNombre.Enabled = false;
@@ -149,6 +163,10 @@ namespace SISVIANSA_ITI_2023.GUI
             txtPrimerApellido.Clear();
             txtSegundoApellido.Clear();
             txtSegundoNombre.Clear();
+
+            txtPrimerApellido.PlaceholderText = "";
+            txtSegundoApellido.PlaceholderText = "";
+            txtSegundoNombre.PlaceholderText = "";
         }
 
         // -------------------------- CARGAR / GUARDAR DATOS ----------------------------

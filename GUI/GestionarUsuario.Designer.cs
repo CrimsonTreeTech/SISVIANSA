@@ -145,6 +145,7 @@
             Controls.Add(lblRol);
             Controls.Add(lblPass);
             Controls.Add(lblUser);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

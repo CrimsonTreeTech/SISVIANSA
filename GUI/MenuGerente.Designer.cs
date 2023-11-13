@@ -179,6 +179,7 @@
             Controls.Add(btnListarMenu);
             Controls.Add(btnListarSucursales);
             Controls.Add(btnListarClientes);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

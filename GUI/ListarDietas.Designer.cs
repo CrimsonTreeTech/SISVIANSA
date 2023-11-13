@@ -233,6 +233,7 @@
             Controls.Add(btnRegresar);
             Controls.Add(btnModificar);
             Controls.Add(dgvDieta);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

@@ -254,6 +254,7 @@
             Controls.Add(btnModificar);
             Controls.Add(btnBaja);
             Controls.Add(dgvUsuarios);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

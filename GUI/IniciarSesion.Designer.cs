@@ -101,7 +101,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "IniciarSesion";
-            Text = "IniciarSesion";
+            Text = "Iniciar sesión";
             Load += IniciarSesion_Load;
             ResumeLayout(false);
             PerformLayout();

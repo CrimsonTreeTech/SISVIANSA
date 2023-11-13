@@ -307,6 +307,7 @@
             Controls.Add(btnRegresar);
             Controls.Add(gbxFiltrar);
             Controls.Add(dgvPedidos);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
