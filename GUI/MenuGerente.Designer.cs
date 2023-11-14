@@ -48,7 +48,7 @@
             btnListarZona.Margin = new Padding(3, 2, 3, 2);
             btnListarZona.Name = "btnListarZona";
             btnListarZona.Size = new Size(155, 37);
-            btnListarZona.TabIndex = 40;
+            btnListarZona.TabIndex = 5;
             btnListarZona.Text = "Listar zonas";
             btnListarZona.UseVisualStyleBackColor = true;
             btnListarZona.Click += btnListarZona_Click;
@@ -59,7 +59,7 @@
             btnListarVehiculo.Margin = new Padding(3, 2, 3, 2);
             btnListarVehiculo.Name = "btnListarVehiculo";
             btnListarVehiculo.Size = new Size(155, 37);
-            btnListarVehiculo.TabIndex = 39;
+            btnListarVehiculo.TabIndex = 1;
             btnListarVehiculo.Text = "Listar vehiculos";
             btnListarVehiculo.UseVisualStyleBackColor = true;
             btnListarVehiculo.Click += btnListarVehiculo_Click;
@@ -70,7 +70,7 @@
             btnListarDietas.Margin = new Padding(3, 2, 3, 2);
             btnListarDietas.Name = "btnListarDietas";
             btnListarDietas.Size = new Size(155, 37);
-            btnListarDietas.TabIndex = 38;
+            btnListarDietas.TabIndex = 6;
             btnListarDietas.Text = "Listar dietas";
             btnListarDietas.UseVisualStyleBackColor = true;
             btnListarDietas.Click += btnListarDietas_Click;
@@ -81,7 +81,7 @@
             btnListarComida.Margin = new Padding(3, 2, 3, 2);
             btnListarComida.Name = "btnListarComida";
             btnListarComida.Size = new Size(155, 37);
-            btnListarComida.TabIndex = 37;
+            btnListarComida.TabIndex = 8;
             btnListarComida.Text = "Listar comidas";
             btnListarComida.UseVisualStyleBackColor = true;
             btnListarComida.Click += btnListarComida_Click;
@@ -92,7 +92,7 @@
             btnListarPedidos.Margin = new Padding(3, 2, 3, 2);
             btnListarPedidos.Name = "btnListarPedidos";
             btnListarPedidos.Size = new Size(155, 37);
-            btnListarPedidos.TabIndex = 36;
+            btnListarPedidos.TabIndex = 9;
             btnListarPedidos.Text = "Listar pedidos";
             btnListarPedidos.UseVisualStyleBackColor = true;
             btnListarPedidos.Click += btnListarPedidos_Click;
@@ -103,7 +103,7 @@
             btnListarMenu.Margin = new Padding(3, 2, 3, 2);
             btnListarMenu.Name = "btnListarMenu";
             btnListarMenu.Size = new Size(155, 37);
-            btnListarMenu.TabIndex = 35;
+            btnListarMenu.TabIndex = 3;
             btnListarMenu.Text = "Listar menús";
             btnListarMenu.UseVisualStyleBackColor = true;
             btnListarMenu.Click += btnListarMenu_Click;
@@ -114,7 +114,7 @@
             btnListarSucursales.Margin = new Padding(3, 2, 3, 2);
             btnListarSucursales.Name = "btnListarSucursales";
             btnListarSucursales.Size = new Size(155, 37);
-            btnListarSucursales.TabIndex = 34;
+            btnListarSucursales.TabIndex = 4;
             btnListarSucursales.Text = "Listar sucursales";
             btnListarSucursales.UseVisualStyleBackColor = true;
             btnListarSucursales.Click += btnListarSucursales_Click;
@@ -125,7 +125,7 @@
             btnListarClientes.Margin = new Padding(3, 2, 3, 2);
             btnListarClientes.Name = "btnListarClientes";
             btnListarClientes.Size = new Size(155, 37);
-            btnListarClientes.TabIndex = 33;
+            btnListarClientes.TabIndex = 7;
             btnListarClientes.Text = "Listar Clientes";
             btnListarClientes.UseVisualStyleBackColor = true;
             btnListarClientes.Click += btnListarClientes_Click;
@@ -136,7 +136,7 @@
             btnSalir.Margin = new Padding(3, 2, 3, 2);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(359, 37);
-            btnSalir.TabIndex = 41;
+            btnSalir.TabIndex = 11;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
@@ -147,7 +147,7 @@
             btnIngresarSucursal.Margin = new Padding(3, 2, 3, 2);
             btnIngresarSucursal.Name = "btnIngresarSucursal";
             btnIngresarSucursal.Size = new Size(155, 37);
-            btnIngresarSucursal.TabIndex = 42;
+            btnIngresarSucursal.TabIndex = 2;
             btnIngresarSucursal.Text = "Ingresar sucursal";
             btnIngresarSucursal.UseVisualStyleBackColor = true;
             btnIngresarSucursal.Click += btnIngresarSucursal_Click;
@@ -158,7 +158,7 @@
             btnListarViandas.Margin = new Padding(3, 2, 3, 2);
             btnListarViandas.Name = "btnListarViandas";
             btnListarViandas.Size = new Size(155, 37);
-            btnListarViandas.TabIndex = 43;
+            btnListarViandas.TabIndex = 10;
             btnListarViandas.Text = "Listar viandas";
             btnListarViandas.UseVisualStyleBackColor = true;
             btnListarViandas.Click += btnListarViandas_Click;

@@ -69,6 +69,7 @@
             dgvPedidos.MultiSelect = false;
             dgvPedidos.Name = "dgvPedidos";
             dgvPedidos.ReadOnly = true;
+            dgvPedidos.RowHeadersVisible = false;
             dgvPedidos.RowTemplate.Height = 25;
             dgvPedidos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidos.Size = new Size(931, 341);

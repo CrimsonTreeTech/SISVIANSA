@@ -213,6 +213,7 @@
             dgvMenu.MultiSelect = false;
             dgvMenu.Name = "dgvMenu";
             dgvMenu.ReadOnly = true;
+            dgvMenu.RowHeadersVisible = false;
             dgvMenu.RowTemplate.Height = 25;
             dgvMenu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMenu.Size = new Size(978, 359);

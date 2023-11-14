@@ -30,10 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListarDietas));
             dgvDieta = new DataGridView();
-            colId = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
-            colAutorizado = new DataGridViewTextBoxColumn();
             btnModificar = new Button();
             btnRegresar = new Button();
             gbxFiltros = new GroupBox();
@@ -45,6 +41,10 @@
             btnAlta = new Button();
             btnBaja = new Button();
             btnAutorizar = new Button();
+            colId = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
+            colAutorizado = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvDieta).BeginInit();
             gbxFiltros.SuspendLayout();
             SuspendLayout();
@@ -64,46 +64,14 @@
             dgvDieta.RowHeadersVisible = false;
             dgvDieta.RowTemplate.Height = 25;
             dgvDieta.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDieta.Size = new Size(774, 231);
+            dgvDieta.Size = new Size(649, 231);
             dgvDieta.TabIndex = 0;
-            // 
-            // colId
-            // 
-            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colId.FillWeight = 35.9433441F;
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colNombre
-            // 
-            colNombre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colNombre.FillWeight = 243.106216F;
-            colNombre.HeaderText = "Nombre";
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            // 
-            // colActivo
-            // 
-            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colActivo.FillWeight = 60.03675F;
-            colActivo.HeaderText = "Activo";
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            // 
-            // colAutorizado
-            // 
-            colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colAutorizado.FillWeight = 60.9137039F;
-            colAutorizado.HeaderText = "Autorizado";
-            colAutorizado.Name = "colAutorizado";
-            colAutorizado.ReadOnly = true;
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(636, 340);
+            btnModificar.Location = new Point(536, 340);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(150, 37);
+            btnModificar.Size = new Size(125, 37);
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -113,7 +81,7 @@
             // 
             btnRegresar.Location = new Point(12, 340);
             btnRegresar.Name = "btnRegresar";
-            btnRegresar.Size = new Size(150, 37);
+            btnRegresar.Size = new Size(125, 37);
             btnRegresar.TabIndex = 2;
             btnRegresar.Text = "Regreasr";
             btnRegresar.UseVisualStyleBackColor = true;
@@ -128,7 +96,7 @@
             gbxFiltros.Controls.Add(rbtnTodo);
             gbxFiltros.Location = new Point(12, 16);
             gbxFiltros.Name = "gbxFiltros";
-            gbxFiltros.Size = new Size(774, 67);
+            gbxFiltros.Size = new Size(649, 67);
             gbxFiltros.TabIndex = 3;
             gbxFiltros.TabStop = false;
             gbxFiltros.Text = "Filtros";
@@ -136,7 +104,7 @@
             // rbtnNoAutorizadas
             // 
             rbtnNoAutorizadas.AutoSize = true;
-            rbtnNoAutorizadas.Location = new Point(377, 31);
+            rbtnNoAutorizadas.Location = new Point(312, 31);
             rbtnNoAutorizadas.Name = "rbtnNoAutorizadas";
             rbtnNoAutorizadas.Size = new Size(104, 19);
             rbtnNoAutorizadas.TabIndex = 4;
@@ -148,7 +116,7 @@
             // rbtnInactivas
             // 
             rbtnInactivas.AutoSize = true;
-            rbtnInactivas.Location = new Point(272, 31);
+            rbtnInactivas.Location = new Point(235, 31);
             rbtnInactivas.Name = "rbtnInactivas";
             rbtnInactivas.Size = new Size(71, 19);
             rbtnInactivas.TabIndex = 3;
@@ -159,7 +127,7 @@
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(597, 22);
+            btnBuscar.Location = new Point(459, 22);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(159, 28);
             btnBuscar.TabIndex = 2;
@@ -170,7 +138,7 @@
             // rbtnActivasYAutorizadas
             // 
             rbtnActivasYAutorizadas.AutoSize = true;
-            rbtnActivasYAutorizadas.Location = new Point(103, 31);
+            rbtnActivasYAutorizadas.Location = new Point(87, 31);
             rbtnActivasYAutorizadas.Name = "rbtnActivasYAutorizadas";
             rbtnActivasYAutorizadas.Size = new Size(135, 19);
             rbtnActivasYAutorizadas.TabIndex = 1;
@@ -193,9 +161,9 @@
             // 
             // btnAlta
             // 
-            btnAlta.Location = new Point(324, 340);
+            btnAlta.Location = new Point(274, 340);
             btnAlta.Name = "btnAlta";
-            btnAlta.Size = new Size(150, 37);
+            btnAlta.Size = new Size(125, 37);
             btnAlta.TabIndex = 4;
             btnAlta.Text = "Alta";
             btnAlta.UseVisualStyleBackColor = true;
@@ -203,9 +171,9 @@
             // 
             // btnBaja
             // 
-            btnBaja.Location = new Point(168, 340);
+            btnBaja.Location = new Point(143, 340);
             btnBaja.Name = "btnBaja";
-            btnBaja.Size = new Size(150, 37);
+            btnBaja.Size = new Size(125, 37);
             btnBaja.TabIndex = 5;
             btnBaja.Text = "Baja";
             btnBaja.UseVisualStyleBackColor = true;
@@ -213,19 +181,51 @@
             // 
             // btnAutorizar
             // 
-            btnAutorizar.Location = new Point(480, 340);
+            btnAutorizar.Location = new Point(405, 340);
             btnAutorizar.Name = "btnAutorizar";
-            btnAutorizar.Size = new Size(150, 37);
+            btnAutorizar.Size = new Size(125, 37);
             btnAutorizar.TabIndex = 6;
             btnAutorizar.Text = "Autorizar";
             btnAutorizar.UseVisualStyleBackColor = true;
             btnAutorizar.Click += btnAutorizar_Click;
             // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.FillWeight = 35.9433441F;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            colNombre.FillWeight = 243.106216F;
+            colNombre.HeaderText = "Nombre";
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            colNombre.Width = 240;
+            // 
+            // colActivo
+            // 
+            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colActivo.FillWeight = 60.03675F;
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            // 
+            // colAutorizado
+            // 
+            colAutorizado.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colAutorizado.FillWeight = 60.9137039F;
+            colAutorizado.HeaderText = "Autorizado";
+            colAutorizado.Name = "colAutorizado";
+            colAutorizado.ReadOnly = true;
+            // 
             // ListarDietas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(803, 389);
+            ClientSize = new Size(673, 389);
             Controls.Add(btnAutorizar);
             Controls.Add(btnBaja);
             Controls.Add(btnAlta);
@@ -255,14 +255,14 @@
         private Button btnBuscar;
         private RadioButton rbtnActivasYAutorizadas;
         private RadioButton rbtnTodo;
-        private DataGridViewTextBoxColumn colId;
-        private DataGridViewTextBoxColumn colNombre;
-        private DataGridViewTextBoxColumn colActivo;
-        private DataGridViewTextBoxColumn colAutorizado;
         private Button btnAlta;
         private Button btnBaja;
         private Button btnAutorizar;
         private RadioButton rbtnNoAutorizadas;
         private RadioButton rbtnInactivas;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colActivo;
+        private DataGridViewTextBoxColumn colAutorizado;
     }
 }

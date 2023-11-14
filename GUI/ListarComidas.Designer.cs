@@ -67,6 +67,7 @@
             dgvComidas.Location = new Point(12, 133);
             dgvComidas.MultiSelect = false;
             dgvComidas.Name = "dgvComidas";
+            dgvComidas.RowHeadersVisible = false;
             dgvComidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvComidas.Size = new Size(964, 360);
             dgvComidas.TabIndex = 0;

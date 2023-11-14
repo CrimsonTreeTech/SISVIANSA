@@ -32,10 +32,6 @@
             txtMatricula = new TextBox();
             btnBuscar = new Button();
             dgvVehiculos = new DataGridView();
-            colId = new DataGridViewTextBoxColumn();
-            colMatricula = new DataGridViewTextBoxColumn();
-            colCapCarga = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
             btnRegresar = new Button();
             btnAsignarZona = new Button();
             btnBaja = new Button();
@@ -45,6 +41,10 @@
             cboZona = new ComboBox();
             rbtnTodo = new RadioButton();
             btnAlta = new Button();
+            colId = new DataGridViewTextBoxColumn();
+            colMatricula = new DataGridViewTextBoxColumn();
+            colCapCarga = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvVehiculos).BeginInit();
             SuspendLayout();
             // 
@@ -80,38 +80,12 @@
             dgvVehiculos.MultiSelect = false;
             dgvVehiculos.Name = "dgvVehiculos";
             dgvVehiculos.ReadOnly = true;
+            dgvVehiculos.RowHeadersVisible = false;
             dgvVehiculos.RowHeadersWidth = 51;
             dgvVehiculos.RowTemplate.Height = 29;
             dgvVehiculos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvVehiculos.Size = new Size(534, 259);
             dgvVehiculos.TabIndex = 5;
-            // 
-            // colId
-            // 
-            colId.HeaderText = "Id";
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            colId.Width = 80;
-            // 
-            // colMatricula
-            // 
-            colMatricula.HeaderText = "Matricula";
-            colMatricula.Name = "colMatricula";
-            colMatricula.ReadOnly = true;
-            colMatricula.Width = 150;
-            // 
-            // colCapCarga
-            // 
-            colCapCarga.HeaderText = "Cap. carga";
-            colCapCarga.Name = "colCapCarga";
-            colCapCarga.ReadOnly = true;
-            colCapCarga.Width = 150;
-            // 
-            // colActivo
-            // 
-            colActivo.HeaderText = "Activo";
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
             // 
             // btnRegresar
             // 
@@ -212,6 +186,34 @@
             btnAlta.Text = "Alta";
             btnAlta.UseVisualStyleBackColor = true;
             btnAlta.Click += btnAlta_Click;
+            // 
+            // colId
+            // 
+            colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colId.HeaderText = "Id";
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colMatricula
+            // 
+            colMatricula.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colMatricula.HeaderText = "Matricula";
+            colMatricula.Name = "colMatricula";
+            colMatricula.ReadOnly = true;
+            // 
+            // colCapCarga
+            // 
+            colCapCarga.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCapCarga.HeaderText = "Cap. carga";
+            colCapCarga.Name = "colCapCarga";
+            colCapCarga.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colActivo.HeaderText = "Activo";
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
             // 
             // ListarVehiculo
             // 

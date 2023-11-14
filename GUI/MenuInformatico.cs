@@ -49,5 +49,6 @@ namespace SISVIANSA_ITI_2023.GUI
             administrarMenu.Show(Owner);
             Close();
         }
+
     }
 }

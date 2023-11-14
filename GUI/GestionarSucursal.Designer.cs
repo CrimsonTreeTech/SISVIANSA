@@ -31,14 +31,12 @@
             btnQuitar = new Button();
             btnCancelar = new Button();
             btnAceptar = new Button();
-            txtNombre = new TextBox();
-            lblNombre = new Label();
             SuspendLayout();
             // 
             // lblCapProd
             // 
             lblCapProd.AutoSize = true;
-            lblCapProd.Location = new Point(21, 49);
+            lblCapProd.Location = new Point(21, 26);
             lblCapProd.Name = "lblCapProd";
             lblCapProd.Size = new Size(151, 15);
             lblCapProd.TabIndex = 0;
@@ -46,7 +44,7 @@
             // 
             // txtCapProd
             // 
-            txtCapProd.Location = new Point(201, 46);
+            txtCapProd.Location = new Point(201, 23);
             txtCapProd.Margin = new Padding(3, 2, 3, 2);
             txtCapProd.Name = "txtCapProd";
             txtCapProd.Size = new Size(81, 23);
@@ -55,7 +53,7 @@
             // lblMetas
             // 
             lblMetas.AutoSize = true;
-            lblMetas.Location = new Point(21, 93);
+            lblMetas.Location = new Point(21, 69);
             lblMetas.Name = "lblMetas";
             lblMetas.Size = new Size(113, 15);
             lblMetas.TabIndex = 2;
@@ -63,10 +61,10 @@
             // 
             // rtxtMetas
             // 
-            rtxtMetas.Location = new Point(21, 120);
+            rtxtMetas.Location = new Point(21, 86);
             rtxtMetas.Margin = new Padding(3, 2, 3, 2);
             rtxtMetas.Name = "rtxtMetas";
-            rtxtMetas.Size = new Size(261, 186);
+            rtxtMetas.Size = new Size(261, 220);
             rtxtMetas.TabIndex = 3;
             rtxtMetas.Text = "";
             // 
@@ -146,30 +144,11 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(89, 20);
-            txtNombre.Margin = new Padding(3, 2, 3, 2);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(193, 23);
-            txtNombre.TabIndex = 1;
-            // 
-            // lblNombre
-            // 
-            lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(21, 22);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(59, 15);
-            lblNombre.TabIndex = 12;
-            lblNombre.Text = "Nombre *";
-            // 
             // GestionarSucursal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(799, 373);
-            Controls.Add(txtNombre);
-            Controls.Add(lblNombre);
             Controls.Add(btnAceptar);
             Controls.Add(btnCancelar);
             Controls.Add(btnQuitar);
